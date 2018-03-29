@@ -1,0 +1,122 @@
+In this thesis, we consider the definition of robot programming to be the following: 
+
+\theoremstyle{definition}
+\begin{definition}{Robot Programming}
+is the process of defining desired motions and associated skills so that the robot may perform them without human intervention.
+\end{definition}
+
+There are many ways to divide robot programming systems. \cite{lozano1983robot} divided them into three categories: guiding systems, robot-level programming systems, and task-level programming systems. However, the range of programming systems was very limited at that time and examined only industrial robot programming systems.
+\cite{Biggs2003} took a different approach and divided them into two categories to distinguish systems for users and for programmers:
+
+\begin{itemize}
+    \item Manual programming, where the user can directly control the robot's execution code 
+    \item Automatic programming, where the user does not need to write explicit code
+\end{itemize}
+% - also mention software architectures which are important for any robot programming systems.
+
+ \begin{figure}[ht]
+  \centering
+\includegraphics[width=\linewidth]{figures/Biggs2003-RobotProgramming}
+  \caption{Robot programming categories to distinguish systems for users and programmers. \cite{Biggs2003}}
+  \label{fig:RobotProgrammingSystems}
+\end{figure} 
+
+In the following sections we will give a brief overview of the different programming systems.
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{r|c|c}
+Programming Techniques & by Exploration \newline (unguided) & by Demonstration \newline (guided)\\ \hline
+Classification & \checkmark & \checkmark \cite{saunders2006teaching,hovland1996skill,rybski1999interactive} \\
+Regression & \checkmark & \checkmark \cite{atkeson1997locally,pomerleau1991efficient} \\
+Reinforcement Learning & \checkmark & \checkmark (System models) \cite{atkeson1997robot,smart2002effective,abbeel2004apprenticeship}.\\
+ Plans & \checkmark & \checkmark \cite{kuniyoshi1994learning,ekvall2008robot} \\
+ \hline
+Human-Robot Interaction & & \\ \hline
+ touch & \checkmark (learning by poking) & \checkmark \\
+ vision & \checkmark & \checkmark \\ 
+ voice & n/a & \checkmark (instructive, create sequence by voice) \\
+\end{tabular}
+\end{center}
+\label{tab:Programming Overview}
+\end{table}
+
+
+
+ \begin{figure}[ht]
+  \centering
+\includegraphics[width=\linewidth]{figures/RobotProgrammingOverview.pdf}
+  \caption{Overview of Robot Programming methods.}
+  \label{fig:RobotProgrammingOverview}
+\end{figure} 
+
+\subsection{Manual Programming Systems}\label{subsec:Manual Programming Systems}
+In manual programming systems users must create the robot program by hand, either using a text-based or a graphical interface. These systems require expert knowledge in a programming language which is a rare resource in industrial environments. 
+While the user has direct control over the robot code, it requires expertise in programming languages. There exist a variety of tools to make programming, as well as testing and debugging easier, such as IDEs, spreadsheets, macros.
+There are two types of manual programming: text-based programming, where the code is written manually in a chosen programming language (python, C++, java, etc.) and graphical programming, where the code structure is created with the help of a graphical interface (e.g. Scratch (Majed 2014, Lamb \& Johnson 2011, Schorow 2007), Flowcharts,..). 
+
+
+\subsubsection{Text-based Systems}\label{sssec:Text-based Systems}
+Text-based systems are one of the most common methods and use a traditional programming language approach. 
+Depending on the type of language used, the user performs programming in controller-specific, generic procedural or behaviour-based languages.
+Despite the trend to move from simple, command-based languages towards more intelligent programming systems with high-level languages that provide more support to the user, text-based systems still require trained users with programming knowledge and are more likely to be used by robot developers than end-users.
+
+\subsubsection{Graphical Systems}\label{sssec:Graphical systems}
+Graphical (or icon-based) systems use a graph, flow-chart or diagram view where users manually specify actions and program flow. They are typically easy to use and generally used for robot applications rather than system programming. \cite{lego2003} and \cite{bischoff2002morpha} produced graphical systems using a flow-chart approach, where the robot's behaviour can be configured by arranging low-level actions in a sequence. 
+
+
+\subsection{Automatic Programming Systems}\label{subsec:Automatic Programming Systems}
+Automatic programming relates to robots that have the capability to learn from new data.
+Unlike manual programming, the user does not need to write explicit robot code and does not have direct control over the code as its behaviour is generated from information entered into the system.
+We distinguish between systems that are \textit{guided}, where the robot learns with human intervention (e.g. Programming by Demonstration), and \textit{unguided}, where the robot learns by exploration (e.g. Neural Networks, Reinforcement Learning).
+Inspired by \cite{Biggs2003}, we further divide automatic systems into two categories: learning systems (unguided) and programming by demonstration (guided).
+
+\subsubsection{Learning Systems}\label{sssec:Learning Systems}
+Learning systems use inductive inference to create a program by taking examples provided by the user or from self-exploration of the robot. The goal of so-called machine learning (ML) systems is to construct programs that allow the robot to automatically improve its performance with increasing data. Even though machine learning algorithms have been around since the 1980s \cite{}, it has only become popular in the past few decades. The rise of the internet led to big data and developments in various research areas such as machine learning and computer vision, which have impacted the field of robotics.
+The increasing amount of big data and advances in techniques to process and store data efficiently has lead to a wave of new machine learning techniques. 
+
+\cite{Kreuziger1992} analysed the application of ML in robotics (\fig{fig:MLvsRobotics}) and identified a large gap between these two research areas.
+
+
+ \begin{figure}[ht]
+  \centering
+\includegraphics[width=\linewidth]{figures/Kreuziger1992-Comparison ML Robotics}
+  \caption{Comparison on Machine Learning applications vs. Robotics. \cite{Kreuziger1992}}
+  \label{fig:MLvsRobotics}
+\end{figure} 
+
+\cite{kaiser1995obtaining} 
+
+Recently Machine learning techniques have found their application in robotics. Research areas include: \url{http://techemergence.com/machine-learning-in-robotics/}\\
+computer vision (or ``robot vision'') for the identification and sorting of objects \cite{stager2013computer} or to learn action plans from watching unconstrained videos \cite{Yang2015}.
+
+These systems can use neural networks (NN) \cite{billard2001robust} or reinforcement learning (RL)  \cite{smart2002effective}. Both NN and RL require a large amount of data to learn the desired behaviour. RL further requires a reward function which needs to be specified by a domain expert.
+In real world scenarios robots require teacher input to learn behaviours efficiently. 
+
+\subsubsection{Programming by Demonstration}
+Programming by demonstration (PbD) \cite{billard2008robot} is a method, where movements to be learned by the robot are demonstrated by a teacher. There are different ways for a teacher to provide demonstration data (\sect{subsec:Gathering demonstrations}), depending on the amount of data provided at a time (incremental vs. batch learning) and the different interaction modalities (touch, vision, gestures, voice) to transfer the data to the robot. The robot derives a policy in various ways (\sect{subsec:Deriving a policy}). 
+
+PbD systems have been used in the industry for creating assembly programs. In recent years there has been significant work in PbD to move from pure imitation to intelligent systems that learn flexible task executions. PbD systems may learn task descriptions from interpreted data to adapt the learned task to changing environments.
+
+\subsubsection{Instructive Systems}\todo{Delete or Move}
+Instructive systems use gesture or voice recognition to command robots to carry out tasks. These tasks typically consist of actions that they have already been trained or programmed to do. Gestures can be used to direct the attention of the robot for indicating objects in a scene to which the instructions apply. Natural language is the most intuitive way for humans to communicate instructions but may need some form of clarification and learning system in order to work efficiently. 
+A multi-modal communication including information from vision, gesture and voice sources can be used to clarify instructions to the robot, for example mentioning ``that table" and gesturing the relevant object.
+Instructive systems are useful for providing a high-level control but rely on underlying trained abilities which need to be implemented using other programming systems such as manual programming or PbD.
+
+\subsection{Robot Programming in Industrial Environments}\label{subsec:RP in Industrial Enviroments}
+\cite{pan2012recent} gives an overview of three main robot programming methods for industrial robots: online programming, offline programming (OLP), and robot programming using Augmented Reality (RPAR). 
+
+\subsubsection{Online Programming}\label{sssec:Online Programming}
+In online programming methods the robot program commands the robot to move through a recorded sequence of end-effector postures which form a complete task. The postures are recorded using the teach pendant to manually move the end-effector to the desired position and orientation of the task. Due to its simplicity, intuitiveness, and low programming skill requirement, this method is widely used. However, it is only suitable for programming applications with uncomplicated processes and work pieces with simple geometry. Once the program has been generated, it is difficult to make further amendments.
+
+\subsubsection{Offline Programming}\label{sssec:Offline Programming}
+Offline Programming (OLP) is based on 3D CAD data that models the complete robot work cell and lets the user fine-tune the properties of the robot's movements before generating a program that can be downloaded to the robot. It is more efficient when programming complex systems with large volumes and more reliable compared to online programming. As it requires a great amount of programming effort and a long delivery time, it requires high programming overhead and is not efficient for the development of smaller product volumes or customised software.
+
+Robot designers and users have developed computational platforms for OLP systems in form of packages that allow secondary development for specific applications. These OLP packages simulate not only robot trajectories and assembly tasks, but can also model interactions of several manufacturing processes, resources and product maintenance issues. Almost every robot manufacturer has its own OLP software. There exist also generic OLP software that are more flexible for hardware from different manufacturers.
+
+Current OLP systems do not provide functions for the complete OLP process but include steps that need to be created manually. Due to the high costs of OLP systems, their use is not cost-efficient for small to medium-sized enterprises.
+
+\subsubsection{Augmented Reality}\label{sssec:Augmented Reality}
+The use of augmented reality (AR) is a revolutionary concept where computer-generated 3D objects are blended onto a real world scene to enhance the user's interaction with the real world \cite{pettersen2003augmented}. Robot programming using AR allows offline programming to be performed without the need to model the workpiece in the virtual environment \cite{pan2012recent}. It can eliminate technical difficulties faced by OLP techniques such as the calibration between the virtual and the real world.
+
+We aim to provide a solution for non-expert users to program robots in the industry without writing code. We want to learn a high-level abstraction of the behaviours that can be combined with the PDDL language.

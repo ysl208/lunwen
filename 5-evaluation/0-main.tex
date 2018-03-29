@@ -1,0 +1,34 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Basic Research Questions and Their Evaluations}\label{sec:hypotheses}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+To evaluate the framework's usability for non-expert users, %we formulated the following hypotheses:
+%\begin{enumerate}
+%\item[\textbf{H1}] \textit{The user understands the symbolic planning concepts.} This allows us to verify, if the symbolic planning language (PDDL), to describe the world state in terms of object types, properties, generalised properties, and action models, in terms of preconditions and effects, can be adopted easily by non-expert users.
+%\item[\textbf{H2}] \textit{The user is able to teach the robot an action model using the proposed framework.} This allows us to evaluate how users operate the framework.
+%\end{enumerate} 
+we conducted two qualitative user experiments to respond to the questions mentioned in section \chapt{chap:Intro}:
+\begin{enumerate}
+  \item[\textbf{Q1}] How do non-expert users adopt the automated planning language with its action model representation? (Section \ref{sec:Exp1})
+  \item[\textbf{Q2}] Can users teach a robot action models for automated planning using the robot programming framework? (Section \ref{sec:Exp2})
+\end{enumerate}
+The experimental context was designed around a Baxter robot (Fig. \ref{fig:Baxter}). In both experiments, we included elements to assess the user's understanding of action models used by automated planners. Understanding this symbolic representation is a key requirement to use the framework.
+In the following sections, we briefly outline the experimental setup, measurements and results for each experiment.
+ 
+% \begin{table}[t]
+% \caption{Description of the world state in PDDL}
+% \label{pddl_deschription}
+% \begin{center}
+% \begin{tabular}{l|l|l|l} \hline
+%  \textbf{object name} & \textbf{type} & \textbf{property} & \textbf{generalised property} \\ \hline 
+% redCube & cube & (at cube A) & (at ?cube ?posA)\\ \hline 
+% A & position & (empty A) & (empty ?posA)\\ \hline 
+% \end{tabular}\label{tab:pddl_deschription}
+% \end{center}
+% \end{table}
+
+
+\input{5-evaluation/2-pddleval.tex}
+
+\input{5-evaluation/5-evaluation.tex}

@@ -1,0 +1,25 @@
+\subsection{Other Robot Programming Methods}\label{subsec:Other RP Methods}
+The robot can learn from observation data provided by the teacher (Learning by Observation), by self-exploration using a defined reward function (Learning by Exploration), or by interactive teaching from continuous feedback (Active Learning). In the following sections we will give an overview of these approaches.
+
+\subsubsection{Learning by Watching/Observation}\label{sssec:LbObservation}
+(\cite{kuniyoshi1994learning})
+- teacher provides robot with data to learn from e.g. learn from watching videos (\cite{Yang2015})
+     -> difficulty lies in providing the optimal \& minimal set of demonstration data
+
+\subsubsection{Learning by Exploration}\label{sssec:LbExploration}
+- the robot acquires data from interaction with its environment
+- need a reward function which allows him to learn from the data
+1. Reinforcement learning (\cite{sutton1998reinforcement}, \cite{mnih2015human})
+     - reward function can be specified by the user, robot learns policy by self-exploration
+    2. Inverse reinforcement learning (\cite{abbeel2004apprenticeship})
+     - robot is given teacher demonstrations and learns reward function
+
+ 
+\subsubsection{Active/Interactive Learning}\label{sssec:Active Learning} (\cite{chernova2014robot},\cite{calinon2007active})
+ - teacher provides robot initial data, observes robot performance and provides feedback
+     - robot can ask for feedback (\cite{cakmak2012aaai})
+ - teacher can modify learned action using a visual interface (\cite{alexandrova2015roboflow})
+
+ (\cite{nicolescu2003natural}) present a PbD approach, which allows the robot to learn skill representations and refine them by using feedback cues provided by the teacher.
+Similarly, (\cite{calinon2007active}) and (\cite{calinon2007incremental}) implement systems, which actively involve the teacher in the robot's learning process, by providing human guidance to a humanoid robot. The robot first observes the demonstration performed by the teacher, who is wearing motion sensors. When it tries to reproduce the action, the teacher can refine the movement by physically moving its limbs.
+

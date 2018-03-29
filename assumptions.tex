@@ -1,0 +1,11 @@
+\section{Limitations and Assumptions}\label{Limitations}
+\subsection{Baxter arm limitations}
+There exist limitations of Baxter's sensors such as the inaccuracy of infrared sensor on each limb arm (by 5mm) used for distance estimation. As with infrared distance sensors in general, the surface of the object, whether it is mat or reflective, can skew the readings as well.\\
+
+There are three cameras provided: one on each limb next to the gripper and one on top of Baxter's head screen. As it is not possible to move the head except for predefined nod or shake movements, the camera on the head has a restricted area. 
+
+Thus, our implementation exploits merely the use of one hand camera on the main gripper. Unfortunately, all provided cameras have a limited quality of at most 1280 x 800 pixels, i.e. 1 megapixel, making the potential use of QR codes difficult.
+
+The positional accuracy of the joints lies within $\pm 5$ mm and the infrared sensor range 4-40cm. \cite{robotics2013baxter}
+
+

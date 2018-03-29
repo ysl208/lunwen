@@ -1,0 +1,92 @@
+\documentclass[a4paper,12pt,twoside]{book}
+
+% \usepackage{fancyhdr}
+ 
+% \pagestyle{fancy}
+% \fancyhf{}
+% \fancyhead[LE,RO]{Share\LaTeX}
+% \fancyhead[RE,LO]{Guides and tutorials}
+% \fancyfoot[CE,CO]{\leftmark}
+% \fancyfoot[LE,RO]{\thepage}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[english]{babel}
+\usepackage{color}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{helvet} % font sf = helvetica
+\usepackage[bookmarks=true]{hyperref}
+\usepackage[utf8]{inputenc}
+% \usepackage[latin1]{inputenc}
+\usepackage{listings}
+%\usepackage{mathptmx} % font = times
+\usepackage{natbib}
+\usepackage{outlines}
+\usepackage{pdfpages}
+\usepackage{relsize}
+\usepackage{syntax}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{xspace}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+ 
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+ 
+\newcommand{\fig}[1]{Fig.~\ref{#1}}
+\newcommand{\tbl}[1]{Table~\ref{#1}}
+\newcommand{\algo}[1]{Algorithm~\ref{#1}}
+\newcommand{\sect}[1]{Sec.~\ref{#1}}
+\newcommand{\chapt}[1]{Chapter ~\ref{#1}}
+\newcommand{\etal}[0]{{\em et al.~}}
+\newcommand{\eg}[0]{{\em e.g.,~}}
+\newcommand{\ie}[0]{{\em i.e.,~}}
+\newcommand{\etc}[0]{{\em etc.\xspace}}
+\newcommand{\myparagraph}[1]{\vspace{1mm} \noindent \textbf{#1}}
+\newcommand{\comments}[2]{{\small{\textcolor[rgb]{0.0, 0.5, 0.0}{#2}}--[\textsc{#1}]}}
+\newcommand{\note}[1]{{{\textcolor[rgb]{0.4, 0.4, 0.4}{\em #1}}}}
+\newcommand{\todo}[1]{{{\textcolor[rgb]{0.9, 0.4, 0.4}{TODO: \em #1}}}}
+\newcommand{\camera}[1]{{#1}}
+
+%%% BEGIN DOCUMENT
+\begin{document}
+
+% \input{0-frontmatter/coverpage.tex}
+% \maketitle
+% \copyrightpage
+% \abstractpage
+\tableofcontents
+%\authorlist
+\listoffigures
+
+%=====================
+\chapter{Introduction} \label{chap:Intro}
+\input{1-intro/0-main.tex}
+
+\chapter{State of the Art}\label{chap:Sota}
+\input{2-sota/0-main.tex}
+
+\input{3-contribution/0-main.tex}\label{chap:Contribution}
+
+\chapter{Implementation of the Framework}\label{chap:Implementation}
+\input{4-implementation/0-main.tex}
+
+\chapter{Experimentation and Evaluation}\label{chap:Evaluation}
+\input{5-evaluation/0-main.tex}
+
+\chapter{Conclusion and Future Work}\label{chap:Conclusion}
+\input{6-conclusion/0-main.tex}
+
+
+% the back matter
+\clearpage
+\bibliography{references}
+\addcontentsline{toc}{chapter}{References}
+\bibliographystyle{plainnat}
+
+\end{document}
