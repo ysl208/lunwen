@@ -1,16 +1,42 @@
 %%%%%%%%%%% ******  AUTOMATED PLANNING ******* %%%%%%%%%%%%%
 \section{Automated Planning}\label{sec:AP}
 \begin{center}
-\textit{``Planning is an important component of rational behaviour." }\\- Automated Planning \cite{ghallab2004automated}
+\textit{``Planning is an important component of rational behaviour." }\\ \cite{ghallab2004automated}
 \end{center}
-As an area of Artificial Intelligence, automated planning computationally studies the deliberation process of choosing and organising actions in order to achieve a goal. Humans automatically anticipate the outcome of their actions, even if they are not fully aware of it. Automated planning techniques are used to create information processing tools, that efficiently reproduce human behaviour and reasoning. In particular, it can be used to model a robot's skills and strategies, when operating in diverse environments, without the need for expensive hand-coding.
 
-The focus in automated planning lies within the development of {domain-independent} planning systems, namely \textit{planners}. As planners consist of search algorithms, which are not problem-specific, they generate solutions to these problems, no matter what the input. In other words, given a set of actions, a description of the state of the world, and some goal state, the planner generates an ordered sequence of actions, which guarantees the transition from the initial state to the goal state. Similar to the policy derivation method mentioned in Section \sect{subsec:Deriving a policy}, actions are defined with \textit{preconditions}, i.e. conditions on the state of the world in order to execute the action, and \textit{effects}, i.e. changes in the state of the world after the action execution. %The planner produces an ordered sequence of actions, known as a \textit{plan}, which guarantees the transition from the initial state to the goal state.
+% \begin{center}
+% \textit{``A goal without a plan is just a wish."}\\
+% - Antoine de Saint-Exup\'{e}ry
+% \end{center}
 
-An example of a planning problem is the Tower of Hanoi problem \cite{douglas1985metamagical}, where the objects are disks of different sizes and three rods. In the initial state, the disks are stacked in ascending order (smallest at the top) on one of the rods, in the goal state the disks are stacked in the same order on one of the other two remaining rods. The goal state must be achieved by obeying certain rules for moving the disks (e.g. only the top disk of a stack can be moved at a time and may not be placed on top of a smaller disk). 
+% Introduction/Definition
+Automated planning, also known as AI planning, is an area in A.I. that studies the deliberation process of choosing and organising actions to achieve a goal. 
+Humans automatically anticipate the outcome of their actions, even if they are not fully aware of it. 
+Automated planning techniques are used to create information processing tools that efficiently reproduce human reasoning and behaviour. 
+In particular, it can be used to model a robot's skills and strategies, when operating in diverse environments, without the need for expensive hand-coding.
+
+The focus in automated planning lies within the development of {domain-independent} planning systems, called \textit{planners}.
+These planners consist of search algorithms, which are not problem-specific, hence generate solutions to problems, no matter what the input. 
+Given a set of actions, a description of the state of the world, and some goal state, the planner generates an ordered sequence of actions, which guarantees the transition from the initial state to the goal state. 
+Similar to the policy derivation method mentioned in \sect{subsec:Deriving a policy}, actions are defined with \textit{preconditions}, i.e. conditions on the state of the world in order to execute the action, and \textit{effects}, i.e. changes in the state of the world after the action execution. 
+%The planner produces an ordered sequence of actions, known as a \textit{plan}, which guarantees the transition from the initial state to the goal state.
+
+% Example
+An example of a planning problem is the Tower of Hanoi problem \cite{douglas1985metamagical}, where the world objects are three pegs and disks of different sizes. 
+In the initial state, the disks are stacked in ascending order (smallest at the top) on one of the pegs, in the goal state the disks are stacked in the same order on one of the other two remaining pegs. 
+The goal state must be achieved by obeying certain rules for moving the disks (e.g. only the top disk of a stack can be moved at a time and may not be placed on top of a smaller disk). 
+
+Different types of planning: \cite{ROSplanAAAI17tutorial}
+\begin{itemize}
+    \item Classical planning
+    \item Optimisation: minimise or maximise a given cost function
+    \item Temporal planning: actions have a certain duration, to address concurrency, synchronisation, time dependent effects.
+    \item Planning with preferences: prefer hard goals over soft goals.
+    \item Conditional planning: actions can perform observations, plan contains branches
+\end{itemize}
 
 \subsection{Classical planning problem}\label{subsec:Classical planning problem}
-In classical planning, world dynamics are modeled as state transition systems.
+In classical planning, world dynamics are modelled as state transition systems.
 
 \paragraph{Definition.}
 A \textit{state transition system} is a triple $\Sigma = (S, A, \gamma)$ such that:
@@ -80,10 +106,13 @@ For each $a \in A$, $\text{precond}(a)$ and $\text{effect}(a)$ are subsets of $P
 
 Once this specification is provided to the planner, the planning process is a mean-ends reasoning, deciding how to achieve goals given the means of available actions. The hardness of the mean-ends planning process is high (NP-hard), as it entails non-deterministic decisions on selecting objects, committing actions on objects, sorting out actions, as well as backtracking from dead-end decisions in combinatorial search spaces.
 
-When actions are triggered, they change the state of the world according to their effects and are not necessarily reversible. In other words, actions are not combinable in any order and have precedence constraints. For example, with the Tower of Hanoi problem, the two last actions consist of stacking the second smallest disk and then the smallest disk on the rod. Reversing the order will result in a violation of the rule that larger disks cannot be stacked onto smaller ones. Thus, plans need to be performed in the correct order to achieve the a goal.
+When actions are triggered, they change the state of the world according to their effects and are not necessarily reversible. In other words, actions are not combinable in any order and have precedence constraints. For example, with the Tower of Hanoi problem, the two last actions consist of stacking the second smallest disk and then the smallest disk on the peg. Reversing the order will result in a violation of the rule that larger disks cannot be stacked onto smaller ones. Thus, plans need to be performed in the correct order to achieve the a goal.
 
-Furthermore, the progression towards the goal is not always monotone, as actions can also have negative side effects. Consider again the Tower of Hanoi problem, where the disks need to be stacked in ascending order (smallest at the top) on the right-most rod. Our goal state is to have \textit{``disk$_{n}$ is on top of disk$_{n+1}$"} and \textit{``disk$_{n+1}$ is on the table"} for a problem with $n>0$ disks. If in the initial state the disks are stacked in ascending order on the left rod, then moving the top-most disk$_1$ to any other rod will delete the fact \textit{``disk$_1$ is on top of disk$_2$"}, and will have to be added again later to fulfill the goal.
+Furthermore, the progression towards the goal is not always monotone, as actions can also have negative side effects. Consider again the Tower of Hanoi problem, where the disks need to be stacked in ascending order (smallest at the top) on the right-most peg. Our goal state is to have \textit{``disk$_{n}$ is on top of disk$_{n+1}$"} and \textit{``disk$_{n+1}$ is on the table"} for a problem with $n>0$ disks. If in the initial state the disks are stacked in ascending order on the left peg, then moving the top-most disk$_1$ to any other peg will delete the fact \textit{``disk$_1$ is on top of disk$_2$"}, and will have to be added again later to fulfill the goal.
 
+
+\subsection{STRIPS}\label{subsec:STRIPS}
+In STRIPS a closed-world assumption is used, i.e. any conditions that are not mentioned in a state are assumed to be false.
 
 %%%%%%%%%%%%%%% *************PDDL************* %%%%%%%%%%%%%%%%%
 \subsection{PDDL - the Planning Domain Definition Language}\label{subsec:PDDL}

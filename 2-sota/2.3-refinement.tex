@@ -1,5 +1,19 @@
 \subsection{Interactive Policy Refinement Techniques}\label{subsec:Other RP Methods}
+As human demonstrations are often noisy or suboptimal, interactive policy refinement techniques can be used.
+Learning by exploration allows the robot to refine the policy on its own and can be combined with  teacher critique. 
+
 The robot can learn from observation data provided by the teacher (Learning by Observation), by self-exploration using a defined reward function (Learning by Exploration), or by interactive teaching from continuous feedback (Active Learning). In the following sections we will give an overview of these approaches.
+
+In \cite{nicolescu2003natural} the teacher can refine tasks by inserting or removing behaviours from the networks of abstract behaviours.
+
+\subsubsection{Learning by Exploration}\label{sssec:LbExploration}
+
+- the robot acquires data from interaction with its environment
+- need a reward function which allows him to learn from the data
+1. Reinforcement learning (\cite{sutton1998reinforcement}, \cite{mnih2015human})
+ - reward function can be specified by the user, robot learns policy by self-exploration
+ 2. Inverse reinforcement learning (\cite{abbeel2004apprenticeship})
+ - robot is given teacher demonstrations and learns reward function
 
 \subsubsection{Active/Interactive Learning}\label{sssec:Active Learning} (\cite{chernova2014robot},\cite{calinon2007active})
  - teacher provides robot initial data, observes robot performance and provides feedback

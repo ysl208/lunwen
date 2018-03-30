@@ -1,38 +1,22 @@
 \subsubsection{3. Plans}\label{sssec:Plans}
-The entire robot behaviour is represented as a plan.
+The policy is represented as a plan consisting of a sequence of actions, that lead from the initial state to the goal state.
+Actions are defined in terms of \textit{preconditions}, i.e. a state of the world that must be attained in order to execute the action, and \textit{effects}, i.e. the expected state resulting from the action execution. 
+Planning techniques rely on state-action demonstrations, as well as additional \textit{annotations} representing the teacher's intentions or goals.
+Plans can be learned from observations of the teacher's hand movements \cite{kuniyoshi1994learning}, or from direct interactions with the environment by identifying common constraints in multiple observations \cite{ekvall2008robot}.
+We will discuss plans in more detail in \sect{sec:AP}.
 
-The policy is represented as a plan consisting of a sequence of actions, that lead from the initial state to the goal state. Actions are defined in terms of preconditions, i.e. a state of the world that must be attained in order to execute the action, and effects, i.e. the expected state resulting from the action execution. Planning techniques rely on state-action demonstrations, as well as additional information representing the teacher's intentions. 
-Plans can be learned from observations of the teacher's hand movements \cite{kuniyoshi1994learning}, or from direct interactions with the environment, by identifying common constraints in multiple observations \cite{ekvall2008robot}.
-EXTRA - start
-There are different approaches for rules to associate preconditions and effects with actions and whether additional information is provided by the teacher. 
-If users are allowed to define their own conditions, they often forget unusual preconditions or side effects, which can cause failures that are noticed only later at plan execution \cite{gil1994learning}. 
+\subsubsection{Action condition learning}\label{sssec:Action condition learning}
+In order to generalise learned actions for different scenarios, the robot has to reason about its actions and understand the circumstances, under which they can be applied. 
+It should learn preconditions and effects of a new skills from teacher demonstrations.
+There are different approaches for rules to associate preconditions and effects with actions and whether additional information is provided by the teacher.
+If users are allowed to define their own conditions, they often forget unusual preconditions or side effects, which can cause failures that are noticed only later at plan execution \cite{gil1994learning}.
 Conditions could be derived automatically through direct interaction with the environment and by only considering constraints that are commonly identified in multiple observations \cite{ekvall2008robot}.
 The learning process can also be formed by framing a set of hypotheses on failure cases in order to ensure robustness \cite{yildiz2013learning}.
-EXTRA - end
-
-\noindent In this project, we target collaborative robots, which can flexibly learn these skills from a teacher's demonstration, and, additionally, understand the circumstances, under which they can be applied. The robot should be able to reason about its actions and understand the notion of preconditions and effects. Furthermore, we want to equip it with all the skills needed to act autonomously in any state of the world, rather than teaching it how to react to a given state of the world. To achieve this, we have to design our framework using plans, which provides us with the required tools. As we focus on collaborative environments, where the teacher is actively involved in the learning process, plans allow a means to communicate the teacher's intentions together with the demonstrations. Therefore, our policy derivation choice will enable the robot to learn the action, as well as its semantics, and combine them with goal-oriented problem-solving techniques.
-
-
-EXTRA - start
-In general, many robot PbD implementations already have atomic pick and place actions coded into the system \cite{veeraraghavan2008teaching}.
-Existing PbD implementations are rather task-specific and cannot be applied to arbitrary scenarios.  In most cases, the robot has a single goal specified, which it tries to achieve given a pre-defined, possibly iterative, action sequence. When the process of the task changes in order to include a new subtask or to achieve a different goal, the robot needs to be reprogrammed. This highlights a key issue in PbD to design a generic system that allows the learning of tasks applicable to different scenarios. Unlike other PbD implementations, our method does not have any atomic actions preprogrammed but allows the user to construct any action model.
-Furthermore, current implementations include an intermediate manual step to construct action sequences in order to achieve a goal.
-
-Skills can consist of many subtasks. 
 \cite{guerin2015framework} presents a framework for robot task manipulation using Behaviour Trees which allows users to create task plans based on high-level functions known as operations.
+\cite{nicolescu2003natural} uses a behaviour-based system where the robot learns high-level tasks by recognising primitive actions that are already known to the robot and adjusting the behaviours through parameters.
+Tasks and sequences of behaviours are represented in form of behaviour networks and links between behaviours represent precondition-effect dependencies.
 
-\cite{veeraraghavan2008teaching} obtains the action definitions from the demonstration to teach the robot generalised plans. By performing sequential tasks with repetitions, the robot learns a task-specific plan consisting of subsequences.
-%%%- Task specific actions are generated during the demonstration phase (search, pick,carry, drop)
-- Propositions are used to represent world observations (closeToObject, holdingObject)
-- Algorithm for filling precondition and effect - find sets of equal actions from task/object specific actions
-- At the end of learning: actions are represented in PDDL format with preconditions and effects
-Robot executes sequence of robot behaviours on specific objects as indicated by human
-Robot instantiates task specific actions from the behaviours, fills in preconditions for those actions
-Learns a task specific plan for the executed action sequence
-EXTRA - end
-
-(Harini Veeraraghavan, 2008)
-learn generalised plan from two demos, able to represent sequential tasks with repetitions
+In \cite{veeraraghavan2008teaching} the robot learns a task-specific plan from two sequential task demonstrations. 
 - Task specific actions are generated during the demonstration phase (search, pick,carry, drop)
 - Propositions are used to represent world observations (closeToObject, holdingObject)
 - Algorithm for filling precondition and effect - find sets of equal actions from task/object specific actions
@@ -42,43 +26,36 @@ Robot instantiates task specific actions from the behaviours, fills in precondit
 Learns a task specific plan for the executed action sequence
 
 (Friedrich \& Dillman, 1995)
-1. perform a demonstration
-2. recorded vectors are classified/mapped on a Basic Operation (grip, ungrip, approach, depart, transfer) (user-guided) to form a sequence of BOs
-3. Plan construction process: 
-3.1. form Object groups (representing manipulation of 1 object)
-3.2. determine valid postconditions
-3.3. get user intention via HRI
-4. Branch generation: Object selection condition
+1.
+perform a demonstration
+2.
+recorded vectors are classified/mapped on a Basic Operation (grip, ungrip, approach, depart, transfer) (user-guided) to form a sequence of BOs
+3.
+Plan construction process: 
+3.1.
+form Object groups (representing manipulation of 1 object)
+3.2.
+determine valid postconditions
+3.3.
+get user intention via HRI
+4.
+Branch generation: Object selection condition
 create a branch if operation's PostC does not contribute to user intention directly, but to PreC of another action
-4. Execution (from given goal)
+4.
+Execution (from given goal)
 
 Pro:
 - Generalisation achieved by user who removes unnecessary object selection conditions
 - forward tracing for postC, backward tracing for preC and introducing variables
+Con: Same plan/action sequence can be applied
 
-Con:
-Same plan/action sequence can be applied
 
-(Nicolescu \& Mataric, 2003)
-Learn by experienced demonstrations:
-- robot experiences the task through its own sensors and adjusts the behaviours through parameters
-- tries to recognise already learned tasks
-
-Uses a Behaviour-Based System:
-- robot learns high level tasks based on underlying behaviours already available to the robot
-
-- tasks and sequences of behaviours are represented in form of networks of abstract behaviours
-- links between behaviours represent precondition-effect dependencies (permanent, enabling, ordering)
-- Abstract vs Primitive behaviour: specification of the behaviour's conditions vs behaviours that do the work
-- algorithm: add to the network an instance of all behaviours whose postconditions have been detected during the demonstration - in the order of their occurrence, generates dependencies between them (if they occurred simultaneously or sequentially)
-
-- "BAD"/ "COME"-"GO": Teacher can refine task by removing/inserting behaviours
-
------
-Pros:
-Good representation of behaviours/tasks using pre-post-conditions
-
-Cons:
-Already has set of behaviours (pickup, drop)
-the individual behaviours cant be used by the robot autonomously but are only learned from observing the demonstration
+%\cite{nicolescu2003natural}
+%- robot experiences the task using its own sensors and adjusts the behaviours through parameters
+%- Abstract vs Primitive behaviour: specification of the behaviour's conditions vs behaviours that do the work
+%- algorithm: add to the network an instance of all behaviours whose postconditions have been detected during the demonstration - in the order of their occurrence, generates dependencies between them (if they occurred simultaneously or sequentially)
+%Pros: Good representation of behaviours/tasks using pre-post-conditions
+%Cons:
+%- Already has set of behaviours (pickup, drop)
+%- the individual behaviours cant be used by the robot autonomously but are only learned from observing the demonstration
 
