@@ -15,39 +15,30 @@ The learning process can also be formed by framing a set of hypotheses on failur
 \cite{guerin2015framework} presents a framework for robot task manipulation using Behaviour Trees which allows users to create task plans based on high-level functions known as operations.
 \cite{nicolescu2003natural} uses a behaviour-based system where the robot learns high-level tasks by recognising primitive actions that are already known to the robot and adjusting the behaviours through parameters.
 Tasks and sequences of behaviours are represented in form of behaviour networks and links between behaviours represent precondition-effect dependencies.
+In \cite{veeraraghavan2008teaching} the robot learns a task-specific plan from two sequential task demonstrations by instantiating actions with preconditions and effects.
+%- Task specific actions are generated during the demonstration phase (search, pick,carry, drop)
+%- Propositions are used to represent world observations (closeToObject, holdingObject)
+%- Algorithm for filling precondition and effect - find sets of equal actions from task/object specific actions
+%- At the end of learning: actions are represented in PDDL format with preconditions and effects
+%Robot executes sequence of robot behaviours on specific objects as indicated by human
+%Robot instantiates task specific actions from the behaviours, fills in preconditions for those actions
+%Learns a task specific plan for the executed action sequence
 
-In \cite{veeraraghavan2008teaching} the robot learns a task-specific plan from two sequential task demonstrations. 
-- Task specific actions are generated during the demonstration phase (search, pick,carry, drop)
-- Propositions are used to represent world observations (closeToObject, holdingObject)
-- Algorithm for filling precondition and effect - find sets of equal actions from task/object specific actions
-- At the end of learning: actions are represented in PDDL format with preconditions and effects
-Robot executes sequence of robot behaviours on specific objects as indicated by human
-Robot instantiates task specific actions from the behaviours, fills in preconditions for those actions
-Learns a task specific plan for the executed action sequence
-
-(Friedrich \& Dillman, 1995)
-1.
-perform a demonstration
-2.
-recorded vectors are classified/mapped on a Basic Operation (grip, ungrip, approach, depart, transfer) (user-guided) to form a sequence of BOs
-3.
-Plan construction process: 
-3.1.
-form Object groups (representing manipulation of 1 object)
-3.2.
-determine valid postconditions
-3.3.
-get user intention via HRI
-4.
-Branch generation: Object selection condition
-create a branch if operation's PostC does not contribute to user intention directly, but to PreC of another action
-4.
-Execution (from given goal)
-
-Pro:
-- Generalisation achieved by user who removes unnecessary object selection conditions
-- forward tracing for postC, backward tracing for preC and introducing variables
-Con: Same plan/action sequence can be applied
+%(Friedrich \& Dillman, 1995)
+%1.perform a demonstration
+%2.recorded vectors are classified/mapped on a Basic Operation (grip, ungrip, approach, depart, transfer) (user-guided) to form a sequence of BOs
+%3.Plan construction process: 
+%3.1.form Object groups (representing manipulation of 1 object)
+%3.2.determine valid postconditions
+%3.3.get user intention via HRI
+%4.Branch generation: Object selection condition
+%create a branch if operation's PostC does not contribute to user intention directly, but to PreC of another action
+%4.Execution (from given goal)
+%
+%Pro:
+%- Generalisation achieved by user who removes unnecessary object selection conditions
+%- forward tracing for postC, backward tracing for preC and introducing variables
+%Con: Same plan/action sequence can be applied
 
 
 %\cite{nicolescu2003natural}
