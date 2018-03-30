@@ -1,8 +1,29 @@
 \section{Discussion and relation to present work}
-- what is wrong with current SotA?
-Manual programming: requires programming time and effort to debug/test
-automatic programming: learning systems (NN) not only requires large amount of training data but data must be relevant for current situation
-Learning by Exploration: takes time for the robot to explore environment and collect all necessary data
-Learning by Watching: requires optimal \& minimal set of demonstration data 
-- what is feasible is that a human operator is available
+The problem with manual programming systems is the high programming time and effort required to debug and test, as well as the need for programming expertise.
+Automatic programming systems require significantly less effort when it comes to the programming process. 
+Learning systems such as Neural Networks often need large amount of training data which is relevant for desired application scenario.
+Reinforcement Learning techniques can be time-consuming as they require the robot to explore the environment and collect the necessary data.
+
+When deploying robots in real world applications, the above programming systems become inefficient and cost-expensive. 
+However, what is feasible is having a human operator teach the robot the desired tasks.
+Programming by Demonstration (PbD) is an intuitive technique for teaching the robot new tasks with minimal programming overhead.
+Existing PbD implementations are rather task-specific and cannot be applied to arbitrary scenarios.
+In general, many robot PbD implementations already have pick and place actions coded into the system \cite{veeraraghavan2008teaching}.
+Often, the robot has a single goal specified, which it tries to achieve given a pre-defined, possibly iterative, action sequence.
+When the process of the task changes, e.g. to include a new subtask or to achieve a different goal, the robot needs to be reprogrammed.
+This highlights a key issue in PbD to design a generic system that allows the learning of tasks applicable to different scenarios.
+Unlike other PbD implementations, our system does not have any atomic actions preprogrammed but allows the user to construct any action model.
+Furthermore, current implementations include an intermediate manual step to construct action sequences in order to achieve a goal.
+
+We want to equip it with all the skills needed to act autonomously in any state of the world, rather than teaching it how to react to a given state of the world.
+To achieve this, we have to design our framework using plans, which provides us with the required tools.
+As we focus on collaborative environments, where the teacher is actively involved in the learning process, plans allow a means to communicate the teacher's intentions together with the demonstrations.
+Therefore, our policy derivation choice will enable the robot to learn the action, as well as its semantics, and combine them with goal-oriented problem-solving techniques.
+
+
 - what problem are we addressing? 
+
+
+
+% PbD + PDDL representation
+In \cite{veeraraghavan2008teaching} the robot is taught a task-specific plan from sequential demonstrations and  learned actions are represented in PDDL with preconditions and effects.
