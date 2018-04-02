@@ -1,31 +1,27 @@
-\section{Problem statement}
-Nowadays, non-experts cannot (re-)program robots easily as functionalities are preprogrammed and difficult to modify.
+\section{Summary of contributions}
+%\subsection{Thesis statement}
+%Non-expert users can program a robot to complete a set of tasks by teaching it atomic actions by demonstration and correctly assigning them preconditions and effects that can be used with an automated planner to solve more complex problems.
 
-We want to allow non-experts in industrial contexts to program robots using an intuitive and fast method.
-We need to consider the restrictions: limited resources, lack of programming knowledge and time to train operators.
-
-In this project, we want to create a framework that allows robots to solve problems in a goal-oriented way.
-In other words, given a user-defined goal, the robot should generate and execute the right action sequence to obtain it.
-The user must construct a knowledge base, consisting of a domain (the environment that the robot interacts with) and all action models required for the robot to accomplish the defined task.
-
-Consider again the example of permutating two objects on the table.
-The domain would consist of a table with a finite number of objects and limited positions, as well as actions models consisting of pick, place and move. Possible goals could be to stack the objects by size (similar to the Tower of Hanoi problem \cite{douglas1985metamagical}) or to arrange the objects in a certain order. Our framework should enable the user to teach the robot by demonstration all action models needed, including their relevant preconditions and effects. Once the action models have been created, the inbuilt automated planner can generate an action sequence to achieve any goal within the domain. 
-
-%Hence, we address two common situations, where reprogramming is required: 
-%\begin{itemize}
-%\item A new subtask needs to be included in the task execution, e.g.
-the robot knows how to place objects from any position on the table into a basket, but should additionally rotate them before placing them;
-%\item All subtasks are available but the ultimate goal has changed, e.g.
-the order of placing the objects has been changed.
-%\end{itemize}
-
-\noindent In summary, this thesis presents a framework and an implementation that allows human operators to:
-
+In this thesis we propose a robot programming framework that allows human operators to:
 \begin{itemize}
-\item teach the robot action models in a comprehensive automated planning representation, translated into PDDL, and
-\item enable it to use the learned action models to be controlled with a goal-oriented approach based on automated planning techniques.
+	\item teach the robot action models in a comprehensive automated planning representation, translated into PDDL, and
+	\item enable it to use the learned action models to be controlled with a goal-oriented approach based on automated planning techniques.
 \end{itemize}
 
-\noindent As implementing this framework is time-consuming and outside the limited time-frame of this project, we focus on a partial implementation, which can be used to simulate its functionalities.
-Thus, we aim to evaluate the potential usability of this framework, by conducting experiments with users with and without programming knowledge.
 With the focus on cobotic environments, we want to discover the difficulties encountered by the user, when faced with techniques in both Robot Programming by Demonstration and Automated Planning domains.
+The contributions of this thesis can be summarised as follows:
+\begin{itemize}
+	\item {A robot programming framework that combines PbD and Automated Planning, where the robot learns action models by demonstration, and the problem of finding an action sequence is delegated to a planner.
+	The robot programming process consists of steps:
+	\begin{enumerate}
+		\item the non-expert user demonstrates atomic actions to the robot, and teaches \textit{action models}, expressed in a symbolic planning language (STRIPS \cite{fikes1971strips}),
+		\item the robot uses these action models with an automated planner to generate solutions to user-defined goals,
+		\item the user can revisit the taught action model to refine them.
+	\end{enumerate}}
+    \item {Experimental findings on user acceptance of the proposed robot programming framework, when users are tasked to teach a robot by demonstration and correctly assign action conditions used for automated planning. \\
+    Research question: \textit{Can users teach a robot action models for automated planning using the robot programming framework?}}
+    \item {Experimental findings on issues encountered when non-experts are tasked to use AI planning and PDDL concepts to describe a domain model to a robot. 
+    	We evaluated the user's ability to construct symbolic action models, in terms of preconditions and effects, used by automated planners.\\ 
+    Research question: \textit{How do non-expert users adopt the automated planning language with its action model representation?}}
+    \item {System for robotic shelf organisation tasks: simultaneous end-user programming of goals and actions using PbD and interactive visualisation. \todo{elaborate}}
+\end{itemize}

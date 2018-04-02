@@ -51,10 +51,19 @@ Human-Robot Interaction & & \\ \hline
 \end{figure} 
 
 \subsection{Manual Programming Systems}\label{subsec:Manual Programming Systems}
-In manual programming systems users must create the robot program by hand, either using a text-based or a graphical interface. These systems require expert knowledge in a programming language which is a rare resource in industrial environments. 
-While the user has direct control over the robot code, it requires expertise in programming languages. There exist a variety of tools to make programming, as well as testing and debugging easier, such as IDEs, spreadsheets, macros.
+In manual programming systems users must create the robot program by hand, either using a text-based or a graphical interface.
+While the user has direct control over the robot code, it requires expert knowledge in a programming language, which is often a rare resource in industrial environments.
+There exist a variety of tools to make programming, as well as testing and debugging easier, such as IDEs, spreadsheets, macros.
 There are two types of manual programming: text-based programming, where the code is written manually in a chosen programming language (python, C++, java, etc.) and graphical programming, where the code structure is created with the help of a graphical interface (e.g. Scratch (Majed 2014, Lamb \& Johnson 2011, Schorow 2007), Flowcharts,..). 
 
+\paragraph{Classical robot programming}\label{par:Classical RP}
+Classical robot programming processes in the industry have task-specific definitions, which are generally robot-dependent, and require programming expertise.
+\fig{fig:Classical robot programming process} shows the classical robot programming process.
+After the initial task definition, an optimal sequence of the workcell operations is defined.
+Once the process has been validated, the robot is programmed offline in its native language, before it is pushed into production for regular execution.
+The programmed robot can only be used for this specific task, in this particular working environment.
+If the task definition needs to be altered, the programming expert needs to repeat the entire programming process.
+Therefore, classical robot programming processes are time consuming and cost intensive.
 
 \subsubsection{Text-based Systems}\label{sssec:Text-based Systems}
 Text-based systems are one of the most common methods and use a traditional programming language approach. 
@@ -62,7 +71,15 @@ Depending on the type of language used, the user performs programming in control
 Despite the trend to move from simple, command-based languages towards more intelligent programming systems with high-level languages that provide more support to the user, text-based systems still require trained users with programming knowledge and are more likely to be used by robot developers than end-users.
 
 \subsubsection{Graphical Systems}\label{sssec:Graphical systems}
-Graphical (or icon-based) systems use a graph, flow-chart or diagram view where users manually specify actions and program flow. They are typically easy to use and generally used for robot applications rather than system programming. \cite{lego2003} and \cite{bischoff2002morpha} produced graphical systems using a flow-chart approach, where the robot's behaviour can be configured by arranging low-level actions in a sequence. 
+Graphical (or icon-based) systems use a graph, flow-chart or diagram view where users manually specify actions and program flow. They are typically easy to use and generally used for robot applications rather than system programming. \cite{lego2003} and \cite{bischoff2002morpha} produced graphical systems using a flow-chart approach, where the robot's behaviour can be configured by arranging low-level actions in a sequence.
+\todo{Add examples of graphical systems}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth]{figures/manual-programming}
+	\caption{Classical robot programming process}
+	\label{fig:Classical robot programming process}
+\end{figure}
 
 
 \subsection{Automatic Programming Systems}\label{subsec:Automatic Programming Systems}
