@@ -27,7 +27,6 @@ There are different ways to teach robots new skills but deployment the deploymen
 Techniques using large amounts of data (Neural Networks \cite{billard2001robust}) or self-exploration (Reinforcement Learning \cite{smart2002effective}) become infeasible for these applications.
 
 \subsection{Robot Programming by Demonstration}
-
 Robot Programming by Demonstration (PbD), also referred to as \textit{Learning from Demonstration}, is a technique for teaching a robot new skills by demonstrating a task, without writing any code \cite{billard2008robot}.
 PbD has become a central topic in research areas, with the aim to move from purely pre-programmed robots to flexible user-based interfaces for training robots.
 Influenced by natural learning paradigms in humans and other animals, it is an intuitive robot programming method, with the goal to refine the robot's performance, by providing repetitive demonstrations.
@@ -54,7 +53,7 @@ This incremental learning process allows the robot to perform the learned task s
 Learning object manipulation tasks is considered a hard problem, as the robot has limited knowledge about the world and restricted sensor availability \cite{ekvall2008robot}.
 Many PbD algorithms have been proposed in the literature (\cite{argall2009survey}, \cite{billing2010formalism}), but there still remain several challenges that address the suboptimality of demonstrations (\cite{chen2003programing}, \cite{kaiser1995obtaining}) or the lack of comparative user studies (\cite{suay2012practical}).
 % teaching full action sequences
-The challenge we address in this thesis is that in existing PbD implementations the robot learns an action sequence \cite{EricM.Orendt2016,peppoloni2014ros}, rather than atomic actions that can be reused independently. 
+The challenge we address in this thesis is that in existing PbD implementations the robot learns an action sequence \cite{orendt2016robot,peppoloni2014ros}, rather than atomic actions that can be reused independently. 
 Teaching full action sequences is often complicated and time-consuming, as the robot has to be demonstrated a new sequence, whenever the goal changes.
 The user could select task execution plans via a user interface \cite{guerin2015framework}, but ideally, the robot should deduce a task execution plan for a given goal autonomously.
 
