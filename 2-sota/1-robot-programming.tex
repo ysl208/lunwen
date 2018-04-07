@@ -109,7 +109,10 @@ computer vision (or ``robot vision'') for the identification and sorting of obje
 
 These systems can use neural networks (NN) \cite{billard2001robust} or reinforcement learning (RL) \cite{smart2002effective}. Both NN and RL require a large amount of data to learn the desired behaviour. 
 RL further requires a reward function which needs to be specified by a domain expert.
-There are two main classes of RL approaches, namely model-based \cite{polypolydoros2017survey} and model-free \cite{kober2013reinforcement} methods, depending on it uses a model of the interactions between the robot and the environment.
+There are two main classes of RL approaches, namely model-based \cite{polydoros2017survey} and model-free \cite{kober2013reinforcement} methods, differentiating between whether a model of the interactions between the robot and the environment is used, or whether it learns from samples.
+While model-based methods converge faster to the optimal solution, an accurate model is not always available and can impact the learning process.
+Model-free methods require the robot to learn from samples, resulting in a slow convergence to the optimal solution.
+To accelerate the learning and reduce the amount of exploration required, work has been done to include teacher demonstrations with RL solutions \cite{martinez2017relational}.
 In real world scenarios robots require teacher input to learn behaviours efficiently. 
 
 \subsubsection{Programming by Demonstration}
