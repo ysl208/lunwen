@@ -9,16 +9,16 @@ There are many ways to divide robot programming systems. \cite{lozano1983robot} 
 \cite{Biggs2003} took a different approach and divided them into two categories to distinguish systems for users and for programmers:
 
 \begin{itemize}
-    \item Manual programming, where the user can directly control the robot's execution code 
-    \item Automatic programming, where the user does not need to write explicit code
+  \item Manual programming, where the user can directly control the robot's execution code 
+  \item Automatic programming, where the user does not need to write explicit code
 \end{itemize}
 % - also mention software architectures which are important for any robot programming systems.
 
  \begin{figure}[ht]
-  \centering
+ \centering
 \includegraphics[width=\linewidth]{figures/Biggs2003-RobotProgramming}
-  \caption{Robot programming categories to distinguish systems for users and programmers. \cite{Biggs2003}}
-  \label{fig:RobotProgrammingSystems}
+ \caption{Robot programming categories to distinguish systems for users and programmers. \cite{Biggs2003}}
+ \label{fig:RobotProgrammingSystems}
 \end{figure} 
 
 In the following sections we will give a brief overview of the different programming systems.
@@ -44,10 +44,10 @@ Human-Robot Interaction & & \\ \hline
 
 
  \begin{figure}[ht]
-  \centering
+ \centering
 \includegraphics[width=\linewidth]{figures/RobotProgrammingOverview.pdf}
-  \caption{Overview of Robot Programming methods.}
-  \label{fig:RobotProgrammingOverview}
+ \caption{Overview of Robot Programming methods.}
+ \label{fig:RobotProgrammingOverview}
 \end{figure} 
 
 \subsection{Manual Programming Systems}\label{subsec:Manual Programming Systems}
@@ -96,10 +96,10 @@ The increasing amount of big data and advances in techniques to process and stor
 
 
  \begin{figure}[ht]
-  \centering
+ \centering
 \includegraphics[width=\linewidth]{figures/Kreuziger1992-Comparison ML Robotics}
-  \caption{Comparison on Machine Learning applications vs. Robotics. \cite{Kreuziger1992}}
-  \label{fig:MLvsRobotics}
+ \caption{Comparison on Machine Learning applications vs. Robotics. \cite{Kreuziger1992}}
+ \label{fig:MLvsRobotics}
 \end{figure} 
 
 \cite{kaiser1995obtaining} 
@@ -107,7 +107,9 @@ The increasing amount of big data and advances in techniques to process and stor
 Recently Machine learning techniques have found their application in robotics. Research areas include: \url{http://techemergence.com/machine-learning-in-robotics/}\\
 computer vision (or ``robot vision'') for the identification and sorting of objects \cite{stager2013computer} or to learn action plans from watching unconstrained videos \cite{Yang2015}.
 
-These systems can use neural networks (NN) \cite{billard2001robust} or reinforcement learning (RL)  \cite{smart2002effective}. Both NN and RL require a large amount of data to learn the desired behaviour. RL further requires a reward function which needs to be specified by a domain expert.
+These systems can use neural networks (NN) \cite{billard2001robust} or reinforcement learning (RL) \cite{smart2002effective}. Both NN and RL require a large amount of data to learn the desired behaviour. 
+RL further requires a reward function which needs to be specified by a domain expert.
+There are two main classes of RL approaches, namely model-based \cite{polypolydoros2017survey} and model-free \cite{kober2013reinforcement} methods, depending on it uses a model of the interactions between the robot and the environment.
 In real world scenarios robots require teacher input to learn behaviours efficiently. 
 
 \subsubsection{Programming by Demonstration}
