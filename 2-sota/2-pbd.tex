@@ -55,7 +55,7 @@ Given the above mappings and categorisations, we differentiate between four data
 \item External observation  ($g_R(z,a) \neq I(z,a)$ and $g_E(z,a) \neq I(z,a)$): The teacher executes the tasks using their own hands, while external sensors, that may or may not be on the robot learner, are used to record the teacher's task execution.
 \end{itemize}
 
-\noindent A full categorisation for building the demonstration dataset is shown in Figure \ref{fig:Gathering demonstrations2} \cite{argall2009survey}. The use of intermediate mappings can lead to a loss of information of the demonstrated actions. Teleoperation is the most accurate way to transfer the teacher's intention to the robot, as the exact actions are recorded and executed without any intermediate translations. The choice for gathering demonstration data depends highly on the robot's sensory capabilities and the complexity of the demonstrated task. If the robot's joints do not correspond to those of the teacher, it is difficult to find an accurate mapping. For the implementation of our framework, we decided to take a teleoperation approach. The teacher will be handling the robot's limb directly, when demonstrating the task, while the robot records its own joint movements.
+A full categorisation for building the demonstration dataset is shown in Figure \ref{fig:Gathering demonstrations2} \cite{argall2009survey}. The use of intermediate mappings can lead to a loss of information of the demonstrated actions. Teleoperation is the most accurate way to transfer the teacher's intention to the robot, as the exact actions are recorded and executed without any intermediate translations. The choice for gathering demonstration data depends highly on the robot's sensory capabilities and the complexity of the demonstrated task. If the robot's joints do not correspond to those of the teacher, it is difficult to find an accurate mapping. For the implementation of our framework, we decided to take a teleoperation approach. The teacher will be handling the robot's limb directly, when demonstrating the task, while the robot records its own joint movements.
 
   \begin{figure}[ht]
     \centering
@@ -65,9 +65,79 @@ Given the above mappings and categorisations, we differentiate between four data
   \end{figure}
 
 
+\subsubsection{Challenges in PbD}\label{sssec:Challenges in PbD}
+
+\paragraph{Suboptimality of demonstrations.}
+Another known PbD problem exists with regards to the type and quality of the demonstration which is dependent on the teacher's knowledge of the robot's system.
+Na\"{\i}ve teachers may have greater assumptions on the robot's intelligence and take less care in executing demonstrations as compared to roboticists, who understand the effects of noisy demonstrations \cite{suay2012practical}.
+\cite{chen2003programing} and \cite{kaiser1995obtaining} recognised different sources for sub-optimality in demonstration such as the user demonstrating unnecessary or incorrect actions due the lack of knowledge about the task.
+
+\paragraph{Lack of comparison between algorithms.}
+Despite there being many PbD algorithms proposed in research literature (\cite{argall2009survey}, \cite{billing2010formalism}), there remains a lack in comparative user studies.
+Difficulties in comparing across applications arise from the use of different robotic platforms and demonstration techniques, which lead to different representations of demonstration data.
+\cite{suay2012practical} partly addresses this challenge by comparing three well-established algorithms and evaluating their performance in a common domain.
+
+
+\paragraph{Permutation example}
+Consider the task of permutating two objects, which are red and blue and located at positions A and B respectively.
+Our goal is to permutate the two objects, such that red is located at B and blue at A (see Figure \ref{fig:Permutation}).
+The robot is only equipped with one arm and provided with three positions A, B and C.
+As humans, we naturally understand that we need to empty one of the two occupied goal positions (A or B), by making use of the empty space C.
+If the robot was only taught to move objects, but not the conditions for moving them (i.e. that the goal position needs to be vacant before placing an object), it will not be able to produce the same reasoning as us.
+As existing PbD implementations are not goal-oriented, the robot needs to be taught the precise action sequence for the permutation of two objects.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.35]{figures/PbD-permutation}
+	\caption{Initial state and goal state for the permutation of two objects}
+	\label{fig:Permutation}
+\end{figure}
+
+The act of placing an object from one position to another needs to be associated with the condition of having an empty goal position prior to action execution.
+In other words, we set a \textit{precondition} (\textit{``goal position is empty"}) on the state of the world, which needs to be fulfilled for this action to be executed.
+Similarly, we can set conditions for the state of the world \textit{after} the action execution, known as \textit{effects}, e.g. \textit{``object is at goal position"}.
+Thus, an \textit{action model} for the pick-and-place action consists of the following conditions:
+
+\begin{table}[h]
+	\begin{center}
+		\begin{tabular}{l|l}
+			Preconditions & Effects\\ \hline
+			& \\
+			The object X is at the initial position A.
+			& The object X is at the goal position B.\\
+			The goal position B is empty.
+			& The object X is not at the initial position A.
+		\end{tabular}
+	\end{center}
+	\label{tab:conditions}
+	%\caption{Preconditions an}
+\end{table}
+
+This representation, in terms of preconditions and effects, is used in Automated Planning techniques.
+It allows the robot to reason about its tasks by keeping track of the state of the world after each action execution.
+Using these action models, automated planners can generate an action sequence to achieve a goal.
+However, automated planners rely on a classical planning language called PDDL, which represents the conditions in first-order logic (see \fig{fig:Pick-up action model}).
+%Action models, with conditions in first-order logic (see Figure \ref{fig:Pick-up action model}), are used to generate sequences of actions, known as \textit{plans}, to achieve a goal.
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.4]{figures/schema-logic}
+	\caption{Action model representation in first-order logic}
+	\label{fig:Pick-up action model}
+\end{figure}
+Recall the example given earlier to permutate two objects (see Figure \ref{fig:Permutation}).
+Given an initial state (object red at position A, object blue at position B) and a goal state (object red at position B, object blue at position A), the planner can automatically generate an action sequence, which, if executed successfully, transitions from the initial state to the goal state: \texttt{move(blue,B), move(red,B), move(blue,A)} (see Figure \ref{fig:Automated Planner}).
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.6]{figures/PbD-AutomatedPlanner}
+	\caption{Action sequence automatically generated by an automated planner}
+	\label{fig:Automated Planner}
+\end{figure}
+
 \subsubsection{Learning by Watching/Observation}\label{sssec:LbObservation}
 (\cite{kuniyoshi1994learning})
 - teacher provides robot with data to learn from e.g. learn from watching videos (\cite{Yang2015})
 but difficulty lies in providing the optimal \& minimal set of demonstration data
-
  
