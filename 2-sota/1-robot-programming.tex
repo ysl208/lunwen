@@ -114,7 +114,7 @@ While model-based methods converge faster to the optimal solution, an accurate m
 Model-free methods require the robot to learn from samples, resulting in a slow convergence to the optimal solution.
 To accelerate the learning and reduce the amount of exploration required, work has been done to include teacher demonstrations with RL solutions \cite{martinez2017relational,hester2017learning}.
 In real world scenarios robots require teacher input to learn behaviours efficiently. 
-
+\todo{Similar to our work: \cite{martinez2017relational}}
 \subsubsection{Programming by Demonstration}
 Programming by demonstration (PbD) \cite{billard2008robot} is a method, where movements to be learned by the robot are demonstrated by a teacher. There are different ways for a teacher to provide demonstration data (\sect{subsec:Gathering demonstrations}), depending on the amount of data provided at a time (incremental vs. batch learning) and the different interaction modalities (touch, vision, gestures, voice) to transfer the data to the robot. The robot derives a policy in various ways (\sect{subsec:Deriving a policy}). 
 
