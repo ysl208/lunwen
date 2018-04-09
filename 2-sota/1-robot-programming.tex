@@ -115,13 +115,24 @@ Model-free methods require the robot to learn from samples, resulting in a slow 
 To accelerate the learning and reduce the amount of exploration required, work has been done to include teacher demonstrations with RL solutions \cite{martinez2017relational,hester2017learning}.
 In real world scenarios robots require teacher input to learn behaviours efficiently. 
 \todo{Similar to our work: \cite{martinez2017relational}}
-\subsubsection{Programming by Demonstration}
-Programming by demonstration (PbD) \cite{billard2008robot} is a method, where movements to be learned by the robot are demonstrated by a teacher. There are different ways for a teacher to provide demonstration data (\sect{subsec:Gathering demonstrations}), depending on the amount of data provided at a time (incremental vs. batch learning) and the different interaction modalities (touch, vision, gestures, voice) to transfer the data to the robot. The robot derives a policy in various ways (\sect{subsec:Deriving a policy}). 
 
-PbD systems have been used in the industry for creating assembly programs. In recent years there has been significant work in PbD to move from pure imitation to intelligent systems that learn flexible task executions. PbD systems may learn task descriptions from interpreted data to adapt the learned task to changing environments.
+The problem with RL solutions is that reward functions are difficult to specify.
+Inverse reinforcement learning \cite{abbeel2011inverse} is a supervised RL mode where the learner tries to acquire the reward function from demonstrated behaviours.
+
+\subsubsection{Programming by Demonstration}
+Programming by demonstration (PbD) \cite{billard2008robot} is a method, where movements to be learned by the robot are demonstrated by a teacher. 
+There are different ways for a teacher to provide demonstration data (\sect{subsec:Gathering demonstrations}), depending on the amount of data provided at a time (incremental vs. batch learning) and the different interaction modalities (touch, vision, gestures, voice) to transfer the data to the robot. 
+The robot derives a policy in various ways (\sect{subsec:Deriving a policy}). 
+
+PbD systems have been used in the industry for creating assembly programs. 
+In recent years there has been significant work in PbD to move from pure imitation to intelligent systems that learn flexible task executions. 
+PbD systems may learn task descriptions from interpreted data to adapt the learned task to changing environments.
 
 \subsubsection{Instructive Systems}\todo{Delete or Move}
-Instructive systems use gesture or voice recognition to command robots to carry out tasks. These tasks typically consist of actions that they have already been trained or programmed to do. Gestures can be used to direct the attention of the robot for indicating objects in a scene to which the instructions apply. Natural language is the most intuitive way for humans to communicate instructions but may need some form of clarification and learning system in order to work efficiently. 
+Instructive systems use gesture or voice recognition to command robots to carry out tasks.
+These tasks typically consist of actions that they have already been trained or programmed to do. 
+Gestures can be used to direct the attention of the robot for indicating objects in a scene to which the instructions apply. 
+Natural language is the most intuitive way for humans to communicate instructions but may need some form of clarification and learning system in order to work efficiently. 
 A multi-modal communication including information from vision, gesture and voice sources can be used to clarify instructions to the robot, for example mentioning ``that table" and gesturing the relevant object.
 Instructive systems are useful for providing a high-level control but rely on underlying trained abilities which need to be implemented using other programming systems such as manual programming or PbD.
 
@@ -129,16 +140,29 @@ Instructive systems are useful for providing a high-level control but rely on un
 \cite{pan2012recent} gives an overview of three main robot programming methods for industrial robots: online programming, offline programming (OLP), and robot programming using Augmented Reality (RPAR). 
 
 \subsubsection{Online Programming}\label{sssec:Online Programming}
-In online programming methods the robot program commands the robot to move through a recorded sequence of end-effector postures which form a complete task. The postures are recorded using the teach pendant to manually move the end-effector to the desired position and orientation of the task. Due to its simplicity, intuitiveness, and low programming skill requirement, this method is widely used. However, it is only suitable for programming applications with uncomplicated processes and work pieces with simple geometry. Once the program has been generated, it is difficult to make further amendments.
+In online programming methods the robot program commands the robot to move through a recorded sequence of end-effector postures which form a complete task. 
+The postures are recorded using the teach pendant to manually move the end-effector to the desired position and orientation of the task. 
+Due to its simplicity, intuitiveness, and low programming skill requirement, this method is widely used. 
+However, it is only suitable for programming applications with uncomplicated processes and work pieces with simple geometry. 
+Once the program has been generated, it is difficult to make further amendments.
 
 \subsubsection{Offline Programming}\label{sssec:Offline Programming}
-Offline Programming (OLP) is based on 3D CAD data that models the complete robot work cell and lets the user fine-tune the properties of the robot's movements before generating a program that can be downloaded to the robot. It is more efficient when programming complex systems with large volumes and more reliable compared to online programming. As it requires a great amount of programming effort and a long delivery time, it requires high programming overhead and is not efficient for the development of smaller product volumes or customised software.
+Offline Programming (OLP) is based on 3D CAD data that models the complete robot work cell and lets the user fine-tune the properties of the robot's movements before generating a program that can be downloaded to the robot. 
+It is more efficient when programming complex systems with large volumes and more reliable compared to online programming. 
+As it requires a great amount of programming effort and a long delivery time, it requires high programming overhead and is not efficient for the development of smaller product volumes or customised software.
 
-Robot designers and users have developed computational platforms for OLP systems in form of packages that allow secondary development for specific applications. These OLP packages simulate not only robot trajectories and assembly tasks, but can also model interactions of several manufacturing processes, resources and product maintenance issues. Almost every robot manufacturer has its own OLP software. There exist also generic OLP software that are more flexible for hardware from different manufacturers.
+Robot designers and users have developed computational platforms for OLP systems in form of packages that allow secondary development for specific applications. 
+These OLP packages simulate not only robot trajectories and assembly tasks, but can also model interactions of several manufacturing processes, resources and product maintenance issues. 
+Almost every robot manufacturer has its own OLP software. 
+There exist also generic OLP software that are more flexible for hardware from different manufacturers.
 
-Current OLP systems do not provide functions for the complete OLP process but include steps that need to be created manually. Due to the high costs of OLP systems, their use is not cost-efficient for small to medium-sized enterprises.
+Current OLP systems do not provide functions for the complete OLP process but include steps that need to be created manually. 
+Due to the high costs of OLP systems, their use is not cost-efficient for small to medium-sized enterprises.
 
 \subsubsection{Augmented Reality}\label{sssec:Augmented Reality}
-The use of augmented reality (AR) is a revolutionary concept where computer-generated 3D objects are blended onto a real world scene to enhance the user's interaction with the real world \cite{pettersen2003augmented}. Robot programming using AR allows offline programming to be performed without the need to model the workpiece in the virtual environment \cite{pan2012recent}. It can eliminate technical difficulties faced by OLP techniques such as the calibration between the virtual and the real world.
+The use of augmented reality (AR) is a revolutionary concept where computer-generated 3D objects are blended onto a real world scene to enhance the user's interaction with the real world \cite{pettersen2003augmented}. 
+Robot programming using AR allows offline programming to be performed without the need to model the workpiece in the virtual environment \cite{pan2012recent}. 
+It can eliminate technical difficulties faced by OLP techniques such as the calibration between the virtual and the real world.
 
-We aim to provide a solution for non-expert users to program robots in the industry without writing code. We want to learn a high-level abstraction of the behaviours that can be combined with the PDDL language.
+We aim to provide a solution for non-expert users to program robots in the industry without writing code. 
+We want to learn a high-level abstraction of the behaviours that can be combined with the PDDL language.
