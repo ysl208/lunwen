@@ -5,7 +5,9 @@ Planning techniques rely on state-action demonstrations, as well as additional \
 Plans can be learned from observations of the teacher's hand movements \cite{kuniyoshi1994learning}, or from direct interactions with the environment by identifying common constraints in multiple observations \cite{ekvall2008robot}.
 We will discuss plans in more detail in \sect{sec:AP}.
 
+
 \subsubsection{Action condition learning}\label{sssec:Action condition learning}
+\cite{ingrand2017deliberation} gives an overview of recent approaches for acquiring and improving action models, ranging from HMM \cite{fox2006robot} to RL \cite{sutton1998reinforcement}.
 In order to generalise learned actions for different scenarios, the robot has to reason about its actions and understand the circumstances, under which they can be applied. 
 It should learn preconditions and effects of a new skills from teacher demonstrations.
 There are different approaches for rules to associate preconditions and effects with actions and whether additional information is provided by the teacher.
