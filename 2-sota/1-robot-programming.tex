@@ -99,43 +99,45 @@ They are typically easy to use and generally used for robot applications rather 
 \section{Automatic Programming Systems}\label{subsec:Automatic Programming Systems}
 Automatic programming relates to robots that have the capability to learn from new data.
 Unlike manual programming, the user does not need to write explicit robot code and does not have direct control over the code as its behaviour is generated from information entered into the system.
-We distinguish between systems that are \textit{guided}, where the robot learns with human intervention (e.g. Programming by Demonstration), and \textit{unguided}, where the robot learns by exploration (e.g. Neural Networks, Reinforcement Learning).
-Inspired by \cite{Biggs2003}, we further divide automatic systems into two categories: learning systems (unguided) and programming by demonstration (guided).
+Inspired by \cite{Biggs2003}, we divide automatic programming systems between \textit{guided}, where the robot learns with human intervention (e.g. Programming by Demonstration), and \textit{unguided}, where the robot learns by exploration (e.g. Neural Networks, Reinforcement Learning).
 
 \subsection{Learning Systems}\label{sssec:Learning Systems}
-Learning systems use inductive inference to create a program by taking examples provided by the user or from self-exploration of the robot. The goal of so-called machine learning (ML) systems is to construct programs that allow the robot to automatically improve its performance with increasing data. Even though machine learning algorithms have been around since the 1980s \cite{}, it has only become popular in the past few decades. The rise of the internet led to big data and developments in various research areas such as machine learning and computer vision, which have impacted the field of robotics.
-The increasing amount of big data and advances in techniques to process and store data efficiently has lead to a wave of new machine learning techniques. 
-
+Learning systems use inductive inference to create a program by taking examples provided by the user or from self-exploration of the robot. 
+The goal of these machine learning (ML) systems is to construct programs that allow the robot to automatically improve its performance with increasing data. 
+Even though ML algorithms have been around since the 1980s \cite{}, it has only become popular in the past few decades. 
 \cite{Kreuziger1992} analysed the application of ML in robotics (\fig{fig:MLvsRobotics}) and identified a large gap between these two research areas.
 
+The rise of the internet led improved knowledge sharing and developments in various research areas such as computer vision have impacted the field of robotics.
+In particular, the increasing amount of big data and advances in techniques to process and store data efficiently has lead to a wave of new ML techniques. 
+Application of ML in robotics \footnote{http://techemergence.com/machine-learning-in-robotics/} include research areas such as computer vision (or ``robot vision'') for the identification and sorting of objects (\cite{stager2013computer}), imitation learning to learn action plans from watching unconstrained videos (\cite{Yang2015}).
 
- \begin{figure}[ht]
+ \begin{figure}[h]
  \centering
 \includegraphics[width=\linewidth]{figures/Kreuziger1992-Comparison ML Robotics}
  \caption{Comparison on Machine Learning applications vs. Robotics. \cite{Kreuziger1992}}
  \label{fig:MLvsRobotics}
 \end{figure} 
 
-\cite{kaiser1995obtaining} 
+These systems can use neural networks (NN) or reinforcement learning (RL) (\cite{sutton1998reinforcement,kaelbling1996reinforcement,gosavi2009reinforcement}), which  both NN and RL require a large amount of data to learn the desired behaviour.
+(\cite{billard2001robust}) used NN to learn the motion of a human arm in 3D.
+A full review of approaches and techniques using NN is beyond the scope of this thesis.
 
-Recently Machine learning techniques have found their application in robotics. Research areas include: \url{http://techemergence.com/machine-learning-in-robotics/}\\
-computer vision (or ``robot vision'') for the identification and sorting of objects \cite{stager2013computer} or to learn action plans from watching unconstrained videos \cite{Yang2015}.
-
-These systems can use neural networks (NN) \cite{billard2001robust} or reinforcement learning (RL) \cite{sutton1998reinforcement,kaelbling1996reinforcement,gosavi2009reinforcement}. Both NN and RL require a large amount of data to learn the desired behaviour. 
+\subsubsection{Reinforcement Learning}
 RL further requires a reward function which needs to be specified by a domain expert.
-There are two main classes of RL approaches, namely model-based \cite{polydoros2017survey} and model-free \cite{kober2013reinforcement} methods, differentiating between whether a model of the interactions between the robot and the environment is used, or whether it learns from samples.
+There are two main classes of RL approaches, namely model-based (\cite{polydoros2017survey}) and model-free (\cite{kober2013reinforcement}) methods, differentiating between whether a model of the interactions between the robot and the environment is used, or whether it learns from samples.
 While model-based methods converge faster to the optimal solution, an accurate model is not always available and can impact the learning process.
 Model-free methods require the robot to learn from samples, resulting in a slow convergence to the optimal solution.
-To accelerate the learning and reduce the amount of exploration required, work has been done to include teacher demonstrations with RL solutions \cite{martinez2017relational,hester2017learning}.
+cite{kober2013reinforcement} provides a survey of work in RL to generate behaviour for robots and highlights the main challenges that are faced.
+To accelerate the learning and reduce the amount of exploration required, work has been done to include teacher demonstrations with RL solutions (\cite{martinez2017relational,hester2017learning}).
 In real world scenarios robots require teacher input to learn behaviours efficiently. 
 \todo{Similar to our work: \cite{martinez2017relational}}
 
 The problem with RL solutions is that reward functions are difficult to specify.
-Inverse reinforcement learning \cite{abbeel2011inverse} is a supervised RL mode where the learner tries to acquire the reward function from demonstrated behaviours.
+Inverse reinforcement learning (\cite{abbeel2011inverse}) is a supervised RL mode where the learner tries to acquire the reward function from demonstrated behaviours.
 This is can also be considered a learning from demonstration approach.
 
 \subsection{Programming by Demonstration}
-Programming by demonstration (PbD) \cite{billard2008robot}, also known as Learning from Demonstration, describes various techniques the robot learns new behaviours from teacher demonstrations. 
+Programming by demonstration (PbD) (\cite{billard2008robot}), also known as Learning from Demonstration, describes various techniques the robot learns new behaviours from teacher demonstrations. 
 There are different ways for a teacher to provide demonstration data (\sect{subsec:Gathering demonstrations}), depending on the amount of data provided at a time (incremental vs. batch learning) and the different interaction modalities (touch, vision, gestures, voice) to transfer the data to the robot. 
 The robot derives a policy in various ways (\sect{subsec:Deriving a policy}). 
 
