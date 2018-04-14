@@ -67,6 +67,8 @@ In our implementation, we did not focus on the interface layout, hence did not m
 %\item
 %\end{itemize}
 
+
+
 \section{Perceptions}
 During the demonstration, our framework makes use of the sensors provided by the Baxter Research Robot.
 
@@ -80,6 +82,27 @@ It is assumed that the searched objects have a flat surface for the vacuum gripp
 Baxter is equipped with a camera on the screen and one on each end effector.
 The head camera is not very flexible, as the screen does not tilt enough.
 For state observation and object localisation, we decided to only use the camera on Baxter's end effector, that is used for the manipulation task.
+
+\subsection{Knowledge representation} 
+There has been little research addressing the sharing and reuse of knowledge.
+OpenCyc \cite{lenat1990cyc}
+OpenRobots Ontology (ORO) \cite{lemaignan2010oro} creates an abstract representation for high-level knowledge that can be shared among multiple platforms.
+In \cite{lemaignan2017artificial} it is loaded as a priori knowledge and used as an active knowledge base to manage symbolic facts and beliefs produced and shared by cognitive modules such as language processing, task planning, or geometric reasoning modules.
+The authors gather knowledge from three sources: a priori knowledge, knowledge acquired at run-time from perception, and symbolic statements from inferences produced by the reasoner.
+SPAtial Reasoning\&Knowledge (SPARK) \cite{sisbot2011situation} is a geometric and temporal reasoning module that can produce symbolic statements to describe the state of the robot environment and its evolution over time, e.g. <BOOK1 type Book, BOOK1 isOn TABLE>, \\
+find(BOOK2 isAt ?location) \\
+find(?obj type Book, ?obj differentFrom BOOK1)\\
+TAPE isVisible true \\
+TAPE isReachable true\\ 
+TAPE isOn TABLE\\
+TAPE isIn BIN\\
+ROBOT hasInHand TAPE\\
+\cite{lemaignan2017artificial} use 2D fiducial markers for object recognition and have about 10 markers present during the experiment at a time.
+RoboEarth \cite{waibel2011roboearth} collects, stores, and shares data independent of the robot hardware to allow reuse of data for robotic platforms.
+Other approaches include the CRAM/KnowRob architecture \cite{bibid} the knowledge base is an active hub that pro-actively queries perceptual components to acquire knowledge.
+
+We defined a set of types and predicates for our domain model 
+
  
 %%%% Step 2 Learning %%%%
 \section{Learning}
@@ -100,11 +123,11 @@ An example of the observed action model of a \texttt{pick} action with the Baxte
    (:action pick
        :parameters (red - product 0-0 - location right - gripper)
        :precondition  (and  (at red 0-0) (at-gripper right 0-0) 
-                            (free right) not(empty 0-0))
+              (free right) not(empty 0-0))
        :effect (and (carry red right)
-                 (empty 0-0)
-                 (not (at red 0-0)) 
-                 (not (free right))))
+   (empty 0-0)
+   (not (at red 0-0)) 
+   (not (free right))))
 \end{verbatim}
 In order to execute the action, the robot observed that the red-coloured product was at location 0-0 and that the right gripper was free.
 The effect of the \texttt{pick} action was that the right gripper was carrying the red product and that it was no longer occupying position 0-0.
@@ -122,8 +145,8 @@ The robot learns a generalised action model by removing the instantiated values 
        :parameters (?p - product ?l - location ?g - gripper)
        :precondition  (and  (at ?p ?l) (at-gripper ?g ?l) (free ?g))
        :effect (and (carry ?p ?g)
-                    (not (at ?p ?l)) 
-                    (not (free ?g))))
+      (not (at ?p ?l)) 
+      (not (free ?g))))
 \end{verbatim}
 
 \subsubsection{Implementation}
