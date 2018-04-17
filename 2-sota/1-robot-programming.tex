@@ -156,14 +156,8 @@ Instructive systems are useful for providing a high-level control but rely on un
 
 
 \section{Robot Programming in Industrial Environments}\label{subsec:RP in Industrial Enviroments}
-\cite{pan2012recent} gives an overview of three main robot programming methods for industrial robots: online programming, offline programming (OLP), and robot programming using Augmented Reality (RPAR). 
-
-\subsection{Online Programming}\label{sssec:Online Programming}
-In online programming methods the robot program commands the robot to move through a recorded sequence of end-effector postures which form a complete task. 
-The postures are recorded using the teach pendant to manually move the end-effector to the desired position and orientation of the task. 
-Due to its simplicity, intuitiveness, and low programming skill requirement, this method is widely used. 
-However, it is only suitable for programming applications with uncomplicated processes and work pieces with simple geometry. 
-Once the program has been generated, it is difficult to make further amendments.
+The deployment of robots in industrial environments introduces additional constraints to the robot programming process, such as limited resources, time constraints, limited programming expertise, product-specific tasks.
+\cite{pan2012recent} give an overview of three main robot programming methods for industrial robots: offline programming, online programming, and using Augmented Reality. 
 
 \subsection{Offline Programming}\label{sssec:Offline Programming}
 Offline Programming (OLP) is based on 3D CAD data that models the complete robot work cell and lets the user fine-tune the properties of the robot's movements before generating a program that can be downloaded to the robot. 
@@ -178,12 +172,14 @@ There exist also generic OLP software that are more flexible for hardware from d
 Current OLP systems do not provide functions for the complete OLP process but include steps that need to be created manually. 
 Due to the high costs of OLP systems, their use is not cost-efficient for small to medium-sized enterprises.
 
+\subsection{Online Programming}\label{sssec:Online Programming}
+In online programming methods the robot program commands the robot to move through a recorded sequence of end-effector postures which form a complete task. 
+The postures are recorded using the teach pendant to manually move the end-effector to the desired position and orientation of the task. 
+Due to its simplicity, intuitiveness, and low programming skill requirement, this method is widely used. 
+However, it is only suitable for programming applications with uncomplicated processes and work pieces with simple geometry. 
+Once the program has been generated, it is difficult to make further amendments.
+
 \subsection{Augmented Reality}\label{sssec:Augmented Reality}
 The use of augmented reality (AR) is a revolutionary concept where computer-generated 3D objects are blended onto a real world scene to enhance the user's interaction with the real world \cite{pettersen2003augmented}. 
 Robot programming using AR allows offline programming to be performed without the need to model the workpiece in the virtual environment \cite{pan2012recent}. 
 It can eliminate technical difficulties faced by OLP techniques such as the calibration between the virtual and the real world.
-
-We aim to provide a solution for non-expert users to program robots in the industry without writing code. 
-We want to learn a high-level abstraction of the behaviours that can be combined with the PDDL language.
-
-
