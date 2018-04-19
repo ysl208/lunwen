@@ -10,16 +10,18 @@ When deploying robots in real world applications, both manual and machine learni
 A feasible automatic programming system can involve a human operator teach the robot the desired tasks.
 
 \subsection{Relation to Present Work}
-In this thesis we use Programming by Demonstration (PbD) as an intuitive technique for teaching the robot new tasks with minimal programming overhead.
+In this thesis we use Programming by Demonstration (PbD), an intuitive technique for teaching the robot new tasks with minimal programming overhead.
 The problem we address is two-fold:
 \paragraph{Teaching atomic actions}
-In general, many robot PbD implementations already have pick and place actions coded into the system \cite{veeraraghavan2008teaching}.
+In general, many robot PbD implementations already have pick and place actions coded into the system (\cite{veeraraghavan2008teaching}).
 Existing PbD implementations are rather task-specific and cannot be applied to arbitrary scenarios.
 The robot is often taught an action sequence to achieve a predefined goal.
 Even slight changes in the goal could require a different action sequence, so the robot needs to be taught the new action sequence.
 This highlights a key issue in PbD, namely to design a generic system that allows the robot to learn tasks that are applicable to different scenarios.
 In this work, we assume that the robot does not have any atomic actions preprogrammed.
 The user should be able to teach the robot atomic actions by demonstration, which are required for the action sequence.
+There exist a wide range of robot grippers (claw, suction, magnetic, etc.) which are robot dependent.
+With PbD the robot can be taught a user-specified task independent of the robot's gripper.
 
 \paragraph{Automatic action sequence construction}
 After having learned all atomic actions, the robot needs to reuse these actions to achieve a goal.
