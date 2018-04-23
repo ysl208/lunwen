@@ -5,7 +5,7 @@ PbD can be classified into low-level learning (trajectory encoding) and high-lev
 Our focus is on the former, learning low-level trajectories that can be generalised.
  The latter will then be taken over by automated planning techniques.
 
-``Programming by demonstration (PbD) has become a central topic of robotics and spans across general research areas such as human-robot interaction, machine learning, machine vision and motor control." \cite{billard2008robot}
+``Programming by demonstration (PbD) has become a central topic of robotics and spans across general research areas such as human-robot interaction, machine learning, machine vision and motor control." (\cite{billard2008robot})
 It provides an intuitive medium to allow non-robotics-experts, who do not possess the necessary domain knowledge, to communicate skills to robots more easily.
  The underlying concept is to learn a new skill from a set of correct demonstrations.
 It offers a framework for service robotics applications, independent of the robot platform, and reduces the overhead of reprogramming the robot for different tasks.
@@ -18,7 +18,7 @@ The problem of learning a skill can be considered as learning a function that ma
 Programming by demonstration is an approach to learn this policy from demonstration data, known as \textit{examples}.
 % ``Examples are sequences of state-action pairs that are recorded during the teacher's demonstration of the desired robot behaviour." \cite{argall2009survey} 
 Unlike learning techniques in reinforcement learning, PbD is aimed at learning from correct examples only.
- Thus, PbD can be seen as a subset of Supervised Learning, as the agent is presented with labeled training data and tries to learn an approximation of the function, which produced the data \cite{argall2009survey}.
+ Thus, PbD can be seen as a subset of Supervised Learning, as the agent is presented with labeled training data and tries to learn an approximation of the function, which produced the data (\cite{argall2009survey}).
 
  \cite{nicolescu2003natural} present a PbD approach, which allows the robot to learn skill representations and refine them by using feedback cues provided by the teacher.
  Similarly, \cite{calinon2007active} and \cite{calinon2007incremental} implement systems, which actively involve the teacher in the robot's learning process, by providing human guidance to a humanoid robot.
@@ -55,7 +55,7 @@ However, \cite{walsh2010efficient} noted his Ph.D. thesis that negative examples
 
 There exist various techniques for gathering demonstration examples.
  We differentiate between methods for action recording and action execution.
- Consider the two mappings: \cite{argall2009survey}
+ Consider the two mappings (\cite{argall2009survey}):
 \begin{itemize}
 \item Record mapping $g_R(z,a)$: A mapping between the exact actions demonstrated by the teacher and those recorded within the dataset.
 \item Embodiment mapping $g_E(z,a)$: A mapping between the actions recorded in the dataset and the actions executed by the robot learner.
@@ -88,7 +88,7 @@ Given the above mappings and categorisations, we differentiate between four data
 \item External observation  ($g_R(z,a) \neq I(z,a)$ and $g_E(z,a) \neq I(z,a)$): The teacher executes the tasks using their own hands, while external sensors, that may or may not be on the robot learner, are used to record the teacher's task execution.
 \end{itemize}
 
-A full categorisation for building the demonstration dataset is shown in Figure \ref{fig:Gathering demonstrations2} \cite{argall2009survey}.
+A full categorisation for building the demonstration dataset is shown in Figure \ref{fig:Gathering demonstrations2}.
  The use of intermediate mappings can lead to a loss of information of the demonstrated actions.
  Teleoperation is the most accurate way to transfer the teacher's intention to the robot, as the exact actions are recorded and executed without any intermediate translations.
  The choice for gathering demonstration data depends highly on the robot's sensory capabilities and the complexity of the demonstrated task.
@@ -99,7 +99,7 @@ A full categorisation for building the demonstration dataset is shown in Figure 
   \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.6]{figures/Gathering3}
-    \caption{Typical approaches to providing demonstrations}
+    \caption{Typical approaches to providing demonstrations (\cite{argall2009survey})}
     \label{fig:Gathering demonstrations2}
   \end{figure}
 
@@ -108,12 +108,12 @@ A full categorisation for building the demonstration dataset is shown in Figure 
 
 \paragraph{Suboptimality of demonstrations.}
 Another known PbD problem exists with regards to the type and quality of the demonstration which is dependent on the teacher's knowledge of the robot's system.
-Na\"{\i}ve teachers may have greater assumptions on the robot's intelligence and take less care in executing demonstrations as compared to roboticists, who understand the effects of noisy demonstrations \cite{suay2012practical}.
+Na\"{\i}ve teachers may have greater assumptions on the robot's intelligence and take less care in executing demonstrations as compared to roboticists, who understand the effects of noisy demonstrations (\cite{suay2012practical}).
 \cite{chen2003programing} and \cite{kaiser1995obtaining} recognised different sources for sub-optimality in demonstration such as the user demonstrating unnecessary or incorrect actions due the lack of knowledge about the task.
 \cite{cakmak2014teaching} developed a PbD system and investigated the use of instructional materials in the form of tutorials and videos to support the learnability.
 
 \paragraph{Lack of comparison between algorithms.}
-Despite there being many PbD algorithms proposed in research literature (\cite{argall2009survey}, \cite{billing2010formalism}), there remains a lack in comparative user studies.
+Despite there being many PbD algorithms proposed in research literature (\cite{argall2009survey,billing2010formalism}), there remains a lack in comparative user studies.
 Difficulties in comparing across applications arise from the use of different robotic platforms and demonstration techniques, which lead to different representations of demonstration data.
 \cite{suay2012practical} partly addresses this challenge by comparing three well-established algorithms and evaluating their performance in a common domain.
 

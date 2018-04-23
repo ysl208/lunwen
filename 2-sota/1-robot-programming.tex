@@ -35,7 +35,7 @@ Instead, \cite{Biggs2003} divided them into two categories, distinguishing syste
  \begin{figure}[ht]
  \centering
 \includegraphics[width=\linewidth]{figures/Biggs2003-RobotProgramming}
- \caption{Robot programming categories to distinguish systems for users and programmers. \cite{Biggs2003}}
+ \caption{Robot programming categories to distinguish systems for users and programmers. (\cite{Biggs2003})}
  \label{fig:RobotProgrammingSystems}
 \end{figure} 
 
@@ -78,13 +78,20 @@ There are two types of manual programming: text-based programming, where the cod
 Text-based systems are one of the most common methods and use a traditional programming language approach. 
 Depending on the type of language used, the user performs programming in the following languages:
 \begin{itemize}
-	\item controller-specific: robot-specific machine language consisting of simple commands (\cite{KUKA,ABB})
-	\item generic procedural: multi-purpose language (e.g. C++) that has been extended with classes to provide simple access to common robot specific functions \cite{Lego,etc.}
-	\item behaviour-based: specify how the robot should react to different conditions (e.g. Haskell \cite{bibid})
+	\item controller-specific: robot-specific machine language consisting of simple commands ({KUKA, ABB})
+	\item generic procedural: multi-purpose language (e.g. C++) that has been extended with classes to provide simple access to common robot specific functions ({Lego, etc.})
+	\item behaviour-based: specify how the robot should react to different conditions (e.g. Haskell (\cite{bibid}))
 \end{itemize}
 There has been a the trend to move from low-level command-based languages towards more intelligent programming systems with high-level languages that provide more support to the user and  reduces the programming workload.
 However, text-based systems still require trained users with programming knowledge and are more likely to be used by robot developers than end-users.
 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{figures/kuka.jpg}
+	\caption{KUKA Robotics graphical user interface. \cite{kuka}}
+	\label{fig:Kuka}
+\end{figure} 
 
 \todo{Add KUKA interface, lego mindstorms screenshot}
 
@@ -105,7 +112,7 @@ Inspired by \cite{Biggs2003}, we divide automatic programming systems between \t
 Learning systems use inductive inference to create a program by taking examples provided by the user or from self-exploration of the robot. 
 The goal of these machine learning (ML) systems is to construct programs that allow the robot to automatically improve its performance with increasing amounts of data. 
 
-Even though ML algorithms have been around since the 1980s \cite{}, it has only become popular in the past few decades. 
+Even though ML algorithms have been around since the 1980s, it has only become popular in the past few decades. 
 The rise of the internet led to big data, improved knowledge sharing and advances in techniques to process and store data efficiently.
 Developments in various research areas such as computer vision have impacted the field of robotics.
 In particular, big data and advances in techniques to process and store data efficiently has lead to a wave of new ML techniques. 
@@ -113,7 +120,7 @@ Recent applications of ML in robotics \footnote{http://techemergence.com/machine
 
 Deep learning systems generally use neural networks (NN) with different architectures which require a large amounts of data to learn the desired behaviour.
 \cite{billard2001robust} used NN to learn the motion of a human arm in 3D.
-\cite{schmidhuber2015deep} A full review of approaches and techniques in deep learning is beyond the scope of this thesis.
+A full review of approaches and techniques in deep learning (\cite{schmidhuber2015deep}) is beyond the scope of this thesis.
 
 \cite{Kreuziger1992} analysed the application of ML in robotics (\fig{fig:MLvsRobotics}) and identified a large gap between these two research areas.
 \begin{figure}[h]
@@ -131,7 +138,7 @@ Model-free methods require the robot to learn from samples, resulting in a slow 
 cite{kober2013reinforcement} provides a survey of work in RL to generate behaviour for robots and highlights the main challenges that are faced.
 To accelerate the learning and reduce the amount of exploration required, work has been done to include teacher demonstrations with RL solutions (\cite{martinez2017relational,hester2017learning}).
 In real world scenarios robots require teacher input to learn behaviours efficiently. 
-\todo{Similar to our work: \cite{martinez2017relational}}
+%\todo{Similar to our work: \cite{martinez2017relational}}
 
 The problem with RL solutions is that reward functions are difficult to specify.
 Inverse reinforcement learning (\cite{abbeel2011inverse}) is a supervised RL mode where the learner tries to acquire the reward function from demonstrated behaviours.
@@ -146,7 +153,7 @@ PbD systems have been used in the industry for creating assembly programs.
 In recent years there has been significant work in PbD to move from pure imitation to intelligent systems that learn flexible task executions. 
 PbD systems may learn task descriptions from interpreted data to adapt the learned task to changing environments.
 
-\subsection{Instructive Systems}\todo{Delete or Move}
+\subsection{Instructive Systems}%\todo{Delete or Move}
 Instructive systems use gesture or voice recognition to command robots to carry out tasks.
 These tasks typically consist of actions that they have already been trained or programmed to do. 
 Gestures can be used to direct the attention of the robot for indicating objects in a scene to which the instructions apply. 
@@ -157,7 +164,7 @@ Instructive systems are useful for providing a high-level control but rely on un
 
 \section{Robot Programming in Industrial Environments}\label{subsec:RP in Industrial Enviroments}
 The deployment of robots in industrial environments introduces additional constraints to the robot programming process, such as limited resources, time constraints, limited programming expertise, product-specific tasks.
-\cite{pan2012recent} give an overview of three main robot programming methods for industrial robots: offline programming, online programming, and using Augmented Reality. 
+ give an overview of three main robot programming methods for industrial robots: offline programming, online programming, and using Augmented Reality. 
 
 \subsection{Offline Programming}\label{sssec:Offline Programming}
 Offline Programming (OLP) is based on 3D CAD data that models the complete robot work cell and lets the user fine-tune the properties of the robot's movements before generating a program that can be downloaded to the robot. 
@@ -180,6 +187,6 @@ However, it is only suitable for programming applications with uncomplicated pro
 Once the program has been generated, it is difficult to make further amendments.
 
 \subsection{Augmented Reality}\label{sssec:Augmented Reality}
-The use of augmented reality (AR) is a revolutionary concept where computer-generated 3D objects are blended onto a real world scene to enhance the user's interaction with the real world \cite{pettersen2003augmented}. 
-Robot programming using AR allows offline programming to be performed without the need to model the workpiece in the virtual environment \cite{pan2012recent}. 
+The use of augmented reality (AR) is a revolutionary concept where computer-generated 3D objects are blended onto a real world scene to enhance the user's interaction with the real world (\cite{pettersen2003augmented}). 
+Robot programming using AR allows offline programming to be performed without the need to model the workpiece in the virtual environment (\cite{pan2012recent}). 
 It can eliminate technical difficulties faced by OLP techniques such as the calibration between the virtual and the real world.

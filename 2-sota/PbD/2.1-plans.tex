@@ -2,18 +2,18 @@
 The policy is represented as a plan consisting of a sequence of actions, that lead from the initial state to the goal state.
 Actions are defined in terms of \textit{preconditions}, i.e. a state of the world that must be attained in order to execute the action, and \textit{effects}, i.e. the expected state resulting from the action execution. 
 Planning techniques rely on state-action demonstrations, as well as additional \textit{annotations} representing the teacher's intentions or goals.
-Plans can be learned from observations of the teacher's hand movements \cite{kuniyoshi1994learning}, or from direct interactions with the environment by identifying common constraints in multiple observations \cite{ekvall2008robot}.
-We will discuss plans in more detail in \sect{sec:AP}.
+Plans can be learned from observations of the teacher's hand movements (\cite{kuniyoshi1994learning}), or from direct interactions with the environment by identifying common constraints in multiple observations (\cite{ekvall2008robot}).
+We will discuss plans in more detail in \chapt{chap:Sota-AP}.
 
 
 \subsubsection{Action condition learning}\label{sssec:Action condition learning}
-\cite{ingrand2017deliberation} gives an overview of recent approaches for acquiring and improving action models, ranging from HMM \cite{fox2006robot} to RL \cite{sutton1998reinforcement}.
+\cite{ingrand2017deliberation} gives an overview of recent approaches for acquiring and improving action models, ranging from HMM (\cite{fox2006robot}) to RL (\cite{sutton1998reinforcement}).
 In order to generalise learned actions for different scenarios, the robot has to reason about its actions and understand the circumstances, under which they can be applied. 
 It should learn preconditions and effects of a new skills from teacher demonstrations.
 There are different approaches for rules to associate preconditions and effects with actions and whether additional information is provided by the teacher.
-If users are allowed to define their own conditions, they often forget unusual preconditions or side effects, which can cause failures that are noticed only later at plan execution \cite{gil1994learning}.
-Conditions could be derived automatically through direct interaction with the environment and by only considering constraints that are commonly identified in multiple observations \cite{ekvall2008robot}.
-The learning process can also be formed by framing a set of hypotheses on failure cases in order to ensure robustness \cite{yildiz2013learning}.
+If users are allowed to define their own conditions, they often forget unusual preconditions or side effects, which can cause failures that are noticed only later at plan execution (\cite{gil1994learning}).
+Conditions could be derived automatically through direct interaction with the environment and by only considering constraints that are commonly identified in multiple observations (\cite{ekvall2008robot}).
+The learning process can also be formed by framing a set of hypotheses on failure cases in order to ensure robustness (\cite{yildiz2013learning}).
 \cite{guerin2015framework} presents a framework for robot task manipulation using Behaviour Trees which allows users to create task plans based on high-level functions known as operations.
 \cite{nicolescu2003natural} uses a behaviour-based system where the robot learns high-level tasks by recognising primitive actions that are already known to the robot and adjusting the behaviours through parameters.
 Tasks and sequences of behaviours are represented in form of behaviour networks and links between behaviours represent precondition-effect dependencies.

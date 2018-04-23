@@ -15,20 +15,19 @@ In \cite{nicolescu2003natural} the teacher can refine tasks by inserting or remo
  2. Inverse reinforcement learning (\cite{abbeel2004apprenticeship})
  - robot is given teacher demonstrations and learns reward function
 
-\subsubsection{Active/Interactive Learning}\label{sssec:Active Learning} (\cite{chernova2014robot},\cite{calinon2007active})
- - teacher provides robot initial data, observes robot performance and provides feedback
-     - robot can ask for feedback (\cite{cakmak2012aaai})
- - teacher can modify learned action using a visual interface (\cite{alexandrova2015roboflow})
-
- (\cite{nicolescu2003natural}) present a PbD approach, which allows the robot to learn skill representations and refine them by using feedback cues provided by the teacher.
-Similarly, (\cite{calinon2007active}) and (\cite{calinon2007incremental}) implement systems, which actively involve the teacher in the robot's learning process, by providing human guidance to a humanoid robot. The robot first observes the demonstration performed by the teacher, who is wearing motion sensors. When it tries to reproduce the action, the teacher can refine the movement by physically moving its limbs.
-\cite{martinez2017relational} proposes a relational RL solution with guided demonstrations where the robot requests for help from the human teacher to reduce the learning time.
+\subsubsection{Active/Interactive Learning}\label{sssec:Active Learning} 
+For active or interactive learning, the teacher provides robot initial data, observes robot performance and provides feedback (\cite{chernova2014robot},\cite{calinon2007active}).
+The robot can ask for feedback (\cite{cakmak2012aaai}) and the teacher can modify the learned action using a visual interface (\cite{alexandrova2015roboflow}).
+(\cite{nicolescu2003natural}) present a PbD approach, which allows the robot to learn skill representations and refine them by using feedback cues provided by the teacher.
+Similarly, (\cite{calinon2007active}) and (\cite{calinon2007incremental}) implement systems, which actively involve the teacher in the robot's learning process, by providing human guidance to a humanoid robot. 
+The robot first observes the demonstration performed by the teacher, who is wearing motion sensors. When it tries to reproduce the action, the teacher can refine the movement by physically moving its limbs.
+\cite{martinez2017relational} propose a relational RL solution with guided demonstrations where the robot requests for help from the human teacher to reduce the learning time.
 However, demonstrations are only requested if they yield significant improvements as the teacher's time is considered more valuable than the robot's time.
 
-\subsubsection{Robot feedback}
-Robot feedback is important to provide the teacher with enough information about what to demonstrate to the robot.
-Reasons such as wrong preconditions or missing action effects can lead to failures.
-Failures can be explained using excuses \cite{?}
-Benchmark: \cite{martinez2017relational} uses 3 examples from Plannding competitions
+%\subsubsection{Robot feedback}
+%Robot feedback is important to provide the teacher with enough information about what to demonstrate to the robot.
+%Reasons such as wrong preconditions or missing action effects can lead to failures.
+%Failures can be explained using excuses \cite{?}
+%Benchmark: \cite{martinez2017relational} uses 3 examples from Planning competitions
 
 

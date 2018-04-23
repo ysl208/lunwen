@@ -17,13 +17,6 @@ The participants were given sheets with empty tables to complete for each task
 Each participant was allocated 1 hour, but the average duration of the experiment was 49 minutes.
 The participants' behaviour was observed by the experimenter and recorded on camera. 
 
- \begin{figure}[t]
-  \centering
-  \includegraphics[width=8.3cm]{figures/scenarios-exp1}
-  \caption{Users were instructed to provide a description of (a) the initial state of the world and (b) an initial move action model
-They derived additional preconditions for moving the ball from position A1 to B2: (c) \textit{(stackable ball cube)}: the ball can be stacked onto the cube, and (d) \textit{(empty B2)}: if the ball cannot be stacked, the target position should be empty.}
-  \label{fig:scenarios-exp1}
- \end{figure}
  
 \subsection{Experimental Design \& Measurements}
 %After a short introduction to the Baxter robot, 
@@ -33,6 +26,13 @@ Throughout the experiment, users were faced with three different scenarios.
 We evaluated their capability, to apply the planning language to different situations.
 The experiment consisted of the following phases:
 
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.75\linewidth]{figures/scenarios-exp1}
+	\caption{Users were instructed to provide a description of (a) the initial state of the world and (b) an initial move action model
+		They derived additional preconditions for moving the ball from position A1 to B2: (c) \textit{(stackable ball cube)}: the ball can be stacked onto the cube, and (d) \textit{(empty B2)}: if the ball cannot be stacked, the target position should be empty.}
+	\label{fig:scenarios-exp1}
+\end{figure}
 \begin{itemize}
 %  \item{Introduction: After a short introduction to the Baxter robot \cite{Baxter}, users were told that they needed to use a planning language (STRIPS) to explain Baxter the state of the world and the semantic meaning of the actions.}
   \item{\textbf{Training:} Users were presented with an initial world state and the symbolic planning language, to describe the object types and properties
@@ -50,12 +50,20 @@ Then, they had to define an action sequence, that allows the transition to the g
 When the participant struggled to find an answer, the experimenter guided the participant into a possible direction (``Why can the ball not be placed on the cube?").} 
 \end{itemize}
 
- \begin{figure}[t]
-  \centering
-  \includegraphics[width=8.5cm]{figures/eEvaluation2}
-  \caption{Summary of questionnaire responses: Extract of the 26 questions on the user's understanding, after the introduction to the automated planning language (\sect{sec:Exp1}).}
-  \label{fig:eEvaluation2}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\linewidth]{figures/planning-permutation}
+	\caption{Definition of a planning problem (a) properties describing the initial world state (b) object names and their types (c) instantiated actions (d) properties describing the goal state.}
+	\label{fig:planning-permutation}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/eEvaluation2}
+	\caption{Summary of questionnaire responses: Extract of the 26 questions on the user's understanding, after the introduction to the automated planning language (\sect{sec:Exp1}).}
+	\label{fig:eEvaluation2}
 \end{figure} 
+
 \subsection{Results}
 We did not observe any significant differences in the performance of users with or without programming experience
 9 (out of 10) participants found the symbolic representation of properties and actions easy to understand
@@ -73,9 +81,3 @@ All participants gave correct explanations for preconditions and effects of acti
 Half of the participants believed that they could apply this language on their own.
 No participants believed that an `expert' programmer was required to learn the symbolic planning language, but 7 participants believed that the minimum requirement was a `beginner' programming level, while 3 believed that no programming experience was required.
 
- \begin{figure}[t]
-  \centering
-  \includegraphics[width=8.5cm]{figures/scenarios-exp2}
-  \caption{Continuous refinement of the move action model: (a) initial action model learned by demonstration, (b) action model for all cubes of any colour, (c) action model with an additional condition, if the target position is occupied and cubes can not be stacked.}
-  \label{fig:scenarios-exp2}
- \end{figure}

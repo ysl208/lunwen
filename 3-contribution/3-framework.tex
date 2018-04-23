@@ -1,5 +1,3 @@
-\chapter{A Framework for Robot Programming}
-
 \cite{ingrand2017deliberation} identifies six deliberation functions that are necessary to interface with robotic system to act autonomously: planning, acting, monitoring, observing, learning, and goal reasoning (\fig{fig:deliberationfunctions}).
 
 \begin{figure}[h]
@@ -20,7 +18,7 @@ Unlike current PbD implementations, which teach the robot an action sequence to 
 
   \begin{figure}[!h]
     \centering
-    \includegraphics[scale=0.66]{figures/framework2}
+    \includegraphics[width=\linewidth]{figures/framework}
     \caption{Framework for Robot Programming by Demonstration}
     \label{fig:framework}
   \end{figure}
@@ -40,7 +38,7 @@ After each demonstration, the user is presented with options to reproduce the le
 The user either validates the learned action or provides another demonstration to refine it.
  
 
-The action can be learned by generalising over a set of trajectories and by using statistical learning techniques, to deal with uncertainty contained in multiple motion demonstrations \cite{ude1993trajectory}.
+The action can be learned by generalising over a set of trajectories and by using statistical learning techniques, to deal with uncertainty contained in multiple motion demonstrations (\cite{ude1993trajectory}).
 Once the user is confident about the created action model and its associated conditions, they can save it to the knowledge base.
  This process is repeated for all action models that are required to build the knowledge base for the complex task.
  The action models are automatically translated into PDDL, allowing the creation of a PDDL domain, without the requirement for any programming knowledge.

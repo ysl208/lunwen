@@ -1,20 +1,29 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Basic Research Questions and Their Evaluations}\label{sec:hypotheses}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Basic Research Questions and Their Evaluations}
+\label{sec:hypotheses}
 
 To evaluate the framework's usability for non-expert users, %we formulated the following hypotheses:
 %\begin{enumerate}
 %\item[\textbf{H1}] \textit{The user understands the symbolic planning concepts.} This allows us to verify, if the symbolic planning language (PDDL), to describe the world state in terms of object types, properties, generalised properties, and action models, in terms of preconditions and effects, can be adopted easily by non-expert users.
 %\item[\textbf{H2}] \textit{The user is able to teach the robot an action model using the proposed framework.} This allows us to evaluate how users operate the framework.
 %\end{enumerate} 
-we conducted two qualitative user experiments to respond to the questions mentioned in section \chapt{chap:Intro}:
+we conducted two qualitative user experiments to respond to the questions:
 \begin{enumerate}
   \item[\textbf{Q1}] How do non-expert users adopt the automated planning language with its action model representation? (Section \ref{sec:Exp1})
   \item[\textbf{Q2}] Can users teach a robot action models for automated planning using the robot programming framework? (Section \ref{sec:Exp2})
 \end{enumerate}
-The experimental context was designed around a Baxter robot (Fig.
-\fig{fig:Baxter}).
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=.3\textwidth]{figures/experiment1}\hspace{1cm}%\hfill
+	\includegraphics[width=.3\textwidth]{figures/experiment-setup2}
+	
+	\caption{Experimental setup for user studies on Programming by Demonstration of a move action by kinesthetic manipulation of the Baxter robot.}
+	\label{fig:Baxter}
+	
+\end{figure}
+
+The experimental context was designed around a Baxter robot (\fig{fig:Baxter}).
 In both experiments, we included elements to assess the user's understanding of action models used by automated planners.
 Understanding this symbolic representation is a key requirement to use the framework.
 In the following sections, we briefly outline the experimental setup, measurements and results for each experiment.
@@ -31,7 +40,17 @@ In the following sections, we briefly outline the experimental setup, measuremen
 % \end{center}
 % \end{table}
 
-
 \input{5-evaluation/2-pddleval.tex}
 
 \input{5-evaluation/5-evaluation.tex}
+
+
+\subsection{Discussion and Limitations}
+In both experiments, we did not observe a significant difference in the performance between users with different programming experience. The majority of users had issues formulating the logical representations of object properties used in action models. In the first experiments, users had difficulties formulating a single condition (e.g. \texttt{(stackable ball cube)}), but stated equivalent conditions (\textit{`only place the ball, if it is stackable on the cube'}).
+Similarly, in the second experiment, users formulated the missing precondition (\textit{`position B is empty'}) with other equivalent conditions (\textit{`Do not place the object on position B, if it is occupied'}). This means, that users should be provided with a predefined set of conditions that can be added to the action model.
+
+Some users made wide assumptions about the robot's capabilities. In the second experiments, when both arrival and departure positions were occupied (Fig. \ref{fig:scenarios-exp2}c), less half of the users (5) expected Baxter to consider the occupied position, even though the condition was not mentioned in its action model.
+This is a common problem in PbD solutions as there is a difference in the perception of the robot's intelligence perceived by its teacher (\cite{suay2012practical}) and can be addressed by reproducing the learned task in a new context and verifying the robot's knowledge base, as we did throughout the experiment.
+
+With these two qualitative experiments, we showed that the automated planning language could easily be adopted by users without any programming background. Moreover, the action model representation, in terms of preconditions and effects, seems to be intuitive for non-expert users. 
+However, these initial experiments only provide us with an idea of how the users might perceive the proposed framework. We intentionally limited the set of concepts that are necessary to use the framework to the bare minimum. Further experiments should test scalability and address more complicated actions involving separate control groups (experts vs non-experts) in less structured scenarios. 
