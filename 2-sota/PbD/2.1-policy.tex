@@ -1,17 +1,14 @@
 % Deriving  a policy
-\subsection{Deriving a policy}\label{subsec:Deriving a policy}
-Once the dataset of examples has been acquired, the robot learner needs to derive a policy $\pi : Z \rightarrow A$, a state-action mapping from the observed state to the action domain representing the desired behaviour. 
-\cite{chernova2014robot} gives an overview of the state of the art policy derivation techniques.
-The most efficient ones approximate the state-action mapping from as few training examples as possible.
-Figure \ref{fig:Learning-techniques} shows a categorisation of policy derivation techniques, which can be split into three main approaches: Mapping functions, system models, and plans.
+\section{Deriving a policy}\label{subsec:Deriving a policy}
+%Our focus is on the former, learning low-level trajectories that can be generalised.
+%The latter will then be taken over by automated planning techniques.
 
-% \#TO DO: add User intentions, Policy derivation Planner
-  \begin{figure}[!h]
-    \centering
-    \includegraphics[scale=0.75]{figures/Learning-techniques}
-    \caption{Policy derivation techniques (\cite{argall2009survey})}
-    \label{fig:Learning-techniques}
-  \end{figure}
+Once the dataset of examples has been acquired, the robot learner needs to derive a policy $\pi : Z \rightarrow A$, a state-action mapping from the observed state to the action domain representing the desired behaviour. 
+\cite{chernova2014robot} give an overview of the state of the art policy derivation techniques.
+The most efficient ones approximate the state-action mapping from as few training examples as possible.
+PbD can be classified into low-level skill learning (trajectory encoding) and high-level task learning (symbolic encoding).
+Low-level representations focus on learning generalised trajectories from the human demonstrator, high-level representations focus on learning a sequence of motion elements (primitives) (\cite{peppoloni2014ros}). In the following we will give an overview of both techniques.
+
 
 \subsection{Low-level skill learning}
 In the literature low-level actions have been referred to as \textit{skill, motor skill, primitive action,} or \textit{low-level motion} (\cite{chernova2014robot}).
@@ -40,6 +37,16 @@ For learning high-level tasks it is assumed that a set of low-level primitive ac
 Rather than representing the new action as an action sequence, it is modelled by their desired goal states calculated as:
 $A_i(c_1 \dots c_k) = (S_e - S_e \cap S_b) \cup p_{grip}$ where $c_i$ are objects in the scene, $S_b$ and $S_e$ are the states at the beginning and end of the instruction and $p_{grip} = \{open, close\}$ is the gripper status at the end of instruction.
 As the work uses the blocks world domain with a single object type (`block'), an operator for the new high-level action can be inferred easily. Preconditions and effects for the domain are already specified in advance.
+
+Figure \ref{fig:Learning-techniques} shows a categorisation of policy derivation techniques, which can be split into three main approaches: Mapping functions, system models, and plans.
+
+% \#TO DO: add User intentions, Policy derivation Planner
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.75]{figures/Learning-techniques}
+	\caption{Policy derivation techniques (\cite{argall2009survey})}
+	\label{fig:Learning-techniques}
+\end{figure}
 
 
 \subsubsection{1. Mapping function} 

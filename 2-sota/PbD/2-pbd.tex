@@ -1,11 +1,5 @@
-\section{Programming by Demonstration}
-PbD can be classified into low-level learning (trajectory encoding) and high-level (symbolic encoding) learning.
- Low-level representations focus on learning generalised trajectories from the human demonstrator, high-level representations focus on learning a sequence of motion elements (primitives) \cite{peppoloni2014ros}.
-
-Our focus is on the former, learning low-level trajectories that can be generalised.
- The latter will then be taken over by automated planning techniques.
-
-``Programming by demonstration (PbD) has become a central topic of robotics and spans across general research areas such as human-robot interaction, machine learning, machine vision and motor control." (\cite{billard2008robot})
+\section{Introduction}
+``Programming by demonstration (PbD) has become a central topic of robotics and spans across general research areas such as human-robot interaction, machine learning, machine vision and motor control" (\cite{billard2008robot}).
 It provides an intuitive medium to allow non-robotics-experts, who do not possess the necessary domain knowledge, to communicate skills to robots more easily.
  The underlying concept is to learn a new skill from a set of correct demonstrations.
 It offers a framework for service robotics applications, independent of the robot platform, and reduces the overhead of reprogramming the robot for different tasks.
@@ -25,7 +19,7 @@ Unlike learning techniques in reinforcement learning, PbD is aimed at learning f
  The robot first observes the demonstration performed by the teacher, who is wearing motion sensors.
  When it tries to reproduce the action, the teacher can refine the movement by physically moving its limbs.
 
-\subsection{Design choices}
+\section{Design choices}
 There are different design choices to consider when developing a new PbD system.
 We differentiate between the choice of the demonstrator (human or robot), in particular who controls the demonstration and who executes the demonstration.
  Consider the example of a simple pick up action of an object.
@@ -36,7 +30,7 @@ We differentiate between the choice of the demonstrator (human or robot), in par
 Despite the different design choices, there are common aspects across all PbD applications. Firstly, the teacher demonstrates the desired behaviour and, secondly, the learner derives a policy from this set of demonstrations to reproduce the behaviour.
 
 %Building the data set
-\subsection{Gathering demonstrations} \label{subsec:Gathering demonstrations}
+\section{Gathering demonstrations} \label{subsec:Gathering demonstrations}
 There are many ways for the robot to collect data.
  We differentiate between:
 \begin{itemize}
@@ -104,83 +98,3 @@ A full categorisation for building the demonstration dataset is shown in Figure 
   \end{figure}
 
 
-\subsection{Challenges in PbD}\label{sssec:Challenges in PbD}
-
-\paragraph{Suboptimality of demonstrations.}
-Another known PbD problem exists with regards to the type and quality of the demonstration which is dependent on the teacher's knowledge of the robot's system.
-Na\"{\i}ve teachers may have greater assumptions on the robot's intelligence and take less care in executing demonstrations as compared to roboticists, who understand the effects of noisy demonstrations (\cite{suay2012practical}).
-\cite{chen2003programing} and \cite{kaiser1995obtaining} recognised different sources for sub-optimality in demonstration such as the user demonstrating unnecessary or incorrect actions due the lack of knowledge about the task.
-\cite{cakmak2014teaching} developed a PbD system and investigated the use of instructional materials in the form of tutorials and videos to support the learnability.
-
-\paragraph{Lack of comparison between algorithms.}
-Despite there being many PbD algorithms proposed in research literature (\cite{argall2009survey,billing2010formalism}), there remains a lack in comparative user studies.
-Difficulties in comparing across applications arise from the use of different robotic platforms and demonstration techniques, which lead to different representations of demonstration data.
-\cite{suay2012practical} partly addresses this challenge by comparing three well-established algorithms and evaluating their performance in a common domain.
-
-
-\paragraph{Permutation example}
-Consider the task of permutating two objects, which are red and blue and located at positions A and B respectively.
-Our goal is to permutate the two objects, such that red is located at B and blue at A (see Figure \ref{fig:Permutation}).
-The robot is only equipped with one arm and provided with three positions A, B and C.
-As humans, we naturally understand that we need to empty one of the two occupied goal positions (A or B), by making use of the empty space C.
-If the robot was only taught to move objects, but not the conditions for moving them (i.e.
- that the goal position needs to be vacant before placing an object), it will not be able to produce the same reasoning as us.
-As existing PbD implementations are not goal-oriented, the robot needs to be taught the precise action sequence for the permutation of two objects.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.35]{figures/PbD-permutation}
-	\caption{Initial state and goal state for the permutation of two objects}
-	\label{fig:Permutation}
-\end{figure}
-
-The act of placing an object from one position to another needs to be associated with the condition of having an empty goal position prior to action execution.
-In other words, we set a \textit{precondition} (\textit{``goal position is empty"}) on the state of the world, which needs to be fulfilled for this action to be executed.
-Similarly, we can set conditions for the state of the world \textit{after} the action execution, known as \textit{effects}, e.g.
- \textit{``object is at goal position"}.
-Thus, an \textit{action model} for the pick-and-place action consists of the following conditions:
-
-\begin{table}[h]
-	\begin{center}
-		\begin{tabular}{l|l}
-			Preconditions & Effects\\ \hline
-			& \\
-			The object X is at the initial position A.
-			& The object X is at the goal position B.\\
-			The goal position B is empty.
-			& The object X is not at the initial position A.
-		\end{tabular}
-	\end{center}
-	\label{tab:conditions}
-	%\caption{Preconditions an}
-\end{table}
-
-This representation, in terms of preconditions and effects, is used in Automated Planning techniques.
-It allows the robot to reason about its tasks by keeping track of the state of the world after each action execution.
-Using these action models, automated planners can generate an action sequence to achieve a goal.
-However, automated planners rely on a classical planning language called PDDL, which represents the conditions in first-order logic (see \fig{fig:Pick-up action model}).
-%Action models, with conditions in first-order logic (see Figure \ref{fig:Pick-up action model}), are used to generate sequences of actions, known as \textit{plans}, to achieve a goal.
-
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.4]{figures/schema-logic}
-	\caption{Action model representation in first-order logic}
-	\label{fig:Pick-up action model}
-\end{figure}
-Recall the example given earlier to permutate two objects (see Figure \ref{fig:Permutation}).
-Given an initial state (object red at position A, object blue at position B) and a goal state (object red at position B, object blue at position A), the planner can automatically generate an action sequence, which, if executed successfully, transitions from the initial state to the goal state: \texttt{move(blue,B), move(red,B), move(blue,A)} (see Figure \ref{fig:Automated Planner}).
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.6]{figures/PbD-AutomatedPlanner}
-	\caption{Action sequence automatically generated by an automated planner}
-	\label{fig:Automated Planner}
-\end{figure}
-
-\subsubsection{Learning by Watching/Observation}\label{sssec:LbObservation}
-(\cite{kuniyoshi1994learning})
-- teacher provides robot with data to learn from e.g.
- learn from watching videos (\cite{Yang2015})
-but difficulty lies in providing the optimal \& minimal set of demonstration data
- 

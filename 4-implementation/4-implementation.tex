@@ -1,7 +1,7 @@
 %\section{Implementation of the Framework}
 Due to the limited time-frame of this project, we aimed to evaluate the usability of our proposed framework, rather than creating a complete implementation thereof.
 Hence, we focused on creating a program, which allows us to simulate a fully functional implementation of the framework, in order to conduct realistic experiments.
-Our framework should allow an unexperienced user to construct action models in PDDL that can be used in a goal-oriented approach.
+Our framework should allow an inexperienced user to construct action models in PDDL that can be used in a goal-oriented approach.
 The actions are learned by demonstration and then used to execute complex tasks such as the permutation of objects on the table.
 
 %We evaluated the usability of this framework in terms of experiments discussed in Chapter \ref{Evaluation}.
@@ -33,20 +33,20 @@ Aimed at taking over factory operations that usually employ several people, the 
 
 %%%% Step 1 %%%%
 \section{Baxter Research Robot}
-We implemented the framework using a Baxter Research Robot \cite{robotics2013baxter}, which is required to learn the action models needed for a pick-and-place action.
-Baxter is a two-armed humanoid robot created by Rethink Robotics and introduced in 2012 \cite{robotics2013baxter}.
-The SDK interfaces with Baxter via the Robot Operating System (ROS), a framework developed in 2007 by the Stanford Artificial Intelligence Laboratory, that allows the shared use of software across a wide variety of robotic platforms \cite{fernandez2015learning}.
+We implemented the framework using a Baxter Research Robot (\cite{robotics2013baxter}), which is required to learn the action models needed for a pick-and-place action.
+Baxter is a two-armed humanoid robot created by Rethink Robotics and introduced in 2012 (\cite{robotics2013baxter}).
+The SDK interfaces with Baxter via the Robot Operating System (ROS), a framework developed in 2007 by the Stanford Artificial Intelligence Laboratory, that allows the shared use of software across a wide variety of robotic platforms (\cite{fernandez2015learning}).
 Unlike the industrial version of the Baxter robot, which comes with the Intera 3 software that provides a graphical user interface, the research robot arrives without any such functionalities.
 
 To date, there are many research laboratories that have started developing algorithms using the Baxter Research Robot.
 Current implementations for task execution with the Baxter research robot are specifically designed to fulfill a certain task (e.g.
-pick up golf balls and place them in a basket \cite{BaxterGolf}, play the game Connect 4 by picking up chips from a specified location \cite{Connect4}).
-After the Ebola outbreak in West Africa in 2014, the Baxter Research Robot has been utilised to reduce the risk of contamination \cite{Ebola}.
+pick up golf balls and place them in a basket (\cite{BaxterGolf}), play the game Connect 4 by picking up chips from a specified location (\cite{Connect4})).
+After the Ebola outbreak in West Africa in 2014, the Baxter Research Robot has been utilised to reduce the risk of contamination (\cite{Ebola}).
 
 %However, the educational level of robotics students to provide solutions for workers is far behind the potential for robots.
 
 \section{The User Interface}
-Our user interface was built upon the existing ROS package called \textsc{Baxter Tasker} created by Generation Robots \cite{BaxterTasker}.
+Our user interface was built upon the existing ROS package called \textsc{Baxter Tasker} created by Generation Robots (\cite{BaxterTasker}).
 \textsc{Baxter Tasker} is intended for the Baxter Research Robot and provides a user interface on both the computer and the robot.
 The user interface was initially designed to allow users to set up a simple pick and place behaviour and provides a general overview of Baxter's capabilities.
 The Python classes combine the use of sensor data and existing Baxter interface classes.
@@ -83,25 +83,25 @@ Baxter is equipped with a camera on the screen and one on each end effector.
 The head camera is not very flexible, as the screen does not tilt enough.
 For state observation and object localisation, we decided to only use the camera on Baxter's end effector, that is used for the manipulation task.
 
-\subsection{Knowledge representation} 
-There has been little research addressing the sharing and reuse of knowledge.
-OpenCyc \cite{lenat1990cyc}
-OpenRobots Ontology (ORO) \cite{lemaignan2010oro} creates an abstract representation for high-level knowledge that can be shared among multiple platforms.
-In \cite{lemaignan2017artificial} it is loaded as a priori knowledge and used as an active knowledge base to manage symbolic facts and beliefs produced and shared by cognitive modules such as language processing, task planning, or geometric reasoning modules.
-The authors gather knowledge from three sources: a priori knowledge, knowledge acquired at run-time from perception, and symbolic statements from inferences produced by the reasoner.
-SPAtial Reasoning\&Knowledge (SPARK) \cite{sisbot2011situation} is a geometric and temporal reasoning module that can produce symbolic statements to describe the state of the robot environment and its evolution over time, e.g. <BOOK1 type Book, BOOK1 isOn TABLE>, \\
-find(BOOK2 isAt ?location) \\
-find(?obj type Book, ?obj differentFrom BOOK1)\\
-TAPE isVisible true \\
-TAPE isReachable true\\ 
-TAPE isOn TABLE\\
-TAPE isIn BIN\\
-ROBOT hasInHand TAPE\\
-\cite{lemaignan2017artificial} use 2D fiducial markers for object recognition and have about 10 markers present during the experiment at a time.
-RoboEarth \cite{waibel2011roboearth} collects, stores, and shares data independent of the robot hardware to allow reuse of data for robotic platforms.
-Other approaches include the CRAM/KnowRob architecture \cite{bibid} the knowledge base is an active hub that pro-actively queries perceptual components to acquire knowledge.
+%\subsection{Knowledge representation} 
+%There has been little research addressing the sharing and reuse of knowledge.
+%OpenCyc (\cite{lenat1990cyc})
+%OpenRobots Ontology (ORO) (\cite{lemaignan2010oro}) creates an abstract representation for high-level knowledge that can be shared among multiple platforms.
+%In \cite{lemaignan2017artificial} it is loaded as a priori knowledge and used as an active knowledge base to manage symbolic facts and beliefs produced and shared by cognitive modules such as language processing, task planning, or geometric reasoning modules.
+%The authors gather knowledge from three sources: a priori knowledge, knowledge acquired at run-time from perception, and symbolic statements from inferences produced by the reasoner.
+%SPAtial Reasoning\&Knowledge (SPARK) (\cite{sisbot2011situation}) is a geometric and temporal reasoning module that can produce symbolic statements to describe the state of the robot environment and its evolution over time, e.g. <BOOK1 type Book, BOOK1 isOn TABLE>, \\
+%find(BOOK2 isAt ?location) \\
+%find(?obj type Book, ?obj differentFrom BOOK1)\\
+%TAPE isVisible true \\
+%TAPE isReachable true\\ 
+%TAPE isOn TABLE\\
+%TAPE isIn BIN\\
+%ROBOT hasInHand TAPE\\
+%\cite{lemaignan2017artificial} use 2D fiducial markers for object recognition and have about 10 markers present during the experiment at a time.
+%RoboEarth (\cite{waibel2011roboearth}) collects, stores, and shares data independent of the robot hardware to allow reuse of data for robotic platforms.
+%Other approaches include the CRAM/KnowRob architecture (\cite{bibid}) the knowledge base is an active hub that pro-actively queries perceptual components to acquire knowledge.
 
-We defined a set of types and predicates for our domain model 
+%We defined a set of types and predicates for our domain model 
 
  
 %%%% Step 2 Learning %%%%
@@ -226,7 +226,7 @@ Thus, the search is performed on a picture that is regularly taken by the camera
 We used OpenCV, as there already exists a library that allows simple edge detection and object recognition from pictures.
 
 At the beginning of the search, the camera is moved to a position where the entire working area can be captured in the image.
-Using the OpenCV library \cite{opencv}, we convert this image to a bit array and filter by the searched colour to track the location of an object.
+Using the OpenCV library (\cite{opencv}), we convert this image to a bit array and filter by the searched colour to track the location of an object.
 
 Once the greatest area containing the searched colour has been identified, the grasp position is calculated by taking its center (see \fig{fig:detectObject1}).
 
@@ -341,6 +341,6 @@ After the new action has been created and tested, it is likely that the user nee
 The execution to a new context provides the user with the possibility to test the selected predicates associated with the action.
 The user can take advantage of the robot's incremental learning process.
 This means the repeated use of action demonstrations by the teacher and the refinement of the action model.
-Multiple demonstrations can be used to extract conditions that are commonly observed and learned trajectories can be refined by using statistical modeling techniques \cite{ude1993trajectory}.
-Hidden Markov Models (HMMs) can be used to encode temporal and spatial variations or to reproduce various motions \cite{tso1996hidden}.
+Multiple demonstrations can be used to extract conditions that are commonly observed and learned trajectories can be refined by using statistical modeling techniques (\cite{ude1993trajectory}).
+Hidden Markov Models (HMMs) can be used to encode temporal and spatial variations or to reproduce various motions (\cite{tso1996hidden}).
 %\section{Generate and save the PDDL code for the learned action}

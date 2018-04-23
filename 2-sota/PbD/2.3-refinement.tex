@@ -6,14 +6,20 @@ The robot can learn from observation data provided by the teacher (Learning by O
 
 In \cite{nicolescu2003natural} the teacher can refine tasks by inserting or removing behaviours from the networks of abstract behaviours.
 
-\subsubsection{Learning by Exploration}\label{sssec:LbExploration}
+%\subsubsection{Learning by Exploration}\label{sssec:LbExploration}
+%
+%- the robot acquires data from interaction with its environment
+%- need a reward function which allows him to learn from the data
+%1. Reinforcement learning (\cite{sutton1998reinforcement}, \cite{mnih2015human})
+% - reward function can be specified by the user, robot learns policy by self-exploration
+% 2. Inverse reinforcement learning (\cite{abbeel2004apprenticeship})
+% - robot is given teacher demonstrations and learns reward function
 
-- the robot acquires data from interaction with its environment
-- need a reward function which allows him to learn from the data
-1. Reinforcement learning (\cite{sutton1998reinforcement}, \cite{mnih2015human})
- - reward function can be specified by the user, robot learns policy by self-exploration
- 2. Inverse reinforcement learning (\cite{abbeel2004apprenticeship})
- - robot is given teacher demonstrations and learns reward function
+%\subsubsection{Learning by Watching/Observation}\label{sssec:LbObservation}
+%(\cite{kuniyoshi1994learning})
+%- teacher provides robot with data to learn from e.g.
+% learn from watching videos (\cite{Yang2015})
+%but difficulty lies in providing the optimal \& minimal set of demonstration data
 
 \subsubsection{Active/Interactive Learning}\label{sssec:Active Learning} 
 For active or interactive learning, the teacher provides robot initial data, observes robot performance and provides feedback (\cite{chernova2014robot},\cite{calinon2007active}).
@@ -31,3 +37,16 @@ However, demonstrations are only requested if they yield significant improvement
 %Benchmark: \cite{martinez2017relational} uses 3 examples from Planning competitions
 
 
+
+\section{Challenges in PbD}\label{sssec:Challenges in PbD}
+
+\paragraph{Suboptimality of demonstrations.}
+Another known PbD problem exists with regards to the type and quality of the demonstration which is dependent on the teacher's knowledge of the robot's system.
+Na\"{\i}ve teachers may have greater assumptions on the robot's intelligence and take less care in executing demonstrations as compared to roboticists, who understand the effects of noisy demonstrations (\cite{suay2012practical}).
+\cite{chen2003programing} and \cite{kaiser1995obtaining} recognised different sources for sub-optimality in demonstration such as the user demonstrating unnecessary or incorrect actions due the lack of knowledge about the task.
+\cite{cakmak2014teaching} developed a PbD system and investigated the use of instructional materials in the form of tutorials and videos to support the learnability.
+
+\paragraph{Lack of comparison between algorithms.}
+Despite there being many PbD algorithms proposed in research literature (\cite{argall2009survey,billing2010formalism}), there remains a lack in comparative user studies.
+Difficulties in comparing across applications arise from the use of different robotic platforms and demonstration techniques, which lead to different representations of demonstration data.
+\cite{suay2012practical} partly addresses this challenge by comparing three well-established algorithms and evaluating their performance in a common domain.

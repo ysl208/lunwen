@@ -88,25 +88,26 @@ However, text-based systems still require trained users with programming knowled
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\linewidth]{figures/kuka.jpg}
-	\caption{KUKA Robotics graphical user interface. \cite{kuka}}
+	\includegraphics[width=0.8\linewidth]{figures/kuka.jpg}
+	\caption{KUKA Robotics graphical user interface (\cite{kuka2006})}
 	\label{fig:Kuka}
 \end{figure} 
 
-\todo{Add KUKA interface, lego mindstorms screenshot}
+%\todo{Add KUKA interface, lego mindstorms screenshot}
 
 \subsection{Graphical Systems}\label{sssec:Graphical systems}
 Graphical (or icon-based) systems use a graph, flow-chart or diagram view where users manually specify actions and program flow. 
 The graphical icons correspond directly to the program statements.
 They are typically easy to use and generally used for robot applications rather than system programming. 
 \cite{lego2003} and \cite{bischoff2002morpha} produced graphical systems using a flow-chart approach, where the robot's behaviour can be configured by arranging low-level actions in a sequence.
-\todo{Add examples of graphical systems}
+%\todo{Add examples of graphical systems}
 
 
 \section{Automatic Programming Systems}\label{subsec:Automatic Programming Systems}
 Automatic programming relates to robots that have the capability to learn from new data.
 Unlike manual programming, the user does not need to write explicit robot code and does not have direct control over the code as its behaviour is generated from information entered into the system.
-Inspired by \cite{Biggs2003}, we divide automatic programming systems between \textit{guided}, where the robot learns with human intervention (e.g. Programming by Demonstration), and \textit{unguided}, where the robot learns by exploration (e.g. Neural Networks, Reinforcement Learning).
+\cite{Biggs2003} divided automatic programming systems between \textit{guided}, where the robot learns with human intervention (e.g. Programming by Demonstration), and \textit{unguided}, where the robot learns by exploration (e.g. Neural Networks, Reinforcement Learning).
+Furthermore, the author mentions instructive systems which can be considered a
 
 \subsection{Learning Systems}\label{sssec:Learning Systems}
 Learning systems use inductive inference to create a program by taking examples provided by the user or from self-exploration of the robot. 
@@ -122,13 +123,13 @@ Deep learning systems generally use neural networks (NN) with different architec
 \cite{billard2001robust} used NN to learn the motion of a human arm in 3D.
 A full review of approaches and techniques in deep learning (\cite{schmidhuber2015deep}) is beyond the scope of this thesis.
 
-\cite{Kreuziger1992} analysed the application of ML in robotics (\fig{fig:MLvsRobotics}) and identified a large gap between these two research areas.
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\linewidth]{figures/Kreuziger1992-Comparison ML Robotics}
-	\caption{Comparison on Machine Learning applications vs. Robotics. \cite{Kreuziger1992}}
-	\label{fig:MLvsRobotics}
-\end{figure} 
+%\cite{Kreuziger1992} analysed the application of ML in robotics (\fig{fig:MLvsRobotics}) and identified a large gap between these two research areas.
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=\linewidth]{figures/Kreuziger1992-Comparison ML Robotics}
+%	\caption{Comparison on Machine Learning applications vs. Robotics. \cite{Kreuziger1992}}
+%	\label{fig:MLvsRobotics}
+%\end{figure} 
 
 \subsubsection{Reinforcement Learning}
 Rreinforcement learning (RL) (\cite{sutton1998reinforcement,kaelbling1996reinforcement,gosavi2009reinforcement}) requires a reward function which needs to be specified by a domain expert.

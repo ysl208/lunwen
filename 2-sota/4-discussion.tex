@@ -31,10 +31,11 @@ With PbD the robot can be taught a user-specified task independent of the robot'
 After having learned all atomic actions, the robot needs to reuse these actions to achieve a goal.
 Current solutions either teach the robot entire action sequences or include an intermediate manual step where the user has to construct an optimal sequences.
 Finding an optimal sequence can be tedious and expensive.
-We want to equip the robot with all the skills needed to act autonomously in any state of the world, rather than teaching it how to react to a given state of the world.
+%We want to equip the robot with all the skills needed to act autonomously in any state of the world, rather than teaching it how to react to a given state of the world.
 %To achieve this, we have to design our framework using plans, which provides us with the required tools.
 %As we focus on collaborative environments, where the teacher is actively involved in the learning process, plans allow a means to communicate the teacher's intentions together with the demonstrations.
-Therefore, our policy derivation choice will enable the robot to learn the action, as well as its semantics, and combine them with goal-oriented problem-solving techniques.
+Therefore, we choose plans as the policy derivation technique.
+This will enable the robot to learn the action and its semantics, so that an action sequence can be generated automatically with the help of a planner. 
 
 
 % PbD + PDDL representation
