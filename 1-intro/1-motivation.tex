@@ -11,22 +11,22 @@ To overcome this difficulty, recent research has been focusing on human-robot co
 
 
 \subsection{Cobotics}\label{subsec:Cobotics}
-Collaborative robots, or ``cobots", have been introduced by Peshkin and Colgate in 1999 \cite{colgate1999cobots} and allow for a close collaboration between humans and robots.
+Collaborative robots, or ``cobots", have been introduced by \cite{colgate1999cobots} and allow for a close collaboration between humans and robots.
 They enable humans to perform tasks, which they cannot perform on their own, due to physical constraints such as the manipulation of heavy parts.
 They reduce risks of work-related accidents, including health hazards such as exposure to dangerous environments (e.g. chemical acids, excessive temperatures or noise), as well as sleeping disorders caused by rotating work shifts.
 Thus, cobots contribute to productivity gains as they are designed to take over manual and repetitive tasks and are able to respond to actions of the human operator.
 
-Cobotic systems have been adapted in several industries from the food-processing industry \cite{Food}, to aeronautics \cite{Airbus} to the health industry \cite{Ebola}.
+Cobotic systems have been adapted in several industries from the food-processing industry (\cite{Food}), to aeronautics (\cite{Airbus}) to the health industry (\cite{Ebola}).
 Despite the uptake of the robotics technology, there exist strong barriers, which prevent their widespread adoption.
 Companies, which resist the use of robots in their daily routines, perceive no actual need for them and consider the investment cost ineffective, due to their high initial costs.
 Another factor is the lack of trained personnel, who have the required skills to fully operate and exploit the robots.
 The use of cobots opens up a market for new high-skilled jobs, while replacing those of low-skilled human workers.
 
 There are different ways to teach robots new skills but deployment the deployment in real world often introduces limitations. 
-Techniques using large amounts of data (Neural Networks \cite{billard2001robust}) or self-exploration (Reinforcement Learning \cite{smart2002effective}) become infeasible for these applications.
+Techniques using large amounts of data (e.g. Neural Networks in \cite{billard2001robust}) or self-exploration (e.g. Reinforcement Learning in \cite{smart2002effective}) become infeasible for these applications.
 
 \subsection{Robot Programming by Demonstration}
-Robot Programming by Demonstration (PbD), also referred to as \textit{Learning from Demonstration}, is a technique for teaching a robot new skills by demonstrating a task, without writing any code \cite{billard2008robot}.
+Robot Programming by Demonstration (PbD), also referred to as \textit{Learning from Demonstration}, is a technique for teaching a robot new skills by demonstrating a task, without writing any code (\cite{billard2008robot}).
 PbD has become a central topic in research areas, with the aim to move from purely pre-programmed robots to flexible user-based interfaces for training robots.
 Influenced by natural learning paradigms in humans and other animals, it is an intuitive robot programming method, with the goal to refine the robot's performance, by providing repetitive demonstrations.
 
@@ -36,7 +36,7 @@ The robot uses its different sensors for a multi-modal perception of the demonst
 The new skill is evaluated via execution in a new context, under the supervision of the teacher.
 The teacher can refine the learned skill by presenting demonstrations of the same skill under different conditions.
 The robot then generalises over the different demonstrations by extracting essential components that remained unchanged across the various demonstrations.
-This incremental learning process allows the robot to perform the learned task straight away, while being monitored by the teacher, and therefore allows the robot to learn a task from as few demonstrations as possible \cite{billard2008robot}.
+This incremental learning process allows the robot to perform the learned task straight away, while being monitored by the teacher, and therefore allows the robot to learn a task from as few demonstrations as possible (\cite{billard2008robot}).
 
   \begin{figure}[h]
     \centering
@@ -46,14 +46,14 @@ This incremental learning process allows the robot to perform the learned task s
   \end{figure}
 
 %Besides the advantage of being able to teach the robot tasks without the need to write code, PbD provides a powerful tool to improve learning abilities by reducing the search space of possible solutions.
-Learning object manipulation tasks is considered a hard problem, as the robot has limited knowledge about the world and restricted sensor availability \cite{ekvall2008robot}.
-Many PbD algorithms have been proposed in the literature (\cite{argall2009survey}, \cite{billing2010formalism}), but there still remain several challenges that address the suboptimality of demonstrations (\cite{chen2003programing}, \cite{kaiser1995obtaining}) or the lack of comparative user studies (\cite{suay2012practical}).
+Learning object manipulation tasks is considered a hard problem, as the robot has limited knowledge about the world and restricted sensor availability (\cite{ekvall2008robot}).
+Many PbD algorithms have been proposed in the literature (\cite{argall2009survey,billing2010formalism}), but there still remain several challenges that address the suboptimality of demonstrations (\cite{chen2003programing,kaiser1995obtaining}) or the lack of comparative user studies (\cite{suay2012practical}).
 
 \subsection{Problem Statement}
 % teaching full action sequences
-The challenge we address in this thesis is that in existing PbD implementations the robot learns an action sequence \cite{orendt2016robot,peppoloni2014ros}, rather than atomic actions that can be reused independently. 
+The challenge we address in this thesis is that in existing PbD implementations the robot learns an action sequence (\cite{orendt2016robot,peppoloni2014ros}), rather than atomic actions that can be reused independently. 
 Teaching full action sequences is often complicated and time-consuming, as the robot has to be demonstrated a new sequence, whenever the goal changes.
-The user could select task execution plans via a user interface \cite{guerin2015framework}, but ideally, the robot should deduce a task execution plan for a given goal autonomously.
+The user could select task execution plans via a user interface (\cite{guerin2015framework}), but ideally, the robot should deduce a task execution plan for a given goal autonomously.
 
 Current approaches only teach the robot an action for manipulating an object, but do not explicitly associate a semantic meaning to it, other than assigning it a name.
 If the robot is taught an action's semantic meaning, i.e. the conditions for executing the action, it is provided with the relevant application context and could reuse the action in different contexts.
@@ -73,7 +73,7 @@ In other words, given a user-defined goal, the robot should generate and execute
 The user must construct a knowledge base, consisting of a domain model (the environment that the robot interacts with) and all action models required for the robot to accomplish the defined task.
 
 Consider again the example of permutating two objects on the table.
-The domain would consist of a table with a finite number of objects and limited positions, as well as actions models consisting of pick, place and move. Possible goals could be to stack the objects by size (similar to the Tower of Hanoi problem \cite{douglas1985metamagical}) or to arrange the objects in a certain order. Our framework should enable the user to teach the robot by demonstration all action models needed, including their relevant preconditions and effects. Once the action models have been created, the inbuilt automated planner can generate an action sequence to achieve any goal within the domain. 
+The domain would consist of a table with a finite number of objects and limited positions, as well as actions models consisting of pick, place and move. Possible goals could be to stack the objects by size (similar to the Tower of Hanoi problem in \cite{douglas1985metamagical}) or to arrange the objects in a certain order. Our framework should enable the user to teach the robot by demonstration all action models needed, including their relevant preconditions and effects. Once the action models have been created, the inbuilt automated planner can generate an action sequence to achieve any goal within the domain. 
 
 %Hence, we address two common situations, where reprogramming is required: 
 %\begin{itemize}
