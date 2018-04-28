@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt,twoside]{book}
+\documentclass[a4paper,12pt,twoside,openany]{book}
 
 % \usepackage{fancyhdr}
  
@@ -52,7 +52,7 @@
 \newcommand{\note}[1]{{{\textcolor[rgb]{0.4, 0.4, 0.4}{\em #1}}}}
 \newcommand{\todo}[1]{{{\textcolor[rgb]{0.9, 0.4, 0.4}{TODO: \em #1}}}}
 \newcommand{\camera}[1]{{#1}}
-
+\newcommand\abstractname{Abstract}
 %%% BEGIN DOCUMENT
 \begin{document}
 
@@ -60,11 +60,15 @@
  \maketitle
 % \copyrightpage
 % \abstractpage
+
+\chapter*{Abstract}
+\input{0-frontmatter/1-abstract.tex}
 \tableofcontents
 %\authorlist
 \listoffigures
 
 %=====================
+
 \chapter{Introduction} \label{chap:Intro}
 \input{1-intro/0-main.tex}
 
