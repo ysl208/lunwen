@@ -1,32 +1,29 @@
 \section{Context}
 % 1-2 pages max
 Technologies have revolutionised the manufacturing industry ever since the Industrial revolution in the 19th century.
-Robots have increased productivity by replacing humans for arduous and repetitive manual tasks.
-Autonomous robots are able to increase efficiency, lower costs, and relieve humans from operationally dangerous tasks.
+Robots are increasing productivity by replacing humans for arduous and repetitive manual tasks.
+%are increasing productivity, efficiency, lower costs, and relieve humans from operationally dangerous tasks.
 There is a noticeable increase in industrial robot order requests, as well as capital investments into the field.
-Although robots can be superior in automating human tasks, there remain many tasks that cannot be completely taken over and that still need human intervention, such as high-precision tasks.
-Traditional robot programming requires robotics and programming experts and robots are generally programmed to complete a specific task.
-This is a bottleneck for industries as they cannot change robot functions easily.
-To overcome this difficulty, recent research has been focusing on human-robot collaboration and robot programming for end-users.
-
+Although robots can be superior in automating human tasks, there remain many that cannot be completely taken over and that still need human intervention, such as high-precision tasks.
+To allow both human precision and robot automation, collaborative robots have been introduced.
 
 \subsection{Cobotics}\label{subsec:Cobotics}
-Collaborative robots, or ``cobots", have been introduced by \cite{colgate1999cobots} and allow for a close collaboration between humans and robots.
+Collaborative robots, or \textit{cobots}, have been introduced by \cite{colgate1999cobots} and allow for a close collaboration between humans and robots.
 They enable humans to perform tasks, which they cannot perform on their own, due to physical constraints such as the manipulation of heavy parts.
-They reduce risks of work-related accidents, including health hazards such as exposure to dangerous environments (e.g. chemical acids, excessive temperatures or noise), as well as sleeping disorders caused by rotating work shifts.
+Furthermore, they reduce risks of work-related accidents, including health hazards such as exposure to dangerous environments (e.g. chemical acids, excessive temperatures or noise), as well as sleeping disorders caused by rotating work shifts.
 Thus, cobots contribute to productivity gains as they are designed to take over manual and repetitive tasks and are able to respond to actions of the human operator.
+While replacing jobs of low-skilled human workers, they open up a market for new high-skilled jobs.
 
-Cobotic systems have been adapted in several industries from the food-processing industry (\cite{Food}), to aeronautics (\cite{Airbus}) to the health industry (\cite{Ebola}).
-Despite the uptake of the robotics technology, there exist strong barriers, which prevent their widespread adoption.
-Companies, which resist the use of robots in their daily routines, perceive no actual need for them and consider the investment cost ineffective, due to their high initial costs.
-Another factor is the lack of trained personnel, who have the required skills to fully operate and exploit the robots.
-The use of cobots opens up a market for new high-skilled jobs, while replacing those of low-skilled human workers.
-
-There are different ways to teach robots new skills but deployment the deployment in real world often introduces limitations. 
-Techniques using large amounts of data (e.g. Neural Networks in \cite{billard2001robust}) or self-exploration (e.g. Reinforcement Learning in \cite{smart2002effective}) become infeasible for these applications.
+Cobotic systems have been adopted in several industries from the food-processing industry (\cite{Food}), to aeronautics (\cite{Airbus}) to the health industry (\cite{Ebola}).
+However, companies which resist the use of robots in their daily routines, consider the investment cost ineffective, due to their high initial costs and the lack of trained personnel.
+%, who have the needed programming skills to fully operate and exploit the robots.
+Traditional robot programming solutions require domain experts and robots are generally programmed to complete a specific task.
+Recent approaches using large amounts of data (e.g. Neural Networks in \cite{billard2001robust}) or self-exploration (e.g. Reinforcement Learning in \cite{smart2002effective}) become infeasible for task-specific applications.
+This is a bottleneck for industries as many robot programming solutions fail as the deployment in real world scenarios introduces further limitations. 
+To overcome this difficulty, recent research has been focusing on robot programming for end-users.
 
 \subsection{Robot Programming by Demonstration}
-Robot Programming by Demonstration (PbD), also referred to as \textit{Learning from Demonstration}, is a technique for teaching a robot new skills by demonstrating a task, without writing any code (\cite{billard2008robot}).
+Robot Programming by Demonstration (PbD), also referred to as \textit{Learning from Demonstration}, is an end-user technique for teaching a robot new skills by demonstrating a task, without writing code (\cite{billard2008robot}).
 PbD has become a central topic in research areas, with the aim to move from purely pre-programmed robots to flexible user-based interfaces for training robots.
 Influenced by natural learning paradigms in humans and other animals, it is an intuitive robot programming method, with the goal to refine the robot's performance, by providing repetitive demonstrations.
 
