@@ -18,9 +18,9 @@ Cobotic systems have been adopted in several industries from the food-processing
 However, companies which resist the use of robots in their daily routines, consider the investment cost ineffective, due to their high initial costs and the lack of trained personnel.
 %, who have the needed programming skills to fully operate and exploit the robots.
 Traditional robot programming solutions require domain experts and robots are generally programmed to complete a specific task.
-Recent approaches using large amounts of data (e.g. Neural Networks in \cite{billard2001robust}) or self-exploration (e.g. Reinforcement Learning in \cite{smart2002effective}) become infeasible for task-specific applications.
+Recent approaches using large amounts of data (e.g. Neural Networks (\cite{billard2001robust})) or self-exploration (e.g. Reinforcement Learning (\cite{smart2002effective})) become infeasible for task-specific applications.
 This is a bottleneck for industries as many robot programming solutions fail as the deployment in real world scenarios introduces further limitations. 
-To overcome this difficulty, recent research has been focusing on robot programming for end-users.
+Thus, recent research has been focusing on robot programming for end-users.
 
 \subsection{Robot Programming by Demonstration}
 Robot Programming by Demonstration (PbD), also referred to as \textit{Learning from Demonstration}, is an end-user technique for teaching a robot new skills by demonstrating a task, without writing code (\cite{billard2008robot}).
@@ -29,23 +29,23 @@ Influenced by natural learning paradigms in humans and other animals, it is an i
 
 Figure \ref{fig:Principle Overview} shows the life-cycle for teaching a robot by demonstration.
 The teacher demonstrates the desired behaviour to the robot.
-The robot uses its different sensors for a multi-modal perception of the demonstration and extracts the relevant information, to create a model of the skill.
-The new skill is evaluated via execution in a new context, under the supervision of the teacher.
-The teacher can refine the learned skill by presenting demonstrations of the same skill under different conditions.
-The robot then generalises over the different demonstrations by extracting essential components that remained unchanged across the various demonstrations.
-This incremental learning process allows the robot to perform the learned task straight away, while being monitored by the teacher, and therefore allows the robot to learn a task from as few demonstrations as possible (\cite{billard2008robot}).
-
-  \begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.7]{figures/PbD-Overview}
-    \caption{PbD Overview}
-    \label{fig:Principle Overview}
-  \end{figure}
+The robot uses its sensors for a multi-modal perception of the demonstration and extracts the relevant information to create a model of the skill.
+The new skill is executed in a new context and evaluated by the teacher.
+The teacher can refine the learned skill by providing additional demonstrations of the same skill.
+The robot then generalises over the demonstrations by extracting relevant features that remained unchanged across the set of demonstrations.
+This incremental learning process allows the robot to acquire a new skill from demonstrations provided by non-expert users.
 
 %Besides the advantage of being able to teach the robot tasks without the need to write code, PbD provides a powerful tool to improve learning abilities by reducing the search space of possible solutions.
-Learning object manipulation tasks is considered a hard problem, as the robot has limited knowledge about the world and restricted sensor availability (\cite{ekvall2008robot}).
-Many PbD algorithms have been proposed in the literature (\cite{argall2009survey,billing2010formalism}), but there still remain several challenges that address the suboptimality of demonstrations (\cite{chen2003programing,kaiser1995obtaining}) or the lack of comparative user studies (\cite{suay2012practical}).
+However, learning object manipulation tasks is still considered a hard problem, as the robot has limited knowledge about the world and restricted sensor availability (\cite{ekvall2008robot}).
+Many PbD algorithms have been proposed in the literature (\cite{argall2009survey,billing2010formalism}), but there still remain several challenges such as the suboptimality of demonstrations (\cite{chen2003programing,kaiser1995obtaining}) or the lack of comparative user studies (\cite{suay2012practical}).
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.7]{figures/PbD-Overview}
+	\caption{PbD Overview}
+	\label{fig:Principle Overview}
+\end{figure}
+ 
 \subsection{Problem Statement}
 % teaching full action sequences
 The challenge we address in this thesis is that in existing PbD implementations the robot learns an action sequence (\cite{orendt2016robot,peppoloni2014ros}), rather than atomic actions that can be reused independently. 
