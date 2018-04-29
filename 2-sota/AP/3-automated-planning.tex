@@ -30,7 +30,7 @@ There exist different types of planning (\cite{ROSplanAAAI17tutorial}):
     \item Conditional planning: actions can perform observations, plan contains branches
 \end{itemize}
 
-\subsection{Classical planning problem}\label{subsec:Classical planning problem}
+\section{Classical planning problem}\label{subsec:Classical planning problem}
 In classical planning, world dynamics are modelled as state transition systems.
 
 \paragraph{Definition.}
@@ -106,11 +106,11 @@ When actions are triggered, they change the state of the world according to thei
 Furthermore, the progression towards the goal is not always monotone, as actions can also have negative side effects. Consider again the Tower of Hanoi problem, where the disks need to be stacked in ascending order (smallest at the top) on the right-most peg. Our goal state is to have \textit{``disk$_{n}$ is on top of disk$_{n+1}$"} and \textit{``disk$_{n+1}$ is on the table"} for a problem with $n>0$ disks. If in the initial state the disks are stacked in ascending order on the left peg, then moving the top-most disk$_1$ to any other peg will delete the fact \textit{``disk$_1$ is on top of disk$_2$"}, and will have to be added again later to fulfill the goal.
 
 
-\subsection{STRIPS}\label{subsec:STRIPS}
-In STRIPS a closed-world assumption is used, i.e. any conditions that are not mentioned in a state are assumed to be false.
+%\subsection{STRIPS}\label{subsec:STRIPS}
+%In STRIPS a closed-world assumption is used, i.e. any conditions that are not mentioned in a state are assumed to be false.
 
 %%%%%%%%%%%%%%% *************PDDL************* %%%%%%%%%%%%%%%%%
-\subsection{PDDL - the Planning Domain Definition Language}\label{subsec:PDDL}
+\section{Planning Domain Definition Language (PDDL)}\label{subsec:PDDL}
 Originally developed by \cite{mcdermott1998pddl} and the 1998 Planning Competition Committee, the Planning Domain Definition Language (PDDL) has become the standard encoding language for classical planning tasks. It supports several syntactic features including conditional effects, specification of safety constraints and hierarchical actions composed of subactions and subgoals. PDDL expresses the ``physics'' of a domain, i.e. the available predicates, the possible actions and their effects (\cite{mcdermott1998pddl}).
 The PDDL planning domain can be used to formalise the configuration of available resources together with the intended goal to eventually find a solution using PDDL planners  (\cite{huckaby2013planning}). 
 %Table \ref{tab:Domain examples} shows a list of standard planning domains. 
