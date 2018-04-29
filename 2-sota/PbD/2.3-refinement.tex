@@ -1,10 +1,7 @@
 \subsection{Interactive Policy Refinement Techniques}\label{subsec:Other RP Methods}
 As human demonstrations are often noisy or suboptimal, interactive policy refinement techniques can be used.
 Learning by exploration allows the robot to refine the policy on its own and can be combined with  teacher critique. 
-
 The robot can learn from observation data provided by the teacher (Learning by Observation), by self-exploration using a defined reward function (Learning by Exploration), or by interactive teaching from continuous feedback (Active Learning). In the following sections we will give an overview of these approaches.
-
-In \cite{nicolescu2003natural} the teacher can refine tasks by inserting or removing behaviours from the networks of abstract behaviours.
 
 %\subsubsection{Learning by Exploration}\label{sssec:LbExploration}
 %
@@ -23,8 +20,9 @@ In \cite{nicolescu2003natural} the teacher can refine tasks by inserting or remo
 
 \subsubsection{Active/Interactive Learning}\label{sssec:Active Learning} 
 For active or interactive learning, the teacher provides robot initial data, observes robot performance and provides feedback (\cite{chernova2014robot},\cite{calinon2007active}).
+In \cite{nicolescu2003natural} the teacher can refine tasks by inserting or removing behaviours from the networks of abstract behaviours.
 The robot can ask for feedback (\cite{cakmak2012aaai}) and the teacher can modify the learned action using a visual interface (\cite{alexandrova2015roboflow}).
-(\cite{nicolescu2003natural}) present a PbD approach, which allows the robot to learn skill representations and refine them by using feedback cues provided by the teacher.
+\cite{nicolescu2003natural} present a PbD approach, which allows the robot to learn skill representations and refine them by using feedback cues provided by the teacher.
 Similarly, (\cite{calinon2007active}) and (\cite{calinon2007incremental}) implement systems, which actively involve the teacher in the robot's learning process, by providing human guidance to a humanoid robot. 
 The robot first observes the demonstration performed by the teacher, who is wearing motion sensors. When it tries to reproduce the action, the teacher can refine the movement by physically moving its limbs.
 \cite{martinez2017relational} propose a relational RL solution with guided demonstrations where the robot requests for help from the human teacher to reduce the learning time.
@@ -45,7 +43,7 @@ The authors mention that PbD simplifies the programming process but is generally
 \section{Challenges in PbD}\label{sssec:Challenges in PbD}
 
 \paragraph{Suboptimality of demonstrations.}
-Another known PbD problem exists with regards to the type and quality of the demonstration which is dependent on the teacher's knowledge of the robot's system.
+A known PbD problem exists with regards to the type and quality of the demonstration which is dependent on the teacher's knowledge of the robot's system.
 Na\"{\i}ve teachers may have greater assumptions on the robot's intelligence and take less care in executing demonstrations as compared to roboticists, who understand the effects of noisy demonstrations (\cite{suay2012practical}).
 \cite{chen2003programing} and \cite{kaiser1995obtaining} recognised different sources for sub-optimality in demonstration such as the user demonstrating unnecessary or incorrect actions due the lack of knowledge about the task.
 \cite{cakmak2014teaching} developed a PbD system and investigated the use of instructional materials in the form of tutorials and videos to support the learnability.
@@ -55,5 +53,11 @@ Despite there being many PbD algorithms proposed in research literature (\cite{a
 Difficulties in comparing across applications arise from the use of different robotic platforms and demonstration techniques, which lead to different representations of demonstration data.
 \cite{suay2012practical} partly addresses this challenge by comparing three well-established algorithms and evaluating their performance in a common domain.
 
-\paragraph{Action sequence generation.}
-The user could select task execution plans via a user interface (\cite{guerin2015framework}), but ideally, the robot should deduce a task execution plan for a given goal autonomously.
+\paragraph{Meaningful actions.}
+% teaching action semantics
+Current approaches only teach the robot an action for manipulating an object, but do not explicitly associate a semantic meaning to it, other than its name.
+For example, conditions for executing a pick and place action (e.g. to grab an object only if the gripper is empty) are generally neglected during the demonstration.
+If the robot is taught an action's semantic meaning, i.e. the conditions for executing the action, it could reuse the action in different contexts.
+
+%If the teacher demonstrates a pick-up action to the robot, there is no mention of communicating the conditions for when it can execute the action.
+%The user could select task execution plans via a user interface (\cite{guerin2015framework}), but ideally, the robot should deduce a task execution plan for a given goal autonomously.
