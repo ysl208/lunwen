@@ -109,9 +109,10 @@ Furthermore, the progression towards the goal is not always monotone, as actions
 %\subsection{STRIPS}\label{subsec:STRIPS}
 %In STRIPS a closed-world assumption is used, i.e. any conditions that are not mentioned in a state are assumed to be false.
 
+
 %%%%%%%%%%%%%%% *************PDDL************* %%%%%%%%%%%%%%%%%
 \section{Planning Domain Definition Language (PDDL)}\label{subsec:PDDL}
-Originally developed by \cite{mcdermott1998pddl} and the 1998 Planning Competition Committee, the Planning Domain Definition Language (PDDL) has become the standard encoding language for classical planning tasks. It supports several syntactic features including conditional effects, specification of safety constraints and hierarchical actions composed of subactions and subgoals. PDDL expresses the ``physics'' of a domain, i.e. the available predicates, the possible actions and their effects (\cite{mcdermott1998pddl}).
+Originally developed by \cite{mcdermott1998pddl} and Planning Competition Committee, the Planning Domain Definition Language (PDDL) has become the standard encoding language for classical planning tasks. It supports several syntactic features including conditional effects, specification of safety constraints and hierarchical actions composed of subactions and subgoals. PDDL expresses the ``physics'' of a domain, i.e. the available predicates, the possible actions and their effects.
 The PDDL planning domain can be used to formalise the configuration of available resources together with the intended goal to eventually find a solution using PDDL planners  (\cite{huckaby2013planning}). 
 %Table \ref{tab:Domain examples} shows a list of standard planning domains. 
 %
@@ -239,8 +240,19 @@ The \texttt{PERMUTATION} planning problem starts by listing all objects of the w
 Another planning problem in this domain could include multiple parts on the assembly line, which need to be manipulated in a given order. 
 As we can define an infinite number of objects in our planning domain, there exist an infinite number of planning problems that can be defined and solved. PDDL provides a means to model any real-world environment in the form of a planning domain. 
 
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.48\linewidth]{figures/planning-permutation}
+	\includegraphics[width=0.48\linewidth]{figures/schema-logic}
+	\caption{Definition of a planning problem: Left: (a) properties describing the initial world state (b) object names and their types (c) instantiated actions (d) properties describing the goal state. Right: Action model representation of a move action in terms of preconditions and effects: demonstrated action model for a cube (top), and generalised action model for any object, variables are prefixed with `?' (bottom).}
+	\label{fig:action}
+\end{figure}
+\subsection{Relation to Present Work}
 In general, the majority of tasks can be completed using the simple actions pick, move and drop. For our framework, we considered planning problems, such as the Tower of Hanoi problem (\cite{douglas1985metamagical}) or a real-life game of Tetris (\cite{tetris}), which use these actions. Since we focus on applications in cobotic environments, we wanted to choose a planning problem that occurs in real-world applications. Therefore, we chose to evaluate the usability of our framework using the \texttt{PRODUCTION} planning domain, addressing the \texttt{PERMUTATION} planning problem. It is then easy for the user to extrapolate from this simple example to any complex task.
 
+\fig{fig:planning-permutation} illustrates an example of the permutation planning problem. Given a description of the world state, i.e. objects, types, properties (\fig{fig:planning-permutation}a,b), a set of possible atomic actions, and a goal state (\fig{fig:planning-permutation}d), the planner should generate the correct sequence of actions (\fig{fig:planning-permutation}c), which guarantees the transition from the initial world state to the goal state. Predicates are used to describe actions and object properties, such as \textit{``red cube is at position A"}: they can be \textit{instantiated} \texttt{(at redCube A)} or \textit{generalised} \texttt{(at ?cube ?posA)}, such that variables are prefixed with `?'.
+
+To allow a correct transition between different states of the world, actions are defined in terms of {preconditions} and {effects} (\fig{fig:action}). For a move action \texttt{(move cube A B)}, preconditions are the states required to perform the action  \texttt{(at cube A)}, and effects are the states obtained after the action \texttt{(at cube B)}. Classical planning algorithms use the Planning Domain Definition Language (PDDL) \cite{ghallab2004automated} as their standard encoding language, which extends the STRIPS \cite{fikes1971strips} formalism with greater expressivity, such as type structures (\fig{fig:planning-permutation}b). 
 
 %Our proposed framework targets these domains and aims at solving related planning problems. It will allow the user to create action models and link the planning problem with the actual physical action executed by the robot.
 
