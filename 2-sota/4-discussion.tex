@@ -12,31 +12,26 @@ A feasible automatic programming system can involve a human operator teach the r
 
 \subsection{Relation to Present Work}
 In this thesis we use Programming by Demonstration (PbD), an intuitive technique for teaching the robot new tasks with minimal programming overhead.
+There exist a wide range of robot grippers (claw, suction, magnetic, etc.) that are robot dependent.
+With PbD the robot can be taught a user-specific task, independent of the robot's architecture.
 Robots are currently being used for many industrial applications from welding (arc welding, spot welding, etc.) to material handling (pick and place, packaging, palletizing, etc.).
-In this work we focus on teaching robots material handling tasks, in particular pick and place tasks.
-
-The problem we address is two-fold:
-\paragraph{Teaching atomic actions}
-In general, many robot PbD implementations already have pick and place actions coded into the system (\cite{veeraraghavan2008teaching}).
+We focus on teaching robots material handling tasks, in particular pick and place tasks.
+The problem we address in this work is two-fold:
+\paragraph{Teaching atomic actions.}
 Existing PbD implementations are rather task-specific and cannot be applied to arbitrary scenarios.
-The robot is often taught an action sequence to achieve a predefined goal.
+Many PbD implementations already have pick and place actions coded into the system (\cite{veeraraghavan2008teaching}) and the robot is taught an action sequence to achieve a predefined goal.
 Even slight changes in the goal could require a different action sequence, so the robot needs to be taught the new action sequence.
-This highlights a key issue in PbD, namely to design a generic system that allows the robot to learn tasks that are applicable to different scenarios.
+This highlights a key issue in PbD, namely to design a system that allows the robot to learn  generic tasks that are applicable to different scenarios.
 In this work, we assume that the robot does not have any atomic actions preprogrammed.
-The user should be able to teach the robot atomic actions by demonstration, which are required for the action sequence.
-There exist a wide range of robot grippers (claw, suction, magnetic, etc.) which are robot dependent.
-With PbD the robot can be taught a user-specified task independent of the robot's gripper.
+The user should be able to teach the robot atomic actions by demonstration, which are can be used to generate the action sequence.
 
-\paragraph{Automatic action sequence construction}
+\paragraph{Automatic action sequence generation.}
 After having learned all atomic actions, the robot needs to reuse these actions to achieve a goal.
 Current solutions either teach the robot entire action sequences or include an intermediate manual step where the user has to construct an optimal sequences.
 Finding an optimal sequence can be tedious and expensive.
 %We want to equip the robot with all the skills needed to act autonomously in any state of the world, rather than teaching it how to react to a given state of the world.
 %To achieve this, we have to design our framework using plans, which provides us with the required tools.
 %As we focus on collaborative environments, where the teacher is actively involved in the learning process, plans allow a means to communicate the teacher's intentions together with the demonstrations.
-Therefore, we choose plans as the policy derivation technique.
-This will enable the robot to learn the action and its semantics, so that an action sequence can be generated automatically with the help of a planner. 
+Thus, we use Automated Planning techniques, to generate action sequences automatically.
+%This will enable the robot to learn the action and its semantics, so that an action sequence can be generated automatically with the help of a planner. 
 
-
-% PbD + PDDL representation
-In \cite{veeraraghavan2008teaching} the robot is taught a task-specific plan from sequential demonstrations and  learned actions are represented in PDDL with preconditions and effects.
