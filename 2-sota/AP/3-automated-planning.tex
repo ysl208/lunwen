@@ -21,11 +21,6 @@ Given a set of actions, a description of the state of the world, and some goal s
 Similar to the policy derivation method mentioned in \sect{subsec:Deriving a policy}, actions are defined with \textit{preconditions}, i.e. conditions on the state of the world in order to execute the action, and \textit{effects}, i.e. changes in the state of the world after the action execution. 
 %The planner produces an ordered sequence of actions, known as a \textit{plan}, which guarantees the transition from the initial state to the goal state.
 
-% Example
-An example of a planning problem is the Tower of Hanoi problem (\cite{douglas1985metamagical}), where the world objects are three pegs and disks of different sizes. 
-In the initial state, the disks are stacked in ascending order (smallest at the top) on one of the pegs, in the goal state the disks are stacked in the same order on one of the other two remaining pegs. 
-The goal state must be achieved by obeying certain rules for moving the disks (e.g. only the top disk of a stack can be moved at a time and may not be placed on top of a smaller disk). 
-
 There exist different types of planning (\cite{ROSplanAAAI17tutorial}):
 \begin{itemize}
     \item Classical planning
