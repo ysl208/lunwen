@@ -61,8 +61,13 @@
 % \copyrightpage
 % \abstractpage
 
+
+\chapter*{Contenu du rapport \`{a} mi-parcours}
+\input{0-frontmatter/0-rapport.tex}
+
 \chapter*{Abstract}
 \input{0-frontmatter/1-abstract.tex}
+
 \tableofcontents
 %\authorlist
 \listoffigures
@@ -80,9 +85,6 @@
 \chapter{Automated Planning}\label{chap:Sota-AP}
 \input{2-sota/AP/0-main.tex}
 
-\chapter{Simultaneous End-User Programming of Goals and Actions for Robotic Shelf Organisation}\label{chap:OrganisingTasks}
-\input{3-contribution/2-organising.tex}
-
 \chapter{A Robot Programming Framework for End-users in Cobotic Environments}\label{chap:Contribution}
 \input{3-contribution/0-main.tex}
 
@@ -91,6 +93,10 @@
 
 \chapter{Experimentation and Evaluation}\label{chap:Evaluation}
 \input{5-evaluation/0-main.tex}
+
+\chapter{Simultaneous End-User Programming of Goals and Actions for Robotic Shelf Organisation}\label{chap:OrganisingTasks}
+\input{3-contribution/2-organising.tex}
+
 
 \chapter{Conclusion and Future Work}\label{chap:Conclusion}
 \input{6-conclusion/0-main.tex}
@@ -102,7 +108,7 @@
 \addcontentsline{toc}{chapter}{References}
 \bibliographystyle{plainnat}
 
-%\chapter{Appendix}\label{chap:Appendix}
-%\input{7-appendix/0-main.tex}
+\chapter{Appendix}\label{chap:Appendix}
+\input{7-appendix/0-main.tex}
 
 \end{document}
