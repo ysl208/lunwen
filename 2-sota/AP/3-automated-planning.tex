@@ -20,13 +20,12 @@ These planners consist of search algorithms, which are not problem-specific, hen
 Given a set of actions, a description of the state of the world, and some goal state, the planner generates an ordered sequence of actions, which guarantees the transition from the initial state to the goal state. 
 Similar to the policy derivation method mentioned in \sect{subsec:Deriving a policy}, actions are defined with \textit{preconditions}, i.e. conditions on the state of the world in order to execute the action, and \textit{effects}, i.e. changes in the state of the world after the action execution. 
 %The planner produces an ordered sequence of actions, known as a \textit{plan}, which guarantees the transition from the initial state to the goal state.
-
-There exist different types of planning (\cite{ROSplanAAAI17tutorial}):
+There exist different types of planning:
 \begin{itemize}
     \item Classical planning
     \item Optimisation: minimise or maximise a given cost function
-    \item Temporal planning: actions have a certain duration, to address concurrency, synchronisation, time dependent effects.
-    \item Planning with preferences: prefer hard goals over soft goals.
+    \item Temporal planning: actions have a certain duration, to address concurrency, synchronisation, time dependent effects
+    \item Planning with preferences: prefer hard goals over soft goals
     \item Conditional planning: actions can perform observations, plan contains branches
 \end{itemize}
 
