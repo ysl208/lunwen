@@ -30,6 +30,10 @@ The robot first observes the demonstration performed by the teacher, who is wear
 \cite{martinez2017relational} propose a relational RL solution with guided demonstrations where the robot requests for help from the human teacher to reduce the learning time.
 However, demonstrations are only requested if they yield significant improvements as the teacher's time is considered more valuable than the robot's time.
 
+\cite{laird2017interactive} provides an overview of Interactive Task Learning (ITL) where the goal is to learn many different types of tasks that share common environments via instruction, demonstration, and feedback. 
+The central challenge consists of "converting externally specified descriptions of a task into internal representations that are incrementally integrated with existing knowledge``.
+The authors mention that PbD simplifies the programming process but is generally limited by the types of tasks being taught due to the restricted knowledge that can be transferred through demonstrations.
+
 %\subsubsection{Robot feedback}
 %Robot feedback is important to provide the teacher with enough information about what to demonstrate to the robot.
 %Reasons such as wrong preconditions or missing action effects can lead to failures.
@@ -50,3 +54,6 @@ Na\"{\i}ve teachers may have greater assumptions on the robot's intelligence and
 Despite there being many PbD algorithms proposed in research literature (\cite{argall2009survey,billing2010formalism}), there remains a lack in comparative user studies.
 Difficulties in comparing across applications arise from the use of different robotic platforms and demonstration techniques, which lead to different representations of demonstration data.
 \cite{suay2012practical} partly addresses this challenge by comparing three well-established algorithms and evaluating their performance in a common domain.
+
+\paragraph{Action sequence generation.}
+The user could select task execution plans via a user interface (\cite{guerin2015framework}), but ideally, the robot should deduce a task execution plan for a given goal autonomously.
