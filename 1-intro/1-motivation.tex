@@ -88,33 +88,41 @@ The Tower of Hanoi problem could be defined as a planning problem and solved for
 \end{figure}
 
 
-
+\newpage
 \subsection{Problem Statement}
+The research question we address in this thesis is:
+\begin{center}
+\textit{Can non-expert users teach a robot all required skills that allow it to autonomously generate solutions to user-defined problems?}
+\end{center}
+\noindent
+For this, we must create a framework that combines the following aspects:
+\begin{itemize}
+	\item Automated planner - this can be considered as the robot's \textit{``brain"} that generates solutions to the problems,
+	\item Action models - actions with associated semantic meaning to allow the planner to reason about them,
+	\item PbD system - allowing the end-user to teach the robot an action by demonstration and without writing code.
+\end{itemize}
+
+In other words, the user must program the robot by demonstration and thereby construct a knowledge base, consisting of a domain model (the environment that the robot interacts with) and action models required for the robot to accomplish the defined task.
+A functioning real-world system requires solutions in perception (e.g. object identification), motion planning (e.g. manipulation, navigation, safety), human–robot interaction, and cognitive robotics (e.g. action learning, task planning). 
+The integration of all aspects into a real-time system is a major challenge.
+In this thesis we address this challenge with the aim to create an end-to-end system for end-user robot programming.
+% and provide partial solutions for the other areas.
+With the focus on cobotic environments, we further investigate the difficulties encountered by end-users, when faced with a system involving PbD and Automated Planning. 
 % limitations 
-We need to consider the limitations: limited resources, lack of programming knowledge and time to train operators.
+%We need to consider the limitations: limited resources, lack of programming knowledge and time to train operators.
 %, rather than atomic actions that can be reused independently 
 
-We want the robot to generate solutions autonomously.
-For this we need:
-Automated planner - which as the robot's \textit{``brain"}
-action models - actions with semantic meaning associated to it
-PbD - end-user technique to teach robot an action
-
 % semantics for application to new context
-A robot that learns how to arrange items on a desk may have to plan the order of handling objects in another way than originally demonstrated by the teacher.
-Thus, it does not suffice for the robot to replicate the demonstrated movement, but it needs to understand and interpret the teacher's intention so that it can apply the action to different scenarios.
-
-
-In this thesis, we propose a framework that allows robots to solve problems in a goal-oriented way.
-In other words, given a user-defined goal, the robot should generate and execute the right action sequence to obtain it.
-The user must construct a knowledge base, consisting of a domain model (the environment that the robot interacts with) and all action models required for the robot to accomplish the defined task.
+%A robot that learns how to arrange items on a desk may have to plan the order of handling objects in another way than originally demonstrated by the teacher.
+%Thus, it does not suffice for the robot to replicate the demonstrated movement, but it needs to understand and interpret the teacher's intention so that it can apply the action to different scenarios.
+%
+%In other words, given a user-defined goal, the robot should generate and execute the right action sequence to obtain it.
 
 % example domain 
-Consider again the Tower of Hanoi problem.
-The domain model would consist of a table with a finite number of objects and limited positions, as well as actions consisting of pick, place and move. 
-Possible goals could be to stack the objects by size (similar to the Tower of Hanoi problem) or to arrange the objects in a certain order. 
-Our framework should enable the user to teach the robot by demonstration all action models needed, including their relevant preconditions and effects. 
-Once the action models have been created, the inbuilt automated planner can generate an action sequence to achieve any goal within the domain. 
+%The domain model would consist of a table with a finite number of objects and limited positions, as well as actions consisting of pick, place and move. 
+%Possible goals could be to stack the objects by size (similar to the Tower of Hanoi problem) or to arrange the objects in a certain order. 
+%Our framework should enable the user to teach the robot by demonstration all action models needed, including their relevant preconditions and effects. 
+%Once the action models have been created, the inbuilt automated planner can generate an action sequence to achieve any goal within the domain. 
 
 %Hence, we address two common situations, where reprogramming is required: 
 %\begin{itemize}
