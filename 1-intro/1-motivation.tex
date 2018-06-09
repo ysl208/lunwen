@@ -3,24 +3,24 @@
 Technologies have revolutionised the manufacturing industry ever since the Industrial revolution in the 19th century.
 Robots are increasing productivity by replacing humans for arduous and repetitive manual tasks.
 %are increasing productivity, efficiency, lower costs, and relieve humans from operationally dangerous tasks.
-There is a noticeable increase in industrial robot order requests, as well as capital investments into the field.
-Although robots can be superior in automating human tasks, there remain many that cannot be completely taken over and that still need human intervention, such as high-precision tasks.
+Increasing order requests for industrial robots has led to higher capital investments into the field.
+Although robots can be superior in automating human tasks, there remain many tasks that cannot be completely taken over, such as high-precision tasks, and still need human intervention.
 To allow both human precision and robot automation, collaborative robots have been introduced.
 
 \subsection{Cobotics}\label{subsec:Cobotics}
 Collaborative robots, or \textit{cobots}, have been introduced by \cite{colgate1999cobots} and allow for a close collaboration between humans and robots.
 They enable humans to perform tasks, which they cannot perform on their own, due to physical constraints such as the manipulation of heavy parts.
 Furthermore, they reduce risks of work-related accidents, including health hazards such as exposure to dangerous environments (e.g. chemical acids, excessive temperatures or noise), as well as sleeping disorders caused by rotating work shifts.
-Thus, cobots contribute to productivity gains as they are designed to take over manual and repetitive tasks and are able to respond to actions of the human operator.
+Cobots contribute to productivity gains as they are designed to respond to actions of the human operator and take over manual and repetitive tasks.
 While replacing jobs of low-skilled human workers, they open up a market for new high-skilled jobs.
 
-Cobotic systems have been adopted in several industries from the food-processing industry (\cite{Food}), to aeronautics (\cite{Airbus}) to the health industry (\cite{Ebola}).
+Cobotic systems have been adopted in several industries from the food-processing industry (\cite{Food}), to aeronautics (\cite{Airbus}), to the health industry (\cite{Ebola}).
 However, companies which resist the use of robots in their daily routines, consider the investment cost ineffective, due to their high initial costs and the lack of trained personnel.
 %, who have the needed programming skills to fully operate and exploit the robots.
-Traditional robot programming solutions require domain experts and robots are generally programmed to complete a specific task.
+Indeed, traditional robot programming solutions require domain experts and robots are generally programmed to complete a specific task.
 Recent approaches using large amounts of data (e.g. Neural Networks (\cite{billard2001robust})) or self-exploration (e.g. Reinforcement Learning (\cite{smart2002effective})) become infeasible for task-specific applications.
 This is a bottleneck for industries as many robot programming solutions fail as the deployment in real world scenarios introduces further limitations. 
-Thus, recent research has been focusing on robot programming for end-users.
+Thus, recent research has been focusing on robot programming for end-users, in particular Robot Programming by Demonstration.
 
 \subsection{Robot Programming by Demonstration}
 Robot Programming by Demonstration (PbD), also referred to as \textit{Learning from Demonstration}, is an end-user programming technique for teaching a robot new skills by demonstrating a task, without writing code (\cite{billard2008robot}).
@@ -49,17 +49,18 @@ Many PbD algorithms have been proposed in the literature (\cite{argall2009survey
 % teaching full action sequences
 Another major problem is that the robot is generally demonstrated an action sequence to complete a specific task (\cite{orendt2016robot,peppoloni2014ros}).
 Take for example the Tower of Hanoi problem (\cite{douglas1985metamagical}) as shown in \fig{fig:Tower of Hanoi}a.
-The objective is to move the entire stack to another rod, obeying the following simple rules:
+The objective is to move the entire stack from one rod to another, obeying the following rules:
 \begin{itemize}
 \item Only one disk can be moved at a time.
-\item Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack.
+\item Each move consists of taking the upper disk from one of the stacks and placing it on top of another (possibly empty) stack.
 \item No disk may be placed on top of a smaller disk.
 \end{itemize}
 
-The robot can be taught an action sequence to solve the problem with three disks.
+The robot can be taught an action sequence to solve the problem for three disks.
 When the problem changes to four disks (\fig{fig:Tower of Hanoi}b), the robot has to be demonstrated a new sequence, even though both problems obey the same rules.
-This is a complicated and time-consuming process and does not allow non-experts to reprogram robots for different tasks.
-Ideally, we only teach the robot the objective and rules and let it generate the solution, or a \textit{plan}, on its own.
+This reprogramming process can be complicated and time-consuming as it does not allow to generalise for different tasks.
+Instead, it would be more efficient to teach the robot allowed actions and associated rules and let find the solution for $n$ disks on its own.
+To generate a solution, or a \textit{plan}, a common approach is the use of Automated Planning.
 
 \begin{figure}[htp]
 	\centering
@@ -74,16 +75,16 @@ Automated Planning, also known as \textit{AI Planning}, is a research field that
 Given a set of actions, a description of the state of the world, and some goal state, the planner generates a sequence of actions, which guarantees the transition from the initial state to the goal state (\fig{fig:Planning domain and action}).
 To allow a correct transition between different states of the world, actions are defined in terms of preconditions and effects (\fig{fig:Planning domain and action}b). 
 Planning algorithms use a symbolic planning language such as STRIPS (\cite{fikes1971strips}) or PDDL (\cite{ghallab2004automated}) as their standard encoding language.
-The Tower of Hanoi problem could be defined as a planning problem and solved for any number of disks using an automated planner.
+Thus, the Tower of Hanoi problem could be defined as a planning problem and solved for any number of disks using an automated planner.
 %In the initial state, the disks are stacked in ascending order (smallest at the top) on one of the pegs, in the goal state the disks are stacked in the same order on one of the other two remaining pegs. 
 %The goal state must be achieved by obeying certain rules for moving the disks (e.g. only the top disk of a stack can be moved at a time and may not be placed on top of a smaller disk). 
 
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=.4\linewidth]{figures/schema-logic-1}
 	\includegraphics[width=.55\linewidth]{figures/PbD-AutomatedPlanner}
-	\caption{Planning domain describing action model with preconditions and effects (left), an initial world state, goal state, and a generated action sequence (right).}
+	\includegraphics[width=.4\linewidth]{figures/schema-logic-1}
+	\caption{Planning domain describing an initial world state, goal state, and a generated action sequence (left), where actions are described in terms of preconditions and effects (right).}
 	\label{fig:Planning domain and action}
 \end{figure}
 
@@ -97,12 +98,14 @@ The research question we address in this thesis is:
 \noindent
 For this, we must create a framework that combines the following aspects:
 \begin{itemize}
-	\item Automated planner - this can be considered as the robot's \textit{``brain"} that generates solutions to the problems,
-	\item Action models - actions with associated semantic meaning to allow the planner to reason about them,
-	\item PbD system - allowing the end-user to teach the robot an action by demonstration and without writing code.
+	\item PbD system - to allow the user to teach the robot an action by kinesthetic demonstration, without writing code.
+	\item Automated planner - this can be considered as the robot's \textit{``brain"} that generates solutions to given problems,
+	\item User-interface - to allow the user to associate the semantic meaning to a taught action and create action models that can be used by the planner.
 \end{itemize}
 
-In other words, the user must program the robot by demonstration and thereby construct a knowledge base, consisting of a domain model (the environment that the robot interacts with) and action models required for the robot to accomplish the defined task.
+In other words, the user must program the robot by demonstration and thereby construct 
+%a knowledge base, consisting of a domain model (the environment that the robot interacts with) and 
+action models required for the robot to accomplish the defined task.
 A functioning real-world system requires solutions in perception (e.g. object identification), motion planning (e.g. manipulation, navigation, safety), human–robot interaction, and cognitive robotics (e.g. action learning, task planning). 
 The integration of all aspects into a real-time system is a major challenge.
 In this thesis we address this challenge with the aim to create an end-to-end system for end-user robot programming.
