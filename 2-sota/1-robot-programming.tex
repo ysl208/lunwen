@@ -18,13 +18,11 @@ Therefore, classical robot programming processes are time-consuming and cost int
 In the past few decades, different robot programming techniques have been developed. 
 There are many ways to divide robot programming systems. 
 \cite{lozano1983robot} divided them into three categories: 
-\begin{itemize}
-	\item Guiding systems, where the robot's joint positions were sequentially recorded,
-	\item Robot-level systems, where a programming language was used,
-	\item Task-level systems, where the task goal (e.g. object positions) needed to be specified.
-\end{itemize}
+guiding systems, where the robot's joint positions were sequentially recorded,
+robot-level systems, where a programming language was used, and
+task-level systems, where the task goal (e.g. object positions) needs to be specified.
 However, the range of programming systems was very limited at that time and examined only industrial robot programming systems.
-Instead, \cite{Biggs2003} divided them into two main categories, distinguishing systems for users and for programmers (\fig{fig:RobotProgrammingSystems}):
+Instead, \cite{Biggs2003} divided them into two main categories, distinguishing systems for users and for programmers:
 
 \begin{itemize}
   \item {\textbf{Manual programming}, where the user can directly control the robot's execution code, using a text-based or a graphical system.}
@@ -32,17 +30,25 @@ Instead, \cite{Biggs2003} divided them into two main categories, distinguishing 
 \end{itemize}
 % - also mention software architectures which are important for any robot programming systems
 
- \begin{figure}[ht]
- \centering
-\includegraphics[width=\linewidth]{figures/Biggs2003-RobotProgramming-short}
- \caption{Robot programming categories to distinguish systems for users and programmers. (\cite{Biggs2003})}
- \label{fig:RobotProgrammingSystems}
-\end{figure} 
+% \begin{figure}[ht]
+% \centering
+%\includegraphics[width=\linewidth]{figures/Biggs2003-RobotProgramming-short}
+% \caption{Robot programming categories to distinguish systems for users and programmers. (\cite{Biggs2003})}
+% \label{fig:RobotProgrammingSystems}
+%\end{figure} 
 
-Inspired by \cite{Biggs2003}, \fig{fig:RobotProgrammingOverview} gives an overview of robot programming techniques that have been applied in recent research.
+Inspired by \cite{Biggs2003}, we created a new robot programming overview (\fig{fig:RobotProgrammingOverview}) involving techniques that have been applied in most recent research.
 Even though many state of the art systems use a combination of techniques, such as PbD for Reinforcement Learning (\cite{hester2017learning}), it makes sense to differentiate them by their key attributes.
-From an end-user programming perspective, it is useful to assign different levels of teacher involvement in the programming process and an estimation of the programming time required.
+We identified three key factors: robot behaviour, end-user, and data.
+\begin{itemize}
+	\item Control over the robot behaviour: if the robot behaviour code is directly entered and how it is generated (text-based or visual programming) and if the code is directly encodes the robot's executed behaviour (manual or automatic programming)
+	\item End-user involvement: such as writing code manually, providing (labelled) data or continuous feedback during the learning process, defining reward functions
+	\item Data: if the robot learns from biased data and if it has to acquire the data by exploration
+\end{itemize}
+
+%From an end-user programming perspective, it is useful to assign different levels of teacher involvement in the programming process and an estimation of the programming time required.
 In the following sections we will give a brief overview of the different programming systems.
+We first distinguish between the user's control over the robot behaviour, i.e. manual vs. automatic programming systems.
 
 %\begin{table}[ht]
 %\begin{center}
@@ -70,23 +76,26 @@ In the following sections we will give a brief overview of the different program
 \end{figure} 
 
 \section{Manual Programming Systems}\label{subsec:Manual Programming Systems}
-In manual programming systems users must create the robot program by hand, either using a text-based or a graphical (or icon-based) interface.
-While the user has direct control over the robot code, it requires expert knowledge in a programming language and a good understanding of the program flow.
-There exist a variety of tools to make programming, as well as testing and debugging easier, such as IDEs, spreadsheets, macros, etc.
-
+In manual programming systems users have direct control over the robot code
+and often require expert knowledge in a programming language. % and a good understanding of the program flow.
+There exist a variety of tools to make programming, as well as testing and debugging, easier such as IDEs, spreadsheets, macros, etc.
 There are two types of manual programming: text-based programming, where the code is written manually in a chosen programming language (python, C++, java, etc.) and graphical programming, where the code structure is created with the help of a graphical interface (e.g. Scratch (Majed 2014, Lamb \& Johnson 2011, Schorow 2007), Flowcharts, etc.). 
 
 \subsection{Text-based Systems}\label{sssec:Text-based Systems}
-Text-based systems are one of the most common methods and use a traditional programming language approach. 
-Depending on the type of language used, the user performs programming in the following languages:
-\begin{itemize}
-	\item controller-specific: robot-specific machine language consisting of simple commands ({KUKA, ABB})
-	\item generic procedural: multi-purpose language (e.g. C++) that has been extended with classes to provide simple access to common robot specific functions ({Lego, etc.})
-	\item behaviour-based: specify how the robot should react to different conditions (e.g. Haskell)
-\end{itemize}
-There has been a the trend to move from low-level command-based languages towards more intelligent programming systems with high-level languages that provide more support to the user and  reduces the programming workload.
+Text-based systems are one of the most common methods and use a traditional programming approach. 
+Depending on the type of language used, the user performs programming in either controller-specific languages, where the robot-specific machine language consists of simple commands ({KUKA, ABB}), generic procedural languages, where multi-purpose languages such as C++ that have been extended with classes to provide simple access to common robot specific functions ({Lego, etc.}), or behaviour-based languages that specify how the robot should react to different conditions (e.g. Haskell). 
+There has been a trend to move from low-level command-based languages towards more intelligent programming systems with high-level languages that provide more support to the user and reduce the programming workload.
 However, text-based systems still require trained users with programming knowledge and are more likely to be used by robot developers than end-users.
 
+
+%\todo{Add KUKA interface, lego mindstorms screenshot}
+
+\subsection{Graphical Systems}\label{sssec:Graphical systems}
+Graphical (or icon-based) systems use a graph, flow-chart or diagram view where users manually specify actions and program flow (\fig{fig:Kuka}).
+The graphical icons correspond directly to the program statements.
+\cite{lego2003} and \cite{bischoff2002morpha} produced graphical systems using a flow-chart approach, where the robot's behaviour can be configured by arranging low-level actions in a sequence.
+They are typically easy to use and generally used for robot applications rather than system programming. 
+%\todo{Add examples of graphical systems}
 
 \begin{figure}[h]
 	\centering
@@ -95,57 +104,35 @@ However, text-based systems still require trained users with programming knowled
 	\label{fig:Kuka}
 \end{figure} 
 
-%\todo{Add KUKA interface, lego mindstorms screenshot}
-
-\subsection{Graphical Systems}\label{sssec:Graphical systems}
-Graphical (or icon-based) systems use a graph, flow-chart or diagram view where users manually specify actions and program flow (\fig{fig:Kuka}).
-The graphical icons correspond directly to the program statements.
-They are typically easy to use and generally used for robot applications rather than system programming. 
-\cite{lego2003} and \cite{bischoff2002morpha} produced graphical systems using a flow-chart approach, where the robot's behaviour can be configured by arranging low-level actions in a sequence.
-%\todo{Add examples of graphical systems}
-
-
 \section{Automatic Programming Systems}\label{subsec:Automatic Programming Systems}
-Automatic programming relates to robots that have the capability to learn from new data.
-Unlike manual programming, the user does not need to write explicit robot code and does not have direct control over the code as its behaviour is generated from information entered into the system.
-\cite{Biggs2003} divided automatic programming systems between \textit{guided}, where the robot learns with human intervention (e.g. Programming by Demonstration), and \textit{unguided}, where the robot learns by exploration (e.g. Neural Networks, Reinforcement Learning).
-Furthermore, the authors mention instructive systems which provides high-level control over underlying pre-programmed capabilities.
+Automatic programming systems relates to robots that can learn from data and generate their behaviour from information entered into the system.
+Unlike manual programming, the user does not need to write explicit robot code and does not have direct control over the robot's executed behaviour.
+The robot can learn from data that has been selected by a teacher and is directly related to the desired robot behaviour, which we will refer to as \textit{biased} data.
+Thus, we differentiate automatic programming systems between Machine Learning systems, where the robot learns from \textit{unbiased} data, and Programming by Demonstration, where the robot learns from \textit{biased} data.
 
-\subsection{Learning Systems}\label{sssec:Learning Systems}
-Learning systems use inductive inference to create a program by taking examples provided by the user or from self-exploration of the robot. 
-The goal of these machine learning (ML) systems is to construct programs that allow the robot to automatically improve its performance with increasing amounts of data. 
-
+\subsection{Machine Learning Systems}\label{sssec:Learning Systems}
+Machine Learning (ML) systems use inductive inference to create a program by taking examples provided by the user or from self-exploration of the robot. 
+The goal of these systems is to construct programs that allow the robot to automatically improve its performance with increasing amounts of data. 
 Even though ML algorithms have been around since the 1980s, it has only become popular in the past few decades. 
-The rise of the internet led to big data, improved knowledge sharing and advances in techniques to process and store data efficiently.
-Developments in various research areas such as computer vision have impacted the field of robotics.
-In particular, big data and advances in techniques to process and store data efficiently has lead to a wave of new ML techniques. 
-Recent applications\footnote{http://techemergence.com/machine-learning-in-robotics/} of ML in robotics include research areas such as computer vision (or ``robot vision'') for the identification and sorting of objects (\cite{stager2013computer}) and imitation learning to learn action plans from watching unconstrained videos (\cite{Yang2015}).
+The rise of the internet led to big data, improved knowledge sharing, as well as advances in techniques to process and store data efficiently lead to a wave of new ML techniques.
+%Developments in various research areas such as computer vision have impacted the field of robotics.
+Recent applications of ML in robotics\footnote{http://techemergence.com/machine-learning-in-robotics/} include research areas such as computer vision (or ``robot vision'') for the identification and sorting of objects (\cite{stager2013computer}) and imitation learning to learn action plans from watching unconstrained videos (\cite{Yang2015}).
 
-Deep learning systems generally use neural networks (NN) with different architectures which require a large amounts of data to learn the desired behaviour.
+We differentiate between Deep Learning systems, where the data is provided directly to the robot, and Reinforcement Learning, where the robot acquires data by exploration of its environment.
+Deep learning systems (\cite{schmidhuber2015deep}) generally use artificial neural networks (NN) with different architectures which require large amounts of data to learn the desired behaviour.
 \cite{billard2001robust} used NN to learn the motion of a human arm in 3D.
-A full review of approaches and techniques in deep learning (\cite{schmidhuber2015deep}) is beyond the scope of this thesis.
-
-%\cite{Kreuziger1992} analysed the application of ML in robotics (\fig{fig:MLvsRobotics}) and identified a large gap between these two research areas.
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=\linewidth]{figures/Kreuziger1992-Comparison ML Robotics}
-%	\caption{Comparison on Machine Learning applications vs. Robotics. \cite{Kreuziger1992}}
-%	\label{fig:MLvsRobotics}
-%\end{figure} 
-
-\subsubsection{Reinforcement Learning}
-Rreinforcement learning (RL) (\cite{sutton1998reinforcement,kaelbling1996reinforcement,gosavi2009reinforcement}) requires a reward function which needs to be specified by a domain expert.
-There are two main classes of RL approaches, namely model-based (\cite{polydoros2017survey}) and model-free (\cite{kober2013reinforcement}) methods, differentiating between whether a model of the interactions between the robot and the environment is used, or whether it learns from samples.
-While model-based methods converge faster to the optimal solution, an accurate model is not always available and can impact the learning process.
-Model-free methods require the robot to learn from samples, resulting in a slow convergence to the optimal solution.
-cite{kober2013reinforcement} provides a survey of work in RL to generate behaviour for robots and highlights the main challenges that are faced.
+Reinforcement learning (RL) systems (\cite{sutton1998reinforcement,kaelbling1996reinforcement,gosavi2009reinforcement}) learn from data acquired from exploration of the environment. 
+The robot uses a reward function to learn its policy, which is often difficult to specify and requires a domain expert.
+%There are two main classes of RL approaches, namely \textit{model-based} (\cite{polydoros2017survey}) and \textit{model-free }(\cite{kober2013reinforcement}) methods, differentiating between whether a model of the interactions between the robot and the environment is used, or whether it learns from samples.
+%While model-based methods converge faster to the optimal solution, an accurate model is not always available and can impact the learning process.
+%Model-free methods require the robot to learn from samples, resulting in a slow convergence to the optimal solution.
+\cite{kober2013reinforcement} provides a survey of work in RL to generate behaviour for robots and highlights the main challenges that are faced.
 To accelerate the learning and reduce the amount of exploration required, work has been done to include teacher demonstrations with RL solutions (\cite{martinez2017relational,hester2017learning}).
-In real world scenarios robots require teacher input to learn behaviours efficiently. 
+%In real world scenarios robots require teacher input to learn behaviours efficiently. 
 %\todo{Similar to our work: \cite{martinez2017relational}}
 
-The problem with RL solutions is that reward functions are difficult to specify.
-Inverse reinforcement learning (\cite{abbeel2011inverse}) is a supervised RL mode where the learner tries to acquire the reward function from demonstrated behaviours.
-This is can also be considered a learning from demonstration approach.
+%Inverse reinforcement learning (\cite{abbeel2011inverse}) is a supervised RL mode where the learner tries to acquire the reward function from demonstrated behaviours.
+%This is can also be considered a learning from demonstration approach.
 
 \subsection{Programming by Demonstration}
 Programming by demonstration (PbD) (\cite{billard2008robot}), also known as Learning from Demonstration, describes various techniques the robot learns new behaviours from teacher demonstrations. 
