@@ -39,16 +39,17 @@ Instead, \cite{Biggs2003} divided them into two main categories, distinguishing 
 
 Inspired by \cite{Biggs2003}, we created a new robot programming overview (\fig{fig:RobotProgrammingOverview}) involving techniques that have been applied in most recent research.
 Even though many state of the art systems use a combination of techniques, such as PbD for Reinforcement Learning (\cite{hester2017learning}), it makes sense to differentiate them by their key attributes.
-We identified three key factors: robot behaviour, end-user, and data.
+We identified three key factors: control over the robot code, learning data, and end-user involvement.
 \begin{itemize}
-	\item Control over the robot behaviour: if the robot behaviour code is directly entered and how it is generated (text-based or visual programming) and if the code is directly encodes the robot's executed behaviour (manual or automatic programming)
-	\item End-user involvement: such as writing code manually, providing (labelled) data or continuous feedback during the learning process, defining reward functions
-	\item Data: if the robot learns from biased data and if it has to acquire the data by exploration
+	\item Control over the robot behaviour: if the robot behaviour code is directly entered and how it is generated (text-based or visual programming) and if the code directly encodes the robot's executed behaviour (manual or automatic programming)
+	\item Learning data: for automated programming systems the robot learns from data and we differentiate if the data is biased or unbiased and how it is acquired
+	\item End-user involvement: such as writing code manually, providing data or continuous feedback during the learning process, defining reward functions
 \end{itemize}
 
 %From an end-user programming perspective, it is useful to assign different levels of teacher involvement in the programming process and an estimation of the programming time required.
-In the following sections we will give a brief overview of the different programming systems.
-We first distinguish between the user's control over the robot behaviour, i.e. manual vs. automatic programming systems.
+In the following sections we will first give a brief overview of the different programming systems by distinguishing between the user's control over the robot behaviour, i.e. manual vs. automatic programming systems.
+We further differentiate between automated programming systems that learn from biased and unbiased data.
+Finally, we will discuss different levels of end-user involvement and different interaction modalities.
 
 %\begin{table}[ht]
 %\begin{center}
@@ -120,6 +121,7 @@ Recent applications of ML in robotics\footnote{http://techemergence.com/machine-
 
 We differentiate between Deep Learning systems, where the data is provided directly to the robot, and Reinforcement Learning, where the robot acquires data by exploration of its environment.
 Deep learning systems (\cite{schmidhuber2015deep}) generally use artificial neural networks (NN) with different architectures which require large amounts of data to learn the desired behaviour.
+Techniques are divided into supervised (e.g. Classification, Regression) and unsupervised (e.g. Clustering) learning, using labelled and unlabelled data respectively.
 \cite{billard2001robust} used NN to learn the motion of a human arm in 3D.
 Reinforcement learning (RL) systems (\cite{sutton1998reinforcement,kaelbling1996reinforcement,gosavi2009reinforcement}) learn from data acquired from exploration of the environment. 
 The robot uses a reward function to learn its policy, which is often difficult to specify and requires a domain expert.
@@ -135,7 +137,7 @@ To accelerate the learning and reduce the amount of exploration required, work h
 %This is can also be considered a learning from demonstration approach.
 
 \subsection{Programming by Demonstration}
-Programming by demonstration (PbD) (\cite{billard2008robot}), also known as Learning from Demonstration, describes various techniques the robot learns new behaviours from teacher demonstrations. 
+Programming by Demonstration (PbD) (\cite{billard2008robot}), also known as Learning from Demonstration, describes various techniques the robot learns new behaviours from teacher demonstrations. 
 There are different ways for a teacher to provide demonstration data (\sect{subsec:Gathering demonstrations}), depending on the amount of data provided at a time (incremental vs. batch learning) and the different interaction modalities (touch, vision, gestures, voice) to transfer the data to the robot. 
 The robot derives a policy in various ways (\sect{subsec:Deriving a policy}). 
 
@@ -151,32 +153,51 @@ Natural language is the most intuitive way for humans to communicate instruction
 A multi-modal communication including information from vision, gesture and voice sources can be used to clarify instructions to the robot, for example mentioning ``that table" and gesturing the relevant object.
 Instructive systems are useful for providing a high-level control but rely on underlying trained abilities which need to be implemented using other programming systems such as manual programming or PbD.
 
+\section{End-user Involvement}
+There are different levels of end-user involvement for robot programming, such as writing and organising the execution code, providing biased or unbiased data, and defining reward functions. Table \ref{tab:end-user involvement} shows user involvement tasks for different programming methods, together with estimated time, effort, and expertise required.
 
-\section{Robot Programming in Industrial Environments}\label{subsec:RP in Industrial Enviroments}
-The deployment of robots in industrial environments introduces additional constraints to the robot programming process, such as limited resources, time constraints, limited programming expertise, product-specific tasks.
-\cite{pan2012recent} give an overview of three main robot programming methods for industrial robots: offline programming, online programming, and using Augmented Reality. 
+\begin{table}[ht]
+	\centering
+	\label{tab:end-user involvement}
+	\begin{tabular}{llcc}
+		\textbf{End-user task} & \textbf{Programming}   & \textbf{Time/effort} & \textbf{Expert} \\
+		\textbf{}& \textbf{method}   & \textbf{ required} & \textbf{ required} \\ \hline
+		Write code manually    & Text-based programming       & high                          & yes                      \\
+		Organise code sequence & Visual programming           & moderately high               & no                       \\
+		Provide complete data  & Deep learning                & moderate                      & yes                      \\
+		Provide partial data   & Programming by demonstration & moderately low                & no                       \\
+		Define reward function & Reinforcement learning       & moderately low                & yes                     
+	\end{tabular}
+\caption{End-user involvement}
+\end{table}
 
-\subsection{Offline Programming}\label{sssec:Offline Programming}
-Offline Programming (OLP) is based on 3D CAD data that models the complete robot work cell and lets the user fine-tune the properties of the robot's movements before generating a program that can be downloaded to the robot. 
-It is more efficient when programming complex systems with large volumes and more reliable compared to online programming. 
-As it requires a great amount of programming effort and a long delivery time, it requires high programming overhead and is not efficient for the development of smaller product volumes or customised software.
+Furthermore, there are different interaction modalities: vision, voice or touch.
 
-Robot designers and users have developed computational platforms for OLP systems in form of packages that allow secondary development for specific applications. 
-These OLP packages simulate not only robot trajectories and assembly tasks, but can also model interactions of several manufacturing processes, resources and product maintenance issues. 
-Almost every robot manufacturer has its own OLP software. 
-There exist also generic OLP software that are more flexible for hardware from different manufacturers.
-
-Current OLP systems do not provide functions for the complete OLP process but include steps that need to be created manually. 
-Due to the high costs of OLP systems, their use is not cost-efficient for small to medium-sized enterprises.
-
-\subsection{Online Programming}\label{sssec:Online Programming}
-In online programming methods the robot program commands the robot to move through a recorded sequence of end-effector postures which form a complete task. 
-The postures are recorded using the teach pendant to manually move the end-effector to the desired position and orientation of the task. 
-Due to its simplicity, intuitiveness, and low programming skill requirement, this method is widely used. 
-However, it is only suitable for programming applications with uncomplicated processes and work pieces with simple geometry. 
-Once the program has been generated, it is difficult to make further amendments.
-
-\subsection{Augmented Reality}\label{sssec:Augmented Reality}
-The use of augmented reality (AR) is a revolutionary concept where computer-generated 3D objects are blended onto a real world scene to enhance the user's interaction with the real world (\cite{pettersen2003augmented}). 
-Robot programming using AR allows offline programming to be performed without the need to model the workpiece in the virtual environment (\cite{pan2012recent}). 
-It can eliminate technical difficulties faced by OLP techniques such as the calibration between the virtual and the real world.
+%\section{Robot Programming in Industrial Environments}\label{subsec:RP in Industrial Enviroments}
+%The deployment of robots in industrial environments introduces additional constraints to the robot programming process, such as limited resources, time constraints, limited programming expertise, product-specific tasks.
+%\cite{pan2012recent} give an overview of three main robot programming methods for industrial robots: offline programming, online programming, and using Augmented Reality. 
+%
+%\subsection{Offline Programming}\label{sssec:Offline Programming}
+%Offline Programming (OLP) is based on 3D CAD data that models the complete robot work cell and lets the user fine-tune the properties of the robot's movements before generating a program that can be downloaded to the robot. 
+%It is more efficient when programming complex systems with large volumes and more reliable compared to online programming. 
+%As it requires a great amount of programming effort and a long delivery time, it requires high programming overhead and is not efficient for the development of smaller product volumes or customised software.
+%
+%Robot designers and users have developed computational platforms for OLP systems in form of packages that allow secondary development for specific applications. 
+%These OLP packages simulate not only robot trajectories and assembly tasks, but can also model interactions of several manufacturing processes, resources and product maintenance issues. 
+%Almost every robot manufacturer has its own OLP software. 
+%There exist also generic OLP software that are more flexible for hardware from different manufacturers.
+%
+%Current OLP systems do not provide functions for the complete OLP process but include steps that need to be created manually. 
+%Due to the high costs of OLP systems, their use is not cost-efficient for small to medium-sized enterprises.
+%
+%\subsection{Online Programming}\label{sssec:Online Programming}
+%In online programming methods the robot program commands the robot to move through a recorded sequence of end-effector postures which form a complete task. 
+%The postures are recorded using the teach pendant to manually move the end-effector to the desired position and orientation of the task. 
+%Due to its simplicity, intuitiveness, and low programming skill requirement, this method is widely used. 
+%However, it is only suitable for programming applications with uncomplicated processes and work pieces with simple geometry. 
+%Once the program has been generated, it is difficult to make further amendments.
+%
+%\subsection{Augmented Reality}\label{sssec:Augmented Reality}
+%The use of augmented reality (AR) is a revolutionary concept where computer-generated 3D objects are blended onto a real world scene to enhance the user's interaction with the real world (\cite{pettersen2003augmented}). 
+%Robot programming using AR allows offline programming to be performed without the need to model the workpiece in the virtual environment (\cite{pan2012recent}). 
+%It can eliminate technical difficulties faced by OLP techniques such as the calibration between the virtual and the real world.
