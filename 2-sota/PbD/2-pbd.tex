@@ -36,13 +36,13 @@ There are many ways for the robot to collect data.
 \begin{itemize}
     \item How much data is collected at a time: incremental vs batch learning
     \item Who provides the data: robot can look for data on its own or it is provided data by user
-    \item Which interaction modalities are used: graphic/visual, voice, and kinesthetic. 
+    \item Which interaction modalities are used: vision, voice or touch. 
 \end{itemize}
 
-In contrast to reinforcement learning techniques, where the policy is learned from arbitrarily positive and negative experience, PbD approaches derive the policy from a dataset of supervised examples.
+In contrast to reinforcement learning techniques, where the policy is learned from arbitrarily positive and negative experience, PbD approaches derive the policy from a dataset of selected examples.
 In PbD systems the teacher provides data for the robot to learn from.
-This means that the selected data is 'biased'. 
-The user can choose positive or negative examples (\cite{grollman2012robot}), to allow robot learn more efficiently.
+This means that the selected data is \textit{biased}. 
+The user can choose positive or negative examples (\cite{grollman2012robot}), to allow the robot to learn more efficiently.
 Positive examples are demonstration data showing what the robot should do and what it can learn directly from, i.e. where an action changes predicates.
 Negative examples are what the robot should avoid but should help it to generalise faster, i.e. when an action fails because its preconditions are not satisfied.
 However, \cite{walsh2010efficient} noted his Ph.D. thesis that negative examples are highly uninformative as the learner cannot determine the reason for the failure, while positive examples provide very useful information because a superset of the literals that belong to the precondition is identified.
