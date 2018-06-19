@@ -22,30 +22,23 @@ Unlike learning techniques in reinforcement learning, PbD is aimed at learning f
 \section{Design choices}\label{subsec:Design choices}
 There are different design choices to consider when developing a new PbD system.
 We differentiate between the choice of the demonstrator (human or robot), in particular who controls the demonstration and who executes the demonstration.
- Consider the example of a simple pick up action of an object.
- The teacher could be demonstrating the action using its own hands, while the robot observes the motion, or by moving the robot's joints directly.
- Furthermore, the state and action can either be represented in a discrete way (\textit{``object on the table"} or \textit{``robot holding object"}) or in a continuous way using the 3D positions of the robot's end effector and the box.
- There is also the choice of the demonstration technique, i.e. whether the data is provided to the learner incrementally or once all data has been gathered.
+Consider the example of a simple pick up action of an object.
+The teacher could be demonstrating the action using their own hands, while the robot observes the motion, or by moving the robot's joints directly.
+Furthermore, the state and action can either be represented in a discrete way (\textit{``object on the table"} or \textit{``robot holding object"}) or in a continuous way using the 3D positions of the robot's end effector and the box.
+There is also the choice of the demonstration technique, i.e. whether the data is provided to the learner incrementally or once all data has been gathered.
  
-Despite the different design choices, there are common aspects across all PbD applications. Firstly, the teacher demonstrates the desired behaviour and, secondly, the learner derives a policy from this set of demonstrations to reproduce the behaviour.
+Despite the different design choices, there are common aspects across all PbD applications. 
+Firstly, the teacher demonstrates the desired behaviour and, secondly, the learner derives a policy from this set of demonstrations to reproduce the behaviour.
 
 %Building the data set
 \section{Gathering demonstrations} \label{subsec:Gathering demonstrations}
-There are many ways for the robot to collect data.
- We differentiate between:
-\begin{itemize}
-    \item How much data is collected at a time: incremental vs batch learning
-    \item Who provides the data: robot can look for data on its own or it is provided data by user
-    \item Which interaction modalities are used: vision, voice or touch. 
-\end{itemize}
-
-In contrast to reinforcement learning techniques, where the policy is learned from arbitrarily positive and negative experience, PbD approaches derive the policy from a dataset of selected examples.
-In PbD systems the teacher provides data for the robot to learn from.
-This means that the selected data is \textit{biased}. 
-The user can choose positive or negative examples (\cite{grollman2012robot}), to allow the robot to learn more efficiently.
-Positive examples are demonstration data showing what the robot should do and what it can learn directly from, i.e. where an action changes predicates.
-Negative examples are what the robot should avoid but should help it to generalise faster, i.e. when an action fails because its preconditions are not satisfied.
-However, \cite{walsh2010efficient} noted his Ph.D. thesis that negative examples are highly uninformative as the learner cannot determine the reason for the failure, while positive examples provide very useful information because a superset of the literals that belong to the precondition is identified.
+%There are many ways for the robot to collect data.
+% We differentiate between:
+%\begin{itemize}
+%    \item How much data is collected at a time: incremental vs batch learning
+%    \item Who provides the data: robot can look for data on its own or it is provided data by user
+%    \item Which interaction modalities are used: vision, voice or touch. 
+%\end{itemize}
 
 There exist various techniques for gathering demonstration examples.
  We differentiate between methods for action recording and action execution.

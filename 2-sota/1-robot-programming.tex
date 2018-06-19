@@ -71,16 +71,24 @@ Finally, we will discuss different levels of end-user involvement and different 
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=0.87\linewidth]{figures/RobotProgrammingOverview.pdf}
+	\includegraphics[width=\linewidth]{figures/RobotProgrammingOverview}
 	\caption{Overview of Robot Programming methods.}
 	\label{fig:RobotProgrammingOverview}
 \end{figure} 
 \newpage
+
 \section{Manual Programming Systems}\label{subsec:Manual Programming Systems}
 In manual programming systems users have direct control over the robot code
 and often require expert knowledge in a programming language. % and a good understanding of the program flow.
 There exist a variety of tools to make programming, as well as testing and debugging, easier such as IDEs, spreadsheets, macros, etc.
 There are two types of manual programming: text-based programming, where the code is written manually in a chosen programming language (python, C++, java, etc.) and graphical programming, where the code structure is created with the help of a graphical interface (e.g. Scratch (\cite{majed2014learn}), Flowcharts, etc.). 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{figures/scratch-interface}
+	\caption{Scratch: block-based visual programming language (\cite{majed2014learn})}
+	\label{fig:scratch-interface}
+\end{figure} 
 
 \subsection{Text-based Systems}\label{sssec:Text-based Systems}
 Text-based systems are one of the most common methods and use a traditional programming approach. 
@@ -96,13 +104,6 @@ Graphical (or icon-based) systems use a graph, flow-chart or diagram view where 
 The graphical icons correspond directly to the program statements.
 \cite{lego2003} and \cite{bischoff2002morpha} produced graphical systems using a flow-chart approach, where the robot's behaviour can be configured by arranging low-level actions in a sequence (\fig{fig:lego-mindstorm}).
 They are typically easy to use and generally used for robot applications rather than system programming. 
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\linewidth]{figures/scratch-interface}
-	\caption{Scratch: block-based visual programming language (\cite{majed2014learn})}
-	\label{fig:scratch-interface}
-\end{figure} 
 
 \begin{figure}[!h]
 	\centering
@@ -158,22 +159,41 @@ To accelerate the learning and reduce the amount of exploration required, work h
 
 \subsection{Programming by Demonstration}
 PbD is also known as Learning from Demonstration and describes various techniques where the robot learns new behaviours from teacher demonstrations. 
-Unlike ML, Programming by Demonstration (PbD) (\cite{billard2008robot}), learns from biased data in the form of human demonstrations.
-There are different ways for a teacher to provide demonstration data (\sect{subsec:Gathering demonstrations}), depending on the amount of data provided at a time (incremental vs. batch learning) and the different interaction modalities (touch, vision, gestures, voice) to transfer the data to the robot. 
-The robot derives a policy in various ways (\sect{subsec:Deriving a policy}). 
-
+Unlike ML solutions, Programming by Demonstration (PbD) (\cite{billard2008robot}), learns from \textit{biased} data in the form of demonstrations provided by a human teacher.
 PbD systems have been used in the industry for creating assembly programs. 
 In recent years there has been significant work in PbD to move from pure imitation to intelligent systems that learn flexible task executions. 
 PbD systems may learn task descriptions from interpreted data to adapt the learned task to changing environments.
 
+The user can choose to provide positive or negative examples (\cite{grollman2012robot}), to allow the robot to learn more efficiently.
+Positive examples are demonstration data showing what the robot should do and what it can learn directly from, i.e. where an action changes predicates.
+Negative examples are what the robot should avoid but should help it to generalise faster, i.e. when an action fails because its preconditions are not satisfied.
+However, \cite{walsh2010efficient} noted his Ph.D. thesis that negative examples are highly uninformative as the learner cannot determine the reason for the failure, while positive examples provide very useful information because a superset of the literals that belong to the precondition is identified.
+
+%In contrast to reinforcement learning techniques, where the policy is learned from arbitrarily positive and negative experience, PbD approaches derive the policy from a dataset of selected examples.
+%The robot derives a policy in various ways (\sect{subsec:Deriving a policy}). 
+
+\subsubsection{Interaction Modalities}
+There are different ways for a teacher to provide demonstration data, depending on the amount of data provided at a time (incremental vs. batch learning) and the different interaction modalities (voice, vision, and touch) to transfer the data to the robot.
+
+Natural language is the most intuitive way for humans to communicate instructions but may need some form of clarification and learning system in order to work efficiently. 
+Instructive systems that use voice recognition to command robots to carry out tasks provide the user with a high-level control to program the action sequence by commanding sub-actions that robots have already been programmed (Forbes et al. 2015).
+Instructive systems use voice recognition to command robots to carry out tasks while performing a demonstration.
+Voice recognition is also used in PbD systems during demonstrations to activate in-built actions such as opening gripper or save end-effector poses (\cite{alexandrova2014robot}).
+
+The teacher can also demonstrate the action using their own hands, while the robot observes the motion (\cite{kuniyoshi1994learning}).
+Gestures can be used to direct the attention of the robot for indicating objects in a scene to which the instructions apply.
+Demonstrations can also be provided by kinesthetically moving the robot's joints, allowing the robot to go through the action execution.
+A multi-modal communication including information from vision, gesture and voice sources can be used to clarify instructions to the robot, for example mentioning ``that table" and gesturing the relevant object.
+
+
 \section{End-user Involvement}
-There are different levels of end-user involvement in robot programming, such as writing and organising the execution code, providing biased or unbiased data, and defining reward functions. Table \ref{tab:end-user involvement} shows user involvement tasks for different programming methods, together with estimated time, effort, and expertise required.
+There are different levels of end-user involvement in robot programming, such as writing and organising the execution code, providing biased or unbiased data, and defining reward functions. Table \ref{tab:end-user involvement} shows user involvement tasks for different programming methods, together with estimated effort (e.g. time), and expertise required.
 
 \begin{table}[ht]
 	\centering
 	\label{tab:end-user involvement}
 	\begin{tabular}{llcc}
-		\textbf{End-user task} & \textbf{Programming}   & \textbf{Time/effort} & \textbf{Expert} \\
+		\textbf{End-user task} & \textbf{Programming}   & \textbf{Effort} & \textbf{Expert} \\
 		\textbf{}& \textbf{method}   & \textbf{ required} & \textbf{ required} \\ \hline
 		Write code manually    & Text-based programming       & high                          & yes                      \\
 		Organise code sequence & Visual programming           & moderately high               & no                       \\
@@ -184,15 +204,8 @@ There are different levels of end-user involvement in robot programming, such as
 \caption{End-user involvement for common robot programming approaches}
 \end{table}
 
-Furthermore, there are different interaction modalities: vision, voice or touch.
+Text-based programming, Deep learning and Reinforcement learning solutions require experts to construct the code, provide data or a reward function. Visual programming provides a simpler solution for end-users without programming experience, but still requires a logical understanding of the constructed program flow. Programming by demonstration provides a more intuitive low-effort solution as the robot, where the only difficulty lies in providing correct examples to the robot.
 
-\subsection{Instructive Systems}%\todo{Delete or Move}
-Instructive systems use gesture or voice recognition to command robots to carry out tasks.
-These tasks typically consist of actions that they have already been trained or programmed to do. 
-Gestures can be used to direct the attention of the robot for indicating objects in a scene to which the instructions apply. 
-Natural language is the most intuitive way for humans to communicate instructions but may need some form of clarification and learning system in order to work efficiently. 
-A multi-modal communication including information from vision, gesture and voice sources can be used to clarify instructions to the robot, for example mentioning ``that table" and gesturing the relevant object.
-Instructive systems are useful for providing a high-level control but rely on underlying trained abilities which need to be implemented using other programming systems such as manual programming or PbD.
 
 %\section{Robot Programming in Industrial Environments}\label{subsec:RP in Industrial Enviroments}
 %The deployment of robots in industrial environments introduces additional constraints to the robot programming process, such as limited resources, time constraints, limited programming expertise, product-specific tasks.
