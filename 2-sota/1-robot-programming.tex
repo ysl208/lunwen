@@ -114,7 +114,7 @@ They are typically easy to use and generally used for robot applications rather 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=\linewidth]{figures/kuka-interface2}
-	\caption{KUKA Robotics graphical user interface (\cite{kuka2006})}
+	\caption{KUKA Robotics graphical user interface (\cite{abdeetedal2017kuka})}
 	\label{fig:Kuka}
 \end{figure} 
 
@@ -158,15 +158,15 @@ To accelerate the learning and reduce the amount of exploration required, work h
 \end{figure}
 
 \subsection{Programming by Demonstration}
-PbD is also known as Learning from Demonstration and describes various techniques where the robot learns new behaviours from teacher demonstrations. 
-Unlike ML solutions, Programming by Demonstration (PbD) (\cite{billard2008robot}), learns from \textit{biased} data in the form of demonstrations provided by a human teacher.
+PbD, also known as Learning from Demonstration or Imitation Learning, describes various techniques where the robot learns new behaviours from teacher demonstrations. 
+Unlike ML solutions, Programming by Demonstration (PbD) (\cite{billard2016learning,argall2009survey}), learns from \textit{biased} data in the form of demonstrations provided by a human teacher.
 PbD systems have been used in the industry for creating assembly programs. 
 In recent years there has been significant work in PbD to move from pure imitation to intelligent systems that learn flexible task executions. 
 PbD systems may learn task descriptions from interpreted data to adapt the learned task to changing environments.
 
-The user can choose to provide positive or negative examples (\cite{grollman2012robot}), to allow the robot to learn more efficiently.
+The user can choose to provide positive or negative examples (\cite{grollman2012robot}), to allow the robot to learn more efficiently by reducing the search space for possible solutions.
 Positive examples are demonstration data showing what the robot should do and what it can learn directly from, i.e. where an action changes predicates.
-Negative examples are what the robot should avoid but should help it to generalise faster, i.e. when an action fails because its preconditions are not satisfied.
+Negative examples are what the robot should avoid but should help it to generalise faster by eliminating bad solutions from the search space, i.e. when an action fails because its preconditions are not satisfied.
 However, \cite{walsh2010efficient} noted his Ph.D. thesis that negative examples are highly uninformative as the learner cannot determine the reason for the failure, while positive examples provide very useful information because a superset of the literals that belong to the precondition is identified.
 
 %In contrast to reinforcement learning techniques, where the policy is learned from arbitrarily positive and negative experience, PbD approaches derive the policy from a dataset of selected examples.
@@ -187,7 +187,9 @@ A multi-modal communication including information from vision, gesture and voice
 
 
 \section{End-user Involvement}
-There are different levels of end-user involvement in robot programming, such as writing and organising the execution code, providing biased or unbiased data, and defining reward functions. Table \ref{tab:end-user involvement} shows user involvement tasks for different programming methods, together with estimated effort (e.g. time), and expertise required.
+There are different levels of end-user involvement in robot programming, such as writing and organising the execution code, providing biased or unbiased data, and defining reward functions. 
+Table \ref{tab:end-user involvement} shows user involvement tasks for different programming methods, together with estimated effort (e.g. time), and expertise required.
+\cite{kormushev2013reinforcement} draws a comparison of the same main robot teaching approaches and compares computational complexity with difficulty for the teacher.
 
 \begin{table}[ht]
 	\centering

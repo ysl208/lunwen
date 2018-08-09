@@ -95,7 +95,8 @@ The research question we address in this thesis is:
 \begin{center}
 \textit{Can non-expert users teach a robot all required skills that allow it to autonomously generate solutions to user-defined problems?}
 \end{center}
-\noindent
+Most solutions assume a finite list of primitive actions, but to date there is no database of general purpose primitive actions and whether a finite set can list all necessary motions is questionable. \cite{billard2016learning}.
+
 For this, we must create a framework that combines the following aspects:
 \begin{itemize}
 	\item PbD system - to allow the user to teach the robot an action by kinesthetic demonstration, without writing code.
@@ -111,6 +112,7 @@ The integration of all aspects into a real-time system is a major challenge.
 In this thesis we address this challenge with the aim to create an end-to-end system for end-user robot programming.
 % and provide partial solutions for the other areas.
 With the focus on cobotic environments, we further investigate the difficulties encountered by end-users, when faced with a system involving PbD and Automated Planning. 
+We evaluate our approach with pick and place robots, addressing assembly and packaging, two of the most common application types in manufacturing facilities. \footnote{https://www.robotics.org/blog-article.cfm/Pick-and-Place-Robots-What-Are-They-Used-For-and-How-Do-They-Benefit-Manufacturers/88}
 % limitations 
 %We need to consider the limitations: limited resources, lack of programming knowledge and time to train operators.
 %, rather than atomic actions that can be reused independently 
