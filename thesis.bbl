@@ -1,0 +1,644 @@
+\begin{thebibliography}{94}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Aarup et~al.(1992)Aarup, Arentoft, Parrod, Stader, Stokes, and
+  Vadon]{aarup1992optimum}
+M~Aarup, MM~Arentoft, Y~Parrod, J~Stader, I~Stokes, and H~Vadon.
+\newblock \emph{OPTIMUM-AIV: a knowledge-based planning and scheduling system
+  for spacecraft AIV}.
+\newblock University of Edinburgh, Artificial Intelligence Applications
+  Institute, 1992.
+
+\bibitem[Abbeel and Ng(2004)]{abbeel2004apprenticeship}
+Pieter Abbeel and Andrew~Y Ng.
+\newblock Apprenticeship learning via inverse reinforcement learning.
+\newblock In \emph{Proceedings of the twenty-first international conference on
+  Machine learning}, page~1. ACM, 2004.
+
+\bibitem[Abdeetedal(2017)]{abdeetedal2017kuka}
+Mahyar Abdeetedal.
+\newblock An integration platform for multiple peripheral modules with kuka
+  robots.
+\newblock 2017.
+\newblock URL \url{https://github.com/mahyaret/KUI}.
+
+\bibitem[Abdo et~al.(2013)Abdo, Kretzschmar, Spinello, and
+  Stachniss]{abdo2013learning}
+Nichola Abdo, Henrik Kretzschmar, Luciano Spinello, and Cyrill Stachniss.
+\newblock Learning manipulation actions from a few demonstrations.
+\newblock In \emph{Robotics and Automation (ICRA), 2013 IEEE International
+  Conference on}, pages 1268--1275. IEEE, 2013.
+
+\bibitem[Ahmadzadeh et~al.(2015)Ahmadzadeh, Paikan, Mastrogiovanni, Natale,
+  Kormushev, and Caldwell]{ahmadzadeh2015learning}
+Seyed~Reza Ahmadzadeh, Ali Paikan, Fulvio Mastrogiovanni, Lorenzo Natale, Petar
+  Kormushev, and Darwin~G Caldwell.
+\newblock Learning symbolic representations of actions from human
+  demonstrations.
+\newblock In \emph{Robotics and Automation (ICRA), 2015 IEEE International
+  Conference on}, pages 3801--3808. IEEE, 2015.
+
+\bibitem[Akgun et~al.(2012)Akgun, Cakmak, Jiang, and Thomaz]{akgun2012keyframe}
+Baris Akgun, Maya Cakmak, Karl Jiang, and Andrea~L Thomaz.
+\newblock Keyframe-based learning from demonstration.
+\newblock \emph{International Journal of Social Robotics}, 4\penalty0
+  (4):\penalty0 343--355, 2012.
+
+\bibitem[Alexandrova et~al.(2014)Alexandrova, Cakmak, Hsiao, and
+  Takayama]{alexandrova2014robot}
+Sonya Alexandrova, Maya Cakmak, Kaijen Hsiao, and Leila Takayama.
+\newblock Robot programming by demonstration with interactive action
+  visualizations.
+\newblock Citeseer, 2014.
+
+\bibitem[Alexandrova et~al.(2015)Alexandrova, Tatlock, and
+  Cakmak]{alexandrova2015roboflow}
+Sonya Alexandrova, Zachary Tatlock, and Maya Cakmak.
+\newblock Roboflow: A flow-based visual programming language for mobile
+  manipulation tasks.
+\newblock In \emph{Robotics and Automation (ICRA), 2015 IEEE International
+  Conference on}, pages 5537--5544. IEEE, 2015.
+
+\bibitem[Argall et~al.(2009)Argall, Chernova, Veloso, and
+  Browning]{argall2009survey}
+Brenna~D Argall, Sonia Chernova, Manuela Veloso, and Brett Browning.
+\newblock A survey of robot learning from demonstration.
+\newblock \emph{Robotics and autonomous systems}, 57\penalty0 (5):\penalty0
+  469--483, 2009.
+
+\bibitem[Atkeson and Schaal(1997)]{atkeson1997robot}
+Christopher~G Atkeson and Stefan Schaal.
+\newblock Robot learning from demonstration.
+\newblock In \emph{ICML}, volume~97, pages 12--20. Citeseer, 1997.
+
+\bibitem[Atkeson et~al.(1997)Atkeson, Moore, and Schaal]{atkeson1997locally}
+Christopher~G Atkeson, Andrew~W Moore, and Stefan Schaal.
+\newblock Locally weighted learning for control.
+\newblock In \emph{Lazy learning}, pages 75--113. Springer, 1997.
+
+\bibitem[Biggs and Macdonald(2003)]{Biggs2003}
+Geoffrey Biggs and Bruce Macdonald.
+\newblock {A Survey of Robot Programming Systems}.
+\newblock \emph{Proceedings of the Australasian conference on robotics and
+  automation}, pages 1--3, 2003.
+\newblock ISSN 09574158.
+\newblock \doi{10.1109/ROBOT.2001.932554}.
+
+\bibitem[Billard and Schaal(2001)]{billard2001robust}
+Aude Billard and Stefan Schaal.
+\newblock Robust learning of arm trajectories through human demonstration.
+\newblock In \emph{Intelligent Robots and Systems, 2001. Proceedings. 2001
+  IEEE/RSJ International Conference on}, volume~2, pages 734--739. IEEE, 2001.
+
+\bibitem[Billard et~al.(2008)Billard, Calinon, Dillmann, and
+  Schaal]{billard2008robot}
+Aude Billard, Sylvain Calinon, Ruediger Dillmann, and Stefan Schaal.
+\newblock Robot programming by demonstration.
+\newblock In \emph{Springer Handbook of Robotics}, pages 1371--1394. Springer,
+  2008.
+
+\bibitem[Billard et~al.(2016)Billard, Calinon, and
+  Dillmann]{billard2016learning}
+Aude~G Billard, Sylvain Calinon, and R{\"u}diger Dillmann.
+\newblock Learning from humans.
+\newblock In \emph{Springer handbook of robotics}, pages 1995--2014. Springer,
+  2016.
+
+\bibitem[Billing and Hellstr{\"o}m(2010)]{billing2010formalism}
+Erik~A Billing and Thomas Hellstr{\"o}m.
+\newblock A formalism for learning from demonstration*.
+\newblock \emph{Paladyn, Journal of Behavioral Robotics}, 1\penalty0
+  (1):\penalty0 1--13, 2010.
+
+\bibitem[Bischoff et~al.(2002)Bischoff, Kazi, and Seyfarth]{bischoff2002morpha}
+Rainer Bischoff, Arif Kazi, and Markus Seyfarth.
+\newblock The morpha style guide for icon-based programming.
+\newblock In \emph{Robot and Human Interactive Communication, 2002.
+  Proceedings. 11th IEEE International Workshop on}, pages 482--487. IEEE,
+  2002.
+
+\bibitem[Blum and Furst(1997)]{blum:97}
+A.~Blum and M.~Furst.
+\newblock {F}ast {P}lanning {T}hrough {P}lanning {G}raph {A}nalysis.
+\newblock \emph{Artificial Intelligence}, 90\penalty0 (1-2):\penalty0 281--300,
+  1997.
+
+\bibitem[Bonet and Geffner(2001)]{bonet:01}
+B.~Bonet and H.~Geffner.
+\newblock Planning as heuristic search.
+\newblock \emph{Artificial Intelligence}, 129\penalty0 (1--2):\penalty0 5--33,
+  2001.
+
+\bibitem[Cakmak and Lopes(2012)]{cakmak2012aaai}
+Maya Cakmak and Manuel Lopes.
+\newblock Algorithmic and human teaching of sequential decision tasks.
+\newblock In \emph{Association for the Advancement of Artificial Intelligence
+  (AAAI)}, 2012.
+
+\bibitem[Cakmak and Takayama(2014)]{cakmak2014teaching}
+Maya Cakmak and Leila Takayama.
+\newblock Teaching people how to teach robots: The effect of instructional
+  materials and dialog design.
+\newblock In \emph{Proceedings of the 2014 ACM/IEEE international conference on
+  Human-robot interaction}, pages 431--438. ACM, 2014.
+
+\bibitem[Calinon and Billard(2007{\natexlab{a}})]{calinon2007active}
+Sylvain Calinon and Aude Billard.
+\newblock Active teaching in robot programming by demonstration.
+\newblock In \emph{Robot and Human interactive Communication, 2007. RO-MAN
+  2007. The 16th IEEE International Symposium on}, pages 702--707. IEEE,
+  2007{\natexlab{a}}.
+
+\bibitem[Calinon and Billard(2007{\natexlab{b}})]{calinon2007incremental}
+Sylvain Calinon and Aude Billard.
+\newblock Incremental learning of gestures by imitation in a humanoid robot.
+\newblock In \emph{Proceedings of the ACM/IEEE international conference on
+  Human-robot interaction}, pages 255--262. ACM, 2007{\natexlab{b}}.
+
+\bibitem[Chen and Zelinsky(2003)]{chen2003programing}
+Jason Chen and Alex Zelinsky.
+\newblock Programing by demonstration: Coping with suboptimal teaching actions.
+\newblock \emph{The International Journal of Robotics Research}, 22\penalty0
+  (5):\penalty0 299--319, 2003.
+
+\bibitem[Chernova and Thomaz(2014)]{chernova2014robot}
+Sonia Chernova and Andrea~L Thomaz.
+\newblock Robot learning from human teachers.
+\newblock \emph{Synthesis Lectures on Artificial Intelligence and Machine
+  Learning}, 8\penalty0 (3):\penalty0 1--121, 2014.
+
+\bibitem[Clapaud(2013)]{Airbus}
+Alain Clapaud.
+\newblock Des cobots rb3d pour le montage des airbus a350 en 2015.
+\newblock 4e R\'evolution, November~3 2013.
+\newblock URL \url{http://www.4erevolution.com/en/cobots-rb3d-airbus-a350/}.
+\newblock Online.
+
+\bibitem[Colgate and Peshkin(1999)]{colgate1999cobots}
+J.E. Colgate and M.A. Peshkin.
+\newblock Cobots.
+\newblock Google Patents, September~14 1999.
+\newblock URL \url{https://www.google.com/patents/US5952796}.
+\newblock US Patent 5,952,796.
+
+\bibitem[Cresswell et~al.(2013)Cresswell, McCluskey, and
+  West]{cresswell2013acquiring}
+Stephen~N Cresswell, Thomas~L McCluskey, and Margaret~M West.
+\newblock Acquiring planning domain models using locm.
+\newblock \emph{The Knowledge Engineering Review}, 28\penalty0 (2):\penalty0
+  195--213, 2013.
+
+\bibitem[Cubek et~al.(2015)Cubek, Ertel, and Palm]{cubek2015high}
+Richard Cubek, Wolfgang Ertel, and G{\"u}nther Palm.
+\newblock High-level learning from demonstration with conceptual spaces and
+  subspace clustering.
+\newblock In \emph{Robotics and Automation (ICRA), 2015 IEEE International
+  Conference on}, pages 2592--2597. IEEE, 2015.
+
+\bibitem[Do and Kambhampati(2001)]{do:01}
+M.~Do and S.~Kambhampati.
+\newblock Planning as constraint satisfaction: Solving the planning graph by
+  compiling it into csp.
+\newblock \emph{Artificial Intelligence}, 132\penalty0 (2):\penalty0 151--182,
+  2001.
+
+\bibitem[Ekvall and Kragic(2008)]{ekvall2008robot}
+Staffan Ekvall and Danica Kragic.
+\newblock Robot learning from demonstration: a task-level planning approach.
+\newblock \emph{International Journal of Advanced Robotic Systems}, 5\penalty0
+  (3):\penalty0 223--234, 2008.
+
+\bibitem[Fikes and Nilsson(1971)]{fikes1971strips}
+Richard~E Fikes and Nils~J Nilsson.
+\newblock Strips: A new approach to the application of theorem proving to
+  problem solving.
+\newblock \emph{Artificial intelligence}, 2\penalty0 (3-4):\penalty0 189--208,
+  1971.
+
+\bibitem[Fox et~al.(2006)Fox, Ghallab, Infantes, and Long]{fox2006robot}
+Maria Fox, Malik Ghallab, Guillaume Infantes, and Derek Long.
+\newblock Robot introspection through learned hidden markov models.
+\newblock \emph{Artificial Intelligence}, 170\penalty0 (2):\penalty0 59--113,
+  2006.
+
+\bibitem[Ghallab et~al.(2004)Ghallab, Nau, and Traverso]{ghallab2004automated}
+Malik Ghallab, Dana Nau, and Paolo Traverso.
+\newblock \emph{Automated planning: theory \& practice}.
+\newblock Elsevier, 2004.
+
+\bibitem[Gil(1994)]{gil1994learning}
+Yolanda Gil.
+\newblock Learning by experimentation: Incremental refinement of incomplete
+  planning domains.
+\newblock \emph{International Conference on Machine Learning}, pages 87--95,
+  1994.
+
+\bibitem[Gosavi(2009)]{gosavi2009reinforcement}
+Abhijit Gosavi.
+\newblock Reinforcement learning: A tutorial survey and recent advances.
+\newblock \emph{INFORMS Journal on Computing}, 21\penalty0 (2):\penalty0
+  178--192, 2009.
+
+\bibitem[Grollman and Billard(2012)]{grollman2012robot}
+Daniel~H Grollman and Aude~G Billard.
+\newblock Robot learning from failed demonstrations.
+\newblock \emph{International Journal of Social Robotics}, 4\penalty0
+  (4):\penalty0 331--342, 2012.
+
+\bibitem[Group(2005)]{omg2005unified}
+Object~Management Group.
+\newblock Unified modeling language specification version 2.0.
+\newblock 2005.
+\newblock URL \url{https://www.omg.org/spec/UML/2.0/About-UML/}.
+
+\bibitem[Guerin et~al.(2015)Guerin, Lea, Paxton, and
+  Hager]{guerin2015framework}
+Kelleher~R Guerin, Colin Lea, Chris Paxton, and Gregory~D Hager.
+\newblock A framework for end-user instruction of a robot assistant for
+  manufacturing.
+\newblock In \emph{Robotics and Automation (ICRA), 2015 IEEE International
+  Conference on}, pages 6167--6174. IEEE, 2015.
+
+\bibitem[Helmert(2006)]{helmert:06a}
+M.~Helmert.
+\newblock The fast downward planning system.
+\newblock \emph{Journal of Artificial Intelligence Research}, 26:\penalty0
+  191--246, 2006.
+
+\bibitem[Hester et~al.(2017)Hester, Vecerik, Pietquin, Lanctot, Schaul, Piot,
+  Sendonaris, Dulac-Arnold, Osband, Agapiou, et~al.]{hester2017learning}
+Todd Hester, Matej Vecerik, Olivier Pietquin, Marc Lanctot, Tom Schaul, Bilal
+  Piot, Andrew Sendonaris, Gabriel Dulac-Arnold, Ian Osband, John Agapiou,
+  et~al.
+\newblock Learning from demonstrations for real world reinforcement learning.
+\newblock \emph{arXiv preprint arXiv:1704.03732}, 2017.
+
+\bibitem[Hoffmann(2011)]{hoffmann:11}
+J.~Hoffmann.
+\newblock Analyzing search topology without running any search: On the
+  connection between causal graphs and h+.
+\newblock \emph{Journal of Artificial Intelligence Research}, 41:\penalty0
+  155--229, 2011.
+
+\bibitem[Hoffmann(2000)]{hoffmann2000heuristic}
+J{\"o}rg Hoffmann.
+\newblock A heuristic for domain independent planning and its use in an
+  enforced hill-climbing algorithm.
+\newblock In \emph{Foundations of Intelligent Systems}, pages 216--227.
+  Springer, 2000.
+
+\bibitem[Hofstadter(1985)]{douglas1985metamagical}
+Douglas~R. Hofstadter.
+\newblock \emph{Metamagical themas: Questing for the essence of mind and
+  pattern}.
+\newblock Basic books, 1985.
+
+\bibitem[Hovland et~al.(1996)Hovland, Sikka, and McCarragher]{hovland1996skill}
+Geir~E Hovland, Pavan Sikka, and Brenan~J McCarragher.
+\newblock Skill acquisition from human demonstration using a hidden markov
+  model.
+\newblock In \emph{Robotics and Automation, 1996. Proceedings., 1996 IEEE
+  International Conference on}, volume~3, pages 2706--2711. IEEE, 1996.
+
+\bibitem[Huckaby et~al.(2013)Huckaby, Vassos, and
+  Christensen]{huckaby2013planning}
+Jacob Huckaby, Stavros Vassos, and Henrik~I Christensen.
+\newblock Planning with a task modeling framework in manufacturing robotics.
+\newblock In \emph{Intelligent Robots and Systems (IROS), 2013 IEEE/RSJ
+  International Conference on}, pages 5787--5794. IEEE, 2013.
+
+\bibitem[Ingrand and Ghallab(2017)]{ingrand2017deliberation}
+F{\'e}lix Ingrand and Malik Ghallab.
+\newblock Deliberation for autonomous robots: A survey.
+\newblock \emph{Artificial Intelligence}, 247:\penalty0 10--44, 2017.
+
+\bibitem[Jilani et~al.(2014)Jilani, Crampton, Kitchin, and
+  Vallati]{jilani2014automated}
+Rabia Jilani, Andrew Crampton, Diane~E Kitchin, and Mauro Vallati.
+\newblock Automated knowledge engineering tools in planning: state-of-the-art
+  and future challenges.
+\newblock 2014.
+
+\bibitem[Jones(2017)]{jones2017models}
+Tim Jones.
+\newblock Models for machine learning.
+\newblock \emph{developerWorks, IBM Corporation}, 2017.
+\newblock URL
+  \url{https://www.ibm.com/developerworks/library/cc-models-machine-learning/index.html}.
+
+\bibitem[Kaelbling et~al.(1996)Kaelbling, Littman, and
+  Moore]{kaelbling1996reinforcement}
+Leslie~Pack Kaelbling, Michael~L Littman, and Andrew~W Moore.
+\newblock Reinforcement learning: A survey.
+\newblock \emph{Journal of artificial intelligence research}, 4:\penalty0
+  237--285, 1996.
+
+\bibitem[Kaiser et~al.(1995)Kaiser, Friedrich, and
+  Dillmann]{kaiser1995obtaining}
+Michael Kaiser, Holger Friedrich, and Rudiger Dillmann.
+\newblock Obtaining good performance from a bad teacher.
+\newblock In \emph{Programming by Demonstration vs. Learning from Examples
+  Workshop at ML}, volume~95, 1995.
+
+\bibitem[Kautz and Selman(1999)]{kautz:99}
+H.~Kautz and B.~Selman.
+\newblock {U}nifying {SAT}-based and {G}raph-based {P}lanning.
+\newblock In \emph{Proceedings of International Joint Conference on Artificial
+  Intelligence}, pages 318--325, 1999.
+
+\bibitem[Kautz et~al.(2006)Kautz, Selman, and Hoffmann]{kautz:06}
+H.~Kautz, B.~Selman, and J.~Hoffmann.
+\newblock Satplan: Planning as satisfiability.
+\newblock In \emph{Abstracts of the 5th International Planning Competition},
+  2006.
+
+\bibitem[Kober et~al.(2013)Kober, Bagnell, and Peters]{kober2013reinforcement}
+Jens Kober, J~Andrew Bagnell, and Jan Peters.
+\newblock Reinforcement learning in robotics: A survey.
+\newblock \emph{The International Journal of Robotics Research}, 32\penalty0
+  (11):\penalty0 1238--1274, 2013.
+
+\bibitem[Kormushev et~al.(2013)Kormushev, Calinon, and
+  Caldwell]{kormushev2013reinforcement}
+Petar Kormushev, Sylvain Calinon, and Darwin~G Caldwell.
+\newblock Reinforcement learning in robotics: Applications and real-world
+  challenges.
+\newblock \emph{Robotics}, 2\penalty0 (3):\penalty0 122--148, 2013.
+
+\bibitem[Kuniyoshi et~al.(1994)Kuniyoshi, Inaba, and
+  Inoue]{kuniyoshi1994learning}
+Yasuo Kuniyoshi, Masayuki Inaba, and Hirochika Inoue.
+\newblock Learning by watching: Extracting reusable task knowledge from visual
+  observation of human performance.
+\newblock \emph{Robotics and Automation, IEEE Transactions on}, 10\penalty0
+  (6):\penalty0 799--822, 1994.
+
+\bibitem[Laird et~al.(2017)Laird, Gluck, Anderson, Forbus, Jenkins, Lebiere,
+  Salvucci, Scheutz, Thomaz, Trafton, et~al.]{laird2017interactive}
+John~E Laird, Kevin Gluck, John Anderson, Kenneth~D Forbus, Odest~Chadwicke
+  Jenkins, Christian Lebiere, Dario Salvucci, Matthias Scheutz, Andrea Thomaz,
+  Greg Trafton, et~al.
+\newblock Interactive task learning.
+\newblock \emph{IEEE Intelligent Systems}, 32\penalty0 (4):\penalty0 6--21,
+  2017.
+
+\bibitem[Lego(2003)]{lego2003}
+Lego.
+\newblock Lego mindstorms.
+\newblock 2003.
+\newblock URL \url{http://mindstorms. lego.com/eng/products/ris/rissoft.asp}.
+
+\bibitem[Liang et~al.(2017{\natexlab{a}})Liang, Pellier, Fiorino, and
+  Pesty]{liang2017evaluation}
+Ying-Siu Liang, Damien Pellier, Humbert Fiorino, and Sylvie Pesty.
+\newblock Evaluation of a robot programming framework for non-experts using
+  symbolic planning representations.
+\newblock In \emph{26th IEEE International Symposium on Robot and Human
+  Interactive Communication}, 2017{\natexlab{a}}.
+
+\bibitem[Liang et~al.(2017{\natexlab{b}})Liang, Pellier, Fiorino, and
+  Pesty]{liang2017framework}
+Ying~Siu Liang, Damien Pellier, Humbert Fiorino, and Sylvie Pesty.
+\newblock A framework for robot programming in cobotic environments: First user
+  experiments.
+\newblock In \emph{Proceedings of the 3rd International Conference on
+  Mechatronics and Robotics Engineering}, pages 30--35. ACM,
+  2017{\natexlab{b}}.
+
+\bibitem[Liang et~al.(2018 (in review))Liang, Pellier, Fiorino, Pesty, and
+  Cakmak]{liang2018simultaneous}
+Ying-Siu Liang, Damien Pellier, Humbert Fiorino, Sylvie Pesty, and Maya Cakmak.
+\newblock Simultaneous end-user programming of goals and actions for robotic
+  shelf organization.
+\newblock In \emph{Intelligent Robots and Systems (IROS), 2018 IEEE/RSJ
+  International Conference on}, 2018 (in review).
+
+\bibitem[Lozano-Perez(1983)]{lozano1983robot}
+Tomas Lozano-Perez.
+\newblock Robot programming.
+\newblock \emph{Proceedings of the IEEE}, 71\penalty0 (7):\penalty0 821--841,
+  1983.
+
+\bibitem[Majed(2014)]{majed2014learn}
+Marji Majed.
+\newblock \emph{Learn to program with Scratch: a visual introduction to
+  programming with games, art, science, and math}.
+\newblock No Starch Press Inc., 2014.
+
+\bibitem[Mart{\'\i}nez et~al.(2017)Mart{\'\i}nez, Alenya, and
+  Torras]{martinez2017relational}
+David Mart{\'\i}nez, Guillem Alenya, and Carme Torras.
+\newblock Relational reinforcement learning with guided demonstrations.
+\newblock \emph{Artificial Intelligence}, 247:\penalty0 295--312, 2017.
+
+\bibitem[Mason and Lopes(2011)]{mason2011robot}
+Martin Mason and Manuel~C Lopes.
+\newblock Robot self-initiative and personalization by learning through
+  repeated interactions.
+\newblock In \emph{Proceedings of the 6th international conference on
+  Human-robot interaction}, pages 433--440. ACM, 2011.
+
+\bibitem[McCluskey et~al.(2009)McCluskey, Cresswell, Richardson, and
+  West]{mccluskey2009automated}
+Thomas~Leo McCluskey, SN~Cresswell, N~Elisabeth Richardson, and Margaret~M
+  West.
+\newblock Automated acquisition of action knowledge.
+\newblock 2009.
+
+\bibitem[McDermott et~al.(1998)McDermott, Ghallab, Howe, Knoblock, Ram, Veloso,
+  Weld, and Wilkins]{mcdermott1998pddl}
+Drew McDermott, Malik Ghallab, Adele Howe, Craig Knoblock, Ashwin Ram, Manuela
+  Veloso, Daniel Weld, and David Wilkins.
+\newblock Pddl-the planning domain definition language.
+\newblock 1998.
+
+\bibitem[Mollard et~al.(2015)Mollard, Munzer, Baisero, Toussaint, and
+  Lopes]{mollard2015robot}
+Yoan Mollard, Thibaut Munzer, Andrea Baisero, Marc Toussaint, and Manuel Lopes.
+\newblock Robot programming from demonstration, feedback and transfer.
+\newblock In \emph{Intelligent Robots and Systems (IROS), 2015 IEEE/RSJ
+  International Conference on}, pages 1825--1831. IEEE, 2015.
+
+\bibitem[Murata(1989)]{murata1989petri}
+Tadao Murata.
+\newblock Petri nets: Properties, analysis and applications.
+\newblock \emph{Proceedings of the IEEE}, 77\penalty0 (4):\penalty0 541--580,
+  1989.
+
+\bibitem[Nicolescu and Mataric(2003)]{nicolescu2003natural}
+Monica~N Nicolescu and Maja~J Mataric.
+\newblock Natural methods for robot task learning: Instructive demonstrations,
+  generalization and practice.
+\newblock In \emph{Proceedings of the second international joint conference on
+  Autonomous agents and multiagent systems}, pages 241--248. ACM, 2003.
+
+\bibitem[Orendt et~al.(2016)Orendt, Fichtner, and Henrich]{orendt2016robot}
+Eric~M Orendt, Myriel Fichtner, and Dominik Henrich.
+\newblock Robot programming by non-experts: intuitiveness and robustness of
+  one-shot robot programming.
+\newblock In \emph{Robot and Human Interactive Communication (RO-MAN), 2016
+  25th IEEE International Symposium on}, pages 192--199. IEEE, 2016.
+
+\bibitem[Pajitnov(1984)]{tetris}
+Alekse\:{i} Pajitnov.
+\newblock Tetris.
+\newblock \emph{[Online] http://tetris.com}, 1984.
+
+\bibitem[Pastor et~al.(2009)Pastor, Hoffmann, Asfour, and
+  Schaal]{pastor2009learning}
+Peter Pastor, Heiko Hoffmann, Tamim Asfour, and Stefan Schaal.
+\newblock Learning and generalization of motor skills by learning from
+  demonstration.
+\newblock In \emph{Robotics and Automation, 2009. ICRA'09. IEEE International
+  Conference on}, pages 763--768. IEEE, 2009.
+
+\bibitem[Peppoloni et~al.(2014)Peppoloni, Di~Fava, Ruffaldi, and
+  Avizzano]{peppoloni2014ros}
+Lorenzo Peppoloni, Alessandro Di~Fava, Emanuele Ruffaldi, and Carlo~Alberto
+  Avizzano.
+\newblock A ros-integrated architecture to learn manipulation tasks from a
+  single demonstration.
+\newblock In \emph{Robot and Human Interactive Communication, 2014 RO-MAN: The
+  23rd IEEE International Symposium on}, pages 537--542. IEEE, 2014.
+
+\bibitem[Pomerleau(1991)]{pomerleau1991efficient}
+Dean~A Pomerleau.
+\newblock Efficient training of artificial neural networks for autonomous
+  navigation.
+\newblock \emph{Neural Computation}, 3\penalty0 (1):\penalty0 88--97, 1991.
+
+\bibitem[Profanter et~al.(2015)Profanter, Perzylo, Somani, Rickert, and
+  Knoll]{profanter2015analysis}
+Stefan Profanter, Alexander Perzylo, Nikhil Somani, Markus Rickert, and Alois
+  Knoll.
+\newblock Analysis and semantic modeling of modality preferences in industrial
+  human-robot interaction.
+\newblock In \emph{Intelligent Robots and Systems (IROS), 2015 IEEE/RSJ
+  International Conference on}, pages 1812--1818. IEEE, 2015.
+
+\bibitem[Quigley et~al.()Quigley, Faust, Foote, and Leibs]{quigley2009ros}
+Morgan Quigley, Josh Faust, Tully Foote, and Jeremy Leibs.
+\newblock Ros: an open-source robot operating system.
+
+\bibitem[Robots(2014)]{Ebola}
+Active8 Robots.
+\newblock Baxter research robot - providing support for the ebola outbreak.
+\newblock Active8 Robots, November~13 2014.
+\newblock URL \url{http://www.active8robots.com/news/baxter-ebola-research}.
+\newblock Online.
+
+\bibitem[Robots(2016)]{Food}
+Universal Robots.
+\newblock How cobots transform the food industry.
+\newblock Universal Robots, February~10 2016.
+\newblock URL
+  \url{http://www.universal-robots.com/blog/how-cobots-transform-the-food-industry/}.
+\newblock Online.
+
+\bibitem[Rybski and Voyles(1999)]{rybski1999interactive}
+Paul~E Rybski and Richard~M Voyles.
+\newblock Interactive task training of a mobile robot through human gesture
+  recognition.
+\newblock In \emph{Robotics and Automation, 1999. Proceedings. 1999 IEEE
+  International Conference on}, volume~1, pages 664--669. IEEE, 1999.
+
+\bibitem[Saunders et~al.(2006)Saunders, Nehaniv, and
+  Dautenhahn]{saunders2006teaching}
+Joe Saunders, Chrystopher~L Nehaniv, and Kerstin Dautenhahn.
+\newblock Teaching robots by moulding behavior and scaffolding the environment.
+\newblock In \emph{Proceedings of the 1st ACM SIGCHI/SIGART conference on
+  Human-robot interaction}, pages 118--125. ACM, 2006.
+
+\bibitem[Schmidhuber(2015)]{schmidhuber2015deep}
+J{\"u}rgen Schmidhuber.
+\newblock Deep learning in neural networks: An overview.
+\newblock \emph{Neural networks}, 61:\penalty0 85--117, 2015.
+
+\bibitem[She et~al.(2014)She, Cheng, Chai, Jia, Yang, and Xi]{she2014teaching}
+Lanbo She, Yu~Cheng, Joyce~Y Chai, Yunyi Jia, Shaohua Yang, and Ning Xi.
+\newblock Teaching robots new actions through natural language instructions.
+\newblock In \emph{Robot and Human Interactive Communication, 2014 RO-MAN: The
+  23rd IEEE International Symposium on}, pages 868--873. IEEE, 2014.
+
+\bibitem[Simpson et~al.(2007)Simpson, Kitchin, and
+  McCluskey]{simpson2007planning}
+Ron~M Simpson, Diane~E Kitchin, and Thomas~Leo McCluskey.
+\newblock Planning domain definition using gipo.
+\newblock \emph{The Knowledge Engineering Review}, 22\penalty0 (2):\penalty0
+  117--134, 2007.
+
+\bibitem[Smart and Kaelbling(2002)]{smart2002effective}
+William~D Smart and Leslie~Pack Kaelbling.
+\newblock Effective reinforcement learning for mobile robots.
+\newblock In \emph{Robotics and Automation, 2002. Proceedings. ICRA'02. IEEE
+  International Conference on}, volume~4, pages 3404--3410. IEEE, 2002.
+
+\bibitem[Stager et~al.(2013)Stager, Sergi-Curfman, LaRose, Fromme, Bagnell,
+  Cuzzillo, and Baker]{stager2013computer}
+D.J. Stager, M.K. Sergi-Curfman, D.A. LaRose, C.C. Fromme, J.A. Bagnell, E.A.
+  Cuzzillo, and L.D. Baker.
+\newblock Computer vision and machine learning software for grading and sorting
+  plants, January~31 2013.
+\newblock URL \url{https://www.google.ch/patents/US20130028487}.
+\newblock US Patent App. 13/634,086.
+
+\bibitem[Suay et~al.(2012)Suay, Toris, and Chernova]{suay2012practical}
+Halit~Bener Suay, Russell Toris, and Sonia Chernova.
+\newblock A practical comparison of three robot learning from demonstration
+  algorithm.
+\newblock \emph{International Journal of Social Robotics}, 4\penalty0
+  (4):\penalty0 319--330, 2012.
+
+\bibitem[Sutton and Barto(1998)]{sutton1998reinforcement}
+Richard~S Sutton and Andrew~G Barto.
+\newblock \emph{Reinforcement learning: An introduction}, volume~1.
+\newblock 1998.
+
+\bibitem[Vaquero et~al.(2013)Vaquero, Silva, Tonidandel, and
+  Beck]{vaquero2013itsimple}
+Tiago~S Vaquero, Jos{\'e}~R Silva, Flavio Tonidandel, and J~Christopher Beck.
+\newblock itsimple: towards an integrated design system for real planning
+  applications.
+\newblock \emph{The Knowledge Engineering Review}, 28\penalty0 (2):\penalty0
+  215--230, 2013.
+
+\bibitem[Veeraraghavan and Veloso(2008)]{veeraraghavan2008teaching}
+Harini Veeraraghavan and Manuela Veloso.
+\newblock Teaching sequential tasks with repetition through demonstration.
+\newblock In \emph{Proceedings of the 7th international joint conference on
+  Autonomous agents and multiagent systems-Volume 3}, pages 1357--1360.
+  International Foundation for Autonomous Agents and Multiagent Systems, 2008.
+
+\bibitem[Walsh(2010)]{walsh2010efficient}
+Thomas~J Walsh.
+\newblock \emph{Efficient learning of relational models for sequential decision
+  making}.
+\newblock Rutgers The State University of New Jersey-New Brunswick, 2010.
+
+\bibitem[Yang et~al.(2015)Yang, Li, Ferm$\backslash$"{\{}u{\}}ller, and
+  Aloimonos]{Yang2015}
+Yezhou Yang, Yi~Li, Cornelia Ferm$\backslash$"{\{}u{\}}ller, and Yiannis
+  Aloimonos.
+\newblock Robot learning manipulation action plans by "watching" unconstrained
+  videos from the world wide web.
+\newblock \emph{Twenty-Ninth AAAI Conference on Artificial Intelligence
+  (AAAI-15)}, pages 3686--3692, 2015.
+
+\bibitem[Yildiz et~al.(2013)Yildiz, Karapinar, and
+  Sariel-Talay]{yildiz2013learning}
+Petek Yildiz, Sertac Karapinar, and Sanem Sariel-Talay.
+\newblock Learning guided symbolic planning for cognitive robots.
+\newblock In \emph{The IEEE International Conference on Robotics and Automation
+  (ICRA), Autonomous Learning Workshop}, 2013.
+
+\bibitem[Younes and Littman(2004)]{younes:04a}
+H.~Younes and M.~Littman.
+\newblock {PPDDL} 1.0: an extension to {PDDL} for expressing planning domains
+  with probabilistic effects.
+\newblock Technical Report CMU-CS-04-167, Carnegie Mellon University, 2004.
+
+\end{thebibliography}

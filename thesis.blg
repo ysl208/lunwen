@@ -1,0 +1,63 @@
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: thesis.aux
+The style file: plainnat.bst
+Database file #1: references.bib
+Warning--empty booktitle in abdeetedal2017kuka
+Warning--empty booktitle in alexandrova2014robot
+Warning--empty booktitle in Airbus
+Warning--empty booktitle in colgate1999cobots
+Warning--empty booktitle in omg2005unified
+Warning--empty journal in jilani2014automated
+Warning--empty booktitle in lego2003
+Warning--empty journal in mccluskey2009automated
+Warning--empty journal in mcdermott1998pddl
+Warning--empty booktitle in quigley2009ros
+Warning--empty year in quigley2009ros
+Warning--empty year in quigley2009ros
+Warning--empty booktitle in Ebola
+Warning--empty booktitle in Food
+Warning--can't use both volume and number fields in sutton1998reinforcement
+Warning--empty publisher in sutton1998reinforcement
+You've used 94 entries,
+            2773 wiz_defined-function locations,
+            1099 strings with 22037 characters,
+and the built_in function-call counts, 49088 in all, are:
+= -- 4525
+> -- 2679
+< -- 90
++ -- 909
+- -- 813
+* -- 3775
+:= -- 7191
+add.period$ -- 327
+call.type$ -- 94
+change.case$ -- 545
+chr.to.int$ -- 92
+cite$ -- 204
+duplicate$ -- 2373
+empty$ -- 4081
+format.name$ -- 961
+if$ -- 10649
+int.to.chr$ -- 3
+int.to.str$ -- 1
+missing$ -- 98
+newline$ -- 492
+num.names$ -- 376
+pop$ -- 1232
+preamble$ -- 1
+purify$ -- 457
+quote$ -- 0
+skip$ -- 1841
+stack$ -- 0
+substring$ -- 2046
+swap$ -- 467
+text.length$ -- 43
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1004
+warning$ -- 16
+while$ -- 444
+width$ -- 0
+write$ -- 1259
+(There were 16 warnings)

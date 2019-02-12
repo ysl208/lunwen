@@ -1,0 +1,29 @@
+\select@language {english}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces PbD Overview}}{8}{figure.1.1}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Tower of Hanoi problem a) with three disks b) with four disks}}{9}{figure.1.2}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Planning domain describing an initial world state, goal state, and a generated action sequence (left), where actions are described in terms of preconditions and effects (right).}}{10}{figure.1.3}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Classical robot programming process}}{13}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Overview of Robot Programming methods.}}{15}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Scratch: block-based visual programming language (\cite {majed2014learn})}}{16}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Lego Mindstorms EV3 icon-based interface (\cite {lego2003})}}{16}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces KUKA Robotics graphical user interface (\cite {abdeetedal2017kuka})}}{17}{figure.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Types of Machine learning (\cite {jones2017models})}}{18}{figure.2.6}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Intersection of the record and embodiment mappings.}}{23}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Typical approaches to providing demonstrations (\cite {argall2009survey})}}{24}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Policy derivation techniques (\cite {argall2009survey})}}{25}{figure.3.3}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Definition of a planning problem: Left: (a) properties describing the initial world state (b) object names and their types (c) instantiated actions (d) properties describing the goal state. Right: Action model representation of a move action in terms of preconditions and effects: demonstrated action model for a cube (top), and generalised action model for any object, variables are prefixed with `?' (bottom).}}{34}{figure.4.1}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces A robot programming framework for non-expert users: the user teaches action models, which are used by the robot with an automated planner, to generate an action sequence to achieve a goal. After an unsuccessful robot execution, the user can refine the taught action models (dotted lines indicate user actions, solid lines indicate robot actions).}}{37}{figure.5.1}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Experimental setup for user studies on Programming by Demonstration of a move action by kinesthetic manipulation of the Baxter robot.}}{40}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Users were instructed to provide a description of (a) the initial state of the world and (b) an initial move action model They derived additional preconditions for moving the ball from position A1 to B2: (c) \textit {(stackable ball cube)}: the ball can be stacked onto the cube, and (d) \textit {(empty B2)}: if the ball cannot be stacked, the target position should be empty.}}{41}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Definition of a planning problem (a) properties describing the initial world state (b) object names and their types (c) instantiated actions (d) properties describing the goal state.}}{42}{figure.6.3}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Summary of questionnaire responses: Extract of the 26 questions on the user's understanding, after the introduction to the automated planning language (Sec.~\ref {sec:Exp1}).}}{43}{figure.6.4}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Continuous refinement of the move action model: (a) initial action model learned by demonstration, (b) action model for all cubes of any colour, (c) action model with an additional condition, if the target position is occupied and cubes can not be stacked.}}{44}{figure.6.5}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Summary of questionnaire responses: Extract of 18 questions on the user's understanding, after the experiment to teach action models by demonstration (Sec. \ref {sec:Exp2}).}}{45}{figure.6.6}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
