@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.3.30)  12 FEB 2019 12:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.3.30)  12 FEB 2019 13:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1201,7 +1201,7 @@ Chapter 1.
 (./1-intro/0-main.tex (./1-intro/1-motivation.tex [7
 
 ]
-<figures/PbD-Overview.png, id=439, 466.74374pt x 325.96782pt>
+<figures/PbD-Overview.png, id=532, 466.74374pt x 325.96782pt>
 File: figures/PbD-Overview.png Graphic file (type png)
 
 <use figures/PbD-Overview.png>
@@ -1214,7 +1214,7 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 54.
- [8 <./figures/PbD-Overview.png>] <figures/hanoi-0.pdf, id=479, 163.08754pt x 7
+ [8 <./figures/PbD-Overview.png>] <figures/hanoi-0.pdf, id=571, 163.08754pt x 7
 6.32896pt>
 File: figures/hanoi-0.pdf Graphic file (type pdf)
 
@@ -1222,14 +1222,14 @@ File: figures/hanoi-0.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/hanoi-0.pdf used on input line 67.
 (pdftex.def)             Requested size: 181.18439pt x 84.80301pt.
 
-<figures/hanoi-1.pdf, id=480, 225.87245pt x 106.6623pt>
+<figures/hanoi-1.pdf, id=572, 225.87245pt x 106.6623pt>
 File: figures/hanoi-1.pdf Graphic file (type pdf)
 
 <use figures/hanoi-1.pdf>
 Package pdftex.def Info: figures/hanoi-1.pdf used on input line 68.
 (pdftex.def)             Requested size: 181.18439pt x 85.56267pt.
 
-<figures/PbD-AutomatedPlanner.pdf, id=487, 557.18423pt x 239.28195pt>
+<figures/PbD-AutomatedPlanner.pdf, id=579, 557.18423pt x 239.28195pt>
 File: figures/PbD-AutomatedPlanner.pdf Graphic file (type pdf)
 
 <use figures/PbD-AutomatedPlanner.pdf>
@@ -1237,7 +1237,7 @@ Package pdftex.def Info: figures/PbD-AutomatedPlanner.pdf used on input line 85
 .
 (pdftex.def)             Requested size: 249.13371pt x 106.98946pt.
 
-<figures/schema-logic-1.pdf, id=488, 219.59229pt x 72.0849pt>
+<figures/schema-logic-1.pdf, id=580, 219.59229pt x 72.0849pt>
 File: figures/schema-logic-1.pdf Graphic file (type pdf)
 
 <use figures/schema-logic-1.pdf>
@@ -1253,7 +1253,7 @@ Robots-What-Are-They-Used-For-and-
 schema-logic-1.pdf>]) (./1-intro/3-overview.tex [11])) [12]
 Chapter 2.
 (./2-sota/0-main.tex (./2-sota/1-robot-programming.tex
-<figures/manual-programming.pdf, id=688, 966.61125pt x 496.85625pt>
+<figures/manual-programming.pdf, id=779, 966.61125pt x 496.85625pt>
 File: figures/manual-programming.pdf Graphic file (type pdf)
 
 <use figures/manual-programming.pdf>
@@ -1267,7 +1267,7 @@ Overfull \hbox (4.18987pt too wide) in paragraph at lines 40--43
  a new robot pro-gram-ming overview
  []
 
-<figures/RobotProgrammingOverview.pdf, id=753, 761.84625pt x 472.76625pt>
+<figures/RobotProgrammingOverview.pdf, id=844, 761.84625pt x 472.76625pt>
 File: figures/RobotProgrammingOverview.pdf Graphic file (type pdf)
 
 <use figures/RobotProgrammingOverview.pdf>
@@ -1278,7 +1278,7 @@ e 74.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[14] <figures/scratch-interface.png, id=764, 1207.51125pt x 479.7925pt>
+[14] <figures/scratch-interface.png, id=854, 1207.51125pt x 479.7925pt>
 File: figures/scratch-interface.png Graphic file (type png)
 
 <use figures/scratch-interface.png>
@@ -1293,14 +1293,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./figures/RobotProgrammingOv
 erview.pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcS
 ets', type <array>); ignored.
->] <figures/lego-mindstorm2.png, id=801, 1473.00313pt x 400.49625pt>
+>] <figures/lego-mindstorm2.png, id=891, 1473.00313pt x 400.49625pt>
 File: figures/lego-mindstorm2.png Graphic file (type png)
 
 <use figures/lego-mindstorm2.png>
 Package pdftex.def Info: figures/lego-mindstorm2.png used on input line 110.
 (pdftex.def)             Requested size: 452.9679pt x 123.15645pt.
 
-<figures/kuka-interface2.png, id=804, 1606.0pt x 718.685pt>
+<figures/kuka-interface2.png, id=894, 1606.0pt x 718.685pt>
 File: figures/kuka-interface2.png Graphic file (type png)
 
 <use figures/kuka-interface2.png>
@@ -1312,7 +1312,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [16 <./figures/scratch-interface.png> <./figures/lego-mindstorm2.png>] [17 <./f
 igures/kuka-interface2.png>]
-<figures/ml-techniques.png, id=848, 710.655pt x 321.2pt>
+<figures/ml-techniques.png, id=939, 710.655pt x 321.2pt>
 File: figures/ml-techniques.png Graphic file (type png)
 
 <use figures/ml-techniques.png>
@@ -1328,14 +1328,14 @@ Chapter 3.
 (./2-sota/PbD/0-main.tex (./2-sota/PbD/2-pbd.tex [21
 
 ]
-<figures/Gathering.png, id=926, 444.91219pt x 346.29375pt>
+<figures/Gathering.png, id=1016, 444.91219pt x 346.29375pt>
 File: figures/Gathering.png Graphic file (type png)
 
 <use figures/Gathering.png>
 Package pdftex.def Info: figures/Gathering.png used on input line 63.
 (pdftex.def)             Requested size: 222.45554pt x 173.14644pt.
  [22]
-<figures/Gathering3.png, id=934, 541.27219pt x 219.82124pt>
+<figures/Gathering3.png, id=1025, 541.27219pt x 219.82124pt>
 File: figures/Gathering3.png Graphic file (type png)
 
 <use figures/Gathering3.png>
@@ -1351,7 +1351,7 @@ Overfull \hbox (46.26901pt too wide) in paragraph at lines 25--32
 Underfull \vbox (badness 1314) has occurred while \output is active []
 
  [24 <./figures/Gathering3.png>]
-<figures/Learning-techniques.png, id=965, 456.20438pt x 187.45032pt>
+<figures/Learning-techniques.png, id=1056, 456.20438pt x 187.45032pt>
 File: figures/Learning-techniques.png Graphic file (type png)
 
 <use figures/Learning-techniques.png>
@@ -1375,7 +1375,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 99--100
  []
 
 [31] [32] [33]
-<figures/planning-permutation.pdf, id=1134, 259.14284pt x 124.18726pt>
+<figures/planning-permutation.pdf, id=1224, 259.14284pt x 124.18726pt>
 File: figures/planning-permutation.pdf Graphic file (type pdf)
 
 <use figures/planning-permutation.pdf>
@@ -1383,7 +1383,7 @@ Package pdftex.def Info: figures/planning-permutation.pdf used on input line 24
 4.
 (pdftex.def)             Requested size: 217.42265pt x 104.1934pt.
 
-<figures/schema-logic.pdf, id=1135, 236.61449pt x 111.99411pt>
+<figures/schema-logic.pdf, id=1225, 236.61449pt x 111.99411pt>
 File: figures/schema-logic.pdf Graphic file (type pdf)
 
 <use figures/schema-logic.pdf>
@@ -1396,7 +1396,7 @@ Underfull \vbox (badness 1226) has occurred while \output is active []
 (./2-sota/AP/3.2-interfaces.tex)) [36]
 Chapter 5.
 (./3-contribution/0-main.tex (./3-contribution/3-framework.tex
-<figures/framework.pdf, id=1273, 472.4734pt x 176.26506pt>
+<figures/framework.pdf, id=1363, 472.4734pt x 176.26506pt>
 File: figures/framework.pdf Graphic file (type pdf)
 
 <use figures/framework.pdf>
@@ -1404,32 +1404,86 @@ Package pdftex.def Info: figures/framework.pdf used on input line 13.
 (pdftex.def)             Requested size: 452.9679pt x 168.98929pt.
  [37
 
- <./figures/framework.pdf>])) [38] [39]
+ <./figures/framework.pdf>])
+(./3-contribution/3-approach.tex [38]
+<figures/overview.pdf, id=4856, 598.58194pt x 329.77544pt>
+File: figures/overview.pdf Graphic file (type pdf)
+
+<use figures/overview.pdf>
+Package pdftex.def Info: figures/overview.pdf used on input line 4.
+(pdftex.def)             Requested size: 317.07614pt x 174.68956pt.
+ [39 <./figures/overview.pdf>]
+
+LaTeX Warning: Reference `fig:dispositif' on page 40 undefined on input line 26
+.
+
+
+LaTeX Warning: Reference `fig:dispositif' on page 40 undefined on input line 47
+.
+
+<figures/high-level.pdf, id=4928, 259.14989pt x 189.60316pt>
+File: figures/high-level.pdf Graphic file (type pdf)
+
+<use figures/high-level.pdf>
+Package pdftex.def Info: figures/high-level.pdf used on input line 77.
+(pdftex.def)             Requested size: 226.48395pt x 165.70851pt.
+ [40]
+
+Package natbib Warning: Citation `konidaris2018fromSkills' on page 41 undefined
+ on input line 109.
+
+[41 <./figures/high-level.pdf>]
+<figures/gui.png, id=5012, 809.0225pt x 644.4075pt>
+File: figures/gui.png Graphic file (type png)
+ <use figures/gui.png>
+Package pdftex.def Info: figures/gui.png used on input line 163.
+(pdftex.def)             Requested size: 452.9679pt x 360.80675pt.
+
+<figures/filmstrip.png, id=5013, 1085.05376pt x 321.2pt>
+File: figures/filmstrip.png Graphic file (type png)
+
+<use figures/filmstrip.png>
+Package pdftex.def Info: figures/filmstrip.png used on input line 169.
+(pdftex.def)             Requested size: 452.9679pt x 134.0895pt.
+ [42]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [43 <./figures/gui.png>]
+
+Package natbib Warning: Citation `hoffmann2001ff' on page 44 undefined on input
+ line 213.
+
+
+LaTeX Warning: Reference `sec:quanteval' on page 44 undefined on input line 216
+.
+
+[44 <./figures/filmstrip.png>])) [45]
 Chapter 6.
 (./5-evaluation/0-main.tex
-<figures/experiment1.pdf, id=4772, 663.98062pt x 1117.92656pt>
+<figures/experiment1.pdf, id=5054, 663.98062pt x 1117.92656pt>
 File: figures/experiment1.pdf Graphic file (type pdf)
 
 <use figures/experiment1.pdf>
 Package pdftex.def Info: figures/experiment1.pdf used on input line 24.
 (pdftex.def)             Requested size: 135.89174pt x 228.78409pt.
 
-<figures/experiment-setup2.jpg, id=4773, 2265.46375pt x 2518.40875pt>
+<figures/experiment-setup2.jpg, id=5055, 2265.46375pt x 2518.40875pt>
 File: figures/experiment-setup2.jpg Graphic file (type jpg)
 
 <use figures/experiment-setup2.jpg>
 Package pdftex.def Info: figures/experiment-setup2.jpg used on input line 25.
 (pdftex.def)             Requested size: 135.89174pt x 151.05957pt.
- (./5-evaluation/2-pddleval.tex [40
+ (./5-evaluation/2-pddleval.tex [46
 
- <./figures/experiment1.pdf> <./figures/experiment-setup2.jpg>]
-<figures/scenarios-exp1.pdf, id=4786, 439.20566pt x 158.84084pt>
+]
+<figures/scenarios-exp1.pdf, id=5061, 439.20566pt x 158.84084pt>
 File: figures/scenarios-exp1.pdf Graphic file (type pdf)
 
 <use figures/scenarios-exp1.pdf>
 Package pdftex.def Info: figures/scenarios-exp1.pdf used on input line 24.
 (pdftex.def)             Requested size: 294.42636pt x 106.48338pt.
- [41 <./figures/scenarios-exp1.pdf>]
+ [47 <./figures/experiment1.pdf> <./figures/experiment-setup2.jpg> <./figures/s
+cenarios-exp1.pdf>]
 File: figures/planning-permutation.pdf Graphic file (type pdf)
 
 <use figures/planning-permutation.pdf>
@@ -1437,30 +1491,30 @@ Package pdftex.def Info: figures/planning-permutation.pdf used on input line 56
 .
 (pdftex.def)             Requested size: 317.07614pt x 151.95921pt.
 
-<figures/eEvaluation2.pdf, id=4826, 275.43767pt x 95.99152pt>
+<figures/eEvaluation2.pdf, id=5108, 275.43767pt x 95.99152pt>
 File: figures/eEvaluation2.pdf Graphic file (type pdf)
 
 <use figures/eEvaluation2.pdf>
 Package pdftex.def Info: figures/eEvaluation2.pdf used on input line 63.
 (pdftex.def)             Requested size: 385.02547pt x 134.19824pt.
- [42]) (./5-evaluation/5-evaluation.tex [43 <./figures/eEvaluation2.pdf>]
-<figures/scenarios-exp2.pdf, id=4882, 275.60973pt x 78.8285pt>
+ [48]) (./5-evaluation/5-evaluation.tex [49 <./figures/eEvaluation2.pdf>]
+<figures/scenarios-exp2.pdf, id=5164, 275.60973pt x 78.8285pt>
 File: figures/scenarios-exp2.pdf Graphic file (type pdf)
 
 <use figures/scenarios-exp2.pdf>
 Package pdftex.def Info: figures/scenarios-exp2.pdf used on input line 20.
 (pdftex.def)             Requested size: 362.37569pt x 103.64978pt.
- [44 <./figures/scenarios-exp2.pdf>]
-<figures/eEvaluation.pdf, id=4916, 331.19032pt x 118.30478pt>
+ [50 <./figures/scenarios-exp2.pdf>]
+<figures/eEvaluation.pdf, id=5199, 331.19032pt x 118.30478pt>
 File: figures/eEvaluation.pdf Graphic file (type pdf)
 
 <use figures/eEvaluation.pdf>
 Package pdftex.def Info: figures/eEvaluation.pdf used on input line 40.
 (pdftex.def)             Requested size: 452.9679pt x 161.80577pt.
- [45 <./figures/eEvaluation.pdf>])) [46]
+ [51 <./figures/eEvaluation.pdf>])) [52]
 Chapter 7.
 (./3-contribution/2-organising.tex
-<iros-2018-simultaneous.pdf, id=4966, 614.295pt x 794.97pt>
+<iros-2018-simultaneous.pdf, id=5248, 614.295pt x 794.97pt>
 File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 
 <use iros-2018-simultaneous.pdf>
@@ -1471,7 +1525,7 @@ File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 Package pdftex.def Info: iros-2018-simultaneous.pdf used on input line 4.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 
-<iros-2018-simultaneous.pdf, id=4969, page=1, 614.295pt x 794.97pt>
+<iros-2018-simultaneous.pdf, id=5251, page=1, 614.295pt x 794.97pt>
 File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 
 <use iros-2018-simultaneous.pdf, page 1>
@@ -1484,7 +1538,7 @@ File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 Package pdftex.def Info: iros-2018-simultaneous.pdf, page1 used on input line 4
 .
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [47
+ [53
 
 ]
 File: iros-2018-simultaneous.pdf Graphic file (type pdf)
@@ -1505,128 +1559,128 @@ File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 Package pdftex.def Info: iros-2018-simultaneous.pdf, page1 used on input line 4
 .
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [48 <./iros-2018-simultaneous.pdf>]
-<iros-2018-simultaneous.pdf, id=5071, page=2, 614.295pt x 794.97pt>
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 2>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page2 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 2>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page2 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 2>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page2 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [49 <./iros-2018-simultaneous.pdf>]
-<iros-2018-simultaneous.pdf, id=5162, page=3, 614.295pt x 794.97pt>
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 3>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page3 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 3>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page3 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 3>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page3 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [50 <./iros-2018-simultaneous.pdf>]
-<iros-2018-simultaneous.pdf, id=5210, page=4, 614.295pt x 794.97pt>
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 4>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page4 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 4>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page4 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 4>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page4 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [51 <./iros-2018-simultaneous.pdf>]
-<iros-2018-simultaneous.pdf, id=5218, page=5, 614.295pt x 794.97pt>
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 5>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page5 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 5>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page5 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 5>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page5 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [52 <./iros-2018-simultaneous.pdf>]
-<iros-2018-simultaneous.pdf, id=5256, page=6, 614.295pt x 794.97pt>
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 6>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page6 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 6>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page6 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 6>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page6 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [53 <./iros-2018-simultaneous.pdf>]
-<iros-2018-simultaneous.pdf, id=5277, page=7, 614.295pt x 794.97pt>
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 7>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page7 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 7>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page7 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: iros-2018-simultaneous.pdf Graphic file (type pdf)
-
-<use iros-2018-simultaneous.pdf, page 7>
-Package pdftex.def Info: iros-2018-simultaneous.pdf, page7 used on input line 4
-.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [54 <./iros-2018-simultaneous.pdf>]
-<iros-2018-simultaneous.pdf, id=5361, page=8, 614.295pt x 794.97pt>
+<iros-2018-simultaneous.pdf, id=5354, page=2, 614.295pt x 794.97pt>
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 2>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page2 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 2>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page2 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 2>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page2 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+ [55 <./iros-2018-simultaneous.pdf>]
+<iros-2018-simultaneous.pdf, id=5444, page=3, 614.295pt x 794.97pt>
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 3>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page3 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 3>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page3 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 3>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page3 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+ [56 <./iros-2018-simultaneous.pdf>]
+<iros-2018-simultaneous.pdf, id=5492, page=4, 614.295pt x 794.97pt>
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 4>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page4 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 4>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page4 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 4>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page4 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+ [57 <./iros-2018-simultaneous.pdf>]
+<iros-2018-simultaneous.pdf, id=5500, page=5, 614.295pt x 794.97pt>
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 5>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page5 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 5>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page5 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 5>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page5 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+ [58 <./iros-2018-simultaneous.pdf>]
+<iros-2018-simultaneous.pdf, id=5538, page=6, 614.295pt x 794.97pt>
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 6>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page6 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 6>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page6 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 6>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page6 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+ [59 <./iros-2018-simultaneous.pdf>]
+<iros-2018-simultaneous.pdf, id=5559, page=7, 614.295pt x 794.97pt>
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 7>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page7 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 7>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page7 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: iros-2018-simultaneous.pdf Graphic file (type pdf)
+
+<use iros-2018-simultaneous.pdf, page 7>
+Package pdftex.def Info: iros-2018-simultaneous.pdf, page7 used on input line 4
+.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+ [60 <./iros-2018-simultaneous.pdf>]
+<iros-2018-simultaneous.pdf, id=5643, page=8, 614.295pt x 794.97pt>
 File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 
 <use iros-2018-simultaneous.pdf, page 8>
@@ -1645,12 +1699,17 @@ File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 Package pdftex.def Info: iros-2018-simultaneous.pdf, page8 used on input line 4
 .
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [55 <./iros-2018-simultaneous.pdf>])
+ [61 <./iros-2018-simultaneous.pdf>])
 Chapter 8.
-(./6-conclusion/0-main.tex (./6-conclusion/6-conclusion.tex)
-(./6-conclusion/7-futurework.tex [56
+(./6-conclusion/0-main.tex (./6-conclusion/6-conclusion.tex) [62
 
-])) [57] (./thesis.bbl [58
+]
+(./6-conclusion/7-futurework.tex
+
+Package natbib Warning: Citation `li2016learning' on page 63 undefined on input
+ line 17.
+
+[63])) [64] (./thesis.bbl [65
 
 
 ]
@@ -1665,42 +1724,50 @@ Underfull \hbox (badness 2318) in paragraph at lines 175--180
 tp : / / www . 4erevolution . com / en /
  []
 
-[59] [60]
+[66] [67]
 Underfull \hbox (badness 10000) in paragraph at lines 327--332
 []$\OT1/cmtt/m/n/12 https : / / www . ibm . com / developerworks / library / cc
 -[]models-[]machine-[]learning /
  []
 
-[61] [62]
-Underfull \hbox (badness 6332) in paragraph at lines 535--541
+[68] [69]
+Underfull \hbox (badness 6332) in paragraph at lines 543--549
 []\OT1/cmr/m/n/12 Universal Robots.  How cobots trans-form the food in-dus-try.
   Uni-ver-sal
  []
 
 
-Underfull \hbox (badness 2635) in paragraph at lines 535--541
+Underfull \hbox (badness 2635) in paragraph at lines 543--549
 \OT1/cmr/m/n/12 Robots, Febru-ary 10 2016.  URL []$\OT1/cmtt/m/n/12 http : / / 
 www . universal-[]robots . com / blog /
  []
 
-[63] [64]) [65]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 118.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 118.
+[70] [71])
+
+Package natbib Warning: There were undefined citations.
+
+[72]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 123.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 123.
  (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 118.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 118.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 123.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 123.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 0AE54740E84AE6EAEE6673EB5689E851;4261.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 118.
+(rerunfilecheck)             Checksum: 663DA5E5BB34205B6FCE0B345AE43699;5300.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 123.
  ) 
 Here is how much of TeX's memory you used:
- 22653 strings out of 492995
- 434517 string characters out of 6132704
- 531441 words of memory out of 5000000
- 25410 multiletter control sequences out of 15000+600000
+ 22748 strings out of 492995
+ 436074 string characters out of 6132704
+ 533882 words of memory out of 5000000
+ 25466 multiletter control sequences out of 15000+600000
  14471 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,18n,67p,1491b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,18n,67p,1491b,628s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
@@ -1726,10 +1793,10 @@ t/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/ty
 pe1/urw/times/utmbi8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/t
 imes/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri
 8a.pfb>
-Output written on thesis.pdf (65 pages, 16128175 bytes).
+Output written on thesis.pdf (72 pages, 21645869 bytes).
 PDF statistics:
- 5536 PDF objects out of 6186 (max. 8388607)
- 3629 compressed objects within 37 object streams
- 270 named destinations out of 1000 (max. 500000)
- 639 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 5833 PDF objects out of 6186 (max. 8388607)
+ 3876 compressed objects within 39 object streams
+ 306 named destinations out of 1000 (max. 500000)
+ 779 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,3 +1,25 @@
+\section{Discussions}
+\label{sec:discussions}
+Both system and user evaluations demonstrated that iRoPro can be used to generalise primitive actions to a range of complex manipulation tasks and that it is easy to learn for users with or without programming experience.
+In our system evaluation we could have programmed other actions, such as turning or pushing for packaging tasks.
+As the purpose of our evaluation was to show the generalisability of primitive actions with the use of a task planner, we decided to stick to pick-and-place actions.
+%Users particularly liked the PbD technique and found that
+%`generating plans automatically' was the most useful feature 
+In the following we discuss limitations and interesting extensions of our work:
+\begin{enumerate}
+	%\item No generalization from one item to another.
+	\item Our object perception is limited as it does not detect objects that are too close together (\eg stacked objects).
+	An improved perception system would allow the detection of initial states with stacked objects, automatically detecting goal states, or verifying action executions.
+	%s mentioned in \sect{sec:implementation}, we partly the latter by using a mental model, where we first executed a stacking task to save the latest object positions, then reused the saved state for subsequent tasks.
+	\item Due to the different grippers, we did not program actions that use both arms (\eg carrying a tray). A possible extension would be to include a better motion and task planning system in order to allow executing both arms simultaneously while avoiding self-collision.
+	%As our robot was equipped with a suction and a claw gripper, the kinesthetic teaching of both arms could be difficult to program by a single user.
+	\item We only included a minimal set of predicates (\sect{sec:highlevel}) that we deemed intuitive and useful for object manipulation tasks.
+	It could be interesting to include and learn predicates to capture more complex domains such as object orientation \cite{li2016learning}.
+	%the use a mobile robot that can move between workstations.
+	%\item A possible extension would be to incorporate probabilistic techniques to learn predicates or pre-train the robot on simulated scenarios to improve the condition inference.
+\end{enumerate}
+
+
 \section{On-going and Future work}
 The main focus for the remainder of the thesis is a complete implementation of the end-to-end framework and a graphical interface to allow easy interaction with the robot. In particular, the work for the remaining thesis duration will include the following:
 \begin{itemize}

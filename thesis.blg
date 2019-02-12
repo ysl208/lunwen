@@ -3,6 +3,8 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: thesis.aux
 The style file: plainnat.bst
 Database file #1: references.bib
+Warning--I didn't find a database entry for "konidaris2018fromSkills"
+Warning--I didn't find a database entry for "hoffmann2001ff"
 Warning--empty booktitle in abdeetedal2017kuka
 Warning--empty booktitle in alexandrova2014robot
 Warning--empty booktitle in Airbus
@@ -19,45 +21,45 @@ Warning--empty booktitle in Ebola
 Warning--empty booktitle in Food
 Warning--can't use both volume and number fields in sutton1998reinforcement
 Warning--empty publisher in sutton1998reinforcement
-You've used 94 entries,
+You've used 95 entries,
             2773 wiz_defined-function locations,
-            1099 strings with 22037 characters,
-and the built_in function-call counts, 49088 in all, are:
-= -- 4525
-> -- 2679
-< -- 90
-+ -- 909
-- -- 813
-* -- 3775
-:= -- 7191
-add.period$ -- 327
-call.type$ -- 94
-change.case$ -- 545
-chr.to.int$ -- 92
-cite$ -- 204
-duplicate$ -- 2373
-empty$ -- 4081
-format.name$ -- 961
-if$ -- 10649
+            1107 strings with 22358 characters,
+and the built_in function-call counts, 49812 in all, are:
+= -- 4596
+> -- 2718
+< -- 91
++ -- 922
+- -- 825
+* -- 3830
+:= -- 7289
+add.period$ -- 331
+call.type$ -- 95
+change.case$ -- 552
+chr.to.int$ -- 93
+cite$ -- 206
+duplicate$ -- 2408
+empty$ -- 4138
+format.name$ -- 974
+if$ -- 10814
 int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 98
-newline$ -- 492
-num.names$ -- 376
-pop$ -- 1232
+missing$ -- 99
+newline$ -- 497
+num.names$ -- 380
+pop$ -- 1249
 preamble$ -- 1
-purify$ -- 457
+purify$ -- 463
 quote$ -- 0
-skip$ -- 1841
+skip$ -- 1871
 stack$ -- 0
-substring$ -- 2046
-swap$ -- 467
-text.length$ -- 43
+substring$ -- 2088
+swap$ -- 480
+text.length$ -- 44
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1004
+type$ -- 1015
 warning$ -- 16
-while$ -- 444
+while$ -- 450
 width$ -- 0
-write$ -- 1259
-(There were 16 warnings)
+write$ -- 1273
+(There were 18 warnings)

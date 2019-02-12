@@ -1,4 +1,4 @@
-\begin{thebibliography}{94}
+\begin{thebibliography}{95}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -475,6 +475,14 @@ Monica~N Nicolescu and Maja~J Mataric.
   generalization and practice.
 \newblock In \emph{Proceedings of the second international joint conference on
   Autonomous agents and multiagent systems}, pages 241--248. ACM, 2003.
+
+\bibitem[Niekum et~al.(2012)Niekum, Osentoski, Konidaris, and
+  Barto]{niekum2012learning}
+Scott Niekum, Sarah Osentoski, George Konidaris, and Andrew~G Barto.
+\newblock Learning and generalization of complex tasks from unstructured
+  demonstrations.
+\newblock In \emph{Intelligent Robots and Systems (IROS), 2012 IEEE/RSJ
+  International Conference on}, pages 5239--5246. IEEE, 2012.
 
 \bibitem[Orendt et~al.(2016)Orendt, Fichtner, and Henrich]{orendt2016robot}
 Eric~M Orendt, Myriel Fichtner, and Dominik Henrich.
