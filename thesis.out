@@ -51,22 +51,43 @@
 \BOOKMARK [2][-]{subsection.5.5.2}{Implementation Details}{section.5.5}% 51
 \BOOKMARK [2][-]{subsection.5.5.3}{Interactive Robot Programming}{section.5.5}% 52
 \BOOKMARK [2][-]{subsection.5.5.4}{Plan Execution}{section.5.5}% 53
-\BOOKMARK [0][-]{chapter.6}{Experimentation and Evaluation}{}% 54
-\BOOKMARK [1][-]{section.6.1}{Pre-evaluations}{chapter.6}% 55
-\BOOKMARK [1][-]{section.6.2}{Experiment 1: Acceptance of AI Planning and PDDL Concepts}{chapter.6}% 56
-\BOOKMARK [2][-]{subsection.6.2.1}{Experimental Setup \046 Participants}{section.6.2}% 57
-\BOOKMARK [2][-]{subsection.6.2.2}{Experimental Design \046 Measurements}{section.6.2}% 58
-\BOOKMARK [2][-]{subsection.6.2.3}{Results}{section.6.2}% 59
-\BOOKMARK [1][-]{section.6.3}{Experiment 2: Acceptance of a Robot Programming Framework}{chapter.6}% 60
-\BOOKMARK [2][-]{subsection.6.3.1}{Experimental Setup \046 Participants}{section.6.3}% 61
-\BOOKMARK [2][-]{subsection.6.3.2}{Experimental Design \046 Measurements}{section.6.3}% 62
-\BOOKMARK [2][-]{subsection.6.3.3}{Results}{section.6.3}% 63
-\BOOKMARK [1][-]{section.6.4}{Discussion and Limitations}{chapter.6}% 64
-\BOOKMARK [1][-]{section.6.5}{Post evaluations}{chapter.6}% 65
-\BOOKMARK [0][-]{chapter.7}{Simultaneous End-User Programming of Goals and Actions for Robotic Shelf Organisation}{}% 66
-\BOOKMARK [0][-]{chapter.8}{Conclusion and Future Work}{}% 67
-\BOOKMARK [1][-]{section.8.1}{Contributions}{chapter.8}% 68
-\BOOKMARK [1][-]{section.8.2}{Conclusion}{chapter.8}% 69
-\BOOKMARK [1][-]{section.8.3}{Discussions}{chapter.8}% 70
-\BOOKMARK [1][-]{section.8.4}{On-going and Future work}{chapter.8}% 71
-\BOOKMARK [0][-]{chapter*.28}{References}{}% 72
+\BOOKMARK [0][-]{chapter.6}{Implementation of the Framework}{}% 54
+\BOOKMARK [1][-]{section.6.1}{Baxter Research Robot}{chapter.6}% 55
+\BOOKMARK [1][-]{section.6.2}{The User Interface}{chapter.6}% 56
+\BOOKMARK [1][-]{section.6.3}{Perceptions}{chapter.6}% 57
+\BOOKMARK [1][-]{section.6.4}{Learning}{chapter.6}% 58
+\BOOKMARK [1][-]{section.6.5}{Reproduction}{chapter.6}% 59
+\BOOKMARK [2][-]{subsection.6.5.1}{Reach the grasp position}{section.6.5}% 60
+\BOOKMARK [2][-]{subsection.6.5.2}{Grasp the object}{section.6.5}% 61
+\BOOKMARK [2][-]{subsection.6.5.3}{Move the object}{section.6.5}% 62
+\BOOKMARK [1][-]{section.6.6}{Execution to a new context}{chapter.6}% 63
+\BOOKMARK [2][-]{subsection.6.6.1}{Goal-oriented programming}{section.6.6}% 64
+\BOOKMARK [1][-]{section.6.7}{Retro-active loop for incremental learning}{chapter.6}% 65
+\BOOKMARK [0][-]{chapter.7}{Experimentation and Evaluation}{}% 66
+\BOOKMARK [1][-]{section.7.1}{Pre-evaluations}{chapter.7}% 67
+\BOOKMARK [1][-]{section.7.2}{Experiment 1: Acceptance of AI Planning and PDDL Concepts}{chapter.7}% 68
+\BOOKMARK [2][-]{subsection.7.2.1}{Experimental Setup \046 Participants}{section.7.2}% 69
+\BOOKMARK [2][-]{subsection.7.2.2}{Experimental Design \046 Measurements}{section.7.2}% 70
+\BOOKMARK [2][-]{subsection.7.2.3}{Results}{section.7.2}% 71
+\BOOKMARK [1][-]{section.7.3}{Experiment 2: Acceptance of a Robot Programming Framework}{chapter.7}% 72
+\BOOKMARK [2][-]{subsection.7.3.1}{Experimental Setup \046 Participants}{section.7.3}% 73
+\BOOKMARK [2][-]{subsection.7.3.2}{Experimental Design \046 Measurements}{section.7.3}% 74
+\BOOKMARK [2][-]{subsection.7.3.3}{Results}{section.7.3}% 75
+\BOOKMARK [1][-]{section.7.4}{Discussion and Limitations}{chapter.7}% 76
+\BOOKMARK [1][-]{section.7.5}{Post evaluations}{chapter.7}% 77
+\BOOKMARK [1][-]{section.7.6}{System Evaluation}{chapter.7}% 78
+\BOOKMARK [2][-]{subsection.7.6.1}{Protocol}{section.7.6}% 79
+\BOOKMARK [2][-]{subsection.7.6.2}{Results}{section.7.6}% 80
+\BOOKMARK [1][-]{section.7.7}{User Evaluation}{chapter.7}% 81
+\BOOKMARK [2][-]{subsection.7.7.1}{Set up}{section.7.7}% 82
+\BOOKMARK [2][-]{subsection.7.7.2}{Participants}{section.7.7}% 83
+\BOOKMARK [2][-]{subsection.7.7.3}{Protocol}{section.7.7}% 84
+\BOOKMARK [2][-]{subsection.7.7.4}{Metrics}{section.7.7}% 85
+\BOOKMARK [2][-]{subsection.7.7.5}{Results}{section.7.7}% 86
+\BOOKMARK [0][-]{chapter.8}{Simultaneous End-User Programming of Goals and Actions for Robotic Shelf Organisation}{}% 87
+\BOOKMARK [0][-]{chapter.9}{Conclusion and Future Work}{}% 88
+\BOOKMARK [1][-]{section.9.1}{Contributions}{chapter.9}% 89
+\BOOKMARK [1][-]{section.9.2}{Conclusion}{chapter.9}% 90
+\BOOKMARK [1][-]{section.9.3}{Discussions}{chapter.9}% 91
+\BOOKMARK [1][-]{section.9.4}{On-going and Future work}{chapter.9}% 92
+\BOOKMARK [0][-]{chapter*.41}{References}{}% 93

@@ -26,7 +26,7 @@ Instead, \cite{Biggs2003} divided them into two main categories, distinguishing 
 
 \begin{itemize}
   \item {\textbf{Manual programming}, where the user can directly control the robot's execution code, using a text-based or a graphical system.}
-  \item {\textbf{Automatic programming}, where the user does not need to write explicit code and the robot learns using a learning system, programming by demonstration, or an instructive system.}
+  \item {\textbf{Automatic programming}, where the user does not need to write explicit code and the robot learns using a learning system, programming by demonstration(\cite{argall2009survey,billard2016learning}), or an instructive system.}
 \end{itemize}
 % - also mention software architectures which are important for any robot programming systems
 
@@ -69,12 +69,13 @@ Finally, we will discuss different levels of end-user involvement and different 
 %\label{tab:Programming Overview}
 %\end{table}
 
-\begin{figure}[!h]
+\begin{sidewaysfigure}
 	\centering
 	\includegraphics[width=\linewidth]{figures/RobotProgrammingOverview}
 	\caption{Overview of Robot Programming methods.}
 	\label{fig:RobotProgrammingOverview}
-\end{figure} 
+\end{sidewaysfigure}
+
 \newpage
 
 \section{Manual Programming Systems}\label{subsec:Manual Programming Systems}
@@ -92,7 +93,9 @@ There are two types of manual programming: text-based programming, where the cod
 
 \subsection{Text-based Systems}\label{sssec:Text-based Systems}
 Text-based systems are one of the most common methods and use a traditional programming approach. 
-Depending on the type of language used, the user performs programming in either controller-specific languages, where the robot-specific machine language consists of simple commands ({KUKA, ABB}), generic procedural languages, where multi-purpose languages such as C++ that have been extended with classes to provide simple access to common robot specific functions ({Lego, etc.}), or behaviour-based languages that specify how the robot should react to different conditions (e.g. Haskell). 
+Depending on the type of language used, the user performs programming in either controller-specific languages, where the robot-specific machine language consists of simple commands, \eg the KUKA Robot Language (\cite{braumann2011parametric,muhe2010reverse})
+% RAPID a high-level programming language to control ABB robots
+, generic procedural languages, where multi-purpose languages such as C++ that have been extended with classes to provide simple access to common robot specific functions ({Lego, etc.}), or behaviour-based languages that specify how the robot should react to different conditions (e.g. Haskell). 
 There has been a trend to move from low-level command-based languages towards more intelligent programming systems with high-level languages that provide more support to the user and reduce the programming workload.
 However, text-based systems still require trained users with programming knowledge and are more likely to be used by robot developers than end-users.
 
@@ -190,20 +193,21 @@ A multi-modal communication including information from vision, gesture and voice
 
 \section{End-user Involvement}
 There are different levels of end-user involvement in robot programming, such as writing and organising the execution code, providing biased or unbiased data, and defining reward functions. 
-Table \ref{tab:end-user involvement} shows user involvement tasks for different programming methods, together with estimated effort (e.g. time), and expertise required.
+Table \ref{tab:enduserinvolvement} shows user involvement tasks for different programming methods, together with estimated effort (e.g. time), and expertise required.
+In this case we consider experts as users who have received formal training or experience in the stated programming method, \eg programming language or RL/DL-related concepts.
 \cite{kormushev2013reinforcement} draws a comparison of the same main robot teaching approaches and compares computational complexity with difficulty for the teacher.
 
 \begin{table}[ht]
 	\centering
-	\label{tab:end-user involvement}
+	\label{tab:enduserinvolvement}
 	\begin{tabular}{llcc}
 		\textbf{End-user task} & \textbf{Programming}   & \textbf{Effort} & \textbf{Expert} \\
 		\textbf{}& \textbf{method}   & \textbf{ required} & \textbf{ required} \\ \hline
 		Write code manually    & Text-based programming       & high                          & yes                      \\
 		Organise code sequence & Visual programming           & moderately high               & no                       \\
-		Provide complete data  & Deep learning                & moderate                      & yes                      \\
-		Provide partial data   & Programming by demonstration & moderately low                & no                       \\
-		Define reward function & Reinforcement learning       & moderately low                & yes                     
+		Provide complete data  & Deep learning (DL)               & moderate                      & yes                      \\
+		Provide partial data   & Programming by demonstration (PbD) & moderately low                & no                       \\
+		Define reward function & Reinforcement learning (RL)      & moderately low                & yes                     
 	\end{tabular}
 \caption{End-user involvement for common robot programming approaches}
 \end{table}

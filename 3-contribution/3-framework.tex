@@ -25,10 +25,10 @@ The user validates the learned action model, and provides additional demonstrati
 
 The robot learns from multiple demonstrations to generalise trajectories and high-level conditions.
 In the framework, we assume that the learned action trajectory is independent of the trajectory performed by the teacher.
-Dynamic Movement Primitives (DMP) can cope with the generalisation of a demonstrated trajectory \cite{pastor2009learning}.
+Dynamic Movement Primitives (DMP) can cope with the generalisation of a demonstrated trajectory (\cite{pastor2009learning}).
 To learn high-level conditions, the robot uses a perception system (e.g. SIFT \cite{ahmadzadeh2015learning} or a database of object features \cite{mason2011robot}) that recognises object properties in the state of the world. 
 %Note that we do not address the perception problem in this paper. 
-In our experiments, we implemented a simple python algorithm with integrated functionalities of the Robot Operating System (ROS) \cite{quigley2009ros}, to detect and move objects, based on their colour.
+In our experiments, we implemented a simple python algorithm with integrated functionalities of the Robot Operating System (ROS) (\cite{quigley2009ros}), to detect and move objects, based on their colour.
 
 Feature-based algorithms, such as k-means clustering \cite{mollard2015robot}, can be used to generalise over high-level conditions.
 

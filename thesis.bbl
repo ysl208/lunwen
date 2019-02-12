@@ -1,4 +1,4 @@
-\begin{thebibliography}{95}
+\begin{thebibliography}{118}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -8,8 +8,8 @@
 \bibitem[Aarup et~al.(1992)Aarup, Arentoft, Parrod, Stader, Stokes, and
   Vadon]{aarup1992optimum}
 M~Aarup, MM~Arentoft, Y~Parrod, J~Stader, I~Stokes, and H~Vadon.
-\newblock \emph{OPTIMUM-AIV: a knowledge-based planning and scheduling system
-  for spacecraft AIV}.
+\newblock \emph{{OPTIMUM-AIV: a knowledge-based planning and scheduling system
+  for spacecraft AIV}}.
 \newblock University of Edinburgh, Artificial Intelligence Applications
   Institute, 1992.
 
@@ -80,6 +80,19 @@ Christopher~G Atkeson, Andrew~W Moore, and Stefan Schaal.
 \newblock Locally weighted learning for control.
 \newblock In \emph{Lazy learning}, pages 75--113. Springer, 1997.
 
+\bibitem[Avenier and Thomas(2015)]{avenier2015finding}
+Marie-Jos\'{e} Avenier and Catherine Thomas.
+\newblock Finding one's way around various methodological guidelines for doing
+  rigorous case studies: A comparison of four epistemological frameworks.
+\newblock In \emph{Syst\`{e}mes d'information \& management}, pages vol. 20,
+  no. 1, pp. 61--98, 2015.
+
+\bibitem[Bangor et~al.(2008)Bangor, Kortum, and Miller]{bangor2008suseval}
+Aaron Bangor, Philip~T. Kortum, and James~T. Miller.
+\newblock An empirical evaluation of the system usability scale.
+\newblock \emph{International Journal of Human-Computer Interaction},
+  24\penalty0 (6):\penalty0 574--594, 2008.
+
 \bibitem[Biggs and Macdonald(2003)]{Biggs2003}
 Geoffrey Biggs and Bruce Macdonald.
 \newblock {A Survey of Robot Programming Systems}.
@@ -132,6 +145,37 @@ B.~Bonet and H.~Geffner.
 \newblock Planning as heuristic search.
 \newblock \emph{Artificial Intelligence}, 129\penalty0 (1--2):\penalty0 5--33,
   2001.
+
+\bibitem[Borsci et~al.(2009)Borsci, Federici, and
+  Lauriola]{borsci2009dimensionality}
+Simone Borsci, Stefano Federici, and Marco Lauriola.
+\newblock On the dimensionality of the system usability scale: a test of
+  alternative measurement models.
+\newblock \emph{Cognitive processing}, 10\penalty0 (3):\penalty0 193--197,
+  2009.
+
+\bibitem[Bradski(2000)]{opencv}
+G.~Bradski.
+\newblock {The OpenCV Library}.
+\newblock \emph{Dr. Dobb's Journal of Software Tools}, 2000.
+
+\bibitem[Braumann and Brell-Cokcan(2011)]{braumann2011parametric}
+Johannes Braumann and Sigrid Brell-Cokcan.
+\newblock Parametric robot control: integrated cad/cam for architectural
+  design.
+\newblock 2011.
+
+\bibitem[Brooke(1996)]{brooke1996sus}
+John Brooke.
+\newblock {SUS-A quick and dirty usability scale}.
+\newblock \emph{Usability evaluation in industry}, 189\penalty0 (194):\penalty0
+  4--7, 1996.
+
+\bibitem[Brooke(2013)]{brooke2013sus}
+John Brooke.
+\newblock Sus: a retrospective.
+\newblock \emph{Journal of usability studies}, 8\penalty0 (2):\penalty0 29--40,
+  2013.
 
 \bibitem[Cakmak and Lopes(2012)]{cakmak2012aaai}
 Maya Cakmak and Manuel Lopes.
@@ -212,6 +256,13 @@ Staffan Ekvall and Danica Kragic.
 \newblock \emph{International Journal of Advanced Robotic Systems}, 5\penalty0
   (3):\penalty0 223--234, 2008.
 
+\bibitem[Fern{\'a}ndez et~al.(2015)Fern{\'a}ndez, Crespo, Mahtani, and
+  Martinez]{fernandez2015learning}
+Enrique Fern{\'a}ndez, Luis~S{\'a}nchez Crespo, Anil Mahtani, and Aaron
+  Martinez.
+\newblock \emph{Learning ROS for Robotics Programming}.
+\newblock Packt Publishing Ltd, 2015.
+
 \bibitem[Fikes and Nilsson(1971)]{fikes1971strips}
 Richard~E Fikes and Nils~J Nilsson.
 \newblock Strips: A new approach to the application of theorem proving to
@@ -291,6 +342,13 @@ J{\"o}rg Hoffmann.
 \newblock In \emph{Foundations of Intelligent Systems}, pages 216--227.
   Springer, 2000.
 
+\bibitem[Hoffmann and Nebel(2001)]{hoffmann2001ff}
+J{\"o}rg Hoffmann and Bernhard Nebel.
+\newblock {The FF planning system: Fast plan generation through heuristic
+  search}.
+\newblock \emph{Journal of Artificial Intelligence Research}, 14:\penalty0
+  253--302, 2001.
+
 \bibitem[Hofstadter(1985)]{douglas1985metamagical}
 Douglas~R. Hofstadter.
 \newblock \emph{Metamagical themas: Questing for the essence of mind and
@@ -310,6 +368,13 @@ Jacob Huckaby, Stavros Vassos, and Henrik~I Christensen.
 \newblock Planning with a task modeling framework in manufacturing robotics.
 \newblock In \emph{Intelligent Robots and Systems (IROS), 2013 IEEE/RSJ
   International Conference on}, pages 5787--5794. IEEE, 2013.
+
+\bibitem[HumaRobotics(2013)]{BaxterTasker}
+HumaRobotics.
+\newblock Baxter tasker.
+\newblock Generation Robots, 2013.
+\newblock URL \url{http://sdk.rethinkrobotics.com/wiki/Baxter_Tasker}.
+\newblock Simplified BSD License.
 
 \bibitem[Ingrand and Ghallab(2017)]{ingrand2017deliberation}
 F{\'e}lix Ingrand and Malik Ghallab.
@@ -362,6 +427,14 @@ Jens Kober, J~Andrew Bagnell, and Jan Peters.
 \newblock \emph{The International Journal of Robotics Research}, 32\penalty0
   (11):\penalty0 1238--1274, 2013.
 
+\bibitem[Konidaris et~al.(2018)Konidaris, Kaelbling, and
+  Lozano-Perez]{konidaris2018fromSkills}
+George Konidaris, Leslie~Pack Kaelbling, and Tomas Lozano-Perez.
+\newblock From skills to symbols: Learning symbolic representations for
+  abstract high-level planning.
+\newblock \emph{Journal of Artificial Intelligence Research}, 61:\penalty0
+  215--289, 2018.
+
 \bibitem[Kormushev et~al.(2013)Kormushev, Calinon, and
   Caldwell]{kormushev2013reinforcement}
 Petar Kormushev, Sylvain Calinon, and Darwin~G Caldwell.
@@ -391,6 +464,13 @@ Lego.
 \newblock Lego mindstorms.
 \newblock 2003.
 \newblock URL \url{http://mindstorms. lego.com/eng/products/ris/rissoft.asp}.
+
+\bibitem[Li and Berenson(2016)]{li2016learning}
+Changshuo Li and Dmitry Berenson.
+\newblock Learning object orientation constraints and guiding constraints for
+  narrow passages from one demonstration.
+\newblock In \emph{International symposium on experimental robotics}, pages
+  197--210. Springer, 2016.
 
 \bibitem[Liang et~al.(2017{\natexlab{a}})Liang, Pellier, Fiorino, and
   Pesty]{liang2017evaluation}
@@ -429,6 +509,19 @@ Marji Majed.
   programming with games, art, science, and math}.
 \newblock No Starch Press Inc., 2014.
 
+\bibitem[Mandran(2018)]{mandran2018traceable}
+Nadine Mandran.
+\newblock {Traceable Human Experiment Design Research: Theoretical Model and
+  Practical Guide}.
+\newblock In \emph{ISTE ltd.}, page vol. 9, 2018.
+
+\bibitem[Mandran and Dupuy-Chessa(2017)]{mandran2017thedre}
+Nadine Mandran and Sophie Dupuy-Chessa.
+\newblock {THEDRE: a Traceable Process for High Quality in Human Centred
+  Computer Science Research}.
+\newblock In \emph{International conference of System Development}, page vol.
+  9, 2017.
+
 \bibitem[Mart{\'\i}nez et~al.(2017)Mart{\'\i}nez, Alenya, and
   Torras]{martinez2017relational}
 David Mart{\'\i}nez, Guillem Alenya, and Carme Torras.
@@ -462,6 +555,12 @@ Yoan Mollard, Thibaut Munzer, Andrea Baisero, Marc Toussaint, and Manuel Lopes.
 \newblock Robot programming from demonstration, feedback and transfer.
 \newblock In \emph{Intelligent Robots and Systems (IROS), 2015 IEEE/RSJ
   International Conference on}, pages 1825--1831. IEEE, 2015.
+
+\bibitem[M{\"u}he et~al.(2010)M{\"u}he, Angerer, Hoffmann, and
+  Reif]{muhe2010reverse}
+Henrik M{\"u}he, Andreas Angerer, Alwin Hoffmann, and Wolfgang Reif.
+\newblock On reverse-engineering the kuka robot language.
+\newblock \emph{arXiv preprint arXiv:1009.5004}, 2010.
 
 \bibitem[Murata(1989)]{murata1989petri}
 Tadao Murata.
@@ -532,12 +631,22 @@ Stefan Profanter, Alexander Perzylo, Nikhil Somani, Markus Rickert, and Alois
 Morgan Quigley, Josh Faust, Tully Foote, and Jeremy Leibs.
 \newblock Ros: an open-source robot operating system.
 
-\bibitem[Robots(2014)]{Ebola}
+\bibitem[Robotics(2013)]{robotics2013baxter}
+Rethink Robotics.
+\newblock Baxter research robot, 2013.
+
+\bibitem[Robots(2014{\natexlab{a}})]{Ebola}
 Active8 Robots.
 \newblock Baxter research robot - providing support for the ebola outbreak.
-\newblock Active8 Robots, November~13 2014.
+\newblock Active8 Robots, November~13 2014{\natexlab{a}}.
 \newblock URL \url{http://www.active8robots.com/news/baxter-ebola-research}.
 \newblock Online.
+
+\bibitem[Robots(2014{\natexlab{b}})]{Connect4}
+Rethink Robots.
+\newblock Baxter reseach robot - connect 4.
+\newblock \emph{[Online]
+  http://sdk.rethinkrobotics.com/wiki/Connect_Four_Demo}, 2014{\natexlab{b}}.
 
 \bibitem[Robots(2016)]{Food}
 Universal Robots.
@@ -561,6 +670,12 @@ Joe Saunders, Chrystopher~L Nehaniv, and Kerstin Dautenhahn.
 \newblock In \emph{Proceedings of the 1st ACM SIGCHI/SIGART conference on
   Human-robot interaction}, pages 118--125. ACM, 2006.
 
+\bibitem[Sauro(2011)]{sauro2011practical}
+Jeff Sauro.
+\newblock {A practical guide to the System Usability Scale: Background,
+  benchmarks \& best practices}.
+\newblock \emph{Measuring Usability LLC}, 2011.
+
 \bibitem[Schmidhuber(2015)]{schmidhuber2015deep}
 J{\"u}rgen Schmidhuber.
 \newblock Deep learning in neural networks: An overview.
@@ -578,6 +693,12 @@ Ron~M Simpson, Diane~E Kitchin, and Thomas~Leo McCluskey.
 \newblock Planning domain definition using gipo.
 \newblock \emph{The Knowledge Engineering Review}, 22\penalty0 (2):\penalty0
   117--134, 2007.
+
+\bibitem[Slaney and Thi{\'e}baux(2001)]{slaney2001blocks}
+John Slaney and Sylvie Thi{\'e}baux.
+\newblock Blocks world revisited.
+\newblock \emph{Artificial Intelligence}, 125\penalty0 (1-2):\penalty0
+  119--153, 2001.
 
 \bibitem[Smart and Kaelbling(2002)]{smart2002effective}
 William~D Smart and Leslie~Pack Kaelbling.
@@ -606,6 +727,24 @@ Richard~S Sutton and Andrew~G Barto.
 \newblock \emph{Reinforcement learning: An introduction}, volume~1.
 \newblock 1998.
 
+\bibitem[Tso and Liu(1996)]{tso1996hidden}
+SK~Tso and KP~Liu.
+\newblock Hidden markov model for intelligent extraction of robot trajectory
+  command from demonstrated trajectories.
+\newblock In \emph{Industrial Technology, 1996.(ICIT'96), Proceedings of The
+  IEEE International Conference on}, pages 294--298. IEEE, 1996.
+
+\bibitem[Tullis and Stetson()]{tullis2004comparison}
+Thomas~S Tullis and Jacqueline~N Stetson.
+\newblock A comparison of questionnaires for assessing website usability.
+
+\bibitem[Ude(1993)]{ude1993trajectory}
+Ale{\v{s}} Ude.
+\newblock Trajectory generation from noisy positions of object features for
+  teaching robot paths.
+\newblock \emph{Robotics and Autonomous Systems}, 11\penalty0 (2):\penalty0
+  113--127, 1993.
+
 \bibitem[Vaquero et~al.(2013)Vaquero, Silva, Tonidandel, and
   Beck]{vaquero2013itsimple}
 Tiago~S Vaquero, Jos{\'e}~R Silva, Flavio Tonidandel, and J~Christopher Beck.
@@ -620,6 +759,13 @@ Harini Veeraraghavan and Manuela Veloso.
 \newblock In \emph{Proceedings of the 7th international joint conference on
   Autonomous agents and multiagent systems-Volume 3}, pages 1357--1360.
   International Foundation for Autonomous Agents and Multiagent Systems, 2008.
+
+\bibitem[Vyvyan~Pugh(2013-2014)]{BaxterGolf}
+Active~Robots Vyvyan~Pugh.
+\newblock Baxter reseach robot - worked example visual servoing.
+\newblock \emph{[Online]
+  http://sdk.rethinkrobotics.com/wiki/Worked_Example_Visual_Servoing},
+  2013-2014.
 
 \bibitem[Walsh(2010)]{walsh2010efficient}
 Thomas~J Walsh.

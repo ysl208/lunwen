@@ -40,21 +40,21 @@ The authors mention that PbD simplifies the programming process but is generally
 %Benchmark: \cite{martinez2017relational} uses 3 examples from Planning competitions
 
 
-
 \section{Challenges in PbD}\label{sssec:Challenges in PbD}
+Despite ongoing research in PbD, there are several challenges that still need to be addressed:
 
-\paragraph{Suboptimality of demonstrations.}
+\textbf{Suboptimality of demonstrations.}
 A known PbD problem exists with regards to the type and quality of the demonstration which is dependent on the teacher's knowledge of the robot's system.
 Na\"{\i}ve teachers may have greater assumptions on the robot's intelligence and take less care in executing demonstrations as compared to roboticists, who understand the effects of noisy demonstrations (\cite{suay2012practical}).
 \cite{chen2003programing} and \cite{kaiser1995obtaining} recognised different sources for sub-optimality in demonstration such as the user demonstrating unnecessary or incorrect actions due the lack of knowledge about the task.
 \cite{cakmak2014teaching} developed a PbD system and investigated the use of instructional materials in the form of tutorials and videos to support the learnability.
 
-\paragraph{Lack of comparison between algorithms.}
+\textbf{Lack of comparison between algorithms.}
 Despite there being many PbD algorithms proposed in research literature (\cite{argall2009survey,billing2010formalism}), there remains a lack in comparative user studies.
 Difficulties in comparing across applications arise from the use of different robotic platforms and demonstration techniques, which lead to different representations of demonstration data.
 \cite{suay2012practical} partly addresses this challenge by comparing three well-established algorithms and evaluating their performance in a common domain.
 
-\paragraph{Meaningful actions.}
+\textbf{Meaningful actions.}
 % teaching action semantics
 Current approaches only teach the robot an action for manipulating an object, but do not explicitly associate a semantic meaning to it, other than its name.
 For example, conditions for executing a pick and place action (e.g. to grab an object only if the gripper is empty) are generally neglected during the demonstration.

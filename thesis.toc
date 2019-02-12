@@ -1,97 +1,117 @@
 \select@language {english}
-\contentsline {paragraph}{Keywords:}{2}{section*.2}
-\contentsline {chapter}{\numberline {1}Introduction}{7}{chapter.1}
-\contentsline {section}{\numberline {1.1}Context}{7}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}Cobotics}{7}{subsection.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}Robot Programming by Demonstration}{8}{subsection.1.1.2}
-\contentsline {subsection}{\numberline {1.1.3}Automated Planning}{9}{subsection.1.1.3}
-\contentsline {subsection}{\numberline {1.1.4}Problem Statement}{10}{subsection.1.1.4}
+\contentsline {paragraph}{\numberline {0.0.0.0.1}Keywords:}{2}{paragraph.0.0.0.0.1}
+\contentsline {chapter}{\numberline {1}Introduction}{8}{chapter.1}
+\contentsline {section}{\numberline {1.1}Context}{8}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Cobotics}{8}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Robot Programming by Demonstration}{9}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}Automated Planning}{10}{subsection.1.1.3}
+\contentsline {subsection}{\numberline {1.1.4}Problem Statement}{11}{subsection.1.1.4}
 \contentsline {section}{\numberline {1.2}Summary of contributions}{11}{section.1.2}
-\contentsline {section}{\numberline {1.3}Document organization}{11}{section.1.3}
-\contentsline {paragraph}{Chapter ~\ref {chap:Sota}}{11}{section*.5}
-\contentsline {paragraph}{Chapter ~\ref {chap:Sota-PbD} and Chapter ~\ref {chap:Sota-AP}}{12}{section*.6}
-\contentsline {paragraph}{Chapter ~\ref {chap:Contribution}}{12}{section*.7}
-\contentsline {paragraph}{Chapter ~\ref {chap:Evaluation}}{12}{section*.8}
-\contentsline {paragraph}{Chapter ~\ref {chap:OrganisingTasks}}{12}{section*.9}
-\contentsline {paragraph}{Chapter ~\ref {chap:Conclusion}}{12}{section*.10}
-\contentsline {chapter}{\numberline {2}Robot Programming}{13}{chapter.2}
-\contentsline {section}{\numberline {2.1}Introduction}{13}{section.2.1}
-\contentsline {section}{\numberline {2.2}Manual Programming Systems}{15}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Text-based Systems}{15}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Graphical Systems}{16}{subsection.2.2.2}
-\contentsline {section}{\numberline {2.3}Automatic Programming Systems}{16}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Machine Learning Systems}{17}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Programming by Demonstration}{18}{subsection.2.3.2}
-\contentsline {subsubsection}{Interaction Modalities}{18}{section*.11}
-\contentsline {section}{\numberline {2.4}End-user Involvement}{19}{section.2.4}
-\contentsline {section}{\numberline {2.5}Discussions and Relations to Present Work}{20}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Relation to Present Work}{20}{subsection.2.5.1}
-\contentsline {paragraph}{Teaching atomic actions.}{20}{section*.12}
-\contentsline {paragraph}{Automatic action sequence generation.}{20}{section*.13}
-\contentsline {chapter}{\numberline {3}Programming by Demonstration}{21}{chapter.3}
-\contentsline {section}{\numberline {3.1}Introduction}{21}{section.3.1}
-\contentsline {section}{\numberline {3.2}Design choices}{22}{section.3.2}
-\contentsline {section}{\numberline {3.3}Gathering demonstrations}{22}{section.3.3}
-\contentsline {section}{\numberline {3.4}Deriving a policy}{24}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Low-level skill learning}{24}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}High-level task learning}{25}{subsection.3.4.2}
-\contentsline {subsubsection}{1. Mapping function}{25}{section*.14}
-\contentsline {subsubsection}{2. System models}{26}{section*.15}
-\contentsline {subsubsection}{3. Plans}{26}{section*.16}
-\contentsline {subsubsection}{Action condition learning}{26}{section*.17}
-\contentsline {subsection}{\numberline {3.4.3}Interactive Policy Refinement Techniques}{27}{subsection.3.4.3}
-\contentsline {subsubsection}{Active/Interactive Learning}{27}{section*.18}
-\contentsline {section}{\numberline {3.5}Challenges in PbD}{28}{section.3.5}
-\contentsline {paragraph}{Suboptimality of demonstrations.}{28}{section*.19}
-\contentsline {paragraph}{Lack of comparison between algorithms.}{28}{section*.20}
-\contentsline {paragraph}{Meaningful actions.}{28}{section*.21}
-\contentsline {chapter}{\numberline {4}Automated Planning}{29}{chapter.4}
-\contentsline {section}{\numberline {4.1}Introduction}{29}{section.4.1}
-\contentsline {section}{\numberline {4.2}Classical planning problem}{30}{section.4.2}
-\contentsline {paragraph}{Definition.}{30}{section*.22}
-\contentsline {paragraph}{Definition.}{30}{section*.23}
-\contentsline {paragraph}{Definition.}{30}{section*.24}
-\contentsline {paragraph}{Definition.}{31}{section*.25}
-\contentsline {section}{\numberline {4.3}Planning Domain Definition Language (PDDL)}{31}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Planning domain description}{32}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Planning Problem Description}{34}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Relation to Present Work}{35}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}PDDL evolution and extensions}{35}{subsection.4.3.4}
-\contentsline {subsection}{\numberline {4.3.5}Planners}{36}{subsection.4.3.5}
-\contentsline {section}{\numberline {4.4}Knowledge Engineering Tools}{36}{section.4.4}
-\contentsline {chapter}{\numberline {5}A Robot Programming Framework for End-users in Cobotic Environments}{37}{chapter.5}
-\contentsline {section}{\numberline {5.1}Programming by Demonstration: teaching action models}{38}{section.5.1}
-\contentsline {section}{\numberline {5.2}Automated Planning: using action models}{38}{section.5.2}
-\contentsline {section}{\numberline {5.3}Retro-active Loop: refining action models}{38}{section.5.3}
-\contentsline {section}{\numberline {5.4}Approach}{39}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Low-level Action Representation}{39}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}High-level Action Representation}{40}{subsection.5.4.2}
-\contentsline {subsection}{\numberline {5.4.3}Action Inference from Demonstration}{41}{subsection.5.4.3}
-\contentsline {subsection}{\numberline {5.4.4}Action Generalisation}{42}{subsection.5.4.4}
-\contentsline {subsection}{\numberline {5.4.5}Task Planning}{42}{subsection.5.4.5}
-\contentsline {section}{\numberline {5.5}System}{43}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}Platform}{43}{subsection.5.5.1}
-\contentsline {subsection}{\numberline {5.5.2}Implementation Details}{44}{subsection.5.5.2}
-\contentsline {subsection}{\numberline {5.5.3}Interactive Robot Programming}{44}{subsection.5.5.3}
-\contentsline {paragraph}{Actions}{44}{section*.26}
-\contentsline {paragraph}{Problems}{44}{section*.27}
-\contentsline {subsection}{\numberline {5.5.4}Plan Execution}{45}{subsection.5.5.4}
-\contentsline {chapter}{\numberline {6}Experimentation and Evaluation}{46}{chapter.6}
-\contentsline {section}{\numberline {6.1}Pre-evaluations}{46}{section.6.1}
-\contentsline {section}{\numberline {6.2}Experiment 1: Acceptance of AI Planning and PDDL Concepts}{46}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Experimental Setup \& Participants}{46}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Experimental Design \& Measurements}{47}{subsection.6.2.2}
-\contentsline {subsection}{\numberline {6.2.3}Results}{48}{subsection.6.2.3}
-\contentsline {section}{\numberline {6.3}Experiment 2: Acceptance of a Robot Programming Framework}{50}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Experimental Setup \& Participants}{50}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Experimental Design \& Measurements}{50}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}Results}{51}{subsection.6.3.3}
-\contentsline {section}{\numberline {6.4}Discussion and Limitations}{52}{section.6.4}
-\contentsline {section}{\numberline {6.5}Post evaluations}{52}{section.6.5}
-\contentsline {chapter}{\numberline {7}Simultaneous End-User Programming of Goals and Actions for Robotic Shelf Organisation}{53}{chapter.7}
-\contentsline {chapter}{\numberline {8}Conclusion and Future Work}{62}{chapter.8}
-\contentsline {section}{\numberline {8.1}Contributions}{62}{section.8.1}
-\contentsline {section}{\numberline {8.2}Conclusion}{62}{section.8.2}
-\contentsline {section}{\numberline {8.3}Discussions}{63}{section.8.3}
-\contentsline {section}{\numberline {8.4}On-going and Future work}{63}{section.8.4}
-\contentsline {chapter}{References}{72}{chapter*.28}
+\contentsline {section}{\numberline {1.3}Document organization}{12}{section.1.3}
+\contentsline {paragraph}{\numberline {1.3.0.0.1}Chapter ~\ref {chap:Sota}}{12}{paragraph.1.3.0.0.1}
+\contentsline {paragraph}{\numberline {1.3.0.0.2}Chapter ~\ref {chap:Sota-PbD} and Chapter ~\ref {chap:Sota-AP}}{13}{paragraph.1.3.0.0.2}
+\contentsline {paragraph}{\numberline {1.3.0.0.3}Chapter ~\ref {chap:Contribution}}{13}{paragraph.1.3.0.0.3}
+\contentsline {paragraph}{\numberline {1.3.0.0.4}Chapter ~\ref {chap:Evaluation}}{13}{paragraph.1.3.0.0.4}
+\contentsline {paragraph}{\numberline {1.3.0.0.5}Chapter ~\ref {chap:OrganisingTasks}}{13}{paragraph.1.3.0.0.5}
+\contentsline {paragraph}{\numberline {1.3.0.0.6}Chapter ~\ref {chap:Conclusion}}{13}{paragraph.1.3.0.0.6}
+\contentsline {chapter}{\numberline {2}Robot Programming}{15}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introduction}{15}{section.2.1}
+\contentsline {section}{\numberline {2.2}Manual Programming Systems}{19}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Text-based Systems}{19}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Graphical Systems}{19}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Automatic Programming Systems}{20}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Machine Learning Systems}{21}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Programming by Demonstration}{22}{subsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.2.1}Interaction Modalities}{22}{subsubsection.2.3.2.1}
+\contentsline {section}{\numberline {2.4}End-user Involvement}{23}{section.2.4}
+\contentsline {section}{\numberline {2.5}Discussions and Relations to Present Work}{23}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Relation to Present Work}{24}{subsection.2.5.1}
+\contentsline {paragraph}{\numberline {2.5.1.0.1}Teaching atomic actions.}{24}{paragraph.2.5.1.0.1}
+\contentsline {paragraph}{\numberline {2.5.1.0.2}Automatic action sequence generation.}{24}{paragraph.2.5.1.0.2}
+\contentsline {chapter}{\numberline {3}Programming by Demonstration}{25}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{25}{section.3.1}
+\contentsline {section}{\numberline {3.2}Design choices}{26}{section.3.2}
+\contentsline {section}{\numberline {3.3}Gathering demonstrations}{26}{section.3.3}
+\contentsline {section}{\numberline {3.4}Deriving a policy}{28}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Low-level skill learning}{28}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}High-level task learning}{29}{subsection.3.4.2}
+\contentsline {subsubsection}{\numberline {3.4.2.1}Mapping function}{29}{subsubsection.3.4.2.1}
+\contentsline {subsubsection}{\numberline {3.4.2.2}System models}{30}{subsubsection.3.4.2.2}
+\contentsline {subsubsection}{\numberline {3.4.2.3}Plans}{30}{subsubsection.3.4.2.3}
+\contentsline {subsubsection}{\numberline {3.4.2.4}Action condition learning}{30}{subsubsection.3.4.2.4}
+\contentsline {subsection}{\numberline {3.4.3}Interactive Policy Refinement Techniques}{31}{subsection.3.4.3}
+\contentsline {subsubsection}{\numberline {3.4.3.1}Active/Interactive Learning}{31}{subsubsection.3.4.3.1}
+\contentsline {section}{\numberline {3.5}Challenges in PbD}{32}{section.3.5}
+\contentsline {chapter}{\numberline {4}Automated Planning}{33}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction}{33}{section.4.1}
+\contentsline {section}{\numberline {4.2}Classical planning problem}{34}{section.4.2}
+\contentsline {section}{\numberline {4.3}Planning Domain Definition Language (PDDL)}{36}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Planning domain description}{36}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Planning Problem Description}{38}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Relation to Present Work}{39}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}PDDL evolution and extensions}{39}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}Planners}{40}{subsection.4.3.5}
+\contentsline {section}{\numberline {4.4}Knowledge Engineering Tools}{40}{section.4.4}
+\contentsline {chapter}{\numberline {5}A Robot Programming Framework for End-users in Cobotic Environments}{42}{chapter.5}
+\contentsline {section}{\numberline {5.1}Programming by Demonstration: teaching action models}{43}{section.5.1}
+\contentsline {section}{\numberline {5.2}Automated Planning: using action models}{44}{section.5.2}
+\contentsline {section}{\numberline {5.3}Retro-active Loop: refining action models}{44}{section.5.3}
+\contentsline {section}{\numberline {5.4}Approach}{45}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Low-level Action Representation}{45}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}High-level Action Representation}{45}{subsection.5.4.2}
+\contentsline {subsection}{\numberline {5.4.3}Action Inference from Demonstration}{46}{subsection.5.4.3}
+\contentsline {subsection}{\numberline {5.4.4}Action Generalisation}{47}{subsection.5.4.4}
+\contentsline {subsection}{\numberline {5.4.5}Task Planning}{47}{subsection.5.4.5}
+\contentsline {section}{\numberline {5.5}System}{49}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Platform}{49}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Implementation Details}{49}{subsection.5.5.2}
+\contentsline {subsection}{\numberline {5.5.3}Interactive Robot Programming}{49}{subsection.5.5.3}
+\contentsline {subsubsection}{\numberline {5.5.3.1}Actions}{50}{subsubsection.5.5.3.1}
+\contentsline {subsubsection}{\numberline {5.5.3.2}Problems}{50}{subsubsection.5.5.3.2}
+\contentsline {subsection}{\numberline {5.5.4}Plan Execution}{50}{subsection.5.5.4}
+\contentsline {chapter}{\numberline {6}Implementation of the Framework}{51}{chapter.6}
+\contentsline {section}{\numberline {6.1}Baxter Research Robot}{52}{section.6.1}
+\contentsline {section}{\numberline {6.2}The User Interface}{52}{section.6.2}
+\contentsline {section}{\numberline {6.3}Perceptions}{53}{section.6.3}
+\contentsline {section}{\numberline {6.4}Learning}{53}{section.6.4}
+\contentsline {subsubsection}{\numberline {6.4.0.1}Implementation}{54}{subsubsection.6.4.0.1}
+\contentsline {section}{\numberline {6.5}Reproduction}{55}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Reach the grasp position}{55}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Grasp the object}{56}{subsection.6.5.2}
+\contentsline {subsection}{\numberline {6.5.3}Move the object}{57}{subsection.6.5.3}
+\contentsline {section}{\numberline {6.6}Execution to a new context}{57}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Goal-oriented programming}{57}{subsection.6.6.1}
+\contentsline {section}{\numberline {6.7}Retro-active loop for incremental learning}{58}{section.6.7}
+\contentsline {chapter}{\numberline {7}Experimentation and Evaluation}{59}{chapter.7}
+\contentsline {section}{\numberline {7.1}Pre-evaluations}{59}{section.7.1}
+\contentsline {section}{\numberline {7.2}Experiment 1: Acceptance of AI Planning and PDDL Concepts}{60}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Experimental Setup \& Participants}{60}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Experimental Design \& Measurements}{61}{subsection.7.2.2}
+\contentsline {subsection}{\numberline {7.2.3}Results}{62}{subsection.7.2.3}
+\contentsline {section}{\numberline {7.3}Experiment 2: Acceptance of a Robot Programming Framework}{64}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}Experimental Setup \& Participants}{64}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Experimental Design \& Measurements}{64}{subsection.7.3.2}
+\contentsline {subsection}{\numberline {7.3.3}Results}{65}{subsection.7.3.3}
+\contentsline {section}{\numberline {7.4}Discussion and Limitations}{66}{section.7.4}
+\contentsline {section}{\numberline {7.5}Post evaluations}{66}{section.7.5}
+\contentsline {section}{\numberline {7.6}System Evaluation}{66}{section.7.6}
+\contentsline {subsection}{\numberline {7.6.1}Protocol}{67}{subsection.7.6.1}
+\contentsline {subsection}{\numberline {7.6.2}Results}{67}{subsection.7.6.2}
+\contentsline {section}{\numberline {7.7}User Evaluation}{68}{section.7.7}
+\contentsline {subsection}{\numberline {7.7.1}Set up}{69}{subsection.7.7.1}
+\contentsline {subsection}{\numberline {7.7.2}Participants}{69}{subsection.7.7.2}
+\contentsline {subsection}{\numberline {7.7.3}Protocol}{69}{subsection.7.7.3}
+\contentsline {subsection}{\numberline {7.7.4}Metrics}{69}{subsection.7.7.4}
+\contentsline {subsection}{\numberline {7.7.5}Results}{70}{subsection.7.7.5}
+\contentsline {subsubsection}{\numberline {7.7.5.1}User performance (H1-H3)}{70}{subsubsection.7.7.5.1}
+\contentsline {subsubsection}{\numberline {7.7.5.2}Condition inference (H4)}{71}{subsubsection.7.7.5.2}
+\contentsline {subsubsection}{\numberline {7.7.5.3}Task duration vs Pre-test questionnaire (H5)}{71}{subsubsection.7.7.5.3}
+\contentsline {subsubsection}{\numberline {7.7.5.4}System usability and learnability}{72}{subsubsection.7.7.5.4}
+\contentsline {subsubsection}{\numberline {7.7.5.5}User experience}{72}{subsubsection.7.7.5.5}
+\contentsline {chapter}{\numberline {8}Simultaneous End-User Programming of Goals and Actions for Robotic Shelf Organisation}{74}{chapter.8}
+\contentsline {chapter}{\numberline {9}Conclusion and Future Work}{83}{chapter.9}
+\contentsline {section}{\numberline {9.1}Contributions}{83}{section.9.1}
+\contentsline {section}{\numberline {9.2}Conclusion}{84}{section.9.2}
+\contentsline {section}{\numberline {9.3}Discussions}{84}{section.9.3}
+\contentsline {section}{\numberline {9.4}On-going and Future work}{84}{section.9.4}
+\contentsline {chapter}{References}{94}{chapter*.41}

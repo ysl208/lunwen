@@ -1,4 +1,11 @@
 
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figures/dispositif.pdf}
+	\caption{Experimental setup for the user study (N=21), where users programmed the Baxter robot via a GUI to manipulate given object types (with predefined type hierarchy). }
+	\label{fig:dispositif}
+\end{figure}
+
 \section{User Evaluation}
 \label{sec:quanteval}
 The second part of the evaluation was conducted using the THEDRE (Traceable Human Experiment Design Research) method \cite{mandran2018traceable,mandran2017thedre} which aims to evaluate computer systems in a research context by integrating a user-centered approach.
@@ -37,7 +44,7 @@ The two control groups included equal number of participants in all three catego
 \subsection{Protocol}
 Users were first given a brief introduction to task planning concepts, the Baxter robot and the experimental set up.
 They were then asked to complete a pre-study questionnaire to capture the participant's profile and their understanding of the presented concepts.
-Users were given 8 tasks to complete, where the first two were practice tasks to introduce them to the system (Table \ref{table:user_study_tasks}). 
+Users were given 8 tasks to complete, where the first two were practice tasks to introduce them to the system (Table \ref{table:userstudytasks}). 
 The tasks were designed to address different aspects to familiarise them with the system:
 create new actions (Task 6), modify parameter types (Tasks 4\&7), modify action conditions (Tasks 3,5,8).
 For each task they needed to create a new problem, define the goal states, and launch the planner to generate an action sequence.
@@ -79,7 +86,7 @@ Finally, participants were asked which aspects they found most useful, most diff
 \begin{table}[t]
 \centering
 \caption{Benchmark tasks for the user study where the first two tasks were used to introduce participants to the system.}
-\label{table:user_study_tasks}
+\label{table:userstudytasks}
 \begin{center}
 \begin{tabular}{ll}
 \# Task description & Main solution \\ \hline
@@ -154,7 +161,7 @@ The generated PDDL code for the planning domain can be found in the attached mat
 
 \begin{figure}[t]%
   \centering
-    \includegraphics[width=0.8\columnwidth]{figures/quan-pretest-results.pdf}%
+    \includegraphics[width=0.5\columnwidth]{figures/quan-pretest-results.pdf}%
     \caption{Participants who did better in the pre-test questionnaire completed the main tasks faster, with `non-CS' users scoring the highest and being the fastest on average.}\label{fig:pretestvstask}%
 \end{figure}%
 
@@ -234,7 +241,7 @@ Even though Group 1 performed slightly better in the pre-test (AVG=7.5, STD=1.35
 There are several ways to interpret the System Usability Scale (SUS) scores \cite{brooke2013sus} obtained from the post-study survey. 
 Using \citet{bangor2008suseval} categories, 14 (70\%) users ranked iRoPro as `acceptable', 6 (30\%) rated it `marginally acceptable', and no one ranked it `not acceptable'.
 Correlating this with the Net Promoter Score\footnote{https://measuringu.com/nps-sus/}, this corresponds to 10 (50\%) participants being `promoters' (most likely to recommend the system), 5 (25\%) `passive', and 5 (25\%) `detractors' (likely to discourage).
-Overall, iRoPro was rated with a good system usability which has been shown to be correlated with its learnability \cite{borsci2009dimensionality,sauro2011practical}.
+Overall, iRoPro was rated with a good system usability which has been shown to be correlated with its learnability (\cite{borsci2009dimensionality,sauro2011practical}).
 
 \subsubsection{User experience} 
 %We asked users the same questions as in our previous work \textit{[Anonymous]} where we used the Wizard-of-Oz technique to conduct a qualitative evaluation of a potential system.

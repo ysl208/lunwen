@@ -1,20 +1,27 @@
 \documentclass[a4paper,12pt,twoside,openany]{book}
 
 % \usepackage{fancyhdr}
- 
+
 % \pagestyle{fancy}
 % \fancyhf{}
 % \fancyhead[LE,RO]{Share\LaTeX}
 % \fancyhead[RE,LO]{Guides and tutorials}
 % \fancyfoot[CE,CO]{\leftmark}
 % \fancyfoot[LE,RO]{\thepage}
+% \usepackage{graphics} % for pdf, bitmapped graphics files
+%\usepackage{mathptmx} % assumes new font selection scheme installed
 
-\usepackage{amsmath}
-\usepackage{amssymb}
+\usepackage[linesnumbered,vlined,ruled]{algorithm2e}
+\usepackage{amsmath, amssymb, bm}
 \usepackage{amsthm}
+\usepackage{array}
+\usepackage{balance}
 \usepackage[english]{babel}
 \usepackage{color}
+\usepackage{epsfig}
+\usepackage{flushend}
 \usepackage{fullpage}
+\usepackage{graphics}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{helvet} % font sf = helvetica
@@ -22,20 +29,31 @@
 \usepackage[utf8]{inputenc}
 % \usepackage[latin1]{inputenc}
 \usepackage{listings}
+\usepackage{minitoc}
+\usepackage{multirow}
 %\usepackage{mathptmx} % font = times
 \usepackage{natbib}
 \usepackage{outlines}
 \usepackage{pdfpages}
 \usepackage{relsize}
+\usepackage[figuresright]{rotating}
+\usepackage{subcaption}
+\usepackage{sidecap}
 \usepackage{syntax}
+\usepackage{titlesec}
 \usepackage{url}
 \usepackage{verbatim}
 \usepackage{xspace}
 \usepackage{tikz}
-%%%<
-\usepackage{verbatim}
+\usepackage{times} % assumes new font selection scheme installed
+%\usetikzlibrary{arrows,shapes}
+\setcounter{secnumdepth}{4}
 
-\usetikzlibrary{arrows,shapes}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -72,6 +90,7 @@
 \chapter*{Abstract}
 \input{0-frontmatter/1-abstract.tex}
 
+\dominitoc% Initialization
 \tableofcontents
 %\authorlist
 \listoffigures
@@ -79,35 +98,44 @@
 %=====================
 
 \chapter{Introduction} \label{chap:Intro}
+\minitoc% Creating an actual minitoc
 \input{1-intro/0-main.tex}
 
 \chapter{Robot Programming}\label{chap:Sota}
+\minitoc% Creating an actual minitoc
 \input{2-sota/0-main.tex}
 \chapter{Programming by Demonstration}\label{chap:Sota-PbD}
+\minitoc% Creating an actual minitoc
 \input{2-sota/PbD/0-main.tex}
 
 \chapter{Automated Planning}\label{chap:Sota-AP}
+\minitoc% Creating an actual minitoc
 \input{2-sota/AP/0-main.tex}
 
 \chapter{A Robot Programming Framework for End-users in Cobotic Environments}\label{chap:Contribution}
+\minitoc% Creating an actual minitoc
 \input{3-contribution/0-main.tex}
 
-%\chapter{Implementation of the Framework}\label{chap:Implementation}
-%\input{4-implementation/0-main.tex}
+\chapter{Implementation of the Framework}\label{chap:Implementation}
+\minitoc% Creating an actual minitoc
+\input{4-implementation/0-main.tex}
 
 \chapter{Experimentation and Evaluation}\label{chap:Evaluation}
+\minitoc% Creating an actual minitoc
 \section{Pre-evaluations}
 \input{5-evaluation/0-main.tex}
 \section{Post evaluations}
-%\input{5-evaluation/5-syseval.tex}
-%\input{5-evaluation/6-finaleval.tex}
+\input{5-evaluation/5-syseval.tex}
+\input{5-evaluation/6-finaleval.tex}
 
 
 \chapter{Simultaneous End-User Programming of Goals and Actions for Robotic Shelf Organisation}\label{chap:OrganisingTasks}
+\minitoc% Creating an actual minitoc
 \input{3-contribution/2-organising.tex}
 
 
 \chapter{Conclusion and Future Work}\label{chap:Conclusion}
+\minitoc% Creating an actual minitoc
 \input{6-conclusion/0-main.tex}
 
 
