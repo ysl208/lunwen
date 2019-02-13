@@ -1,19 +1,12 @@
 \select@language {english}
-\contentsline {paragraph}{\numberline {0.0.0.0.1}Keywords:}{2}{paragraph.0.0.0.0.1}
 \contentsline {chapter}{\numberline {1}Introduction}{8}{chapter.1}
 \contentsline {section}{\numberline {1.1}Context}{8}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Cobotics}{8}{subsection.1.1.1}
 \contentsline {subsection}{\numberline {1.1.2}Robot Programming by Demonstration}{9}{subsection.1.1.2}
 \contentsline {subsection}{\numberline {1.1.3}Automated Planning}{10}{subsection.1.1.3}
-\contentsline {subsection}{\numberline {1.1.4}Problem Statement}{11}{subsection.1.1.4}
-\contentsline {section}{\numberline {1.2}Summary of contributions}{11}{section.1.2}
-\contentsline {section}{\numberline {1.3}Document organization}{12}{section.1.3}
-\contentsline {paragraph}{\numberline {1.3.0.0.1}Chapter ~\ref {chap:Sota}}{12}{paragraph.1.3.0.0.1}
-\contentsline {paragraph}{\numberline {1.3.0.0.2}Chapter ~\ref {chap:Sota-PbD} and Chapter ~\ref {chap:Sota-AP}}{13}{paragraph.1.3.0.0.2}
-\contentsline {paragraph}{\numberline {1.3.0.0.3}Chapter ~\ref {chap:Contribution}}{13}{paragraph.1.3.0.0.3}
-\contentsline {paragraph}{\numberline {1.3.0.0.4}Chapter ~\ref {chap:Evaluation}}{13}{paragraph.1.3.0.0.4}
-\contentsline {paragraph}{\numberline {1.3.0.0.5}Chapter ~\ref {chap:OrganisingTasks}}{13}{paragraph.1.3.0.0.5}
-\contentsline {paragraph}{\numberline {1.3.0.0.6}Chapter ~\ref {chap:Conclusion}}{13}{paragraph.1.3.0.0.6}
+\contentsline {section}{\numberline {1.2}Problem Statement}{11}{section.1.2}
+\contentsline {section}{\numberline {1.3}Summary of contributions}{12}{section.1.3}
+\contentsline {section}{\numberline {1.4}Document organization}{13}{section.1.4}
 \contentsline {chapter}{\numberline {2}Robot Programming}{15}{chapter.2}
 \contentsline {section}{\numberline {2.1}Introduction}{15}{section.2.1}
 \contentsline {section}{\numberline {2.2}Manual Programming Systems}{19}{section.2.2}
@@ -69,49 +62,48 @@
 \contentsline {subsubsection}{\numberline {5.5.3.1}Actions}{50}{subsubsection.5.5.3.1}
 \contentsline {subsubsection}{\numberline {5.5.3.2}Problems}{50}{subsubsection.5.5.3.2}
 \contentsline {subsection}{\numberline {5.5.4}Plan Execution}{50}{subsection.5.5.4}
-\contentsline {chapter}{\numberline {6}Implementation of the Framework}{51}{chapter.6}
-\contentsline {section}{\numberline {6.1}Baxter Research Robot}{52}{section.6.1}
-\contentsline {section}{\numberline {6.2}The User Interface}{52}{section.6.2}
-\contentsline {section}{\numberline {6.3}Perceptions}{53}{section.6.3}
-\contentsline {section}{\numberline {6.4}Learning}{53}{section.6.4}
-\contentsline {subsubsection}{\numberline {6.4.0.1}Implementation}{54}{subsubsection.6.4.0.1}
-\contentsline {section}{\numberline {6.5}Reproduction}{55}{section.6.5}
-\contentsline {subsection}{\numberline {6.5.1}Reach the grasp position}{55}{subsection.6.5.1}
-\contentsline {subsection}{\numberline {6.5.2}Grasp the object}{56}{subsection.6.5.2}
-\contentsline {subsection}{\numberline {6.5.3}Move the object}{57}{subsection.6.5.3}
-\contentsline {section}{\numberline {6.6}Execution to a new context}{57}{section.6.6}
-\contentsline {subsection}{\numberline {6.6.1}Goal-oriented programming}{57}{subsection.6.6.1}
-\contentsline {section}{\numberline {6.7}Retro-active loop for incremental learning}{58}{section.6.7}
-\contentsline {chapter}{\numberline {7}Experimentation and Evaluation}{59}{chapter.7}
-\contentsline {section}{\numberline {7.1}Pre-evaluations}{59}{section.7.1}
-\contentsline {section}{\numberline {7.2}Experiment 1: Acceptance of AI Planning and PDDL Concepts}{60}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Experimental Setup \& Participants}{60}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}Experimental Design \& Measurements}{61}{subsection.7.2.2}
-\contentsline {subsection}{\numberline {7.2.3}Results}{62}{subsection.7.2.3}
-\contentsline {section}{\numberline {7.3}Experiment 2: Acceptance of a Robot Programming Framework}{64}{section.7.3}
-\contentsline {subsection}{\numberline {7.3.1}Experimental Setup \& Participants}{64}{subsection.7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}Experimental Design \& Measurements}{64}{subsection.7.3.2}
-\contentsline {subsection}{\numberline {7.3.3}Results}{65}{subsection.7.3.3}
-\contentsline {section}{\numberline {7.4}Discussion and Limitations}{66}{section.7.4}
-\contentsline {section}{\numberline {7.5}Post evaluations}{66}{section.7.5}
-\contentsline {section}{\numberline {7.6}System Evaluation}{66}{section.7.6}
-\contentsline {subsection}{\numberline {7.6.1}Protocol}{67}{subsection.7.6.1}
-\contentsline {subsection}{\numberline {7.6.2}Results}{67}{subsection.7.6.2}
-\contentsline {section}{\numberline {7.7}User Evaluation}{68}{section.7.7}
-\contentsline {subsection}{\numberline {7.7.1}Set up}{69}{subsection.7.7.1}
-\contentsline {subsection}{\numberline {7.7.2}Participants}{69}{subsection.7.7.2}
-\contentsline {subsection}{\numberline {7.7.3}Protocol}{69}{subsection.7.7.3}
-\contentsline {subsection}{\numberline {7.7.4}Metrics}{69}{subsection.7.7.4}
-\contentsline {subsection}{\numberline {7.7.5}Results}{70}{subsection.7.7.5}
-\contentsline {subsubsection}{\numberline {7.7.5.1}User performance (H1-H3)}{70}{subsubsection.7.7.5.1}
-\contentsline {subsubsection}{\numberline {7.7.5.2}Condition inference (H4)}{71}{subsubsection.7.7.5.2}
-\contentsline {subsubsection}{\numberline {7.7.5.3}Task duration vs Pre-test questionnaire (H5)}{71}{subsubsection.7.7.5.3}
-\contentsline {subsubsection}{\numberline {7.7.5.4}System usability and learnability}{72}{subsubsection.7.7.5.4}
-\contentsline {subsubsection}{\numberline {7.7.5.5}User experience}{72}{subsubsection.7.7.5.5}
-\contentsline {chapter}{\numberline {8}Simultaneous End-User Programming of Goals and Actions for Robotic Shelf Organisation}{74}{chapter.8}
-\contentsline {chapter}{\numberline {9}Conclusion and Future Work}{83}{chapter.9}
-\contentsline {section}{\numberline {9.1}Contributions}{83}{section.9.1}
-\contentsline {section}{\numberline {9.2}Conclusion}{84}{section.9.2}
-\contentsline {section}{\numberline {9.3}Discussions}{84}{section.9.3}
-\contentsline {section}{\numberline {9.4}On-going and Future work}{84}{section.9.4}
-\contentsline {chapter}{References}{94}{chapter*.41}
+\contentsline {chapter}{\numberline {6}Pre-Experiments}{51}{chapter.6}
+\contentsline {section}{\numberline {6.1}Experiment 1: Acceptance of AI Planning and PDDL Concepts}{51}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Experimental Setup \& Participants}{52}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Experimental Design \& Measurements}{52}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Results}{53}{subsection.6.1.3}
+\contentsline {section}{\numberline {6.2}Experiment 2: Acceptance of a Robot Programming Framework}{55}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Experimental Setup \& Participants}{55}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Experimental Design \& Measurements}{55}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {6.2.3}Results}{56}{subsection.6.2.3}
+\contentsline {section}{\numberline {6.3}Discussion and Limitations}{57}{section.6.3}
+\contentsline {chapter}{\numberline {7}Implementation of the Framework}{58}{chapter.7}
+\contentsline {section}{\numberline {7.1}Baxter Research Robot}{59}{section.7.1}
+\contentsline {section}{\numberline {7.2}The User Interface}{59}{section.7.2}
+\contentsline {section}{\numberline {7.3}Perceptions}{60}{section.7.3}
+\contentsline {section}{\numberline {7.4}Learning}{60}{section.7.4}
+\contentsline {subsubsection}{\numberline {7.4.0.1}Implementation}{61}{subsubsection.7.4.0.1}
+\contentsline {section}{\numberline {7.5}Reproduction}{62}{section.7.5}
+\contentsline {subsection}{\numberline {7.5.1}Reach the grasp position}{62}{subsection.7.5.1}
+\contentsline {subsection}{\numberline {7.5.2}Grasp the object}{63}{subsection.7.5.2}
+\contentsline {subsection}{\numberline {7.5.3}Move the object}{64}{subsection.7.5.3}
+\contentsline {section}{\numberline {7.6}Execution to a new context}{64}{section.7.6}
+\contentsline {subsection}{\numberline {7.6.1}Goal-oriented programming}{64}{subsection.7.6.1}
+\contentsline {section}{\numberline {7.7}Retro-active loop for incremental learning}{65}{section.7.7}
+\contentsline {chapter}{\numberline {8}Experimentation and Evaluation}{66}{chapter.8}
+\contentsline {section}{\numberline {8.1}System Evaluation}{66}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}Protocol}{66}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}Results}{67}{subsection.8.1.2}
+\contentsline {section}{\numberline {8.2}User Evaluation}{67}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Set up}{68}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}Participants}{69}{subsection.8.2.2}
+\contentsline {subsection}{\numberline {8.2.3}Protocol}{69}{subsection.8.2.3}
+\contentsline {subsection}{\numberline {8.2.4}Metrics}{69}{subsection.8.2.4}
+\contentsline {subsection}{\numberline {8.2.5}Results}{70}{subsection.8.2.5}
+\contentsline {subsubsection}{\numberline {8.2.5.1}User performance (H1-H3)}{70}{subsubsection.8.2.5.1}
+\contentsline {subsubsection}{\numberline {8.2.5.2}Condition inference (H4)}{70}{subsubsection.8.2.5.2}
+\contentsline {subsubsection}{\numberline {8.2.5.3}Task duration vs Pre-test questionnaire (H5)}{71}{subsubsection.8.2.5.3}
+\contentsline {subsubsection}{\numberline {8.2.5.4}System usability and learnability}{72}{subsubsection.8.2.5.4}
+\contentsline {subsubsection}{\numberline {8.2.5.5}User experience}{72}{subsubsection.8.2.5.5}
+\contentsline {chapter}{\numberline {9}Simultaneous End-User Programming of Goals and Actions for Robotic Shelf Organisation}{73}{chapter.9}
+\contentsline {chapter}{\numberline {10}Conclusion and Future Work}{82}{chapter.10}
+\contentsline {section}{\numberline {10.1}Contributions}{82}{section.10.1}
+\contentsline {section}{\numberline {10.2}Conclusion}{83}{section.10.2}
+\contentsline {section}{\numberline {10.3}Discussions}{83}{section.10.3}
+\contentsline {section}{\numberline {10.4}On-going and Future work}{83}{section.10.4}
+\contentsline {chapter}{References}{93}{chapter*.41}

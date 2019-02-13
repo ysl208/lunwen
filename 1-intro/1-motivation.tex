@@ -10,16 +10,16 @@ To allow both human precision and robot automation, collaborative robots have be
 \subsection{Cobotics}\label{subsec:Cobotics}
 Collaborative robots, or \textit{cobots}, have been introduced by \cite{colgate1999cobots} and allow for a close collaboration between humans and robots.
 They enable humans to perform tasks, which they cannot perform on their own, due to physical constraints such as the manipulation of heavy parts.
-Furthermore, they reduce risks of work-related accidents, including health hazards such as exposure to dangerous environments (e.g. chemical acids, excessive temperatures or noise), as well as sleeping disorders caused by rotating work shifts.
+Furthermore, they reduce risks of work-related accidents, including health hazards such as exposure to dangerous environments (\eg chemical acids, excessive temperatures or noise), as well as sleeping disorders caused by rotating work shifts.
 Cobots contribute to productivity gains as they are designed to respond to actions of the human operator and take over manual and repetitive tasks.
 While replacing jobs of low-skilled human workers, they open up a market for new high-skilled jobs.
 
 Cobotic systems have been adopted in several industries from the food-processing industry (\cite{Food}), to aeronautics (\cite{Airbus}), to the health industry (\cite{Ebola}).
-However, companies which resist the use of robots in their daily routines, consider the investment cost ineffective, due to their high initial costs and the lack of trained personnel.
+However, companies resist the use of robots in their daily routines as they consider the investment cost ineffective, due to their high initial costs and the lack of trained personnel.
 %, who have the needed programming skills to fully operate and exploit the robots.
-Indeed, traditional robot programming solutions require domain experts and robots are generally programmed to complete a specific task.
-Recent approaches using large amounts of data (e.g. Neural Networks (\cite{billard2001robust})) or self-exploration (e.g. Reinforcement Learning (\cite{smart2002effective})) become infeasible for task-specific applications.
-This is a bottleneck for industries as many robot programming solutions fail as the deployment in real world scenarios introduces further limitations. 
+Traditional robot programming solutions require domain experts and robots are generally programmed to complete a specific task.
+Recent approaches using large amounts of data (\eg Neural Networks (\cite{billard2001robust})) or self-exploration (\eg Reinforcement Learning (\cite{smart2002effective})) become infeasible for task-specific applications.
+This is a bottleneck for industries and many robot programming solutions fail as the deployment in real world scenarios introduces further limitations. 
 Thus, recent research has been focusing on robot programming for end-users, in particular Robot Programming by Demonstration.
 
 \subsection{Robot Programming by Demonstration}
@@ -33,11 +33,11 @@ The robot uses its sensors for a multi-modal perception of the demonstration and
 The new skill is executed in a new context and evaluated by the teacher.
 The teacher can refine the learned skill by providing additional demonstrations of the same skill.
 The robot then generalises over the demonstrations by extracting relevant features that remained unchanged across the set of demonstrations.
-This incremental learning process allows the robot to acquire a new skill from demonstrations provided by non-expert users.
+This incremental learning process allows the robot to acquire a new skill from demonstrations provided by non-roboticists.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\linewidth]{figures/PbD-Overview}
+	\includegraphics[width=0.7\linewidth]{figures/PbD-Overview}
 	\caption{PbD Overview}
 	\label{fig:Principle Overview}
 \end{figure}
@@ -59,8 +59,7 @@ The objective is to move the entire stack from one rod to another, obeying the f
 The robot can be taught an action sequence to solve the problem for three disks.
 When the problem changes to four disks (\fig{fig:Tower of Hanoi}b), the robot has to be demonstrated a new sequence, even though both problems obey the same rules.
 This reprogramming process can be complicated and time-consuming as it does not allow to generalise for different tasks.
-Instead, it would be more efficient to teach the robot allowed actions and associated rules and let find the solution for $n$ disks on its own.
-To generate a solution, or a \textit{plan}, a common approach is the use of Automated Planning.
+A more efficient approach would be to teach the robot the primitive action of moving a disk, associate rules or \textit{conditions} to this action (\eg smaller disks can only be placed on top of larger ones), and have the robot generate an optimal solution using an automated planner \cite{ghallab2004automated}.
 
 \begin{figure}[htp]
 	\centering
@@ -77,7 +76,7 @@ To allow a correct transition between different states of the world, actions are
 Planning algorithms use a symbolic planning language such as STRIPS (\cite{fikes1971strips}) or PDDL (\cite{ghallab2004automated}) as their standard encoding language.
 Thus, the Tower of Hanoi problem could be defined as a planning problem and solved for any number of disks using an automated planner.
 %In the initial state, the disks are stacked in ascending order (smallest at the top) on one of the pegs, in the goal state the disks are stacked in the same order on one of the other two remaining pegs. 
-%The goal state must be achieved by obeying certain rules for moving the disks (e.g. only the top disk of a stack can be moved at a time and may not be placed on top of a smaller disk). 
+%The goal state must be achieved by obeying certain rules for moving the disks (\eg only the top disk of a stack can be moved at a time and may not be placed on top of a smaller disk). 
 
 
 \begin{figure}[htp]
@@ -87,51 +86,3 @@ Thus, the Tower of Hanoi problem could be defined as a planning problem and solv
 	\caption{Planning domain describing an initial world state, goal state, and a generated action sequence (left), where actions are described in terms of preconditions and effects (right).}
 	\label{fig:Planning domain and action}
 \end{figure}
-
-
-\newpage
-\subsection{Problem Statement}
-The research question we address in this thesis is:
-\begin{center}
-\textit{Can non-expert users teach a robot all required skills that allow it to autonomously generate solutions to user-defined problems?}
-\end{center}
-Most solutions assume a finite list of primitive actions, but to date there is no database of general purpose primitive actions and whether a finite set can list all necessary motions is questionable. \cite{billard2016learning}.
-
-For this, we must create a framework that combines the following aspects:
-\begin{itemize}
-	\item PbD system - to allow the user to teach the robot an action by kinesthetic demonstration, without writing code.
-	\item Automated planner - this can be considered as the robot's \textit{``brain"} that generates solutions to given problems,
-	\item User-interface - to allow the user to associate the semantic meaning to a taught action and create action models that can be used by the planner.
-\end{itemize}
-
-In other words, the user must program the robot by demonstration and thereby construct 
-%a knowledge base, consisting of a domain model (the environment that the robot interacts with) and 
-action models required for the robot to accomplish the defined task.
-A functioning real-world system requires solutions in perception (e.g. object identification), motion planning (e.g. manipulation, navigation, safety), human–robot interaction, and cognitive robotics (e.g. action learning, task planning). 
-The integration of all aspects into a real-time system is a major challenge.
-In this thesis we address this challenge with the aim to create an end-to-end system for end-user robot programming.
-% and provide partial solutions for the other areas.
-With the focus on cobotic environments, we further investigate the difficulties encountered by end-users, when faced with a system involving PbD and Automated Planning. 
-We evaluate our approach with pick and place robots, addressing assembly and packaging, two of the most common application types in manufacturing facilities. \footnote{https://www.robotics.org/blog-article.cfm/Pick-and-Place-Robots-What-Are-They-Used-For-and-How-Do-They-Benefit-Manufacturers/88}
-% limitations 
-%We need to consider the limitations: limited resources, lack of programming knowledge and time to train operators.
-%, rather than atomic actions that can be reused independently 
-
-% semantics for application to new context
-%A robot that learns how to arrange items on a desk may have to plan the order of handling objects in another way than originally demonstrated by the teacher.
-%Thus, it does not suffice for the robot to replicate the demonstrated movement, but it needs to understand and interpret the teacher's intention so that it can apply the action to different scenarios.
-%
-%In other words, given a user-defined goal, the robot should generate and execute the right action sequence to obtain it.
-
-% example domain 
-%The domain model would consist of a table with a finite number of objects and limited positions, as well as actions consisting of pick, place and move. 
-%Possible goals could be to stack the objects by size (similar to the Tower of Hanoi problem) or to arrange the objects in a certain order. 
-%Our framework should enable the user to teach the robot by demonstration all action models needed, including their relevant preconditions and effects. 
-%Once the action models have been created, the inbuilt automated planner can generate an action sequence to achieve any goal within the domain. 
-
-%Hence, we address two common situations, where reprogramming is required: 
-%\begin{itemize}
-%\item A new subtask needs to be included in the task execution, e.g. the robot knows how to place objects from any position on the table into a basket, but should additionally rotate them before placing them;
-%\item All subtasks are available but the ultimate goal has changed, e.g. the order of placing the objects has been changed.
-%\end{itemize}
-

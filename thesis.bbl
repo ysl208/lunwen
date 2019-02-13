@@ -1,4 +1,4 @@
-\begin{thebibliography}{118}
+\begin{thebibliography}{119}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -58,8 +58,8 @@ Sonya Alexandrova, Maya Cakmak, Kaijen Hsiao, and Leila Takayama.
 \bibitem[Alexandrova et~al.(2015)Alexandrova, Tatlock, and
   Cakmak]{alexandrova2015roboflow}
 Sonya Alexandrova, Zachary Tatlock, and Maya Cakmak.
-\newblock Roboflow: A flow-based visual programming language for mobile
-  manipulation tasks.
+\newblock {RoboFlow: A flow-based visual programming language for mobile
+  manipulation tasks}.
 \newblock In \emph{Robotics and Automation (ICRA), 2015 IEEE International
   Conference on}, pages 5537--5544. IEEE, 2015.
 
@@ -123,13 +123,13 @@ Aude~G Billard, Sylvain Calinon, and R{\"u}diger Dillmann.
 
 \bibitem[Billing and Hellstr{\"o}m(2010)]{billing2010formalism}
 Erik~A Billing and Thomas Hellstr{\"o}m.
-\newblock A formalism for learning from demonstration*.
+\newblock {A Formalism for Learning from Demonstration}.
 \newblock \emph{Paladyn, Journal of Behavioral Robotics}, 1\penalty0
   (1):\penalty0 1--13, 2010.
 
 \bibitem[Bischoff et~al.(2002)Bischoff, Kazi, and Seyfarth]{bischoff2002morpha}
 Rainer Bischoff, Arif Kazi, and Markus Seyfarth.
-\newblock The morpha style guide for icon-based programming.
+\newblock {The MORPHA style guide for icon-based programming}.
 \newblock In \emph{Robot and Human Interactive Communication, 2002.
   Proceedings. 11th IEEE International Workshop on}, pages 482--487. IEEE,
   2002.
@@ -161,8 +161,8 @@ G.~Bradski.
 
 \bibitem[Braumann and Brell-Cokcan(2011)]{braumann2011parametric}
 Johannes Braumann and Sigrid Brell-Cokcan.
-\newblock Parametric robot control: integrated cad/cam for architectural
-  design.
+\newblock {Parametric robot control: integrated CAD/CAM for architectural
+  design}.
 \newblock 2011.
 
 \bibitem[Brooke(1996)]{brooke1996sus}
@@ -179,7 +179,7 @@ John Brooke.
 
 \bibitem[Cakmak and Lopes(2012)]{cakmak2012aaai}
 Maya Cakmak and Manuel Lopes.
-\newblock Algorithmic and human teaching of sequential decision tasks.
+\newblock {Algorithmic and Human Teaching of Sequential Decision Tasks}.
 \newblock In \emph{Association for the Advancement of Artificial Intelligence
   (AAAI)}, 2012.
 
@@ -202,6 +202,12 @@ Sylvain Calinon and Aude Billard.
 \newblock Incremental learning of gestures by imitation in a humanoid robot.
 \newblock In \emph{Proceedings of the ACM/IEEE international conference on
   Human-robot interaction}, pages 255--262. ACM, 2007{\natexlab{b}}.
+
+\bibitem[Cashmore and Fox(2015)]{cashmore2015rosplan}
+Michael Cashmore and Maria Fox.
+\newblock {ROSPlan: Planning in the Robot Operating System}.
+\newblock In \emph{International Conference on Automated Planning and
+  Scheduling}, 2015.
 
 \bibitem[Chen and Zelinsky(2003)]{chen2003programing}
 Jason Chen and Alex Zelinsky.
@@ -245,8 +251,8 @@ Richard Cubek, Wolfgang Ertel, and G{\"u}nther Palm.
 
 \bibitem[Do and Kambhampati(2001)]{do:01}
 M.~Do and S.~Kambhampati.
-\newblock Planning as constraint satisfaction: Solving the planning graph by
-  compiling it into csp.
+\newblock {Planning as constraint satisfaction: Solving the planning graph by
+  compiling it into CSP}.
 \newblock \emph{Artificial Intelligence}, 132\penalty0 (2):\penalty0 151--182,
   2001.
 
@@ -260,13 +266,13 @@ Staffan Ekvall and Danica Kragic.
   Martinez]{fernandez2015learning}
 Enrique Fern{\'a}ndez, Luis~S{\'a}nchez Crespo, Anil Mahtani, and Aaron
   Martinez.
-\newblock \emph{Learning ROS for Robotics Programming}.
+\newblock \emph{{Learning ROS for Robotics Programming}}.
 \newblock Packt Publishing Ltd, 2015.
 
 \bibitem[Fikes and Nilsson(1971)]{fikes1971strips}
 Richard~E Fikes and Nils~J Nilsson.
-\newblock Strips: A new approach to the application of theorem proving to
-  problem solving.
+\newblock {STRIPS: A new approach to the application of theorem proving to
+  problem solving}.
 \newblock \emph{Artificial intelligence}, 2\penalty0 (3-4):\penalty0 189--208,
   1971.
 
@@ -474,7 +480,7 @@ Changshuo Li and Dmitry Berenson.
 
 \bibitem[Liang et~al.(2017{\natexlab{a}})Liang, Pellier, Fiorino, and
   Pesty]{liang2017evaluation}
-Ying-Siu Liang, Damien Pellier, Humbert Fiorino, and Sylvie Pesty.
+Ying~Siu Liang, Damien Pellier, Humbert Fiorino, and Sylvie Pesty.
 \newblock Evaluation of a robot programming framework for non-experts using
   symbolic planning representations.
 \newblock In \emph{26th IEEE International Symposium on Robot and Human
@@ -489,13 +495,13 @@ Ying~Siu Liang, Damien Pellier, Humbert Fiorino, and Sylvie Pesty.
   Mechatronics and Robotics Engineering}, pages 30--35. ACM,
   2017{\natexlab{b}}.
 
-\bibitem[Liang et~al.(2018 (in review))Liang, Pellier, Fiorino, Pesty, and
+\bibitem[Liang et~al.(2018)Liang, Pellier, Fiorino, Pesty, and
   Cakmak]{liang2018simultaneous}
-Ying-Siu Liang, Damien Pellier, Humbert Fiorino, Sylvie Pesty, and Maya Cakmak.
-\newblock Simultaneous end-user programming of goals and actions for robotic
-  shelf organization.
-\newblock In \emph{Intelligent Robots and Systems (IROS), 2018 IEEE/RSJ
-  International Conference on}, 2018 (in review).
+Ying~Siu Liang, Damien Pellier, Humbert Fiorino, Sylvie Pesty, and Maya Cakmak.
+\newblock {Simultaneous End-User Programming of Goals and Actions for Robotic
+  Shelf Organization}.
+\newblock In \emph{2018 IEEE/RSJ International Conference on Intelligent Robots
+  and Systems (IROS)}, 2018.
 
 \bibitem[Lozano-Perez(1983)]{lozano1983robot}
 Tomas Lozano-Perez.
@@ -644,7 +650,7 @@ Active8 Robots.
 
 \bibitem[Robots(2014{\natexlab{b}})]{Connect4}
 Rethink Robots.
-\newblock Baxter reseach robot - connect 4.
+\newblock {Baxter Reseach Robot - Connect 4}.
 \newblock \emph{[Online]
   http://sdk.rethinkrobotics.com/wiki/Connect_Four_Demo}, 2014{\natexlab{b}}.
 
@@ -762,7 +768,7 @@ Harini Veeraraghavan and Manuela Veloso.
 
 \bibitem[Vyvyan~Pugh(2013-2014)]{BaxterGolf}
 Active~Robots Vyvyan~Pugh.
-\newblock Baxter reseach robot - worked example visual servoing.
+\newblock {Baxter Reseach Robot - Worked Example Visual Servoing}.
 \newblock \emph{[Online]
   http://sdk.rethinkrobotics.com/wiki/Worked_Example_Visual_Servoing},
   2013-2014.

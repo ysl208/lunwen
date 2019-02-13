@@ -1,3 +1,54 @@
+
+\section{Problem Statement}
+The research question we address in this thesis is:
+\begin{center}
+	\textit{Can non-robotics expert users teach a robot reusable actions that allow it to autonomously solve more complex problems for their user-specific tasks?}
+\end{center}
+
+Most solutions assume a finite list of primitive actions, but to date there is no database of general purpose primitive actions and whether a finite set can list all necessary motions is questionable (\cite{billard2016learning}).
+We argue for teaching robots primitive actions, instead of entire action sequences, and delegating the logical reasoning process of finding a solution to task planners.
+While previous work has addressed integrating task planning with robotic systems (\citet{abdo2013learning,cashmore2015rosplan}), enabling end-users to teach the robot new actions from scratch that can be reused with task planning has not been addressed and is extremely challenging. 
+The system should allow efficient programming of both \textit{how} an action is performed (low-level) and \textit{when} it can be applied (high-level), while being able to generalise both aspects to previously unseen scenarios. 
+Furthermore, the system should provide an intuitive interface to reuse the programmed actions together with a task planner that is generally handled by domain experts.
+To that end, we must create a framework that combines the following aspects:
+\begin{itemize}
+	\item Programming by demonstration: the user should be able to teach the robot a new primitive action from scratch without writing explicit code, including both \textit{how} and \textit{when} to perform the action,
+	\item Automated planning: the expressibility of taught actions needs to be generalisable so that they can be used by symbolic task planners,
+	\item Intuitive robot programming: the user interface and programming process need to be intuitive enough for users to understand and navigate in order to customise the robot to their specific task.
+\end{itemize}
+
+In other words, the user must program the robot by demonstration and thereby construct 
+%a knowledge base, consisting of a domain model (the environment that the robot interacts with) and 
+reusable actions required for the robot to accomplish a defined task.
+A functioning real-world system requires solutions in perception (\eg object identification), motion planning (\eg manipulation, navigation, safety), human–robot interaction, and cognitive robotics (\eg action learning, task planning). 
+The integration of all aspects into a real-time system is a major challenge.
+In this thesis we address this with the aim to create an end-to-end system for end-user robot programming.
+% and provide partial solutions for the other areas.
+With the focus on cobotic environments, we further investigate the difficulties encountered by end-users, when faced with a system involving PbD and Automated Planning. 
+We evaluate our approach with pick and place robots, addressing assembly and packaging tasks, two of the most common application types in manufacturing facilities\footnote{https://www.robotics.org/blog-article.cfm/Pick-and-Place-Robots-What-Are-They-Used-For-and-How-Do-They-Benefit-Manufacturers/88}.
+% limitations 
+%We need to consider the limitations: limited resources, lack of programming knowledge and time to train operators.
+%, rather than atomic actions that can be reused independently 
+
+% semantics for application to new context
+%A robot that learns how to arrange items on a desk may have to plan the order of handling objects in another way than originally demonstrated by the teacher.
+%Thus, it does not suffice for the robot to replicate the demonstrated movement, but it needs to understand and interpret the teacher's intention so that it can apply the action to different scenarios.
+%
+%In other words, given a user-defined goal, the robot should generate and execute the right action sequence to obtain it.
+
+% example domain 
+%The domain model would consist of a table with a finite number of objects and limited positions, as well as actions consisting of pick, place and move. 
+%Possible goals could be to stack the objects by size (similar to the Tower of Hanoi problem) or to arrange the objects in a certain order. 
+%Our framework should enable the user to teach the robot by demonstration all action models needed, including their relevant preconditions and effects. 
+%Once the action models have been created, the inbuilt automated planner can generate an action sequence to achieve any goal within the domain. 
+
+%Hence, we address two common situations, where reprogramming is required: 
+%\begin{itemize}
+%\item A new subtask needs to be included in the task execution, \eg the robot knows how to place objects from any position on the table into a basket, but should additionally rotate them before placing them;
+%\item All subtasks are available but the ultimate goal has changed, \eg the order of placing the objects has been changed.
+%\end{itemize}
+
+
 \section{Summary of contributions}
 %\subsection{Thesis statement}
 %Non-expert users can program a robot to complete a set of tasks by teaching it atomic actions by demonstration and correctly assigning them preconditions and effects that can be used with an automated planner to solve more complex problems.
@@ -11,22 +62,42 @@
 
 The contributions of this thesis can be summarised as follows:
 \begin{itemize}
-	\item {A proposed robot programming framework that combines PbD and Automated Planning, where the robot learns action models by demonstration, and the problem of finding an action sequence is delegated to a planner (\cite{liang2017framework}).
+	\item {A proposed end-user robot programming framework that combines PbD and Automated Planning, where the robot learns action models by demonstration, and the problem of finding an action sequence is delegated to a planner (\cite{liang2017framework}).
 	The robot programming process consists of the following steps:
 	\begin{enumerate}
-		\item the non-expert user teaches the robot atomic actions by kinesthetic demonstration, and defines {action models} by associating preconditions and effects,
-		\item the robot uses these action models with an automated planner to generate solutions to user-defined goals,
+		\item the user teaches the robot new actions by kinesthetic demonstration, including both low- and high-level action representations
+		\item the robot uses these actions with an automated planner to generate solutions to user-defined problems,
 		\item the user can revisit the taught action models to refine them.
 	\end{enumerate}
 	\textbf{Research question:} \textit{Can end-users teach the robot actions and associated conditions using PbD that can be used by a planner to solve a user-defined task?}}
-    \item {Experimental findings on user acceptance of the proposed framework. Users were tasked to teach a robot by kinesthetic demonstration and correctly assign action conditions that can be used for automated planning.\\
+
+    \item {User study 1: Experimental findings on user acceptance of the proposed framework. Using the Wizard-of-Oz technique, users were tasked to teach a robot actions by kinesthetic demonstration and correctly assign action conditions that can be used for automated planning.\\
     \textbf{Research question:} \textit{Can users teach a robot action models for automated planning using the robot programming framework?}}
-    \item {Experimental findings on issues encountered when non-experts are tasked to use AI planning concepts and a symbolic planning language to describe the world state to a robot. 
-    We evaluated the user's ability to construct symbolic action models, in terms of preconditions and effects, used by automated planners (\cite{liang2017evaluation}).\\
+
+    \item {User study 2: Experimental findings on issues encountered when non-robotics experts are tasked to use AI planning concepts and a symbolic planning language to describe the world state to a robot. 
+    We evaluated the user's ability to construct symbolic action models, in terms of preconditions and effects, used by automated planners and show that users with little to no programming experience can easily learn and use symbolic planning languages (\cite{liang2017evaluation}).\\
     \textbf{Research question:} \textit{How do non-expert users adopt the automated planning language with its action model representation?}}
-    \item {A system for robotic shelf organisation tasks: simultaneous end-user programming of goals and actions using PbD and interactive visualisation (\cite{liang2018simultaneous}).
-    The system allows the robot to learn and execute organisation tasks from user input via kinesthetic demonstration and a graphical interface.
-    We teach the robot \textit{what} and \textit{how} to perform a task using PbD and a goal inference model.
-    We evaluated user teaching strategies with experiments on Amazon Mechanical Turk and compared their performance to eight benchmark strategies.\\
-    \textbf{Research question:} \textit{Can users teach the robot an organisation task using PbD and goal inference and what teaching strategies do users prefer?}}
+
+	\item {iRoPro - an end-to-end robot programming system (\cite{liang2018simultaneous}): the proposed framework implemented on a Baxter research robot that 
+		\begin{enumerate}
+			\item allows simultaneous teaching of low- and high-level actions from a single demonstration, 
+			\item includes a user interface for action creation with condition inference and modification, and
+			\item allows creating and solving previously unseen problems using a task planner for the robot to execute in real-time.
+		\end{enumerate}
+	iRoPro includes a graphical interface, which allows the user to teach new actions by kinesthetic demonstration, modify action conditions, define new problems, and have the robot autonomously solve and execute the plan in real-time.
+	Thus, we enable end-users to program robots from scratch, without writing code, therefore maximising the generalisability of taught actions with minimum programming effort.}
+
+	\item {User and system evaluation:
+	We demonstrate iRoPro's capability to generalise primitive actions on six benchmark tasks that are programmed and executed on the Baxter robot (\sect{sec:syseval}).
+	We empirically investigate the usability of our system and validate its intuitiveness through a study with 21 users of different educational backgrounds and programming levels
+%and perform an analysis on both quantitative and qualitative data 
+	(\sect{sec:quanteval}).
+	To better understand user teaching strategies, we split participants into two control groups, with and without automatic condition inference, and showed that users in both groups can easily learn and use the system.}
+	
+	\item {A system for robotic shelf organisation tasks: simultaneous end-user programming of goals and actions using PbD and interactive visualisation (\cite{liang2018simultaneous}).
+		The system allows the robot to learn and execute organisation tasks from user input via kinesthetic demonstration and a graphical interface.
+		We teach the robot \textit{what} and \textit{how} to perform a task using PbD and a goal inference model.
+		We evaluated user teaching strategies with experiments on Amazon Mechanical Turk and compared their performance to eight benchmark strategies.\\
+		\textbf{Research question:} \textit{Can users teach the robot an organisation task using PbD and goal inference and what teaching strategies do users prefer?}}
+	
 \end{itemize}
