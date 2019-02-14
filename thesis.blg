@@ -19,6 +19,10 @@ Repeated entry---line 1657 of file references.bib
  : @article{ekvall2008robot
  :                         ,
 I'm skipping whatever remains of this entry
+Repeated entry---line 1710 of file references.bib
+ : @inproceedings{huang2017code3
+ :                              ,
+I'm skipping whatever remains of this entry
 Repeated entry---line 1743 of file references.bib
  : @article{argall2009survey
  :                          ,
@@ -108,45 +112,45 @@ Warning--empty publisher in sutton1998reinforcement
 Warning--empty booktitle in tullis2004comparison
 Warning--empty year in tullis2004comparison
 Warning--empty year in tullis2004comparison
-You've used 119 entries,
+You've used 120 entries,
             2773 wiz_defined-function locations,
-            1222 strings with 25998 characters,
-and the built_in function-call counts, 60205 in all, are:
-= -- 5549
-> -- 3175
-< -- 115
-+ -- 1082
-- -- 960
-* -- 4541
-:= -- 8813
-add.period$ -- 405
-call.type$ -- 119
-change.case$ -- 668
-chr.to.int$ -- 116
-cite$ -- 259
-duplicate$ -- 2965
-empty$ -- 5090
-format.name$ -- 1151
-if$ -- 13073
+            1227 strings with 26229 characters,
+and the built_in function-call counts, 60791 in all, are:
+= -- 5610
+> -- 3196
+< -- 117
++ -- 1089
+- -- 966
+* -- 4577
+:= -- 8890
+add.period$ -- 409
+call.type$ -- 120
+change.case$ -- 673
+chr.to.int$ -- 117
+cite$ -- 261
+duplicate$ -- 2997
+empty$ -- 5143
+format.name$ -- 1160
+if$ -- 13211
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 123
-newline$ -- 617
-num.names$ -- 476
-pop$ -- 1519
+missing$ -- 124
+newline$ -- 622
+num.names$ -- 480
+pop$ -- 1532
 preamble$ -- 1
-purify$ -- 556
+purify$ -- 560
 quote$ -- 0
-skip$ -- 2298
+skip$ -- 2325
 stack$ -- 0
-substring$ -- 2492
-swap$ -- 572
-text.length$ -- 49
+substring$ -- 2526
+swap$ -- 583
+text.length$ -- 50
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1274
+type$ -- 1285
 warning$ -- 21
-while$ -- 547
+while$ -- 553
 width$ -- 0
-write$ -- 1574
-(There were 23 error messages)
+write$ -- 1588
+(There were 24 error messages)

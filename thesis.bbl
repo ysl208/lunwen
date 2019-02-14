@@ -1,4 +1,4 @@
-\begin{thebibliography}{119}
+\begin{thebibliography}{120}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -367,6 +367,13 @@ Geir~E Hovland, Pavan Sikka, and Brenan~J McCarragher.
   model.
 \newblock In \emph{Robotics and Automation, 1996. Proceedings., 1996 IEEE
   International Conference on}, volume~3, pages 2706--2711. IEEE, 1996.
+
+\bibitem[Huang and Cakmak(2017)]{huang2017code3}
+Justin Huang and Maya Cakmak.
+\newblock Code3: A system for end-to-end programming of mobile manipulator
+  robots for novices and experts.
+\newblock In \emph{Proceedings of the 2017 ACM/IEEE International Conference on
+  Human-Robot Interaction}, pages 453--462. ACM, 2017.
 
 \bibitem[Huckaby et~al.(2013)Huckaby, Vassos, and
   Christensen]{huckaby2013planning}

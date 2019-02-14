@@ -12,7 +12,7 @@
 \contentsline {figure}{\numberline {2.3}{\ignorespaces KUKA Robotics graphical user interface (\cite {abdeetedal2017kuka})\relax }}{19}{figure.caption.10}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Lego Mindstorms EV3 icon-based interface (\cite {lego2003})\relax }}{20}{figure.caption.11}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Scratch: block-based visual programming language (\cite {majed2014learn})\relax }}{20}{figure.caption.12}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Types of Machine learning (\cite {jones2017models})\relax }}{21}{figure.caption.13}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Types of Machine learning: Deep learning (supervised and unsupervised learning) and Reinforcement learning (\cite {jones2017models})\relax }}{22}{figure.caption.13}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Programming by Demonstration}{25}{chapter.3}
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Intersection of the record and embodiment mappings.\relax }}{27}{figure.caption.15}

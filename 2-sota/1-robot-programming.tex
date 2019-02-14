@@ -117,35 +117,43 @@ However, text-based systems still require trained users with programming knowled
 Graphical (or icon-based) systems use a graph, flow-chart or diagram view where users manually specify actions and program flow.
 The graphical icons correspond directly to the program statements.
 \cite{lego2003} and \cite{bischoff2002morpha} produced graphical systems using a flow-chart approach, where the robot's behaviour can be configured by arranging low-level actions in a sequence (\fig{fig:lego-mindstorm}).
-Similarly, Scratch (\cite{majed2014learn}) is a block-based visual programming language to allow children with no programming experience to learn development in an intuitive way \fig{fig:scratch-interface}).
-They are typically easy to use and generally used for robot applications rather than system programming. 
+Similarly, Scratch (\cite{majed2014learn}) is a block-based visual programming language to allow children with no programming experience to learn development in an intuitive way for animations and interactive applications (\fig{fig:scratch-interface}).
+\cite{huang2017code3} created a system for programming mobile manipulator robots with a drag-and-drop interface as a high-level programming component.
+For all of these systems, the user has direct control over the programmed behaviour, thus increasing their programming effort.
+%They are typically easy to use and generally used for robot applications rather than system programming. 
 
 \section{Automatic Programming Systems}\label{subsec:Automatic Programming Systems}
 Automatic programming systems relate to robots that can learn from data and generate their behaviour from information entered into the system.
 Unlike manual programming, the end-user does not need to sequence robot code and does not have direct control over the robot's executed behaviour.
-The robot can learn from data that is directly related to the desired robot behaviour and has been selected by a teacher, we will refer to this as \textit{biased} data.
-If the robot learns from data that is not directly related to its required behaviour, we refer to the data as being \textit{unbiased}.
+The robot can learn from data that is directly related to the its desired executed behaviour and has been selected by a teacher, \eg learn from observing demonstrations by the teacher, we refer to this as \textit{biased} data.
+If the robot learns from data that is not directly related to its executed behaviour, \eg from trial and error, we refer to it as \textit{unbiased} data.
 Thus, we differentiate automatic programming systems between Machine Learning systems, where the robot learns from \textit{unbiased} data, and Programming by Demonstration, where the robot learns from \textit{biased} data in the form of demonstrations provided by the teacher.
 
 \subsection{Machine Learning Systems}\label{sssec:Learning Systems}
 Machine Learning (ML) systems use inductive inference to create a program by taking examples provided by the user or from self-exploration of the robot. 
 The goal of these systems is to construct programs that allow the robot to automatically improve its performance with increasing amounts of data. 
 Even though ML algorithms have been around since the 1980s, it has only become popular in the past few decades. 
-The rise of the internet led to big data, improved knowledge sharing, as well as advances in techniques to process and store data efficiently lead to a wave of new ML techniques.
+The rise of the internet led to big data, improved knowledge sharing, and advances in techniques to process and store data efficiently triggered a wave of new ML techniques.
 %Developments in various research areas such as computer vision have impacted the field of robotics.
 Recent applications of ML in robotics\footnote{http://techemergence.com/machine-learning-in-robotics/} include research areas such as computer vision (or ``robot vision'') for the identification and sorting of objects (\cite{stager2013computer}) and imitation learning to learn action plans from watching unconstrained videos (\cite{Yang2015}).
 
-We differentiate between Deep Learning systems, where the data is provided directly to the robot, and Reinforcement Learning, where the robot acquires data by exploration of its environment (\fig{fig:ml-types}).
-Deep learning systems (\cite{schmidhuber2015deep}) generally use artificial neural networks (NN) with different architectures which require large amounts of data to learn the desired behaviour.
+We can differentiate between how the data is acquired: 
+In Deep Learning (DL), data is provided directly to the robot in either labelled (supervised learning) or unlabelled format (unsupervised learning).
+In Reinforcement Learning (RL), the robot acquires data by self-exploration of its environment where the robot enters different states depending on the actions it takes (\fig{fig:ml-types}).
+DL systems (\cite{schmidhuber2015deep}) generally use artificial neural networks (NN) which require large amounts of data to learn the desired behaviour.
 Techniques are divided into supervised (\eg Classification, Regression) and unsupervised (\eg Clustering) learning, using labelled and unlabelled data respectively.
-\cite{billard2001robust} used NN to learn the motion of a human arm in 3D.
-Reinforcement learning (RL) systems (\cite{sutton1998reinforcement,kaelbling1996reinforcement,gosavi2009reinforcement}) learn from data acquired from exploration of the environment. 
-The robot uses a reward function to learn its policy, which is often difficult to specify and requires a domain expert.
+%\cite{billard2001robust} used NN to learn the motion of a human arm in 3D.
+
+RL systems (\cite{sutton1998reinforcement,kaelbling1996reinforcement,gosavi2009reinforcement}) learn from data acquired from self-exploration of the environment. 
+The robot uses a reward function to learn its behaviour, or \textit{policy}, while taking random actions and refines the policy by updating expected rewards with observed outcomes.
+However, setting up the states, actions, and policy is often difficult and usually requires a robotics expert.
+\cite{kober2013reinforcement} provides a survey of work in RL to generate behaviour for robots and highlights the main challenges that are faced.
+Since the robot has to explore many states before it can learn the correct behaviour, RL systems usually take hundred or thousands of training examples.
+To accelerate the learning and reduce the amount of exploration required, work has been done to include teacher demonstrations with RL solutions (\cite{martinez2017relational,hester2017learning}).
 %There are two main classes of RL approaches, namely \textit{model-based} (\cite{polydoros2017survey}) and \textit{model-free }(\cite{kober2013reinforcement}) methods, differentiating between whether a model of the interactions between the robot and the environment is used, or whether it learns from samples.
 %While model-based methods converge faster to the optimal solution, an accurate model is not always available and can impact the learning process.
 %Model-free methods require the robot to learn from samples, resulting in a slow convergence to the optimal solution.
-\cite{kober2013reinforcement} provides a survey of work in RL to generate behaviour for robots and highlights the main challenges that are faced.
-To accelerate the learning and reduce the amount of exploration required, work has been done to include teacher demonstrations with RL solutions (\cite{martinez2017relational,hester2017learning}).
+
 %In real world scenarios robots require teacher input to learn behaviours efficiently. 
 %\todo{Similar to our work: \cite{martinez2017relational}}
 
@@ -155,13 +163,14 @@ To accelerate the learning and reduce the amount of exploration required, work h
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=\linewidth]{figures/ml-techniques}
-	\caption{Types of Machine learning (\cite{jones2017models})}
+	\caption{Types of Machine learning: Deep learning (supervised and unsupervised learning) and Reinforcement learning (\cite{jones2017models})}
 	\label{fig:ml-types}
 \end{figure}
 
 \subsection{Programming by Demonstration}\label{sssec:PbD}
-PbD, also known as Learning from Demonstration or Imitation Learning, describes various techniques where the robot learns new behaviours from teacher demonstrations. 
-Unlike ML solutions, Programming by Demonstration (PbD) (\cite{billard2016learning,argall2009survey}), learns from \textit{biased} data in the form of demonstrations provided by a human teacher.
+Programming by Demonstration (PbD) (\cite{billard2016learning,argall2009survey}), also known as Learning from Demonstration or Imitation Learning, describes various techniques where the robot learns new behaviours from teacher demonstrations. 
+Unlike with ML solutions, the data generally sparse and directly correlated with the robots executed behaviour.
+We refer to it as \textit{biased} data, \eg provided by a human teacher in the form of demonstrations.
 PbD systems have been used in the industry for creating assembly programs. 
 In recent years there has been significant work in PbD to move from pure imitation to intelligent systems that learn flexible task executions. 
 PbD systems may learn task descriptions from interpreted data to adapt the learned task to changing environments.
