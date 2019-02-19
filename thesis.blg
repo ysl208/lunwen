@@ -3,83 +3,87 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: thesis.aux
 The style file: plainnat.bst
 Database file #1: references.bib
-Repeated entry---line 1470 of file references.bib
+Repeated entry---line 1508 of file references.bib
  : @inproceedings{abdo2013learning
  :                                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1537 of file references.bib
+Repeated entry---line 1575 of file references.bib
  : @inproceedings{cakmak2012aaai
  :                              ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1553 of file references.bib
+Repeated entry---line 1591 of file references.bib
  : @inproceedings{ahmadzadeh2015learning
  :                                      ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1657 of file references.bib
+Repeated entry---line 1695 of file references.bib
  : @article{ekvall2008robot
  :                         ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1710 of file references.bib
+Repeated entry---line 1748 of file references.bib
  : @inproceedings{huang2017code3
  :                              ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1743 of file references.bib
+Repeated entry---line 1781 of file references.bib
  : @article{argall2009survey
  :                          ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1765 of file references.bib
+Repeated entry---line 1803 of file references.bib
  : @article{akgun2012keyframe
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1787 of file references.bib
+Repeated entry---line 1825 of file references.bib
  : @inproceedings{alexandrova2014robot
  :                                    ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1794 of file references.bib
+Repeated entry---line 1832 of file references.bib
  : @inproceedings{alexandrova2015roboflow
  :                                       ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1803 of file references.bib
+Repeated entry---line 1841 of file references.bib
  : @incollection{billard2008robot
  :                               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1821 of file references.bib
+Repeated entry---line 1859 of file references.bib
  : @article{fikes1971strips
  :                         ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1832 of file references.bib
+Repeated entry---line 1870 of file references.bib
  : @book{ghallab2004automated
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1892 of file references.bib
+Repeated entry---line 1930 of file references.bib
  : @article{mcdermott1998pddl
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1916 of file references.bib
+Repeated entry---line 1954 of file references.bib
  : @inproceedings{niekum2012learning
  :                                  ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1957 of file references.bib
+Repeated entry---line 1995 of file references.bib
  : @inproceedings{liang2018simultaneous
  :                                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1964 of file references.bib
+Repeated entry---line 2002 of file references.bib
  : @inproceedings{liang2017evaluation
  :                                   ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 1971 of file references.bib
+Repeated entry---line 2009 of file references.bib
  : @inproceedings{liang2017framework
  :                                  ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 2002 of file references.bib
+Repeated entry---line 2040 of file references.bib
  : @inproceedings{quigley2009ros
  :                              ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 2025 of file references.bib
+Repeated entry---line 2049 of file references.bib
+ : @inproceedings{stenmark2017simplified
+ :                                      ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 2063 of file references.bib
  : @article{simpson2007planning
  :                             ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 2035 of file references.bib
+Repeated entry---line 2073 of file references.bib
  : @article{vaquero2013itsimple
  :                             ,
 I'm skipping whatever remains of this entry
@@ -88,6 +92,7 @@ while executing---line 1347 of file plainnat.bst
 Name 1 in "Avenier, Marie-Jos\'{e}, and Thomas, Catherine" has a comma at the end for entry avenier2015finding
 while executing---line 1347 of file plainnat.bst
 Warning--empty booktitle in abdeetedal2017kuka
+Warning--empty journal in akgun2011robot
 Warning--empty booktitle in alexandrova2014robot
 Name 1 in "Avenier, Marie-Jos\'{e}, and Thomas, Catherine" has a comma at the end for entry avenier2015finding
 while executing---line 1429 of file plainnat.bst
@@ -112,45 +117,45 @@ Warning--empty publisher in sutton1998reinforcement
 Warning--empty booktitle in tullis2004comparison
 Warning--empty year in tullis2004comparison
 Warning--empty year in tullis2004comparison
-You've used 120 entries,
+You've used 128 entries,
             2773 wiz_defined-function locations,
-            1227 strings with 26229 characters,
-and the built_in function-call counts, 60791 in all, are:
-= -- 5610
-> -- 3196
-< -- 117
-+ -- 1089
-- -- 966
-* -- 4577
-:= -- 8890
-add.period$ -- 409
-call.type$ -- 120
-change.case$ -- 673
-chr.to.int$ -- 117
-cite$ -- 261
-duplicate$ -- 2997
-empty$ -- 5143
-format.name$ -- 1160
-if$ -- 13211
+            1265 strings with 28097 characters,
+and the built_in function-call counts, 65683 in all, are:
+= -- 6048
+> -- 3542
+< -- 122
++ -- 1205
+- -- 1074
+* -- 4979
+:= -- 9621
+add.period$ -- 437
+call.type$ -- 128
+change.case$ -- 731
+chr.to.int$ -- 125
+cite$ -- 278
+duplicate$ -- 3211
+empty$ -- 5493
+format.name$ -- 1278
+if$ -- 14262
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 124
-newline$ -- 622
-num.names$ -- 480
-pop$ -- 1532
+missing$ -- 132
+newline$ -- 662
+num.names$ -- 512
+pop$ -- 1658
 preamble$ -- 1
-purify$ -- 560
+purify$ -- 610
 quote$ -- 0
-skip$ -- 2325
+skip$ -- 2507
 stack$ -- 0
-substring$ -- 2526
-swap$ -- 583
-text.length$ -- 50
+substring$ -- 2697
+swap$ -- 632
+text.length$ -- 54
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1285
-warning$ -- 21
-while$ -- 553
+type$ -- 1373
+warning$ -- 22
+while$ -- 591
 width$ -- 0
-write$ -- 1588
-(There were 24 error messages)
+write$ -- 1693
+(There were 25 error messages)

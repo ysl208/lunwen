@@ -1,11 +1,5 @@
 % Deriving  a policy
-\section{Deriving a policy}\label{subsec:Deriving a policy}
-%Our focus is on the former, learning low-level trajectories that can be generalised.
-%The latter will then be taken over by automated planning techniques.
 
-Once the dataset of examples has been acquired, the robot learner needs to derive a policy $\pi : Z \rightarrow A$, a state-action mapping from the observed state to the action domain representing the desired behaviour. 
-\cite{chernova2014robot} give an overview of the state of the art policy derivation techniques.
-The most efficient ones approximate the state-action mapping from as few training examples as possible.
 PbD can be classified into low-level skill learning (trajectory encoding) and high-level task learning (symbolic encoding).
 Low-level representations focus on learning generalised trajectories from the human demonstrator, high-level representations focus on learning a sequence of motion elements (primitives) (\cite{peppoloni2014ros}). In the following we will give an overview of both techniques.
 
@@ -18,18 +12,6 @@ For instance, in keyframe-based learning, demonstrations are provided by kinesth
 An end-effector pose can be relative to the robot's base or to a landmark previously detected by the robot.
 Landmarks are only known to the robot after a table top detection step has been performed.
 
-\begin{table}[ht]
-\centering
-\caption{Task representations}
-\label{tab:representations}
-\begin{tabular}{r|ll}
- & Continuous representation & Symbolic representation\\ \hline
-Position & (x,y,z) coordinates & table \\
-Orientation  & Theta x,y,z  & straight/upright \\
-Colour & (r,g,b) & Red, yellow, green ranges\\
-Spatial preposition between 2 objects & (x,y) distance vector & Left/right/front/behind of 
-\end{tabular}
-\end{table}
 
 \subsection{High-level task learning}
 For learning high-level tasks it is assumed that a set of low-level primitive actions is preprogrammed into the robot. 

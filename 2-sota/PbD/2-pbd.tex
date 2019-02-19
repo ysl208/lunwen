@@ -1,31 +1,9 @@
-\section{Introduction}
-``Programming by demonstration (PbD) has become a central topic of robotics and spans across general research areas such as human-robot interaction, machine learning, machine vision and motor control" (\cite{billard2008robot}).
- possess the robot programming knowledge, to communicate skills to robots more easily.
-The underlying concept is to learn a new skill from a set of correct demonstrations, thus reducing the complexity of the search space and accelerating learning.
-It offers a framework for service robotics applications, independent of the robot platform, and reduces the overhead of reprogramming the robot for different tasks.
-
-The problem of learning a skill can be considered as learning a function that maps a world state to an action.
- In real-world applications, states can only be partially observed due to restricted sensor availability.
- Hence, we assume that the robot learner has access to the observed state $Z$ instead.
- A function $\pi : Z \rightarrow A$, referred to as a \textit{policy}, allows the robot to select actions from an action domain $A$, given observations of the world state.
- 
-Programming by demonstration is an approach to learn this policy from demonstration data, known as \textit{examples}.
-% ``Examples are sequences of state-action pairs that are recorded during the teacher's demonstration of the desired robot behaviour." \cite{argall2009survey} 
-Unlike learning techniques in reinforcement learning, PbD is aimed at learning from correct examples only.
- Thus, PbD can be seen as a subset of Supervised Learning, as the agent is presented with labeled training data and tries to learn an approximation of the function, which produced the data (\cite{argall2009survey}).
-
- \cite{nicolescu2003natural} present a PbD approach, which allows the robot to learn skill representations and refine them by using feedback cues provided by the teacher.
- Similarly, \cite{calinon2007active} and \cite{calinon2007incremental} implement systems, which actively involve the teacher in the robot's learning process, by providing human guidance to a humanoid robot.
- The robot first observes the demonstration performed by the teacher, who is wearing motion sensors.
- When it tries to reproduce the action, the teacher can refine the movement by physically moving its limbs.
 
 \section{Design choices}\label{subsec:Design choices}
 There are different design choices to consider when developing a new PbD system.
 We differentiate between the choice of the demonstrator (human or robot), in particular who controls the demonstration and who executes the demonstration.
 Consider the example of a simple pick up action of an object.
 The teacher could be demonstrating the action using their own hands, while the robot observes the motion, or by moving the robot's joints directly.
-Furthermore, the state and action can either be represented in a discrete way (\textit{``object on the table"} or \textit{``robot holding object"}) or in a continuous way using the 3D positions of the robot's end effector and the box.
-There is also the choice of the demonstration technique, i.e. whether the data is provided to the learner incrementally or once all data has been gathered.
  
 Despite the different design choices, there are common aspects across all PbD applications. 
 Firstly, the teacher demonstrates the desired behaviour and, secondly, the learner derives a policy from this set of demonstrations to reproduce the behaviour.
@@ -41,8 +19,8 @@ Firstly, the teacher demonstrates the desired behaviour and, secondly, the learn
 %\end{itemize}
 
 There exist various techniques for gathering demonstration examples.
- We differentiate between methods for action recording and action execution.
- Consider the two mappings (\cite{argall2009survey}):
+We differentiate between methods for action recording and action execution.
+Consider the two mappings (\cite{argall2009survey}):
 \begin{itemize}
 \item Record mapping $g_R(z,a)$: A mapping between the exact actions demonstrated by the teacher and those recorded within the dataset.
 \item Embodiment mapping $g_E(z,a)$: A mapping between the actions recorded in the dataset and the actions executed by the robot learner.

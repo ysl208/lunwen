@@ -1,4 +1,4 @@
-\begin{thebibliography}{120}
+\begin{thebibliography}{128}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -42,6 +42,12 @@ Seyed~Reza Ahmadzadeh, Ali Paikan, Fulvio Mastrogiovanni, Lorenzo Natale, Petar
 \newblock In \emph{Robotics and Automation (ICRA), 2015 IEEE International
   Conference on}, pages 3801--3808. IEEE, 2015.
 
+\bibitem[Akgun and Subramanian(2011)]{akgun2011robot}
+Baris Akgun and Kaushik Subramanian.
+\newblock Robot learning from demonstration: kinesthetic teaching vs.
+  teleoperation.
+\newblock 2011.
+
 \bibitem[Akgun et~al.(2012)Akgun, Cakmak, Jiang, and Thomaz]{akgun2012keyframe}
 Baris Akgun, Maya Cakmak, Karl Jiang, and Andrea~L Thomaz.
 \newblock Keyframe-based learning from demonstration.
@@ -69,6 +75,13 @@ Brenna~D Argall, Sonia Chernova, Manuela Veloso, and Brett Browning.
 \newblock A survey of robot learning from demonstration.
 \newblock \emph{Robotics and autonomous systems}, 57\penalty0 (5):\penalty0
   469--483, 2009.
+
+\bibitem[Arulkumaran et~al.(2017)Arulkumaran, Deisenroth, Brundage, and
+  Bharath]{arulkumaran2017brief}
+Kai Arulkumaran, Marc~Peter Deisenroth, Miles Brundage, and Anil~Anthony
+  Bharath.
+\newblock A brief survey of deep reinforcement learning.
+\newblock \emph{arXiv preprint arXiv:1708.05866}, 2017.
 
 \bibitem[Atkeson and Schaal(1997)]{atkeson1997robot}
 Christopher~G Atkeson and Stefan Schaal.
@@ -275,6 +288,15 @@ Richard~E Fikes and Nils~J Nilsson.
   problem solving}.
 \newblock \emph{Artificial intelligence}, 2\penalty0 (3-4):\penalty0 189--208,
   1971.
+
+\bibitem[Fischer et~al.(2016)Fischer, Kirstein, Jensen, Kr{\"u}ger,
+  Kukli{\'n}ski, Savarimuthu, et~al.]{fischer2016comparison}
+Kerstin Fischer, Franziska Kirstein, Lars~Christian Jensen, Norbert Kr{\"u}ger,
+  Kamil Kukli{\'n}ski, Thiusius~Rajeeth Savarimuthu, et~al.
+\newblock A comparison of types of robot control for programming by
+  demonstration.
+\newblock In \emph{The Eleventh ACM/IEEE International Conference on Human
+  Robot Interaction}, pages 213--220. IEEE Press, 2016.
 
 \bibitem[Fox et~al.(2006)Fox, Ghallab, Infantes, and Long]{fox2006robot}
 Maria Fox, Malik Ghallab, Guillaume Infantes, and Derek Long.
@@ -581,6 +603,12 @@ Tadao Murata.
 \newblock \emph{Proceedings of the IEEE}, 77\penalty0 (4):\penalty0 541--580,
   1989.
 
+\bibitem[Nehaniv et~al.(2002)Nehaniv, Dautenhahn,
+  et~al.]{nehaniv2002correspondence}
+Chrystopher~L Nehaniv, Kerstin Dautenhahn, et~al.
+\newblock The correspondence problem.
+\newblock \emph{Imitation in animals and artifacts}, 41, 2002.
+
 \bibitem[Nicolescu and Mataric(2003)]{nicolescu2003natural}
 Monica~N Nicolescu and Maja~J Mataric.
 \newblock Natural methods for robot task learning: Instructive demonstrations,
@@ -616,6 +644,15 @@ Peter Pastor, Heiko Hoffmann, Tamim Asfour, and Stefan Schaal.
 \newblock In \emph{Robotics and Automation, 2009. ICRA'09. IEEE International
   Conference on}, pages 763--768. IEEE, 2009.
 
+\bibitem[Paxton et~al.(2017)Paxton, Hundt, Jonathan, Guerin, and
+  Hager]{paxton2017costar}
+Chris Paxton, Andrew Hundt, Felix Jonathan, Kelleher Guerin, and Gregory~D
+  Hager.
+\newblock {CoSTAR: Instructing collaborative robots with behavior trees and
+  vision}.
+\newblock In \emph{International Conference on Robotics and Automation (ICRA)},
+  pages 564--571. IEEE, 2017.
+
 \bibitem[Peppoloni et~al.(2014)Peppoloni, Di~Fava, Ruffaldi, and
   Avizzano]{peppoloni2014ros}
 Lorenzo Peppoloni, Alessandro Di~Fava, Emanuele Ruffaldi, and Carlo~Alberto
@@ -624,6 +661,15 @@ Lorenzo Peppoloni, Alessandro Di~Fava, Emanuele Ruffaldi, and Carlo~Alberto
   single demonstration.
 \newblock In \emph{Robot and Human Interactive Communication, 2014 RO-MAN: The
   23rd IEEE International Symposium on}, pages 537--542. IEEE, 2014.
+
+\bibitem[Perzylo et~al.(2016)Perzylo, Somani, Profanter, Kessler, Rickert, and
+  Knoll]{perzylo2016intuitive}
+Alexander Perzylo, Nikhil Somani, Stefan Profanter, Ingmar Kessler, Markus
+  Rickert, and Alois Knoll.
+\newblock Intuitive instruction of industrial robots: Semantic process
+  descriptions for small lot production.
+\newblock In \emph{International Conference on Intelligent Robots and Systems
+  (IROS)}, pages 2293--2300. IEEE, 2016.
 
 \bibitem[Pomerleau(1991)]{pomerleau1991efficient}
 Dean~A Pomerleau.
@@ -728,6 +774,14 @@ D.J. Stager, M.K. Sergi-Curfman, D.A. LaRose, C.C. Fromme, J.A. Bagnell, E.A.
 \newblock URL \url{https://www.google.ch/patents/US20130028487}.
 \newblock US Patent App. 13/634,086.
 
+\bibitem[Stenmark et~al.(2017)Stenmark, Haage, and
+  Topp]{stenmark2017simplified}
+Maj Stenmark, Mathias Haage, and Elin~Anna Topp.
+\newblock Simplified programming of re-usable skills on a safe industrial
+  robot: Prototype and evaluation.
+\newblock In \emph{Proceedings of the 2017 ACM/IEEE International Conference on
+  Human-Robot Interaction}, pages 463--472. ACM, 2017.
+
 \bibitem[Suay et~al.(2012)Suay, Toris, and Chernova]{suay2012practical}
 Halit~Bener Suay, Russell Toris, and Sonia Chernova.
 \newblock A practical comparison of three robot learning from demonstration
@@ -785,6 +839,15 @@ Thomas~J Walsh.
 \newblock \emph{Efficient learning of relational models for sequential decision
   making}.
 \newblock Rutgers The State University of New Jersey-New Brunswick, 2010.
+
+\bibitem[Wrede et~al.(2013)Wrede, Emmerich, Gr{\"u}nberg, Nordmann, Swadzba,
+  and Steil]{wrede2013user}
+Sebastian Wrede, Christian Emmerich, Ricarda Gr{\"u}nberg, Arne Nordmann, Agnes
+  Swadzba, and Jochen Steil.
+\newblock A user study on kinesthetic teaching of redundant robots in task and
+  configuration space.
+\newblock \emph{Journal of Human-Robot Interaction}, 2\penalty0 (1):\penalty0
+  56--81, 2013.
 
 \bibitem[Yang et~al.(2015)Yang, Li, Ferm$\backslash$"{\{}u{\}}ller, and
   Aloimonos]{Yang2015}

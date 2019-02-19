@@ -19,6 +19,20 @@ In the following we discuss limitations and interesting extensions of our work:
 	%\item A possible extension would be to incorporate probabilistic techniques to learn predicates or pre-train the robot on simulated scenarios to improve the condition inference.
 \end{enumerate}
 
+\subsection{Challenges in PbD}\label{sssec:Challenges in PbD}
+Despite ongoing research in PbD, there are several challenges that still need to be addressed:
+
+\textbf{Suboptimality of demonstrations.}
+A known PbD problem exists with regards to the type and quality of the demonstration which is dependent on the teacher's knowledge of the robot's system.
+Na\"{\i}ve teachers may have greater assumptions on the robot's intelligence and take less care in executing demonstrations as compared to roboticists, who understand the effects of noisy demonstrations (\cite{suay2012practical}).
+\cite{chen2003programing} and \cite{kaiser1995obtaining} recognised different sources for sub-optimality in demonstration such as the user demonstrating unnecessary or incorrect actions due the lack of knowledge about the task.
+\cite{cakmak2014teaching} developed a PbD system and investigated the use of instructional materials in the form of tutorials and videos to support the learnability.
+
+\textbf{Lack of comparison between algorithms.}
+Despite there being many PbD algorithms proposed in research literature (\cite{argall2009survey,billing2010formalism}), there remains a lack in comparative user studies.
+Difficulties in comparing across applications arise from the use of different robotic platforms and demonstration techniques, which lead to different representations of demonstration data.
+\cite{suay2012practical} partly addresses this challenge by comparing three well-established algorithms and evaluating their performance in a common domain.
+
 
 \section{On-going and Future work}
 The main focus for the remainder of the thesis is a complete implementation of the end-to-end framework and a graphical interface to allow easy interaction with the robot. In particular, the work for the remaining thesis duration will include the following:
