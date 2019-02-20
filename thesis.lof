@@ -15,34 +15,34 @@
 \contentsline {figure}{\numberline {2.7}{\ignorespaces End-user involvement for common robot programming approaches\relax }}{25}{figure.caption.14}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Automated Planning}{28}{chapter.3}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Definition of a planning problem: Left: (a) properties describing the initial world state (b) object names and their types (c) instantiated actions (d) properties describing the goal state. Right: Action model representation of a move action in terms of preconditions and effects: demonstrated action model for a cube (top), and generalised action model for any object, variables are prefixed with `?' (bottom).\relax }}{34}{figure.caption.16}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Definition of a planning problem: Left: (a) properties describing the initial world state (b) object names and their types (c) instantiated actions (d) properties describing the goal state. Right: Action model representation of a move action in terms of preconditions and effects: demonstrated action model for a cube (top), and generalised action model for any object, variables are prefixed with `?' (bottom).\relax }}{32}{figure.caption.16}
 \addvspace {10\p@ }
-\contentsline {xchapter}{A Robot Programming Framework for End-users in Cobotic Environments}{37}{chapter.4}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces A robot programming framework for non-expert users: the user teaches action models, which are used by the robot with an automated planner, to generate an action sequence to achieve a goal. After an unsuccessful robot execution, the user can refine the taught action models (dotted lines indicate user actions, solid lines indicate robot actions).\relax }}{38}{figure.caption.17}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Overview of iRoPro that allows users to teach low- and high-level actions by demonstration. The user interacts with the GUI to run the demonstration, modify inferred action conditions, create new planning problems for the robot to solve and execute.\relax }}{39}{figure.caption.18}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Example of a high-level action for moving an object from A to B. Conditions are inferred from the observed predicates before ($O\@uscore .1$) and after ($O\@uscore .2$) the demonstration. \relax }}{41}{figure.caption.19}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces The iRoPro interface showing the action condition menu and an interactive visualisation of the Baxter robot and detected objects.\relax }}{43}{figure.caption.20}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Snapshots from the executions of the system evaluation (Tasks 3\&4) showing a claw grip from top and side.\relax }}{44}{figure.caption.21}
+\contentsline {xchapter}{A Robot Programming Framework for End-users in Cobotic Environments}{36}{chapter.4}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces A robot programming framework for non-expert users: the user teaches action models, which are used by the robot with an automated planner, to generate an action sequence to achieve a goal. After an unsuccessful robot execution, the user can refine the taught action models (dotted lines indicate user actions, solid lines indicate robot actions).\relax }}{37}{figure.caption.17}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Overview of iRoPro that allows users to teach low- and high-level actions by demonstration. The user interacts with the GUI to run the demonstration, modify inferred action conditions, create new planning problems for the robot to solve and execute.\relax }}{38}{figure.caption.18}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Example of a high-level action for moving an object from A to B. Conditions are inferred from the observed predicates before ($O\@uscore .1$) and after ($O\@uscore .2$) the demonstration. \relax }}{40}{figure.caption.19}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces The iRoPro interface showing the action condition menu and an interactive visualisation of the Baxter robot and detected objects.\relax }}{42}{figure.caption.20}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Snapshots from the executions of the system evaluation (Tasks 3\&4) showing a claw grip from top and side.\relax }}{43}{figure.caption.21}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Pre-Experiments}{46}{chapter.5}
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Experimental setup for user studies on Programming by Demonstration of a move action by kinesthetic manipulation of the Baxter robot.\relax }}{47}{figure.caption.22}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Users were instructed to provide a description of (a) the initial state of the world and (b) an initial move action model They derived additional preconditions for moving the ball from position A1 to B2: (c) \textit {(stackable ball cube)}: the ball can be stacked onto the cube, and (d) \textit {(empty B2)}: if the ball cannot be stacked, the target position should be empty.\relax }}{48}{figure.caption.23}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Definition of a planning problem (a) properties describing the initial world state (b) object names and their types (c) instantiated actions (d) properties describing the goal state.\relax }}{49}{figure.caption.24}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Summary of questionnaire responses: Extract of the 26 questions on the user's understanding, after the introduction to the automated planning language (Sec.~\ref {sec:Exp1}).\relax }}{49}{figure.caption.25}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Continuous refinement of the move action model: (a) initial action model learned by demonstration, (b) action model for all cubes of any colour, (c) action model with an additional condition, if the target position is occupied and cubes can not be stacked.\relax }}{50}{figure.caption.26}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Summary of questionnaire responses: Extract of 18 questions on the user's understanding, after the experiment to teach action models by demonstration (Sec. \ref {sec:Exp2}).\relax }}{51}{figure.caption.27}
+\contentsline {xchapter}{Pre-Experiments}{45}{chapter.5}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Experimental setup for user studies on Programming by Demonstration of a move action by kinesthetic manipulation of the Baxter robot.\relax }}{46}{figure.caption.22}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Users were instructed to provide a description of (a) the initial state of the world and (b) an initial move action model They derived additional preconditions for moving the ball from position A1 to B2: (c) \textit {(stackable ball cube)}: the ball can be stacked onto the cube, and (d) \textit {(empty B2)}: if the ball cannot be stacked, the target position should be empty.\relax }}{47}{figure.caption.23}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Definition of a planning problem (a) properties describing the initial world state (b) object names and their types (c) instantiated actions (d) properties describing the goal state.\relax }}{48}{figure.caption.24}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Summary of questionnaire responses: Extract of the 26 questions on the user's understanding, after the introduction to the automated planning language (Sec.~\ref {sec:Exp1}).\relax }}{48}{figure.caption.25}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Continuous refinement of the move action model: (a) initial action model learned by demonstration, (b) action model for all cubes of any colour, (c) action model with an additional condition, if the target position is occupied and cubes can not be stacked.\relax }}{49}{figure.caption.26}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Summary of questionnaire responses: Extract of 18 questions on the user's understanding, after the experiment to teach action models by demonstration (Sec. \ref {sec:Exp2}).\relax }}{50}{figure.caption.27}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Implementation of the Framework}{53}{chapter.6}
-\contentsline {figure}{\numberline {6.1}{\ignorespaces PbD principle overview\relax }}{54}{figure.caption.28}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Implemented Baxter interface for Programming by Demonstration\relax }}{55}{figure.caption.29}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces First iteration object detection\relax }}{58}{figure.caption.31}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Second iteration object detection\relax }}{58}{figure.caption.31}
+\contentsline {xchapter}{Implementation of the Framework}{52}{chapter.6}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces PbD principle overview\relax }}{53}{figure.caption.28}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Implemented Baxter interface for Programming by Demonstration\relax }}{54}{figure.caption.29}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces First iteration object detection\relax }}{57}{figure.caption.31}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Second iteration object detection\relax }}{57}{figure.caption.31}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Experimentation and Evaluation}{61}{chapter.7}
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Experimental setup for the user study (N=21), where users programmed the Baxter robot via a GUI to manipulate given object types (with predefined type hierarchy). \relax }}{63}{figure.caption.33}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Participants who did better in the pre-test questionnaire completed the main tasks faster, with `non-CS' users scoring the highest and being the fastest on average.\relax }}{66}{figure.caption.35}
-\contentsline {figure}{\numberline {7.3}{\ignorespaces User responses from the post-study survey (N=20) comparing iRoPro to a similar user study (N=11) \cite {liang2017evaluation}\relax }}{66}{figure.caption.36}
+\contentsline {xchapter}{Experimentation and Evaluation}{60}{chapter.7}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Experimental setup for the user study (N=21), where users programmed the Baxter robot via a GUI to manipulate given object types (with predefined type hierarchy). \relax }}{62}{figure.caption.33}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Participants who did better in the pre-test questionnaire completed the main tasks faster, with `non-CS' users scoring the highest and being the fastest on average.\relax }}{65}{figure.caption.35}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces User responses from the post-study survey (N=20) comparing iRoPro to a similar user study (N=11) \cite {liang2017evaluation}\relax }}{65}{figure.caption.36}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Simultaneous End-User Programming of Goals and Actions for Robotic Shelf Organisation}{68}{chapter.8}
+\contentsline {xchapter}{Simultaneous End-User Programming of Goals and Actions for Robotic Shelf Organisation}{67}{chapter.8}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Conclusion and Future Work}{77}{chapter.9}
+\contentsline {xchapter}{Conclusion and Future Work}{76}{chapter.9}
