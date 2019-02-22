@@ -24,10 +24,10 @@
 \BOOKMARK [1][-]{section.3.3}{Planning Domain Definition Language \(PDDL\)}{chapter.3}% 24
 \BOOKMARK [2][-]{subsection.3.3.1}{Planning domain description}{section.3.3}% 25
 \BOOKMARK [2][-]{subsection.3.3.2}{Planning Problem Description}{section.3.3}% 26
-\BOOKMARK [2][-]{subsection.3.3.3}{Relation to Present Work}{section.3.3}% 27
-\BOOKMARK [2][-]{subsection.3.3.4}{PDDL evolution and extensions}{section.3.3}% 28
-\BOOKMARK [2][-]{subsection.3.3.5}{Planners}{section.3.3}% 29
-\BOOKMARK [1][-]{section.3.4}{Knowledge Engineering Tools}{chapter.3}% 30
+\BOOKMARK [2][-]{subsection.3.3.3}{PDDL evolution and extensions}{section.3.3}% 27
+\BOOKMARK [2][-]{subsection.3.3.4}{Planners}{section.3.3}% 28
+\BOOKMARK [1][-]{section.3.4}{Knowledge Engineering Tools}{chapter.3}% 29
+\BOOKMARK [1][-]{section.3.5}{Discussions and Relations to Present Work}{chapter.3}% 30
 \BOOKMARK [0][-]{chapter.4}{A Robot Programming Framework for End-users in Cobotic Environments}{}% 31
 \BOOKMARK [1][-]{section.4.1}{Programming by Demonstration: teaching action models}{chapter.4}% 32
 \BOOKMARK [1][-]{section.4.2}{Automated Planning: using action models}{chapter.4}% 33

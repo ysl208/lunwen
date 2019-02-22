@@ -1,4 +1,4 @@
-\begin{thebibliography}{128}
+\begin{thebibliography}{131}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -12,12 +12,6 @@ M~Aarup, MM~Arentoft, Y~Parrod, J~Stader, I~Stokes, and H~Vadon.
   for spacecraft AIV}}.
 \newblock University of Edinburgh, Artificial Intelligence Applications
   Institute, 1992.
-
-\bibitem[Abbeel and Ng(2004)]{abbeel2004apprenticeship}
-Pieter Abbeel and Andrew~Y Ng.
-\newblock Apprenticeship learning via inverse reinforcement learning.
-\newblock In \emph{Proceedings of the twenty-first international conference on
-  Machine learning}, page~1. ACM, 2004.
 
 \bibitem[Abdeetedal(2017)]{abdeetedal2017kuka}
 Mahyar Abdeetedal.
@@ -83,16 +77,6 @@ Kai Arulkumaran, Marc~Peter Deisenroth, Miles Brundage, and Anil~Anthony
 \newblock A brief survey of deep reinforcement learning.
 \newblock \emph{arXiv preprint arXiv:1708.05866}, 2017.
 
-\bibitem[Atkeson and Schaal(1997)]{atkeson1997robot}
-Christopher~G Atkeson and Stefan Schaal.
-\newblock Robot learning from demonstration.
-\newblock In \emph{ICML}, volume~97, pages 12--20. Citeseer, 1997.
-
-\bibitem[Atkeson et~al.(1997)Atkeson, Moore, and Schaal]{atkeson1997locally}
-Christopher~G Atkeson, Andrew~W Moore, and Stefan Schaal.
-\newblock Locally weighted learning for control.
-\newblock In \emph{Lazy learning}, pages 75--113. Springer, 1997.
-
 \bibitem[Avenier and Thomas(2015)]{avenier2015finding}
 Marie-Jos\'{e} Avenier and Catherine Thomas.
 \newblock Finding one's way around various methodological guidelines for doing
@@ -100,11 +84,22 @@ Marie-Jos\'{e} Avenier and Catherine Thomas.
 \newblock In \emph{Syst\`{e}mes d'information \& management}, pages vol. 20,
   no. 1, pp. 61--98, 2015.
 
+\bibitem[Backes et~al.(2004)Backes, Norris, Powell, and Vona]{backes2004multi}
+Paul~G Backes, Jeffrey~S Norris, Mark~W Powell, and Marsette~A Vona.
+\newblock Multi-mission activity planning for mars lander and rover missions.
+\newblock In \emph{2004 IEEE Aerospace Conference Proceedings (IEEE Cat. No.
+  04TH8720)}, volume~2, pages 877--886. IEEE, 2004.
+
 \bibitem[Bangor et~al.(2008)Bangor, Kortum, and Miller]{bangor2008suseval}
 Aaron Bangor, Philip~T. Kortum, and James~T. Miller.
 \newblock An empirical evaluation of the system usability scale.
 \newblock \emph{International Journal of Human-Computer Interaction},
   24\penalty0 (6):\penalty0 574--594, 2008.
+
+\bibitem[Bart{\'a}k and Skalick{\`y}()]{bartak2009local}
+Roman Bart{\'a}k and Tom{\'a}{\v{s}} Skalick{\`y}.
+\newblock A local approach to automated correction of violated precedence and
+  resource constraints in manually altered schedules.
 
 \bibitem[Biggs and Macdonald(2003)]{Biggs2003}
 Geoffrey Biggs and Bruce Macdonald.
@@ -177,6 +172,11 @@ Johannes Braumann and Sigrid Brell-Cokcan.
 \newblock {Parametric robot control: integrated CAD/CAM for architectural
   design}.
 \newblock 2011.
+
+\bibitem[Bresina et~al.()Bresina, J{\'o}nsson, Morris, and
+  Rajan]{bresina2005activity}
+John~L Bresina, Ari~K J{\'o}nsson, Paul~H Morris, and Kanna Rajan.
+\newblock Activity planning for the mars exploration rovers.
 
 \bibitem[Brooke(1996)]{brooke1996sus}
 John Brooke.
@@ -262,12 +262,28 @@ Richard Cubek, Wolfgang Ertel, and G{\"u}nther Palm.
 \newblock In \emph{Robotics and Automation (ICRA), 2015 IEEE International
   Conference on}, pages 2592--2597. IEEE, 2015.
 
+\bibitem[Di~Rocco et~al.(2014)Di~Rocco, Pecora, Sathyakeerthy, Grosinger,
+  Saffiotti, Bonaccorsi, Limosani, Manzi, Cavallo, Dario,
+  et~al.]{di2014planner}
+Maurizio Di~Rocco, Federico Pecora, Subhash Sathyakeerthy, Jasmin Grosinger,
+  Alessandro Saffiotti, Manuele Bonaccorsi, Raffaele Limosani, Alessandro
+  Manzi, Filippo Cavallo, Paolo Dario, et~al.
+\newblock A planner for ambient assisted living: From high-level reasoning to
+  low-level robot execution and back.
+\newblock In \emph{2014 AAAI Spring symposium series}, 2014.
+
 \bibitem[Do and Kambhampati(2001)]{do:01}
 M.~Do and S.~Kambhampati.
 \newblock {Planning as constraint satisfaction: Solving the planning graph by
   compiling it into CSP}.
 \newblock \emph{Artificial Intelligence}, 132\penalty0 (2):\penalty0 151--182,
   2001.
+
+\bibitem[Dvorak et~al.(2014)Dvorak, Bit-Monnot, Ingrand, and
+  Ghallab]{dvorak2014flexible}
+Filip Dvorak, Arthur Bit-Monnot, F{\'e}lix Ingrand, and Malik Ghallab.
+\newblock A flexible anml actor and planner in robotics.
+\newblock In \emph{Planning and Robotics (PlanRob) Workshop (ICAPS)}, 2014.
 
 \bibitem[Ekvall and Kragic(2008)]{ekvall2008robot}
 Staffan Ekvall and Danica Kragic.
@@ -281,6 +297,19 @@ Enrique Fern{\'a}ndez, Luis~S{\'a}nchez Crespo, Anil Mahtani, and Aaron
   Martinez.
 \newblock \emph{{Learning ROS for Robotics Programming}}.
 \newblock Packt Publishing Ltd, 2015.
+
+\bibitem[Fern{\'a}ndez et~al.(2006)Fern{\'a}ndez, Adarve, P{\'e}rez, Rybarczyk,
+  and Borrajo]{fernandez2006planning}
+Susana Fern{\'a}ndez, Roberto Adarve, Miguel P{\'e}rez, Mart{\i}n Rybarczyk,
+  and Daniel Borrajo.
+\newblock Planning for an ai based virtual agents game.
+\newblock \emph{ICAPS 2006}, page~14, 2006.
+
+\bibitem[Ferrer-Mestres et~al.()Ferrer-Mestres, Frances, and
+  Geffner]{ferrer2015planning}
+Jonathan Ferrer-Mestres, Guillem Frances, and Hector Geffner.
+\newblock Planning with state constraints and its application to combined task
+  and motion planning.
 
 \bibitem[Fikes and Nilsson(1971)]{fikes1971strips}
 Richard~E Fikes and Nils~J Nilsson.
@@ -298,23 +327,22 @@ Kerstin Fischer, Franziska Kirstein, Lars~Christian Jensen, Norbert Kr{\"u}ger,
 \newblock In \emph{The Eleventh ACM/IEEE International Conference on Human
   Robot Interaction}, pages 213--220. IEEE Press, 2016.
 
-\bibitem[Fox et~al.(2006)Fox, Ghallab, Infantes, and Long]{fox2006robot}
-Maria Fox, Malik Ghallab, Guillaume Infantes, and Derek Long.
-\newblock Robot introspection through learned hidden markov models.
-\newblock \emph{Artificial Intelligence}, 170\penalty0 (2):\penalty0 59--113,
-  2006.
+\bibitem[Garrett et~al.(2015)Garrett, Lozano-P{\'e}rez, and
+  Kaelbling]{garrett2015ffrob}
+Caelan~Reed Garrett, Tom{\'a}s Lozano-P{\'e}rez, and Leslie~Pack Kaelbling.
+\newblock Ffrob: An efficient heuristic for task and motion planning.
+\newblock In \emph{Algorithmic Foundations of Robotics XI}, pages 179--195.
+  Springer, 2015.
 
 \bibitem[Ghallab et~al.(2004)Ghallab, Nau, and Traverso]{ghallab2004automated}
 Malik Ghallab, Dana Nau, and Paolo Traverso.
 \newblock \emph{Automated planning: theory \& practice}.
 \newblock Elsevier, 2004.
 
-\bibitem[Gil(1994)]{gil1994learning}
-Yolanda Gil.
-\newblock Learning by experimentation: Incremental refinement of incomplete
-  planning domains.
-\newblock \emph{International Conference on Machine Learning}, pages 87--95,
-  1994.
+\bibitem[Glinsk{\`y} and Bart{\'a}k(2011)]{glinsky2011visplan}
+Radoslav Glinsk{\`y} and Roman Bart{\'a}k.
+\newblock Visplan--interactive visualisation and verification of plans.
+\newblock \emph{KEPS 2011}, page 134, 2011.
 
 \bibitem[Gosavi(2009)]{gosavi2009reinforcement}
 Abhijit Gosavi.
@@ -333,14 +361,6 @@ Object~Management Group.
 \newblock Unified modeling language specification version 2.0.
 \newblock 2005.
 \newblock URL \url{https://www.omg.org/spec/UML/2.0/About-UML/}.
-
-\bibitem[Guerin et~al.(2015)Guerin, Lea, Paxton, and
-  Hager]{guerin2015framework}
-Kelleher~R Guerin, Colin Lea, Chris Paxton, and Gregory~D Hager.
-\newblock A framework for end-user instruction of a robot assistant for
-  manufacturing.
-\newblock In \emph{Robotics and Automation (ICRA), 2015 IEEE International
-  Conference on}, pages 6167--6174. IEEE, 2015.
 
 \bibitem[Helmert(2006)]{helmert:06a}
 M.~Helmert.
@@ -383,13 +403,6 @@ Douglas~R. Hofstadter.
   pattern}.
 \newblock Basic books, 1985.
 
-\bibitem[Hovland et~al.(1996)Hovland, Sikka, and McCarragher]{hovland1996skill}
-Geir~E Hovland, Pavan Sikka, and Brenan~J McCarragher.
-\newblock Skill acquisition from human demonstration using a hidden markov
-  model.
-\newblock In \emph{Robotics and Automation, 1996. Proceedings., 1996 IEEE
-  International Conference on}, volume~3, pages 2706--2711. IEEE, 1996.
-
 \bibitem[Huang and Cakmak(2017)]{huang2017code3}
 Justin Huang and Maya Cakmak.
 \newblock Code3: A system for end-to-end programming of mobile manipulator
@@ -411,10 +424,11 @@ HumaRobotics.
 \newblock URL \url{http://sdk.rethinkrobotics.com/wiki/Baxter_Tasker}.
 \newblock Simplified BSD License.
 
-\bibitem[Ingrand and Ghallab(2017)]{ingrand2017deliberation}
-F{\'e}lix Ingrand and Malik Ghallab.
-\newblock Deliberation for autonomous robots: A survey.
-\newblock \emph{Artificial Intelligence}, 247:\penalty0 10--44, 2017.
+\bibitem[Jetchev et~al.(2013)Jetchev, Lang, and Toussaint]{jetchev2013learning}
+Nikolay Jetchev, Tobias Lang, and Marc Toussaint.
+\newblock Learning grounded relational symbols from continuous data for
+  abstract reasoning.
+\newblock 2013.
 
 \bibitem[Jilani et~al.(2014)Jilani, Crampton, Kitchin, and
   Vallati]{jilani2014automated}
@@ -597,6 +611,10 @@ Henrik M{\"u}he, Andreas Angerer, Alwin Hoffmann, and Wolfgang Reif.
 \newblock On reverse-engineering the kuka robot language.
 \newblock \emph{arXiv preprint arXiv:1009.5004}, 2010.
 
+\bibitem[Muise()]{muise2016planning}
+Christian Muise.
+\newblock Planning. domains.
+
 \bibitem[Murata(1989)]{murata1989petri}
 Tadao Murata.
 \newblock Petri nets: Properties, analysis and applications.
@@ -671,11 +689,11 @@ Alexander Perzylo, Nikhil Somani, Stefan Profanter, Ingmar Kessler, Markus
 \newblock In \emph{International Conference on Intelligent Robots and Systems
   (IROS)}, pages 2293--2300. IEEE, 2016.
 
-\bibitem[Pomerleau(1991)]{pomerleau1991efficient}
-Dean~A Pomerleau.
-\newblock Efficient training of artificial neural networks for autonomous
-  navigation.
-\newblock \emph{Neural Computation}, 3\penalty0 (1):\penalty0 88--97, 1991.
+\bibitem[Plch et~al.(2012)Plch, Chomut, Brom, and Bart{\'a}k]{plch2012inspect}
+Tomas Plch, Miroslav Chomut, Cyril Brom, and Roman Bart{\'a}k.
+\newblock {Inspect, edit and debug PDDL documents: Simply and efficiently with
+  PDDL studio}.
+\newblock 2012.
 
 \bibitem[Profanter et~al.(2015)Profanter, Perzylo, Somani, Rickert, and
   Knoll]{profanter2015analysis}
@@ -715,20 +733,6 @@ Universal Robots.
   \url{http://www.universal-robots.com/blog/how-cobots-transform-the-food-industry/}.
 \newblock Online.
 
-\bibitem[Rybski and Voyles(1999)]{rybski1999interactive}
-Paul~E Rybski and Richard~M Voyles.
-\newblock Interactive task training of a mobile robot through human gesture
-  recognition.
-\newblock In \emph{Robotics and Automation, 1999. Proceedings. 1999 IEEE
-  International Conference on}, volume~1, pages 664--669. IEEE, 1999.
-
-\bibitem[Saunders et~al.(2006)Saunders, Nehaniv, and
-  Dautenhahn]{saunders2006teaching}
-Joe Saunders, Chrystopher~L Nehaniv, and Kerstin Dautenhahn.
-\newblock Teaching robots by moulding behavior and scaffolding the environment.
-\newblock In \emph{Proceedings of the 1st ACM SIGCHI/SIGART conference on
-  Human-robot interaction}, pages 118--125. ACM, 2006.
-
 \bibitem[Sauro(2011)]{sauro2011practical}
 Jeff Sauro.
 \newblock {A practical guide to the System Usability Scale: Background,
@@ -752,6 +756,12 @@ Ron~M Simpson, Diane~E Kitchin, and Thomas~Leo McCluskey.
 \newblock Planning domain definition using gipo.
 \newblock \emph{The Knowledge Engineering Review}, 22\penalty0 (2):\penalty0
   117--134, 2007.
+
+\bibitem[{\v{S}}kopek and Bart{\'a}k(2017)]{vskopek2017transporteditor}
+Ondrej {\v{S}}kopek and Roman Bart{\'a}k.
+\newblock Transporteditor--creating and visualising transportation problems and
+  plans.
+\newblock \emph{System Demonstrations track, ICAPS}, 2017.
 
 \bibitem[Slaney and Thi{\'e}baux(2001)]{slaney2001blocks}
 John Slaney and Sylvie Thi{\'e}baux.
@@ -812,6 +822,13 @@ Ale{\v{s}} Ude.
 \newblock \emph{Robotics and Autonomous Systems}, 11\penalty0 (2):\penalty0
   113--127, 1993.
 
+\bibitem[Ugur and Piater(2015)]{ugur2015bottom}
+Emre Ugur and Justus Piater.
+\newblock Bottom-up learning of object categories, action effects and logical
+  rules: From continuous manipulative exploration to symbolic planning.
+\newblock In \emph{International Conference on Robotics and Automation (ICRA)},
+  pages 2627--2633. IEEE, 2015.
+
 \bibitem[Vaquero et~al.(2013)Vaquero, Silva, Tonidandel, and
   Beck]{vaquero2013itsimple}
 Tiago~S Vaquero, Jos{\'e}~R Silva, Flavio Tonidandel, and J~Christopher Beck.
@@ -826,6 +843,11 @@ Harini Veeraraghavan and Manuela Veloso.
 \newblock In \emph{Proceedings of the 7th international joint conference on
   Autonomous agents and multiagent systems-Volume 3}, pages 1357--1360.
   International Foundation for Autonomous Agents and Multiagent Systems, 2008.
+
+\bibitem[Vodr{\'a}zka and Chrpa(2010)]{vodrazka2010visual}
+Jindrich Vodr{\'a}zka and Luk{\'a}{\v{s}} Chrpa.
+\newblock Visual design of planning domains.
+\newblock 2010.
 
 \bibitem[Vyvyan~Pugh(2013-2014)]{BaxterGolf}
 Active~Robots Vyvyan~Pugh.
@@ -857,13 +879,6 @@ Yezhou Yang, Yi~Li, Cornelia Ferm$\backslash$"{\{}u{\}}ller, and Yiannis
   videos from the world wide web.
 \newblock \emph{Twenty-Ninth AAAI Conference on Artificial Intelligence
   (AAAI-15)}, pages 3686--3692, 2015.
-
-\bibitem[Yildiz et~al.(2013)Yildiz, Karapinar, and
-  Sariel-Talay]{yildiz2013learning}
-Petek Yildiz, Sertac Karapinar, and Sanem Sariel-Talay.
-\newblock Learning guided symbolic planning for cognitive robots.
-\newblock In \emph{The IEEE International Conference on Robotics and Automation
-  (ICRA), Autonomous Learning Workshop}, 2013.
 
 \bibitem[Younes and Littman(2004)]{younes:04a}
 H.~Younes and M.~Littman.

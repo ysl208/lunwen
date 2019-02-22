@@ -30,10 +30,10 @@
 \contentsline {section}{\numberline {3.3}Planning Domain Definition Language (PDDL)}{30}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Planning domain description}{31}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Planning Problem Description}{33}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Relation to Present Work}{33}{subsection.3.3.3}
-\contentsline {subsection}{\numberline {3.3.4}PDDL evolution and extensions}{34}{subsection.3.3.4}
-\contentsline {subsection}{\numberline {3.3.5}Planners}{34}{subsection.3.3.5}
-\contentsline {section}{\numberline {3.4}Knowledge Engineering Tools}{35}{section.3.4}
+\contentsline {subsection}{\numberline {3.3.3}PDDL evolution and extensions}{33}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Planners}{34}{subsection.3.3.4}
+\contentsline {section}{\numberline {3.4}Knowledge Engineering Tools}{34}{section.3.4}
+\contentsline {section}{\numberline {3.5}Discussions and Relations to Present Work}{35}{section.3.5}
 \contentsline {chapter}{\numberline {4}A Robot Programming Framework for End-users in Cobotic Environments}{36}{chapter.4}
 \contentsline {section}{\numberline {4.1}Programming by Demonstration: teaching action models}{37}{section.4.1}
 \contentsline {section}{\numberline {4.2}Automated Planning: using action models}{38}{section.4.2}
@@ -96,4 +96,4 @@
 \contentsline {section}{\numberline {9.3}Discussions}{77}{section.9.3}
 \contentsline {subsection}{\numberline {9.3.1}Challenges in PbD}{77}{subsection.9.3.1}
 \contentsline {section}{\numberline {9.4}On-going and Future work}{78}{section.9.4}
-\contentsline {chapter}{References}{87}{chapter*.37}
+\contentsline {chapter}{References}{88}{chapter*.37}

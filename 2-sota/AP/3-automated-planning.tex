@@ -178,7 +178,7 @@ The head of a domain description is given as follows:
 )
 \end{verbatim}
 
-A domain description always starts with the declaration of its name, preceded by the keyword \texttt{domain}. 
+A domain description always starts with the declaration of its name, preceded by the keyword \texttt{:domain}. 
 %Then, the requirements of the domain are defined, . 
 The requirements (identified by the keyword \texttt{:requirements}) allow to characterise the expressiveness of the domain description. 
 For instance, in the domain description above, the requirements specify that action descriptions can use typed terms. In other cases, preconditions with equality terms, and effects, with conditional and universal quantifier terms, can also be specified. 
@@ -319,28 +319,65 @@ Another planning problem in this domain could include multiple objects of differ
 As we can define an infinite number of objects in our planning domain, there exist an infinite number of planning problems that can be defined and solved. 
 PDDL provides a means to model any real-world environment in the form of a planning domain. 
 
+\subsection{PDDL evolution and extensions}\label{subsec:PDDL evolution}
 
-\subsection{Relation to Present Work}
-In general, the majority of tasks can be completed using the simple actions pick, move and drop. For our framework, we considered planning problems, such as the Tower of Hanoi problem (\cite{douglas1985metamagical}) or a real-life game of Tetris (\cite{tetris}), which use these actions. Since we focus on applications in cobotic environments, we wanted to choose a planning problem that occurs in real-world applications. Therefore, we chose to evaluate the usability of our framework using the \texttt{PRODUCTION} planning domain, addressing the \texttt{PERMUTATION} planning problem. It is then easy for the user to extrapolate from this simple example to any complex task.
+Ever since the first version of \textsc{Pddl} 1.2 (\cite{mcdermott1998pddl}) was introduced as the official language of the 1st \textsc{Ipc} (International Planning Competition), there have been several new versions and extensions.
+Succeeding versions that allow the representation of real-world problems had a particular influence on the adaptation of planners with robots in cobotic environments. In 2002, \textsc{Pddl} 2.1 introduced functions to express numerical objects, durative actions and plan-metrics for assessing plan quality. 
+An extension called \textsc{Mapl} (Multi-Agent Planning Language), introduced finite domain state-variables, actions with duration determined in runtime, and explicit plan synchronisation obtained through speech acts and communications among agents. 
+The newly introduced functionalities are particularly useful for cobotic environments to incorporate actions of varying durations into the planning system, or to allow multi-agent planning for several robots to collaborate in the same environment.
+In the following years \textsc{Ppddl} (Probabilistic \textsc{Pddl})(\cite{younes:04a}) was proposed, extending \textsc{Pddl} 2.1 with probabilistic effects and introducing partial observability. This extension opened up the possibility to integrate statistical models into the planning system and improved the robot's learning capabilities and performance in uncertain situations. Cobots can benefit from this as they are often faced with uncertain situations when working with different human operators, who have varying behaviours.
 
-\fig{fig:planning-permutation} illustrates an example of the permutation planning problem. Given a description of the world state, \ie objects, types, properties (\fig{fig:planning-permutation}a,b), a set of possible atomic actions, and a goal state (\fig{fig:planning-permutation}d), the planner should generate the correct sequence of actions (\fig{fig:planning-permutation}c), which guarantees the transition from the initial world state to the goal state. Predicates are used to describe actions and object properties, such as \textit{``red cube is at position A"}: they can be \textit{instantiated} \texttt{(at redCube A)} or \textit{generalised} \texttt{(at ?cube ?posA)}, such that variables are prefixed with `?'.
+\subsection{Planners}\label{subsec:Planners}
+Automated planners have found increasing applications in various areas from aeronautics and space to agricultural and industrial domains (\cite{aarup1992optimum}). 
+We conclude this section by introducing the most significant planners for classical planning, that have been implemented to date. 
 
-To allow a correct transition between different states of the world, actions are defined in terms of {preconditions} and {effects} (\fig{fig:action}). For a move action \texttt{(move cube A B)}, preconditions are the states required to perform the action  \texttt{(at cube A)}, and effects are the states obtained after the action \texttt{(at cube B)}. Classical planning algorithms use the Planning Domain Definition Language (PDDL) \cite{ghallab2004automated} as their standard encoding language, which extends the STRIPS \cite{fikes1971strips} formalism with greater expressivity, such as type structures (\fig{fig:planning-permutation}b). 
+The simplest planners are state-space planners (\cite{ghallab2004automated}), which rely on search algorithms in which the search space is a subset of the state space. 
+Each node corresponds to a state of the world, each arc represents a state transition, \ie an action, and a plan is a path from the initial state to a goal state in the search space. 
+An extended version of the planner is the Heuristics Search Planner (\cite{bonet:01}), which includes several basic search algorithms like best-first search, breadth-first-search, A* and iterative deepening search. 
+The Fast-Forward planning system (\cite{hoffmann:11}) is based on the HSP, but managed to outperform it, due to modifications aimed to avoid getting trapped in local minima (\cite{hoffmann2000heuristic}): 
+It includes a variation of the hill-climbing search, called the \textit{enforced hill climbing}, and a heuristic called \textit{helpful actions}. 
+Finally, Fast Downward (\cite{helmert:06a}) is a state-space planner based on a finite domain representation, with a greedy best-first search as its main search procedure. 
+
+Another category are planning-graph planners (\cite{blum:97}), which carry out the search by encoding the search space in a structure called the \textit{planning graph}. 
+It considers the union of sets of propositions of several states rather than individual states. 
+The first planner being the Graphplan, which uses a backward search and replaces the goal with preconditions. 
+Other planners include SATPlan (\cite{kautz:06,kautz:99}) and the GP-CSP (\cite{do:01}).
+
+\section{Knowledge Engineering Tools}\label{subsec:Knowledge Engineering}
+Defining planning domain models from scratch can be expensive and error-prone, even for experts in automated planning.
+Knowledge engineering (KE) tools for automated planning facilitate this process by automatically encoding a domain model from observed plans.
+However, KE tools for visualising and editing planning domain models remain sparse.
+There exist a few tools such as itSimple (\cite{vaquero2013itsimple}), GIPO (\cite{simpson2007planning}), Planning.Domains (\cite{muise2016planning}), plan editors \eg PDDL Studio (\cite{plch2012inspect}), and plan visualisers \eg VIZ (\cite{vodrazka2010visual}), iGantt (\cite{bartak2009local}), VisPlan (\cite{glinsky2011visplan}), TransportEditor (\cite{vskopek2017transporteditor}).
+\cite{jilani2014automated} evaluates the quality and efficiency of nine state-of-the-art tools by comparing input requirements, user experience, and other criteria and concluded that most tools require PDDL experts, or common knowledge in software engineering (\cite{simpson2007planning,vaquero2013itsimple}).
+For example, LOCM (Learning Object Centred Models) (\cite{cresswell2013acquiring}) learns action schema from planning traces in Prolog, 
+itSimple (\cite{vaquero2013itsimple}) takes an input in the form of UML (Unified Modeling Language) (\cite{omg2005unified}) and generates representations in Petri Nets (\cite{murata1989petri}) and PDDL. 
+%The authors have been consistently working on improvements to allow new features, with the latest version published in 2013.
+GIPO (\cite{simpson2007planning}) uses Opmaker2 (\cite{mccluskey2009automated}), a knowledge acquisition and formulation tool that generates a set of PDDL action schema from a given partial domain model and training sequence.
+It has been identified as the only beginner-friendly system as it simplifies the creation of planning domain models using a graphical interface.
+
+
+\section{Discussions and Relations to Present Work}
+Automated planning has found its application in a wide range of areas from virtual agent games (\cite{fernandez2006planning}) to space exploration (\cite{backes2004multi,bresina2005activity}).
+A main research area has focused on integrating task planning with robot architectures \cite{cashmore2015rosplan}, in particular to handle time, resources and synchronisation (\cite{di2014planner,dvorak2014flexible}).
+Combining task and motion planning is an open research problem and has been addressed previously (\cite{ferrer2015planning,garrett2015ffrob}), especially learning preconditions and effects of actions to be used in planning (\cite{ahmadzadeh2015learning,jetchev2013learning,konidaris2018fromSkills,ugur2015bottom}).
+
+The focus often lies in grounding actions or learning symbolic action representations, so the robot is generally provided with a predefined set of motor skills that are refined by learning from plan traces or demonstrations.
+%It is assumed that low-level actions have already been programmed and can be called directly after mapping them to PDDL actions.
+For example, \citet{abdo2013learning} learns a fixed set of manipulation actions from user demonstrations, \ie stack blocks, pour from a bottle and open a door.
+The robot reuses the actions with a task planner to achieve a predefined goal state, \eg going through a door.
+%However, as the approach requires 5-10 demonstrations to learn action conditions, it becomes tedious and impractical if several actions need to be taught.
+
+
+%In general, the majority of tasks can be completed using the simple actions pick, move and drop. 
+For our framework, we considered planning problems, such as the Tower of Hanoi problem (\cite{douglas1985metamagical}) or a real-life game of Tetris (\cite{tetris}), which use these actions. 
+Since we focus on applications in cobotic environments, we wanted to choose a planning problem that occurs in real-world applications. 
+Therefore, we chose to evaluate the usability of our framework using the \texttt{PRODUCTION} planning domain, addressing the \texttt{PERMUTATION} planning problem. 
+It is then easy for the user to extrapolate from this simple example to any complex task.
+
+%\fig{fig:planning-permutation} illustrates an example of the permutation planning problem. Given a description of the world state, \ie objects, types, properties (\fig{fig:planning-permutation}a,b), a set of possible atomic actions, and a goal state (\fig{fig:planning-permutation}d), the planner should generate the correct sequence of actions (\fig{fig:planning-permutation}c), which guarantees the transition from the initial world state to the goal state. Predicates are used to describe actions and object properties, such as \textit{``red cube is at position A"}: they can be \textit{instantiated} \texttt{(at redCube A)} or \textit{generalised} \texttt{(at ?cube ?posA)}, such that variables are prefixed with `?'.
+
+%To allow a correct transition between different states of the world, actions are defined in terms of {preconditions} and {effects} (\fig{fig:action}). For a move action \texttt{(move cube A B)}, preconditions are the states required to perform the action  \texttt{(at cube A)}, and effects are the states obtained after the action \texttt{(at cube B)}. Classical planning algorithms use the Planning Domain Definition Language (PDDL) \cite{ghallab2004automated} as their standard encoding language, which extends the STRIPS \cite{fikes1971strips} formalism with greater expressivity, such as type structures (\fig{fig:planning-permutation}b). 
 
 %Our proposed framework targets these domains and aims at solving related planning problems. It will allow the user to create action models and link the planning problem with the actual physical action executed by the robot.
 
 % To Do: Discuss related work in terms of subjects that are addressed by Robot Programming by Demonstration in Cobotic Environments
-
-
-\subsection{PDDL evolution and extensions}\label{subsec:PDDL evolution}
-
-Ever since the first version of \textsc{Pddl} 1.2 (\cite{mcdermott1998pddl})was introduced as the official language of the 1st \textsc{Ipc} (International Planning Competition), there have been several new versions and extensions. 
-Succeeding versions that allow the representation of real-world problems had a particular influence on the adaptation of planners with robots in cobotic environments. In 2002, \textsc{Pddl} 2.1 introduced functions to express numerical objects, durative actions and plan-metrics for assessing plan quality. 
-An extension called \textsc{Mapl} (Multi-Agent Planning Language), introduced finite domain state-variables, actions with duration determined in runtime, and explicit plan synchronisation obtained through speech acts and communications among agents. 
-The newly introduced functionalities are particularly useful for cobotic environments to incorporate actions of varying durations into the planning system, or to allow multi-agent planning for several robots to collaborate in the same environment.
-In the following years \textsc{Ppddl} (Probabilistic \textsc{Pddl})(\cite{younes:04a}) was proposed, extending \textsc{Pddl} 2.1 with probabilistic effects and introducing partial observability. This extension opened up the possibility to integrate statistical models into the planning system and improved the robot's learning capabilities and performance in uncertain situations. Cobots can benefit from this as they are often faced with uncertain situations, when working with different human operators, who have varying behaviours.
-
-\subsection{Planners}\label{subsec:Planners}
-Automated planners have found its increasing application in various areas from aeronautics and space to agricultural and industrial domains (\cite{aarup1992optimum}). We conclude this section by introducing the most significant planners for classical planning, that have been implemented to date. The simplest planners are state-space planners, which rely on search algorithms in which the search space is a subset of the state space. Each node corresponds to a state of the world, each arc represents a state transition, \ie an action, and a plan is a path from the initial state to a goal state in the search space (\cite{ghallab2004automated}). An extended version of the planner is the Heuristics Search Planner (\cite{bonet:01}), which includes several basic search algorithms like best-first search, breadth-first-search, A* and iterative deepening search. The Fast-Forward planning system (\cite{hoffmann:11}) is based on the HSP, but managed to outperform it, due to modifications aimed to avoid getting trapped in local minima (\cite{hoffmann2000heuristic}): It includes a variation of the hill-climbing search, called the \textit{enforced hill climbing}, and a heuristic called \textit{helpful actions}. Finally, Fast Downward (\cite{helmert:06a}) is a state-space planner based on a finite domain representation, with a greedy best-first search as its main search procedure. 
-
-Another category are planning-graph planners, which carry out the search by encoding the search space in a structure called the \textit{planning graph}. It considers the union of sets of propositions of several states rather than individual states. The first planner being the Graphplan (\cite{blum:97}), which uses a backward search and replaces the goal with preconditions. Other planners include SATPlan (\cite{kautz:06,kautz:99}) and the GP-CSP (\cite{do:01}).

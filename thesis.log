@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.3.30)  20 FEB 2019 17:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.3.30)  22 FEB 2019 16:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1640,15 +1640,15 @@ File: figures/schema-logic.pdf Graphic file (type pdf)
 <use figures/schema-logic.pdf>
 Package pdftex.def Info: figures/schema-logic.pdf used on input line 271.
 (pdftex.def)             Requested size: 217.42265pt x 102.91106pt.
- [32 <./figures/planning-permutation.pdf> <./figures/schema-logic.pdf>] [33]) (
-./2-sota/AP/3.2-interfaces.tex [34])) [35]
+ [32 <./figures/planning-permutation.pdf> <./figures/schema-logic.pdf>] [33] [3
+4])) [35]
 Chapter 4.
 \openout3 = `thesis.mtc'.
 
 \openout3 = `thesis.mtc'.
 
 (./thesis.mtc4) (./3-contribution/0-main.tex (./3-contribution/3-framework.tex
-<figures/framework.pdf, id=1434, 472.4734pt x 176.26506pt>
+<figures/framework.pdf, id=1487, 472.4734pt x 176.26506pt>
 File: figures/framework.pdf Graphic file (type pdf)
 
 <use figures/framework.pdf>
@@ -1664,7 +1664,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [37 <./figures/framework.pdf>]) (./3-contribution/3-approach.tex
-<figures/overview.pdf, id=4924, 598.58194pt x 329.77544pt>
+<figures/overview.pdf, id=4975, 598.58194pt x 329.77544pt>
 File: figures/overview.pdf Graphic file (type pdf)
 
 <use figures/overview.pdf>
@@ -1674,20 +1674,20 @@ Package pdftex.def Info: figures/overview.pdf used on input line 4.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [38 <./figures/overview.pdf>] [39]
-<figures/high-level.pdf, id=5004, 259.14989pt x 189.60316pt>
+<figures/high-level.pdf, id=5055, 259.14989pt x 189.60316pt>
 File: figures/high-level.pdf Graphic file (type pdf)
 
 <use figures/high-level.pdf>
 Package pdftex.def Info: figures/high-level.pdf used on input line 77.
 (pdftex.def)             Requested size: 226.48395pt x 165.70851pt.
  [40 <./figures/high-level.pdf>] [41]
-<figures/gui.png, id=5089, 809.0225pt x 644.4075pt>
+<figures/gui.png, id=5140, 809.0225pt x 644.4075pt>
 File: figures/gui.png Graphic file (type png)
  <use figures/gui.png>
 Package pdftex.def Info: figures/gui.png used on input line 163.
 (pdftex.def)             Requested size: 452.9679pt x 360.80675pt.
 
-<figures/filmstrip.png, id=5090, 1085.05376pt x 321.2pt>
+<figures/filmstrip.png, id=5141, 1085.05376pt x 321.2pt>
 File: figures/filmstrip.png Graphic file (type png)
 
 <use figures/filmstrip.png>
@@ -1707,14 +1707,14 @@ Chapter 5.
 \openout3 = `thesis.mtc'.
 
 (./thesis.mtc5) (./5-evaluation/0-main.tex
-<figures/experiment1.pdf, id=5141, 663.98062pt x 1117.92656pt>
+<figures/experiment1.pdf, id=5191, 663.98062pt x 1117.92656pt>
 File: figures/experiment1.pdf Graphic file (type pdf)
 
 <use figures/experiment1.pdf>
 Package pdftex.def Info: figures/experiment1.pdf used on input line 24.
 (pdftex.def)             Requested size: 135.89174pt x 228.78409pt.
 
-<figures/experiment-setup2.jpg, id=5142, 2265.46375pt x 2518.40875pt>
+<figures/experiment-setup2.jpg, id=5192, 2265.46375pt x 2518.40875pt>
 File: figures/experiment-setup2.jpg Graphic file (type jpg)
 
 <use figures/experiment-setup2.jpg>
@@ -1723,7 +1723,7 @@ Package pdftex.def Info: figures/experiment-setup2.jpg used on input line 25.
  (./5-evaluation/2-pddleval.tex [45
 
 ]
-<figures/scenarios-exp1.pdf, id=5148, 439.20566pt x 158.84084pt>
+<figures/scenarios-exp1.pdf, id=5198, 439.20566pt x 158.84084pt>
 File: figures/scenarios-exp1.pdf Graphic file (type pdf)
 
 <use figures/scenarios-exp1.pdf>
@@ -1741,7 +1741,7 @@ Package pdftex.def Info: figures/planning-permutation.pdf used on input line 56
 .
 (pdftex.def)             Requested size: 317.07614pt x 151.95921pt.
 
-<figures/eEvaluation2.pdf, id=5169, 275.43767pt x 95.99152pt>
+<figures/eEvaluation2.pdf, id=5219, 275.43767pt x 95.99152pt>
 File: figures/eEvaluation2.pdf Graphic file (type pdf)
 
 <use figures/eEvaluation2.pdf>
@@ -1754,14 +1754,14 @@ Overfull \hbox (22.83376pt too wide) in paragraph at lines 2--2
 -
  []
 
-<figures/scenarios-exp2.pdf, id=5250, 275.60973pt x 78.8285pt>
+<figures/scenarios-exp2.pdf, id=5300, 275.60973pt x 78.8285pt>
 File: figures/scenarios-exp2.pdf Graphic file (type pdf)
 
 <use figures/scenarios-exp2.pdf>
 Package pdftex.def Info: figures/scenarios-exp2.pdf used on input line 20.
 (pdftex.def)             Requested size: 362.37569pt x 103.64978pt.
  [49 <./figures/scenarios-exp2.pdf>]
-<figures/eEvaluation.pdf, id=5285, 331.19032pt x 118.30478pt>
+<figures/eEvaluation.pdf, id=5335, 331.19032pt x 118.30478pt>
 File: figures/eEvaluation.pdf Graphic file (type pdf)
 
 <use figures/eEvaluation.pdf>
@@ -1775,7 +1775,7 @@ Chapter 6.
 
 (./thesis.mtc6) (./4-implementation/0-main.tex
 (./4-implementation/4-implementation.tex
-<figures/Baxter-Case-Study.png, id=5346, 948.54375pt x 319.1925pt>
+<figures/Baxter-Case-Study.png, id=5397, 948.54375pt x 319.1925pt>
 File: figures/Baxter-Case-Study.png Graphic file (type png)
 
 <use figures/Baxter-Case-Study.png>
@@ -1783,7 +1783,7 @@ Package pdftex.def Info: figures/Baxter-Case-Study.png used on input line 20.
 (pdftex.def)             Requested size: 426.84074pt x 143.63528pt.
  [52
 
-] [53 <./figures/Baxter-Case-Study.png>] <figures/interface.png, id=5376, 499.8
+] [53 <./figures/Baxter-Case-Study.png>] <figures/interface.png, id=5426, 499.8
 675pt x 274.02374pt>
 File: figures/interface.png Graphic file (type png)
 
@@ -1821,14 +1821,14 @@ See the caption package documentation for explanation.
 LaTeX Warning: Reference `tab:PDDL implementation' on page 55 undefined on inpu
 t line 153.
 
-[55] <figures/detectObject1.png, id=5395, 550.30594pt x 419.31656pt>
+[55] <figures/detectObject1.png, id=5445, 550.30594pt x 419.31656pt>
 File: figures/detectObject1.png Graphic file (type png)
 
 <use figures/detectObject1.png>
 Package pdftex.def Info: figures/detectObject1.png used on input line 241.
 (pdftex.def)             Requested size: 192.60995pt x 146.76299pt.
 
-<figures/detectObject2.png, id=5396, 449.42906pt x 326.72063pt>
+<figures/detectObject2.png, id=5446, 449.42906pt x 326.72063pt>
 File: figures/detectObject2.png Graphic file (type png)
 
 <use figures/detectObject2.png>
@@ -1856,7 +1856,7 @@ Overfull \hbox (2.93242pt too wide) in paragraph at lines 46--1
 h-mark tasks, which in-volved demon-
  []
 
-<figures/dispositif.pdf, id=5449, 528.16554pt x 313.18365pt>
+<figures/dispositif.pdf, id=5500, 528.16554pt x 313.18365pt>
 File: figures/dispositif.pdf Graphic file (type pdf)
 
 <use figures/dispositif.pdf>
@@ -1869,7 +1869,7 @@ the range of 18-39 years (M=24.67,
  []
 
 [62 <./figures/dispositif.pdf, page is rotated 270 degrees>] [63]
-<figures/quan-pretest-results.pdf, id=5509, 280.38051pt x 165.58061pt>
+<figures/quan-pretest-results.pdf, id=5559, 280.38051pt x 165.58061pt>
 File: figures/quan-pretest-results.pdf Graphic file (type pdf)
 
 <use figures/quan-pretest-results.pdf>
@@ -1877,7 +1877,7 @@ Package pdftex.def Info: figures/quan-pretest-results.pdf used on input line 16
 4.
 (pdftex.def)             Requested size: 226.48395pt x 133.75319pt.
  [64]
-<figures/quan-exp1vsexp2-results.pdf, id=5518, 632.92288pt x 183.10107pt>
+<figures/quan-exp1vsexp2-results.pdf, id=5568, 632.92288pt x 183.10107pt>
 File: figures/quan-exp1vsexp2-results.pdf Graphic file (type pdf)
 
 <use figures/quan-exp1vsexp2-results.pdf>
@@ -1890,7 +1890,7 @@ Chapter 8.
 Package minitoc Info: I0006
 (minitoc)             thesis.mtc8 is empty on input line 132.
 (./3-contribution/2-organising.tex
-<iros-2018-simultaneous.pdf, id=5876, 614.295pt x 794.97pt>
+<iros-2018-simultaneous.pdf, id=5926, 614.295pt x 794.97pt>
 File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 
 <use iros-2018-simultaneous.pdf>
@@ -1901,7 +1901,7 @@ File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 Package pdftex.def Info: iros-2018-simultaneous.pdf used on input line 4.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 
-<iros-2018-simultaneous.pdf, id=5879, page=1, 614.295pt x 794.97pt>
+<iros-2018-simultaneous.pdf, id=5929, page=1, 614.295pt x 794.97pt>
 File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 
 <use iros-2018-simultaneous.pdf, page 1>
@@ -1936,7 +1936,7 @@ Package pdftex.def Info: iros-2018-simultaneous.pdf, page1 used on input line 4
 .
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [68 <./iros-2018-simultaneous.pdf>]
-<iros-2018-simultaneous.pdf, id=5982, page=2, 614.295pt x 794.97pt>
+<iros-2018-simultaneous.pdf, id=6033, page=2, 614.295pt x 794.97pt>
 File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 
 <use iros-2018-simultaneous.pdf, page 2>
@@ -1956,7 +1956,7 @@ Package pdftex.def Info: iros-2018-simultaneous.pdf, page2 used on input line 4
 .
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [69 <./iros-2018-simultaneous.pdf>]
-<iros-2018-simultaneous.pdf, id=6072, page=3, 614.295pt x 794.97pt>
+<iros-2018-simultaneous.pdf, id=6122, page=3, 614.295pt x 794.97pt>
 File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 
 <use iros-2018-simultaneous.pdf, page 3>
@@ -1976,7 +1976,7 @@ Package pdftex.def Info: iros-2018-simultaneous.pdf, page3 used on input line 4
 .
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [70 <./iros-2018-simultaneous.pdf>]
-<iros-2018-simultaneous.pdf, id=6120, page=4, 614.295pt x 794.97pt>
+<iros-2018-simultaneous.pdf, id=6170, page=4, 614.295pt x 794.97pt>
 File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 
 <use iros-2018-simultaneous.pdf, page 4>
@@ -1996,7 +1996,7 @@ Package pdftex.def Info: iros-2018-simultaneous.pdf, page4 used on input line 4
 .
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [71 <./iros-2018-simultaneous.pdf>]
-<iros-2018-simultaneous.pdf, id=6128, page=5, 614.295pt x 794.97pt>
+<iros-2018-simultaneous.pdf, id=6178, page=5, 614.295pt x 794.97pt>
 File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 
 <use iros-2018-simultaneous.pdf, page 5>
@@ -2016,7 +2016,7 @@ Package pdftex.def Info: iros-2018-simultaneous.pdf, page5 used on input line 4
 .
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [72 <./iros-2018-simultaneous.pdf>]
-<iros-2018-simultaneous.pdf, id=6165, page=6, 614.295pt x 794.97pt>
+<iros-2018-simultaneous.pdf, id=6216, page=6, 614.295pt x 794.97pt>
 File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 
 <use iros-2018-simultaneous.pdf, page 6>
@@ -2036,7 +2036,7 @@ Package pdftex.def Info: iros-2018-simultaneous.pdf, page6 used on input line 4
 .
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [73 <./iros-2018-simultaneous.pdf>]
-<iros-2018-simultaneous.pdf, id=6187, page=7, 614.295pt x 794.97pt>
+<iros-2018-simultaneous.pdf, id=6238, page=7, 614.295pt x 794.97pt>
 File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 
 <use iros-2018-simultaneous.pdf, page 7>
@@ -2056,7 +2056,7 @@ Package pdftex.def Info: iros-2018-simultaneous.pdf, page7 used on input line 4
 .
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [74 <./iros-2018-simultaneous.pdf>]
-<iros-2018-simultaneous.pdf, id=6272, page=8, 614.295pt x 794.97pt>
+<iros-2018-simultaneous.pdf, id=6322, page=8, 614.295pt x 794.97pt>
 File: iros-2018-simultaneous.pdf Graphic file (type pdf)
 
 <use iros-2018-simultaneous.pdf, page 8>
@@ -2100,48 +2100,48 @@ Underfull \hbox (badness 2326) in paragraph at lines 238--243
  []
 
 [81] [82]
-Underfull \hbox (badness 2173) in paragraph at lines 408--413
+Underfull \hbox (badness 2173) in paragraph at lines 421--426
 []\OT1/ptm/m/n/12 HumaRobotics.  Bax-ter tasker.  Gen-er-a-tion Robots, 2013.  
 URL []$\OT1/pcr/m/n/12 http : / / sdk .
  []
 
 
-Underfull \hbox (badness 7944) in paragraph at lines 427--432
+Underfull \hbox (badness 7944) in paragraph at lines 441--446
 []\OT1/ptm/m/n/12 Tim Jones.  Mod-els for ma-chine learn-ing.  \OT1/ptm/m/it/12
  de-vel-op-er-Works, IBM Cor-po-ra-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 427--432
+Underfull \hbox (badness 10000) in paragraph at lines 441--446
 \OT1/ptm/m/it/12 tion\OT1/ptm/m/n/12 , 2017.  URL []$\OT1/pcr/m/n/12 https : / 
 / www . ibm . com / developerworks / library /
  []
 
-
-Underfull \hbox (badness 1226) in paragraph at lines 498--502
+[83]
+Underfull \hbox (badness 1226) in paragraph at lines 512--516
 []\OT1/ptm/m/n/12 Lego.  Lego mind-storms.  2003.  URL []$\OT1/pcr/m/n/12 http 
 : / / mindstorms . lego . com / eng /
  []
 
-[83] [84] [85]
-Underfull \hbox (badness 10000) in paragraph at lines 705--709
+[84] [85]
+Underfull \hbox (badness 10000) in paragraph at lines 723--727
 []\OT1/ptm/m/n/12 Rethink Robots.  Bax-ter Re-seach Robot - Con-nect 4.  \OT1/p
 tm/m/it/12 [On-line]
  []
 
 
-Underfull \hbox (badness 3343) in paragraph at lines 711--717
+Underfull \hbox (badness 3343) in paragraph at lines 729--735
 []\OT1/ptm/m/n/12 Universal Robots.  How cobots trans-form the food in-dus-try.
   Uni-ver-sal Robots,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 711--717
+Underfull \hbox (badness 10000) in paragraph at lines 729--735
 \OT1/ptm/m/n/12 Febru-ary 10 2016.  URL []$\OT1/pcr/m/n/12 http : / / www . uni
 versal-[]robots . com / blog /
  []
 
-[86])
+[86] [87])
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the thesis.maf file.
@@ -2158,14 +2158,14 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the thesis.log file.
 
-[87]
+[88]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 149.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 149.
  (./thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 149.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 149.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: B354B0E8C0D398B89A18C0D2944167C7;6103.
+(rerunfilecheck)             Checksum: 23429AEA40D8D5845066D234D9F0474E;6113.
 
 
 LaTeX Warning: There were undefined references.
@@ -2176,13 +2176,13 @@ LaTeX Warning: There were undefined references.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 25265 strings out of 492995
- 443120 string characters out of 6132704
- 555959 words of memory out of 5000000
- 27624 multiletter control sequences out of 15000+600000
+ 25277 strings out of 492995
+ 443300 string characters out of 6132704
+ 557316 words of memory out of 5000000
+ 27635 multiletter control sequences out of 15000+600000
  45113 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,18n,54p,1490b,21694s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,18n,54p,902b,21722s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc
 }</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
@@ -2204,10 +2204,10 @@ exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/20
 s/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/u
 rw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on thesis.pdf (87 pages, 23662104 bytes).
+Output written on thesis.pdf (88 pages, 23664428 bytes).
 PDF statistics:
- 6508 PDF objects out of 7423 (max. 8388607)
- 4414 compressed objects within 45 object streams
- 377 named destinations out of 1000 (max. 500000)
+ 6551 PDF objects out of 7423 (max. 8388607)
+ 4456 compressed objects within 45 object streams
+ 381 named destinations out of 1000 (max. 500000)
  908 words of extra memory for PDF output out of 10000 (max. 10000000)
 
