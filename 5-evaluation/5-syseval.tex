@@ -42,6 +42,13 @@ A task was considered completed when the generated plan was correct and the robo
 As the mental model saved the latest object positions after an action execution, Tasks 3 and 6 were continued from the preceding tasks and did not require redetecting the initial states. 
 %reusing the problem with the latest saved mental model allowed them to overcome the limitation to detect stacked objects.
 
+\begin{figure*}[h]
+	\centering
+	\includegraphics[width=\linewidth]{figures/filmstrip.png}
+	\caption{Snapshots from the executions of the system evaluation (Tasks 3\&4) showing a claw grip from top and side.}
+	\label{fig:filmstrip}
+\end{figure*}
+
 \subsection{Results}
 We programmed three manipulation actions for the six benchmark tasks, which involved demonstrating pick-and-place actions with claw and suction grippers from the \textit{top} and from the \textit{side}.
 Actions were generalised by changing parameter types (\eg from CUBE or POSITION to ELEMENT) or adding preconditions or effects which were not inferred automatically.

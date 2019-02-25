@@ -1,11 +1,4 @@
 
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=0.7\linewidth]{figures/dispositif.pdf}
-	\caption{Experimental setup for the user study (N=21), where users programmed the Baxter robot via a GUI to manipulate given object types (with predefined type hierarchy). }
-	\label{fig:dispositif}
-\end{figure}
-
 \section{User Evaluation}
 \label{sec:quanteval}
 The second part of the evaluation was conducted using the THEDRE (Traceable Human Experiment Design Research) method \cite{mandran2018traceable,mandran2017thedre} which aims to evaluate computer systems in a research context by integrating a user-centered approach.
@@ -25,6 +18,13 @@ We set the following hypotheses for our experiments:
     \item[H4] Condition inference evaluation - Group 1 vs 2: users without automatic condition inference will understand the system better
     \item[H5] Pre-test questionnaire: users that perform better in the pre-test questionnaire can learn to use the system faster
 \end{enumerate}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figures/dispositif.pdf}
+	\caption{Experimental setup for the user study (N=21), where users programmed the Baxter robot via a GUI to manipulate given object types (with predefined type hierarchy). }
+	\label{fig:dispositif}
+\end{figure}
 
 \subsection{Set up}
 The experiments were conducted with a Baxter robot with two grippers (suction and claw) and mounted with a Kinect Xbox 360 camera. 
@@ -83,7 +83,7 @@ Finally, participants were asked which aspects they found most useful, most diff
 %     \item Duration per completed task
 % \end{itemize}
 
-\begin{table}[t]
+\begin{table}[h]
 \centering
 \caption{Benchmark tasks for the user study where the first two tasks were used to introduce participants to the system.}
 \label{table:userstudytasks}
@@ -159,7 +159,7 @@ By the end of the experiment, users programmed two manipulation actions (one for
 The generated PDDL code for the planning domain can be found in the attached material.
 
 
-\begin{figure}[t]%
+\begin{figure}[h]%
   \centering
     \includegraphics[width=0.5\columnwidth]{figures/quan-pretest-results.pdf}%
     \caption{Participants who did better in the pre-test questionnaire completed the main tasks faster, with `non-CS' users scoring the highest and being the fastest on average.}\label{fig:pretestvstask}%
@@ -167,11 +167,11 @@ The generated PDDL code for the planning domain can be found in the attached mat
 
 % \begin{figure}[tb]%
 %   \centering
-%   \begin{subfigure}[t]{0.24\textwidth}%
+%   \begin{subfigure}[h]{0.24\textwidth}%
 %     \includegraphics[width=\textwidth]{figures/quan-pretest-results.png}%
 %     \caption{Pre-test vs Task duration}\label{fig:pretestvstask}%
 %   \end{subfigure}~~%
-%   \begin{subfigure}[t]{0.24\textwidth}%
+%   \begin{subfigure}[h]{0.24\textwidth}%
 %     \includegraphics[width=\textwidth]{figures/quan-groups-duration.png}%
 %     \caption{Task duration per group}\label{fig:taskvsgroup}%  
 %   \end{subfigure}
@@ -207,7 +207,7 @@ Even though Group 1 performed slightly better in the pre-test (AVG=7.5, STD=1.35
 %In Group 1 8/10 had not added this condition and needed guidance to resolve this issue, with 3 participants trying to modify the problem definition instead of the action, 1 trying to add a new action for `clearing a position', and 1 failing to figure out the right condition to add.
 
 
-% \begin{table}[t]
+% \begin{table}[h]
 % \centering
 % \caption{TO DO: User performance with (Group 1) and without condition inference (Group 2) where Tasks 1 and 2 were training.}
 % \label{table:performance}
@@ -230,12 +230,6 @@ Even though Group 1 performed slightly better in the pre-test (AVG=7.5, STD=1.35
 % \end{tabular}
 % \end{center}
 % \end{table}
-
-\begin{figure*}
-  \includegraphics[width=0.98\linewidth]{figures/quan-exp1vsexp2-results.pdf}
-  \caption{User responses from the post-study survey (N=20) comparing iRoPro to a similar user study (N=11) \cite{liang2017evaluation}}
-\label{fig:exp1vsexp2-results}
-\end{figure*}
 
 \subsubsection{System usability and learnability} 
 There are several ways to interpret the System Usability Scale (SUS) scores \cite{brooke2013sus} obtained from the post-study survey. 
