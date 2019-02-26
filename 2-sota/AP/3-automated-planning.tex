@@ -360,19 +360,24 @@ It has been identified as the only beginner-friendly system as it simplifies the
 Automated planning has found its application in a wide range of areas from virtual agent games (\cite{fernandez2006planning}) to space exploration (\cite{backes2004multi,bresina2005activity}).
 A main research area has focused on integrating task planning with robot architectures \cite{cashmore2015rosplan}, in particular to handle time, resources and synchronisation (\cite{di2014planner,dvorak2014flexible}).
 Combining task and motion planning is an open research problem and has been addressed previously (\cite{ferrer2015planning,garrett2015ffrob}), especially learning preconditions and effects of actions to be used in planning (\cite{ahmadzadeh2015learning,jetchev2013learning,konidaris2018fromSkills,ugur2015bottom}).
-
-The focus often lies in grounding actions or learning symbolic action representations, so the robot is generally provided with a predefined set of motor skills that are refined by learning from plan traces or demonstrations.
+In these works, the focus often lies in grounding actions or learning symbolic action representations, so the robot is generally provided with a predefined set of motor skills that are refined by learning from plan traces or demonstrations.
 %It is assumed that low-level actions have already been programmed and can be called directly after mapping them to PDDL actions.
 For example, \citet{abdo2013learning} learns a fixed set of manipulation actions from user demonstrations, \ie stack blocks, pour from a bottle and open a door.
-The robot reuses the actions with a task planner to achieve a predefined goal state, \eg going through a door.
+The robot only uses the actions to achieve a predefined task, \eg going through a door, but does not reuse them for unseen tasks.
 %However, as the approach requires 5-10 demonstrations to learn action conditions, it becomes tedious and impractical if several actions need to be taught.
 
-
+Automated planners can be very powerful for generating optimal plans for problems that even humans struggle to solve, \eg Tower of Hanoi problem (\cite{hanoiPddlGit}), Tetris (\cite{ipc14site}).
+However, they are generally not accessible to end-users who do not have experience in this domain. 
+While knowledge engineering tools facilitate the modelling of planning domains, they still require PDDL experts or common knowledge in software engineering.
+In this thesis, we argue that end-users without this experience can still learn and use automated planning concepts to program robots.
+We first conduct user studies (\chapt{chap:Pre-Experiments}) to evaluate this hypothesis and analyse the user's adoption when first presented to these concepts.
+We then propose and implement a framework (\chapt{chap:Implementation}) that allows them to teach robots actions that can be used with an automated planner to solve previously unseen tasks.
+Finally we evaluate the implemented framework with another user study (\chapt{chap:Evaluation}).
 %In general, the majority of tasks can be completed using the simple actions pick, move and drop. 
-For our framework, we considered planning problems, such as the Tower of Hanoi problem (\cite{douglas1985metamagical}) or a real-life game of Tetris (\cite{tetris}), which use these actions. 
-Since we focus on applications in cobotic environments, we wanted to choose a planning problem that occurs in real-world applications. 
-Therefore, we chose to evaluate the usability of our framework using the \texttt{PRODUCTION} planning domain, addressing the \texttt{PERMUTATION} planning problem. 
-It is then easy for the user to extrapolate from this simple example to any complex task.
+%For our framework, we considered planning problems, such as the Tower of Hanoi problem (\cite{douglas1985metamagical}) or a real-life game of Tetris (\cite{tetris}), which use these actions. 
+%Since we focus on applications in cobotic environments, we wanted to choose a planning problem that occurs in real-world applications. 
+%Therefore, we chose to evaluate the usability of our framework using the \texttt{PRODUCTION} planning domain, addressing the \texttt{PERMUTATION} planning problem. 
+%It is then easy for the user to extrapolate from this simple example to any complex task.
 
 %\fig{fig:planning-permutation} illustrates an example of the permutation planning problem. Given a description of the world state, \ie objects, types, properties (\fig{fig:planning-permutation}a,b), a set of possible atomic actions, and a goal state (\fig{fig:planning-permutation}d), the planner should generate the correct sequence of actions (\fig{fig:planning-permutation}c), which guarantees the transition from the initial world state to the goal state. Predicates are used to describe actions and object properties, such as \textit{``red cube is at position A"}: they can be \textit{instantiated} \texttt{(at redCube A)} or \textit{generalised} \texttt{(at ?cube ?posA)}, such that variables are prefixed with `?'.
 
