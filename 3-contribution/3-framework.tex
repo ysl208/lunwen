@@ -1,9 +1,14 @@
-We propose a framework that allows end-users to teach a robot a goal-oriented behaviour and consisting of the following three steps (\fig{fig:framework}): 
+Programming robots for general purpose applications is extremely challenging due to the great diversity of end-user tasks.
+Our research argues for teaching robots primitive or \textit{atomic} actions, instead of entire action sequences, and delegating the logical reasoning process of finding a solution to task planners.
+In this chapter we present a framework that allows end-users to teach a robot primitive actions from scratch that can be reused with a task planner.
+%a goal-oriented behaviour and 
+The framework consists of the following three steps (\fig{fig:framework}): 
 \begin{enumerate}
-	\item[A.]{Programming by Demonstration: user demonstrates atomic actions and teaches symbolic action models, in terms of preconditions and effects.}
-	\item[B.]{Automated Planning: robot uses action models to generate an action sequence to achieve a goal.}
-	\item[C.]{Retro-active Loop: user refines the learned action models in case of ambiguities.}
+	\item[A.]{Programming by Demonstration: user demonstrates primitive actions to the robot and associates preconditions and effects.}
+	\item[B.]{Automated Planning: robot uses taught actions with a planner to generate solutions to achieve a task goal.}
+	\item[C.]{Retro-active Loop: user refines taught actions in case of ambiguities.}
 \end{enumerate}
+For each step, the user interacts with a graphical interface that allows them to navigate between the steps to teach new actions by kinesthetic demonstration, modify action conditions, define new planning problems, and have the robot autonomously solve and execute automatically generated plans in real-time.
 In the following sections, we discuss each step in more detail. 
 %We refer the reader to a video of the framework: \texttt{https://youtu.be/DTm2YjiSNQM}
 %Using this knowledge base, the user can define a planning problem, for which the robot will generate a plan. 
@@ -16,43 +21,64 @@ After an unsuccessful robot execution, the user can refine the taught action mod
 	\label{fig:framework}
 \end{figure}
 
-\section{Programming by Demonstration: teaching action models}
-Programming by demonstration (PbD) techniques generally consist of an iterative process.
-The user demonstrates an atomic action, such as moving a cube from an initial position A to a final position B \texttt{(move cube A B)}.
+\section{Programming by Demonstration: teaching atomic actions}
+%Our approach aims at providing end-users with an intuitive way of 
+Teaching robots atomic actions consists of learning both \textit{how} and \textit{when} an action should be applied, \ie the low-level (\sect{ssec:lowlevel}) and high-level representations (\sect{ssec:highlevel}) respectively.
+We consider an action that consists of both low- and high-level representations as an \textit{action model}.
+Programming by demonstration (PbD) techniques provide end-users with an intuitive way to do this. %generally consist of an iterative process.
+
+Low-level actions can be learned using Dynamic Movement Primitives (\cite{pastor2009learning}) or mixture models (\cite{calinon2007incremental}), where entire trajectories are learned and generalised, or keyframe-based PbD (\cite{akgun2012keyframe,alexandrova2014robot}), where actions are represented as a sparse sequence of keyframes that can be connected.
+%gripper states (open/close) and end-effector poses relative to perceived objects or to the robot's coordinate frame.
+Actions can be learned from multiple demonstrations (\cite{niekum2012learning}) or a single demonstration, where poses are assigned heuristically and corrected by the user if needed (\cite{alexandrova2014robot}).
+
+The user can teach multiple manipulation actions and discriminate between them by associating different high-level conditions that specify \textit{when} the robot should use them (\eg actions using claw or suction grippers).
+High-level actions are represented similar to planning operators in task planning (\sect{subsec:Classical planning problem}), where an action is represented as a tuple $o = (\text{name}(o), \text{precond}(o),$ $\text{effect}(o))$.
+To learn high-level conditions, the robot uses a perception system (\eg SIFT (\cite{ahmadzadeh2015learning}) or a database of object features (\cite{mason2011robot})) that recognises object properties in the state of the world.
+The user demonstrates an atomic action, such as pick-and-place of a cube. %\texttt{(move cube A B)}.
 An action execution results in a change in the world state, such as the cube's position.
-The robot observes the changes before and after the action demonstration (Fig. \ref{fig:action} top), and extracts the relevant preconditions and effects to build a generalised action model, expressed in a symbolic planning language (Fig. \ref{fig:action} bottom).
-The user validates the learned action model, and provides additional demonstrations if necessary.
+The robot observes the changes before and after the action demonstration, and extracts the relevant preconditions and effects to build an action model. %, expressed in a symbolic planning language.% (Fig. \ref{fig:action} bottom).
+The user validates the learned action model, and provides additional demonstrations if necessary to refine the low- or high-level representations.
+Feature-based algorithms, such as k-means clustering (\cite{mollard2015robot,abdo2013learning}), can be used to learn high-level actions from multiple demonstrations.
+Existing PbD approaches try to teach the robot from a small number of demonstrations \cite{orendt2016robot,abdo2013learning}.
+%To learn object manipulation tasks, the robot perceives the initial world state before %(\textit{precondition}) and after the action demonstration and infers the high-level conditions (\cite{ahmadzadeh2015learning}).
+%(\textit{effects}). 
+We propose an interactive learning approach, where the user can directly modify the learned action models via the graphical interface.
+Thus, the robot could learn a new action from a single demonstration.
+%The robot learns from multiple demonstrations to generalise trajectories and high-level conditions.
+%In the framework, we assume that the learned action trajectory is independent of the trajectory performed by the teacher.
 
-The robot learns from multiple demonstrations to generalise trajectories and high-level conditions.
-In the framework, we assume that the learned action trajectory is independent of the trajectory performed by the teacher.
-Dynamic Movement Primitives (DMP) can cope with the generalisation of a demonstrated trajectory (\cite{pastor2009learning}).
-To learn high-level conditions, the robot uses a perception system (e.g. SIFT \cite{ahmadzadeh2015learning} or a database of object features \cite{mason2011robot}) that recognises object properties in the state of the world. 
 %Note that we do not address the perception problem in this paper. 
-In our experiments, we implemented a simple python algorithm with integrated functionalities of the Robot Operating System (ROS) (\cite{quigley2009ros}), to detect and move objects, based on their colour.
+%In our experiments, we implemented a simple python algorithm with integrated functionalities of the Robot Operating System (ROS) (\cite{quigley2009ros}), to detect and move objects, based on their colour.
 
-Feature-based algorithms, such as k-means clustering \cite{mollard2015robot}, can be used to generalise over high-level conditions.
 
 %Table \ref{tab:action-model} shows the states of the demonstrated action and the generalised action model. 
 %The generalised operator is automatically translated into a symbolic representation, allowing the creation of a planning domain, without the need for any programming knowledge.
 
-Existing PbD approaches try to teach the robot from a small number of demonstrations \cite{orendt2016robot,abdo2013learning}.
-We propose an interactive learning approach, where the user can directly modify the learned action models using a user-interface.
 
-
-\section{Automated Planning: using action models}\label{sec:AP}
-The robot uses the learned symbolic action models in combination with an automated planner to achieve user-defined goals. 
+\section{Automated Planning: reusing actions}\label{sec:AP}
+Task planners are used to generate solutions in the form of action sequences to solve complex problems.
+As the robot learns action models in the same high-level representation, actions can be used with an automated planner to achieve user-defined goals. 
 %Automated planners try to model the robot's strategies, when operating in diverse environments \cite{ghallab2004automated}.
+%ught actions are reused with existing task planners by translating them into PDDL (\citet{mcdermott1998pddl}). 
+To facilitate the programming process, the framework provides a partial PDDL domain that includes a set of predefined object types and predicates.
+The user completes the domain by creating new action models and manually adding custom types and predicates via the user interface.	
+The user then creates a new planning problem, consisting of detected initial states and defined goal states to achieve.
+%Given a description of a planning \textit{domain}, \ie object types, actions with preconditions and effects, we can define a planning \textit{problem} with an initial state and a desired goal state. 
+%The planner generates an optimal action sequence, or \textit{plan}, which guarantees the transition from initial state to the goal state. 
 The initial world state is automatically recognised by the robot using the same perception system as in the PbD phase. 
 %The automated planner generates a plan, consisting of an ordered action sequence for the robot to execute. 
 The user can change the initial object configuration of the world state, and enter an arbitrary goal, that can be achieved using the taught action models.
-If the user changes the goal, a new action sequence is generated by the planner.
+The planner generates an optimal action sequence, or \textit{plan}, which guarantees the transition from initial state to the goal state. 
+The user can verify the generated plan and have the robot execute it in real life.
+If they believe that the plan is wrong, they can modify the input data via the interface and relaunch the planner.
+%If the user changes the goal, a new action sequence is generated by the planner.
 Generating a plan under different initial states allows the user to test the created action models.
-There exist various planners that can be used for symbolic planning with robots: Metric-FF (\cite{cubek2015high}), or a fast downward planner (\cite{abdo2013learning}). 
+Various planners have been used for symbolic planning with robots, \eg Metric-FF (\cite{cubek2015high}) or the fast downward planner (\cite{abdo2013learning}). 
 
 
 \section{Retro-active Loop: refining action models}
 The execution to a new context is an important step to test the taught action models.
-It is likely that the execution of the plan does not produce the desired outcome, especially if the plan is executed in a context different to the demonstration (e.g. different object colour or position).
+It is likely that the execution of the plan does not produce the desired outcome, especially if the plan is executed in a context different to the demonstration (\eg different object colour or position).
 Missing preconditions or effects for an action model can lead to suboptimal or non-existing solutions and will need to be corrected by the user.
 The retro-active loop allows the user to revisit the created action models.
 Knowledge engineering tools (\sect{subsec:Knowledge Engineering}) provide a user-interface to facilitate this process of modifying action models used for automated planners.

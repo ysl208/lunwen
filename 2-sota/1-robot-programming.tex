@@ -156,7 +156,7 @@ A policy can describe either a low-level skill (\ie a motion trajectory) or a hi
 Low-level representations focus on learning generalised trajectories, high-level representations focus on learning a sequence of motion elements (primitives) (\cite{peppoloni2014ros}). 
 In the following we will give an overview of both techniques.
 
-\subsubsection{Low-level skill learning}
+\subsubsection{Low-level skill learning}\label{ssec:lowlevel}
 In the literature low-level actions have been referred to as \textit{skill, motor skill, primitive action,} or \textit{low-level motion} (\cite{chernova2014robot}).
 Generalisable low-level actions can be learned by recording joint angle trajectories using GMM (\cite{billard2008robot}), using keyframe-based learning (\cite{akgun2012keyframe}), or using Dynamic Movement Primitives (DMP) (\cite{pastor2009learning}), which consist of differential equations that can create a smooth trajectory to a new goal point.
 
@@ -164,7 +164,7 @@ For instance, in keyframe-based learning, demonstrations are provided by kinesth
 An end-effector pose can be relative to the robot's base or to a landmark previously detected by the robot.
 Landmarks are only known to the robot after a table top detection step has been performed.
 
-\subsubsection{High-level task learning}
+\subsubsection{High-level task learning}\label{ssec:highlevel}
 For learning high-level tasks it is assumed that a set of low-level primitive actions is preprogrammed into the robot. 
 \cite{she2014teaching} teaches the robot new high-level actions by instructing the robot a sequence of lower-level actions.
 Rather than representing the new action as an action sequence, it is modelled by their desired goal states calculated as:
