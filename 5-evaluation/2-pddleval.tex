@@ -8,11 +8,25 @@ In this experiment, users were introduced to a symbolic planning language (a sim
 Users were instructed to describe world state configurations to the robot.
 The goal was to assess the user's adoption of the planning concepts (object types, properties, generalised properties, action models) and to verify that the symbolic planning language is appropriate for non-expert users.
 
+\begin{figure}[htp]
+	\centering
+	\begin{subfigure}[t]{0.24\textwidth}%
+		\includegraphics[width=\textwidth]{figures/experiment1}%
+		\caption{Baxter robot}\label{fig:Baxter}%
+	\end{subfigure}~~%
+	\begin{subfigure}[t]{0.24\textwidth}%
+		\includegraphics[width=\textwidth]{figures/exp1-setup}%
+		\caption{Experiment 1 setup}\label{fig:exp1-setup}%  
+	\end{subfigure} 	  
+	\caption{Experimental setup for user studies.}
+	\label{fig:pre-experiment}%
+	% 	\includegraphics[width=.3\textwidth]{figures/experiment-setup2}
+\end{figure}
 \subsection{Experimental Setup \& Participants}
 We recruited 10 participants (1 male, 9 female), who were Sociology students at the Universit\'{e} Grenoble Alpes.
 3 participants reported no programming experience, 6  had experience with office productivity software (`beginner'), and 1 had previously taken a programming course before (`advanced').
 %
-The experimental setup consisted of a 2x2 board, 2 cubes, 1 ball, and 1 ball recipient (\fig{fig:exp1-setup}).
+The experimental setup consisted of a 2x2 board (with positions A1, A2, B1, B2), 2 cubes, 1 ball, and 1 ball recipient in the form of a bowl (\fig{fig:exp1-setup}).
 %The experimenter showed the participants a video of the Baxter robot \cite{Baxter}
 The participants were given sheets with empty tables to complete for each task.
 Each participant was allocated 1 hour, but the average duration of the experiment was 49 minutes.
@@ -44,24 +58,29 @@ The experiment consisted of the following phases:
 
 \begin{itemize}
 %  \item{Introduction: After a short introduction to the Baxter robot \cite{Baxter}, users were told that they needed to use a planning language (STRIPS) to explain Baxter the state of the world and the semantic meaning of the actions.}
-  \item{\textbf{Training:} Users were presented the notion of world states and the symbolic planning language to describe the object types and predicates, which we called \textit{properties}.
-Users were shown how to model a simple move action in terms of preconditions and effects (\fig{fig:action}).
-Additionally, they were introduced to the concept of \textit{instantiated} and \textit{generalised} actions, which were equivalent to actions and planning operators respectively (\sect{subsec:Classical planning problem}).}
-  \item{\textbf{Experimental test:} Users were presented a new world state and instructed to provide a description to the robot in the symbolic planning language (\fig{fig:scenarios-exp1}a).
-After defining an initial move action model (\fig{fig:scenarios-exp1}b), users were faced with 3 different scenarios to refine the preconditions.
+  \item{\textbf{Training:} Users were presented the symbolic planning language to describe object \textit{types} (\ie position, ball, cube, bowl) and predicates, which we called \textit{properties} (\ie \texttt{empty}, \texttt{at}, \texttt{stackable}, \texttt{is\_red}, \texttt{is\_blue}) to describe world states.
+They were shown how to model a simple move action in terms of preconditions and effects (\fig{fig:action}).
+For all properties and actions, they had to use syntax of the form \texttt{name(arg1,arg2,\dots)} which users without a  Computer Science background might be unfamiliar with.
+Additionally, they were introduced to the concepts of \textit{instantiated} and \textit{generalised} actions, which were equivalent to actions (\eg \texttt{move(X1)}) and planning operators (\eg \texttt{move(cube)}) respectively (\sect{subsec:Classical planning problem}).
+In this phase, they were given a simple example of a cube at position A1 and moved to position B2.}
+  \item{\textbf{Experimental test:} Users were presented a new world state that involved a cube, a bowl and a ball object. 
+  	First they were instructed to provide a description of the initial state to the robot by using the symbolic planning language (\fig{fig:scenarios-exp1}a).
+Then they were asked to define a move action model in terms of preconditions and effects (\fig{fig:scenarios-exp1}b).
+In the following they were faced with 3 different scenarios to refine the preconditions of the move action.
 Users derived a \texttt{(stackable ball cube)} property (\fig{fig:scenarios-exp1}c), which allowed a ball to be stacked on top of a cube.
-When this property did not hold, users proposed the \textit{empty} property (\fig{fig:scenarios-exp1}d), which the robot needed to verify before the action execution.
+When this property did not hold, users proposed the \texttt{empty} property (\fig{fig:scenarios-exp1}d), which the robot needed to verify before the action execution.
 At each step, users had to give the generalised representation of the properties and action models.}
-  \item{\textbf{Planning:} Users were presented a description of a new state of the world and a goal state.
-They had to define an action sequence, that allows the transition to the goal state (similar to \fig{fig:planning-permutation}c), and explain their reasoning using the symbolic action model representation.}
-  \item{\textbf{Questionnaire:} Users were given a questionnaire including 5 questions related to their experience, as well as 15 questions to evaluate their understanding of the learned planning language (\fig{fig:eEvaluation2}).
-  For the latter, questions related to their understanding of the concepts presented at the start of the experiment (\eg `Explain the difference between the precondition and effect of an action'), syntax (\eg `Using the presented language, how do you describe the property \textit{cube X4 is on position 3b}?'),
+  \item{\textbf{Planning:} Users were presented a description of a new initial state of the world and a goal state.
+They were asked to define an action sequence, that allows the transition from the initial to the goal state (similar to \fig{fig:planning-permutation}c), and explain their reasoning using the symbolic action model representation.
+This optional test allowed us to further verify their understanding of the planning concepts, in particular action preconditions and effects.}
+  \item{\textbf{Questionnaire:} At the end of the experiment users were given a questionnaire including 5 questions related to their experience, as well as 15 questions to evaluate their understanding of the learned planning language and concepts (\fig{fig:eEvaluation2}).
+  For the latter, questions related to their understanding of the concepts presented at the start of the experiment (\eg `Explain the difference between the precondition and effect of an action'), syntax (\eg `Using the presented language, how do you describe the property \textit{cube X4 is on position B3}?'),
   %If move(CUBE) describes a move action, tick all statements that are true.
   logical reasoning 
   	(\eg `Is it possible to have \texttt{(empty A)} and \texttt{(at cube A)} in the same state?'), and other concepts (\eg `What is the generalised form of the given object property?').
   The complete questionnaire can be found in Appendix \ref{label} \todo.}
-   \item {\textbf{Debriefing:} Throughout the experiment, users were asked open-ended questions (\eg ``What properties do you observe in the current world state?"), so that they were guided as little as possible, and their responses were unbiased.
-When the participant struggled to find an answer, the experimenter guided the participant into a possible direction (\eg ``Why can the ball not be placed on the cube?").} 
+   \item {\textbf{Debriefing:} Throughout the experiment, users were asked open-ended questions (\eg ``What properties do you observe in the current world state?"), so that they were guided as little as possible and their responses were unbiased.
+When the participant struggled to find an answer, the experimenter guided the participant in a possible direction (\eg ``Why can the ball not be placed on the cube?").} 
 \end{itemize}
 
 \begin{figure}[ht]
