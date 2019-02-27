@@ -3,30 +3,38 @@
 %\section{Basic Research Questions and Their Evaluations}
 \label{sec:hypotheses}
 
-To evaluate the framework's usability for non-expert users, %we formulated the following hypotheses:
+In the previous chapter (\chapt{chap:Contribution}) we proposed an end-user robot programming framework that allows users to teach robots new actions by demonstration, that can be reused with automated planners to complete previously unseen tasks.
+We believe that non-robotics expert users without experience in automated planning can easily learn to use this framework.
+Thus, %to evaluate the framework's usability for non-expert users, 
+%we formulated the following hypotheses
 %\begin{enumerate}
 %\item[\textbf{H1}] \textit{The user understands the symbolic planning concepts.} This allows us to verify, if the symbolic planning language (PDDL), to describe the world state in terms of object types, properties, generalised properties, and action models, in terms of preconditions and effects, can be adopted easily by non-expert users.
 %\item[\textbf{H2}] \textit{The user is able to teach the robot an action model using the proposed framework.} This allows us to evaluate how users operate the framework.
 %\end{enumerate} 
-we conducted two qualitative user experiments to respond to the questions:
+we conducted two qualitative user experiments to respond to the following questions:
 \begin{enumerate}
   \item[\textbf{Q1}] How do non-expert users adopt the automated planning language with its action model representation? (Section \ref{sec:Exp1})
   \item[\textbf{Q2}] Can users teach a robot action models for automated planning using the robot programming framework? (Section \ref{sec:Exp2})
 \end{enumerate}
 
 The experimental context was designed around a Baxter robot (\fig{fig:Baxter}).
-In both experiments, we included elements to assess the user's understanding of action models used by automated planners.
-Understanding this symbolic representation is a key requirement to use the framework.
-In the following sections, we briefly outline the experimental setup, measurements and results for each experiment.
+In both experiments we included elements to assess the user's understanding of action models used by automated planners.
+Understanding this symbolic representation is a key requirement to use the proposed framework.
+In the following sections we briefly outline the experimental setup, measurements and results for each experiment.
  
  \begin{figure}[htp]
  	\centering
- 	\includegraphics[width=.3\textwidth]{figures/experiment1}\hspace{1cm}%\hfill
- 	\includegraphics[width=.3\textwidth]{figures/experiment-setup2}
- 	
- 	\caption{Experimental setup for user studies on Programming by Demonstration of a move action by kinesthetic manipulation of the Baxter robot.}
- 	\label{fig:Baxter}
- 	
+ 	   \begin{subfigure}[t]{0.24\textwidth}%
+ 	     \includegraphics[width=\textwidth]{figures/experiment1}%
+ 	     \caption{Baxter robot}\label{fig:Baxter}%
+ 	   \end{subfigure}~~%
+ 	   \begin{subfigure}[t]{0.24\textwidth}%
+ 	     \includegraphics[width=\textwidth]{figures/exp1-setup}%
+ 	     \caption{Experiment 1 setup}\label{fig:exp1-setup}%  
+ 	   \end{subfigure} 	  
+ 	  \caption{Experimental setup for user studies.}
+ 	   \label{fig:pre-experiment}%
+% 	\includegraphics[width=.3\textwidth]{figures/experiment-setup2}
  \end{figure}
 % \begin{table}[t]
 % \caption{Description of the world state in PDDL}
@@ -46,7 +54,8 @@ In the following sections, we briefly outline the experimental setup, measuremen
 
 
 \section{Discussion and Limitations}
-In both experiments, we did not observe a significant difference in the performance between users with different programming experience. The majority of users had issues formulating the logical representations of object properties used in action models. In the first experiments, users had difficulties formulating a single condition (e.g. \texttt{(stackable ball cube)}), but stated equivalent conditions (\textit{`only place the ball, if it is stackable on the cube'}).
+In both experiments, we did not observe a significant difference in the performance between users with different programming experience. 
+The majority of users had issues formulating the logical representations of object properties used in action models. In the first experiments, users had difficulties formulating a single condition (e.g. \texttt{(stackable ball cube)}), but stated equivalent conditions (\textit{`only place the ball, if it is stackable on the cube'}).
 Similarly, in the second experiment, users formulated the missing precondition (\textit{`position B is empty'}) with other equivalent conditions (\textit{`Do not place the object on position B, if it is occupied'}). This means, that users should be provided with a predefined set of conditions that can be added to the action model.
 
 Some users made wide assumptions about the robot's capabilities. In the second experiments, when both arrival and departure positions were occupied (Fig. \ref{fig:scenarios-exp2}c), less half of the users (5) expected Baxter to consider the occupied position, even though the condition was not mentioned in its action model.
