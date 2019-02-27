@@ -96,10 +96,12 @@ For example, a general type could be \textit{OBJECT} or \textit{POSITION}.
 Some planning problems include type hierarchies with a general type (\eg OBJECT) that consists of subtypes (\eg BASE and CUBE).
 
 \begin{definition}
-	An \textit{action} is any ground instance of an operator. If $a$ is an action and $s$ is a state such that $\text{precond}(a)$ are true in $s$, then $a$ is {\em applicable} to $s$ and the result of applying action $a$ to state $s$ is the state $s'$:  
+	An \textit{action} is any ground instance of an operator. 
+	If $a$ is an action and $s$ is a state such that $\text{precond}(a)$ are true in $s$, then $a$ is {\em applicable} to $s$ and the result of applying action $a$ to state $s$ is the state $s'$:  
 	\[s' = \gamma(s, a) = (s - \text{effects}^{-}(a)) \cup \text{effects}^{+}(a).\]
 \end{definition}
 
+An operator can be considered as a \textit{generalised} action.
 
 \begin{definition}
 A \textit{planning problem} in the logical representation is a quadruplet $(P, A, I, G)$ where:
