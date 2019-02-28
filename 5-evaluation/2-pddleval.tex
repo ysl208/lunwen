@@ -4,7 +4,13 @@
 
 % \section{How do non-expert users adopt the automated planning language with its action model representation?}
 %%%%%%%% 1.25 pages %%%%%%%
-In this experiment, users were introduced to a symbolic planning language (a simplified version of PDDL), involving the STRIPS formalism with type structures used in automated planning (\chapt{chap:Sota-AP}).
+In this experiment, we are addressing the following question:
+
+\begin{enumerate}
+	\item[\textbf{Q1}] How do non-expert users adopt the automated planning language with its action model representation?
+\end{enumerate}
+
+Users were introduced to a symbolic planning language (a simplified version of PDDL), involving the STRIPS formalism with type structures used in automated planning (\chapt{chap:Sota-AP}).
 Users were instructed to describe world state configurations to the robot.
 The goal was to assess the user's adoption of the planning concepts (object types, properties, generalised properties, action models) and to verify that the symbolic planning language is appropriate for non-expert users.
 
@@ -40,13 +46,6 @@ The participants' behaviour was observed by the experimenter and the experiment 
 %	\label{fig:exp1-setup}
 %\end{figure}
  
- \begin{figure}[h]
- 	\centering
- 	\includegraphics[width=0.75\linewidth]{figures/scenarios-exp1}
- 	\caption{Users were instructed to provide a description of (a) the initial state of the world and (b) an initial move action model.
- 		Then they derived additional preconditions for moving the ball from position A1 to B2: (c) \textit{(stackable ball cube)}: the ball can be stacked onto the cube, and (d) \textit{(empty B2)}: if the ball cannot be stacked, the target position should be empty.}
- 	\label{fig:scenarios-exp1}
- \end{figure}
 
 \subsection{Experimental Design \& Measurements}
 %After a short introduction to the Baxter robot, 
@@ -54,8 +53,16 @@ Users were told that they needed to use a symbolic planning language to describe
 Throughout the experiment, users were faced with three different scenarios. 
 \fig{fig:scenarios-exp1} shows an example of the experimental design, where the robot's action was to move the ball to an occupied position (B2). 
 We evaluated their capability, to apply the planning language to different situations.
-The experiment consisted of the following phases:
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\linewidth]{figures/scenarios-exp1}
+	\caption{Users were instructed to provide a description of (a) the initial state of the world and (b) an initial move action model.
+		Then they derived additional preconditions for moving the ball from position A1 to B2: (c) \textit{(stackable ball cube)}: the ball can be stacked onto the cube, and (d) \textit{(empty B2)}: if the ball cannot be stacked, the target position should be empty.}
+	\label{fig:scenarios-exp1}
+\end{figure}
+
+The experiment consisted of the following phases:
 \begin{itemize}
 %  \item{Introduction: After a short introduction to the Baxter robot \cite{Baxter}, users were told that they needed to use a planning language (STRIPS) to explain Baxter the state of the world and the semantic meaning of the actions.}
   \item{\textbf{Training:} Users were presented the symbolic planning language to describe object \textit{types} (\ie position, ball, cube, bowl) and predicates, which we called \textit{properties} (\ie \texttt{empty}, \texttt{at}, \texttt{stackable}, \texttt{is\_red}, \texttt{is\_blue}) to describe world states.
@@ -98,7 +105,7 @@ During the experimental test, the majority (9 or 90\%) of the participants manag
 When faced with different scenarios to refine the move action model, 5 (or 50\%) of the participants struggled to formalise the \textit{stackable} condition in the symbolic language.
 They provided alternative formulations related to the cube's properties (\eg ``if the cube can hold the ball").
 However, once the condition was defined, the majority (8 or 80\%) of the participants had little to no difficulties generalising this property.
-Due to time constraints, only 5 (or 50\%) of the participants were presented the planning phase.
+Due to time constraints, only 5 (or 50\%) participants were presented the planning phase.
 All 5 encountered no problems when defining the action sequence to achieve the given goal.
 
 In the questionnaire (\fig{fig:eEvaluation2}), the majority (9 or 90\%) of the participants understood the notion of states and object properties.
