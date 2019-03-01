@@ -10,6 +10,10 @@ In this experiment, we are addressing the following question:
 Users were presented a simulated implementation of the robot programming framework (\chapt{chap:Contribution}), and had to teach action models by kinesthetic manipulating a Baxter robot (\fig{fig:Baxter}). 
 Users were instructed to demonstrate an atomic action and to assign preconditions and effects.
 The goal was to assess the framework's usability and user's difficulties encountered when teaching action models.
+At the end, participants were given a questionnaire related to their experience, their perceived understanding of the presented planning concepts and the usability of the framework.
+The experimental protocol, questionnaire and additional material used can be found in Appendix \ref{app:exp2}.
+In the following sections we briefly outline the experimental setup, measurements and results of the experiment.
+%We then provide details on the partial implementation of the system used with the Wizard-of-Oz technique (\sect{ssec:WoZ}).
 
 \subsection{Experimental Setup \& Participants}
 We recruited 11 participants (7 male, 4 female), who were students and staff members at the Universit\'{e} Grenoble Alpes. 
@@ -24,7 +28,7 @@ The implemented functionalities included:
 \end{itemize}
 
 We used the Wizard-of-Oz technique to simulate the remaining functionalities (\eg `learn action preconditions and effects', `generate solution using a planner').
-Further details to the partial implementation are discussed in Section \ref{ssec:WoZ}.
+%Further details to the partial implementation are discussed in Section \ref{ssec:WoZ}.
 Participants operated on a table with 2 positions D (for departure) and A (for arrival), 2 cubes (blue and red), that represented parts on an assembly line (\fig{fig:Baxter}). 
 Each participant was allocated 1 hour, but the average duration was 29.5 minutes. 
 The experiments were recorded, while the participant interacted with the robot. 
@@ -63,7 +67,7 @@ The experiment consisted of the following phases:
   	Finally, Baxter executed the action sequence to complete the task.}
   \item{\textbf{Questionnaire:} Users were given a questionnaire containing 18 questions related to their experience (\eg `I did not encounter any difficulties during the experiment') and their perceived understanding of the presented concepts (\eg `I can explain how Baxter represented the preconditions of a new action'), and the usability of the framework (\eg `No programming experience is required to teach Baxter a new task').
   Participants had to give a rating on a scale ranging from `Strongly agree', `Somewhat agree', `Somewhat disagree', and `Strongly disagree'.
-  The complete questionnaire can be found in Appendix \todo{?}.}
+  The complete questionnaire can be found in Appendix \ref{app:exp2}.}
    \item{ \textbf{Debriefing:} Throughout the experiment, users were asked about their expectations on Baxter's behaviour before applying the learned action model to a new scenario. 
    	Users were asked open-ended questions (\eg ``What will Baxter do when applying the learned action model?"), so that their responses were unbiased. 
    	When they encountered failure scenarios (\eg when Baxter stacked two cubes), they were asked to reason about Baxter's behaviour and proposed modifications to the taught action model.} 

@@ -21,6 +21,7 @@ The experimental context was designed around a Baxter robot (\fig{fig:Baxter}).
 In both experiments we included elements to assess the user's understanding of action models used by automated planners.
 Understanding this symbolic representation is a key requirement to use the proposed framework.
 In the following sections we briefly outline the experimental setup, measurements and results for each experiment.
+We conclude this chapter with a discussion on the obtained results from each experiment and notable aspects for a full implementation of the framework.
  
 % \begin{table}[t]
 % \caption{Description of the world state in PDDL}
@@ -34,20 +35,63 @@ In the following sections we briefly outline the experimental setup, measurement
 % \end{center}
 % \end{table}
 
+%\subsection{Intera Software}
+%The industrial version of the Baxter robot currently comes with the Intera 3 software that provides a graphical user interface.
+%The software allows the selection of the basic tasks in order to build an action sequence.
+%Aimed at taking over factory operations that usually employ several people, the industrial version of Baxter can easily be taught simple tasks without the need for programming.
+
+
+%%%% Step 1 %%%%
+\section{Baxter Research Robot}
+In this thesis we worked with a Baxter Research Robot, created by Rethink Robotics (\cite{robotics2013baxter}),
+%, which is required to learn the action models needed for a pick-and-place action.
+a two-armed humanoid robot (one claw and one suction gripper), both with 7-DoF and a load capacity of 2.2kg each.
+The SDK interfaces with Baxter via the Robot Operating System (ROS) (\cite{quigley2009ros}), a framework developed in 2007 by the Stanford Artificial Intelligence Laboratory, that allows the shared use of software across a wide variety of robotic platforms (\cite{fernandez2015learning}).
+Unlike the industrial version of the Baxter robot, which comes with the Intera 3 software that provides a graphical user interface, the research robot arrives without any such functionalities.
+Several research laboratories have started developing algorithms using the Baxter robot to implement state-of-the-art solutions \eg
+pick up golf balls and place them in a basket (\cite{BaxterGolf}) or play the game Connect 4 by picking up chips from a specified location (\cite{Connect4}).
+After the Ebola outbreak in West Africa in 2014, Baxter has been used to reduce the risk of contamination (\cite{Ebola}).
+
+%However, the educational level of robotics students to provide solutions for workers is far behind the potential for robots.
+
 \input{5-evaluation/2-pddleval.tex}
 
 \input{5-evaluation/5-evaluation.tex}
 
-\input{4-implementation/0-main.tex}
+%\input{4-implementation/4-implementation.tex}
 
 \section{Discussion and Limitations}
 In both experiments, we did not observe a significant difference in the performance between users with different programming experience. 
-The majority of users had issues formulating the logical representations of object properties used in action models. In the first experiments, users had difficulties formulating a single condition (e.g. \texttt{(stackable ball cube)}), but stated equivalent conditions (\textit{`only place the ball, if it is stackable on the cube'}).
-Similarly, in the second experiment, users formulated the missing precondition (\textit{`position B is empty'}) with other equivalent conditions (\textit{`Do not place the object on position B, if it is occupied'}). This means, that users should be provided with a predefined set of conditions that can be added to the action model.
+The majority of users had issues formulating the logical representations of object properties used in action models. 
+In the first experiment (\sect{sec:Exp1}), users had difficulties formulating certain conditions in the planning language (\eg \texttt{(stackable ball cube)}), but stated equivalent ones (\eg \textit{`only place the ball, if it is stackable on the cube'}).
+Similarly, in the second experiment (\sect{sec:Exp2}), users formulated missing preconditions (\eg \textit{`position B is empty'}) with other equivalent conditions (\eg \textit{`do not place the object on position B, if it is occupied'}). 
+This means that users should be provided with predefined conditions that they can choose from instead of letting them add arbitrary ones.
 
-Some users made wide assumptions about the robot's capabilities. In the second experiments, when both arrival and departure positions were occupied (Fig. \ref{fig:scenarios-exp2}c), less half of the users (5) expected Baxter to consider the occupied position, even though the condition was not mentioned in its action model.
-This is a common problem in PbD solutions as there is a difference in the perception of the robot's intelligence perceived by its teacher (\cite{suay2012practical}) and can be addressed by reproducing the learned task in a new context and verifying the robot's knowledge base, as we did throughout the experiment.
+Some users made wide assumptions about the robot's capabilities. 
+In the second experiments, when both arrival and departure positions were occupied (\fig{fig:scenarios-exp2}c), 5 (or 50\%) of the users expected Baxter to consider the occupied position, even though the condition was not mentioned in its action model.
+This is a common problem in PbD solutions as there is a difference between the robot's intelligence and the one perceived by its teacher (\cite{suay2012practical}).
+This can be addressed by reproducing the learned action in a new context and verifying the robot's knowledge base, as we did throughout the experiment.
 
-With these two qualitative experiments, we showed that the automated planning language could easily be adopted by users without any programming background. Moreover, the action model representation, in terms of preconditions and effects, seems to be intuitive for non-expert users. 
-However, these initial experiments only provide us with an idea of how the users might perceive the proposed framework. We intentionally limited the set of concepts that are necessary to use the framework to the bare minimum. Further experiments should test scalability and address more complicated actions involving separate control groups (experts vs non-experts) in less structured scenarios. 
+With these two qualitative experiments, we showed that the automated planning language and its main concepts can easily be learned by users without any programming background. 
+The action model representation, in terms of preconditions and effects, seems to be intuitive for non-expert users. 
+However, these initial experiments only provide us with an idea of how the users might perceive the proposed framework. 
+We intentionally limited the set of automated planning concepts (\ie object types, predicates, and actions with preconditions and effects) that are necessary to use the framework to the bare minimum to assess the potential usability of such a framework. 
+Further experiments should test scalability, address more automated planning concepts (\eg object-type hierarchy, more predicates, planning problem definition and resolution) and potentially compare separate control groups (\eg experts vs non-experts) in less structured environments.
 
+\section{Conclusions}
+In this section we evaluated the robot programming framework proposed in \chapt{chap:Contribution} with qualitative experiments. 
+The framework combines two techniques, Programming by Demonstration and Automated Planning, and uses an action model representation, in terms of preconditions and effects.
+We showed that non-expert users easily grasped the symbolic planning concepts, despite learning about them for the first time. 
+Overall, the robot programming process was considered to be very intuitive and easily understood by users. 
+
+Now that we have verified the possible usability of the proposed framework, the focus lies in its full implementation. 
+This involves using state-of-the-art techniques to implement functionalities that were simulated with the Wizard-of-Oz technique during the experiment. 
+This consists of the following main aspects: 
+\begin{enumerate}
+	\item learn generalisable low-level actions by demonstration (\eg \cite{akgun2012keyframe,pastor2009learning}),
+	\item learn high-level action representations in terms of preconditions and effects (\eg \cite{abdo2013learning,mollard2015robot}),
+	\item integrate a task planner to generate solutions using the learned actions (\eg \cite{abdo2013learning}),
+	\item create a user-interface (\eg \cite{alexandrova2014robot,huang2017code3}) to guide the end-user programming process and allows intuitive navigation between all functionalities.
+\end{enumerate}
+In the next chapter (\ref{chap:OrganisingTasks}) we present a system that uses keyframe-based PbD to learn generalisable low-level actions by demonstration and provides an intuitive graphical interface.
+Inspired by this system, we present iRoPro in \chapt{chap:Implementation}, an end-to-end robot programming system that implements the proposed framework and includes all of the above functionalities.
