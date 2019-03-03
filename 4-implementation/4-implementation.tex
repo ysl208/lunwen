@@ -1,61 +1,40 @@
-
-\subsection{Partial Implementation of the Framework}\label{ssec:WoZ}
+\subsection{System - Partial Implementation of the Framework}\label{ssec:WoZ}
 In this section we provide details of the partial implementation of the framework that was used with the Wizard-of-Oz technique to simulate the experimental scenario.
-
-%\section{Implementation of the Framework}
-Due to the limited time-frame of this project, we aimed to evaluate the usability of our proposed framework, rather than creating a complete implementation thereof.
-Hence, we focused on creating a program, which allows us to simulate a fully functional implementation of the framework, in order to conduct realistic experiments.
-Our framework should allow an inexperienced user to construct action models in PDDL that can be used in a goal-oriented approach.
-The actions are learned by demonstration and then used to execute complex tasks such as the permutation of objects on the table.
-
+The goal of this user study was to evaluate the potential usability of our proposed framework, before embarking on a complete implementation.
+Hence, we focused on creating a system that allows us to simulate a fully functional implementation of the framework, in order to conduct realistic experiments.
+%Our framework should allow an inexperienced user to construct action models in PDDL that can be used in a goal-oriented approach.
+The key requirements were for the robot to learn action models by demonstration and to reuse them for more complex tasks such as the permutation of two objects on the table.
 %We evaluated the usability of this framework in terms of experiments discussed in Chapter \ref{Evaluation}.
 Consider the PbD principle overview shown in \fig{fig:Baxter-Case-Study}.
-By iterating through the individual stages, we implemented our framework with the following functionalities:
+The system included the following functionalities:
 \begin{itemize}
-\item Search for an object,
-\item Record a simple movement which represents the action,
-\item Assign predicates and parameters to the learned action,
-\item Create the action model in PDDL,
-\item Execute a sequence of created actions defined in an external file.
+\item {\textbf{Object localisation:} Baxter is equipped with a camera on the screen and one on each end effector.
+The head camera is not very flexible, as the screen does not tilt.
+We use the camera on Baxter's end effector.}
+\item Learn an action: record the action demonstration
+\item Assign predicates and parameters: assigned preconditions to the learned action via the user interface
+\item Create action model: translate the taught action into PDDL
+\item Execute a plan: execute an action sequence defined in an external file.
 \end{itemize}
 
   \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.45]{figures/Baxter-Case-Study}
+    \includegraphics[width=\linewidth]{figures/Baxter-Case-Study}
     \caption{PbD principle overview}
     \label{fig:Baxter-Case-Study}
   \end{figure}
 
 %This framework allows the user to create any actions needed for the PDDL domain.
-In the following sections we will discuss the implementation of each of the above mentioned functionalities in depth.
-
-%\subsection{Intera Software}
-%The industrial version of the Baxter robot currently comes with the Intera 3 software that provides a graphical user interface.
-The software allows the selection of the basic tasks in order to build an action sequence.
-Aimed at taking over factory operations that usually employ several people, the industrial version of Baxter can easily be taught simple tasks without the need for programming.
-
-
-%%%% Step 1 %%%%
-\section{Baxter Research Robot}
-We implemented the framework using a Baxter Research Robot (\cite{robotics2013baxter}), which is required to learn the action models needed for a pick-and-place action.
-Baxter is a two-armed humanoid robot created by Rethink Robotics and introduced in 2012 (\cite{robotics2013baxter}).
-The SDK interfaces with Baxter via the Robot Operating System (ROS), a framework developed in 2007 by the Stanford Artificial Intelligence Laboratory, that allows the shared use of software across a wide variety of robotic platforms (\cite{fernandez2015learning}).
-Unlike the industrial version of the Baxter robot, which comes with the Intera 3 software that provides a graphical user interface, the research robot arrives without any such functionalities.
-
-To date, there are many research laboratories that have started developing algorithms using the Baxter Research Robot.
-Current implementations for task execution with the Baxter research robot are specifically designed to fulfill a certain task (e.g.
-pick up golf balls and place them in a basket (\cite{BaxterGolf}), play the game Connect 4 by picking up chips from a specified location (\cite{Connect4})).
-After the Ebola outbreak in West Africa in 2014, the Baxter Research Robot has been utilised to reduce the risk of contamination (\cite{Ebola}).
-
-%However, the educational level of robotics students to provide solutions for workers is far behind the potential for robots.
+In the following sections we will discuss the implementation of each of the above mentioned functionalities.
 
 \subsubsection{The User Interface}
 Our user interface was built on the existing ROS package called \textsc{Baxter Tasker} created by Generation Robots (\cite{BaxterTasker}).
-\textsc{Baxter Tasker} is intended for the Baxter Research Robot and provides a user interface on both the computer and the robot.
-The user interface was initially designed to allow users to set up a simple pick and place behaviour and provides a general overview of Baxter's capabilities.
+It provides a user interface that can be navigated on both the computer and the robot.
+The interface was initially designed to allow users to set up a simple pick and place behaviour.
+% and provides a general overview of Baxter's capabilities.
 The Python classes combine the use of sensor data and existing Baxter interface classes.
 \fig{fig:interface} shows the added functionalities.
-In our implementation, we did not focus on the interface layout, hence did not modify the existing one.
+%In our implementation, we did not focus on the interface layout, hence did not modify the existing one.
 
 \begin{figure}[h]
 	\centering
@@ -70,19 +49,14 @@ In our implementation, we did not focus on the interface layout, hence did not m
 %\item
 %\end{itemize}
 
-\subsubsection{Perceptions}
-During the demonstration, our framework makes use of the sensors provided by the Baxter Research Robot.
-
-As Baxter was designed for easy arm manipulation, we use teleoperation (\sect{subsec:Gathering demonstrations}) for demonstrations.
-This is the most accurate way to transfer the teacher's intention to Baxter and when performing the task as the teacher handles Baxter's limb directly when demonstrating the task.
-We initially considered the use of the electric gripper, but realised that it was more appropriate for precision tasks, as the gripper only allows a limited grasping area.
-Suction grippers are more commonly used in manufacturing environments for the manipulation of objects with arbitrary size.
-Thus, in our implementation we only use Baxter's arm with a suction gripper.
-It is assumed that the searched objects have a flat surface for the vacuum gripper to grasp.
-
-Baxter is equipped with a camera on the screen and one on each end effector.
-The head camera is not very flexible, as the screen does not tilt enough.
-For state observation and object localisation, we decided to only use the camera on Baxter's end effector, that is used for the manipulation task.
+%\subsubsection{Perceptions}
+%During the demonstration, our framework makes use of the sensors provided by the Baxter Research Robot.
+%As Baxter was designed for easy arm manipulation, we use teleoperation (\sect{subsec:Gathering demonstrations}) for demonstrations.
+%This is the most accurate way to transfer the teacher's intention to Baxter and when performing the task as the teacher handles Baxter's limb directly when demonstrating the task.
+%We initially considered the use of the electric gripper, but realised that it was more appropriate for precision tasks, as the gripper only allows a limited grasping area.
+%Suction grippers are more commonly used in manufacturing environments for the manipulation of objects with arbitrary size.
+%Thus, in our implementation we only use Baxter's arm with a suction gripper.
+%It is assumed that the searched objects have a flat surface for the vacuum gripper to grasp.
 
 %\subsection{Knowledge representation} 
 %There has been little research addressing the sharing and reuse of knowledge.
@@ -106,72 +80,68 @@ For state observation and object localisation, we decided to only use the camera
 
 
 %%%% Step 2 Learning %%%%
-\subsubsection{Learning}
-%%%% Model of the skills %%%%
-%\subsection{Create an action model}
-\label{Create an action model}
-Recall the action models in PDDL as part of the \texttt{PRODUCTION} domain mentioned in \sect{subsec:Planning domain description}.
-In order to teach Baxter a complete pick-and-place action, we need to teach Baxter all action models (pick, move, drop) to solve the \texttt{PERMUTATION} planning problem.
-It is sometimes necessary to teach the robot all basic component actions separately, as they all have varying preconditions and effects.
-The user should be able to create each of these action models by demonstrating the action and letting Baxter derive the associated conditions.
+\subsubsection{Action model learning} \label{Create an action model}
+Recall the action models in the PDDL domain mentioned in \sect{subsec:Planning domain description}.
+%In order to teach Baxter a complete pick-and-place action, we need to teach Baxter all action models (pick, move, drop) to solve the \texttt{PERMUTATION} planning problem.
+%It is sometimes necessary to teach the robot all basic component actions separately, as they all have varying preconditions and effects.
+The user should be able to create an action model by kinesthetic demonstration and letting Baxter derive the associated conditions by observing the world state before and after. %each action is observed and the change is then recorded
 %This includes opening and closing the gripper, as well as the limb movement itself.
-
-
-Thus, a simple pick-up action should be demonstrated as approaching the object, closing the gripper and lifting the object vertically.
-An example of the observed action model of a \texttt{pick} action with the Baxter's right limb, grasping a red-coloured object at a starting position $(0,0)$ is the following:
-
-\begin{verbatim}
-(:action pick
-:parameters (red - product 0-0 - location right - gripper)
-:precondition  (and  (at red 0-0) (at-gripper right 0-0) 
-(free right) not(empty 0-0))
-:effect (and (carry red right)
-(empty 0-0)
-(not (at red 0-0)) 
-(not (free right))))
-\end{verbatim}
-In order to execute the action, the robot observed that the red-coloured product was at location 0-0 and that the right gripper was free.
-The effect of the \texttt{pick} action was that the right gripper was carrying the red product and that it was no longer occupying position 0-0.
-Instead of replicating the demonstrated movement, the robot extracts the relevant characteristics of the gesture that need to be reproduced.
+%Thus, a simple pick-and-place action should be demonstrated ..
+%as approaching the object, closing the gripper, and lifting the object vertically, placing it on the target position, opening the.
+%An example of the observed action model of a \texttt{pick} action with the Baxter's right limb, grasping a red-coloured object at a starting position $(0,0)$ is the following:
+%\begin{verbatim}
+%(:action pick
+%:parameters (red - product 0-0 - location right - gripper)
+%:precondition  (and  (at red 0-0) (at-gripper right 0-0) 
+%(free right) not(empty 0-0))
+%:effect (and (carry red right)
+%(empty 0-0)
+%(not (at red 0-0)) 
+%(not (free right))))
+%\end{verbatim}
+%In order to execute the action, the robot observed that the red-coloured product was at location 0-0 and that the right gripper was free.
+%The effect of the \texttt{pick} action was that the right gripper was carrying the red product and that it was no longer occupying position 0-0.
+Instead of replicating the demonstrated action trajectory, the robot extracts only the relevant characteristics of the movement as well as the action preconditions and effects.
+The system was intended to be used for the experimental scenario so we mainly considered simple actions such as pick-and-place, rotate, push.
+Thus, action learning from demonstration was done by taking the end-effector poses (\ie (x,y,z) position and (dx,dy,dz) orientation) of the demonstrated action.
+To apply a taught action in a different scenario, the recorded poses were updated, \eg changed starting position coordinates.
 %To learn the action, it needs to observe the main attributes that can change and that are relevant to reproduce the action.
-The world before and after each action is observed and the change is then recorded.
 
+%The above action model shows the learned \texttt{pick} action with the observed preconditions and effects, before and after the action execution.
+%
+%The robot learns a generalised action model by replacing the instantiated values with variables \texttt{product}, \texttt{position} and \texttt{gripper}:
+%
+%\begin{verbatim}
+%(:action pick
+%:parameters (?p - product ?l - location ?g - gripper)
+%:precondition  (and  (at ?p ?l) (at-gripper ?g ?l) (free ?g))
+%:effect (and (carry ?p ?g)
+%(not (at ?p ?l)) 
+%(not (free ?g))))
+%\end{verbatim}
 
-The above action model shows the learned \texttt{pick} action with the observed preconditions and effects, before and after the action execution.
-
-The robot learns a generalised action model by removing the instantiated values for the variables \texttt{product}, \texttt{position} and \texttt{gripper}:
-
-\begin{verbatim}
-(:action pick
-:parameters (?p - product ?l - location ?g - gripper)
-:precondition  (and  (at ?p ?l) (at-gripper ?g ?l) (free ?g))
-:effect (and (carry ?p ?g)
-(not (at ?p ?l)) 
-(not (free ?g))))
-\end{verbatim}
-
-\subsubsection{Implementation}
-Due to the limited scope of this project, we only implemented the observed characteristics that were crucial to reproduce the action (see Table \ref{tab:PDDL implementation}).
+%\subsubsection{Implementation}
+We implemented the observed characteristics that were crucial to reproduce the action (see Table \ref{tab:PDDL implementation}).
 For predicates describing the object's state, we would need to use a second camera, as the one on the end effector would have a restricted view after the grasping an object.
 
 \begin{table}[h]
 	\begin{center}
 		\begin{tabular}{l|l}
 			PDDL & Implementation\\ \hline
-			\texttt{:action pick} & action_name: String\\
-			\texttt{at-gripper ?g ?l} & change_vector: Pose\\
-			\texttt{free ?g } & gripper_change: Bool\\
-			\texttt{carry ?p ?g} & holding_object: Bool
+			\texttt{:action pick} & action\_name: String\\
+			\texttt{at-gripper ?g ?l} & change\_vector: Pose\\
+			\texttt{free ?g } & gripper\_change: Bool\\
+			\texttt{carry ?p ?g} & holding\_object: Bool
 		\end{tabular}
 		\label{tab:PDDL implementation}
 		\caption{Implementation of the PDDL predicates}
 	\end{center}
 \end{table}
 
-The \texttt{change_vector} is the trajectory calculated by taking the difference between the gripper's initial pose and goal pose.
+The \texttt{change\_vector} is the trajectory calculated by taking the difference between the gripper's initial pose and goal pose.
 This allows a learned movement to be reproduced from any arbitrary gripper position.
-The \texttt{gripper_change} variable states whether or not the gripper status should be changed (between open and close) or whether it should be simply ignored.
-The \texttt{holding_object} attribute (see Section \ref{holdingObject}) indicates whether the gripper is currently holding an object.
+The \texttt{gripper\_change} variable states whether or not the gripper status should be changed (between open and close) or whether it should be simply ignored.
+The \texttt{holding\_object} attribute (see \sect{holdingObject}) indicates whether the gripper is currently holding an object.
 
 %\begin{table}[h]
 %\begin{center}
@@ -189,18 +159,16 @@ The \texttt{holding_object} attribute (see Section \ref{holdingObject}) indicate
 
 Our implementation only considers one demonstration for the learning process.
 Different learning algorithms (\eg
-Bayesian, neural networks) might be required to improve the performance of the learned trajectories by taking into consideration multiple demonstrations.
-
-Furthermore, in order to allow planning for more complex control structures in real-world domains, it is necessary to detect divergences of the planned states from actual sensed states.
+DMP (\cite{schaal03} or mixture models \cite{calinon2007learning}) might be required to improve the performance of the learned trajectories by taking into consideration multiple demonstrations.
+Furthermore, in order to allow planning for more complex control structures in real-world domains, it is necessary to detect perception errors between the planned states from actual sensed states.
 The use of multiple cameras would be required to verify the actual states.
 %\cite{ObjectActionComplexes} Another possibility is to learn a visual object model of an unknown object by grasping it to allow grasping different kinds of objects.
-
 %\subsubsection{Learning preconditions and effects}
 After the demonstration of the action, the user needs to verify the observed conditions associated with the action.
 Due to the limited time and scope of this project, we did not implement the translation of the internal action model into PDDL.
 However, the user can select the predicates to be associated with the action via the user interface.
 The user interface proposes all predicates provided in the domain description and generates the PDDL code according to the user's selections.
-In future work this could be automated, such that these predicates are automatically recognised by the robot from the taught action.
+%In future work this could be automated, such that these predicates are automatically recognised by the robot from the taught action.
 
 \subsubsection{Reproduction}
 After the creation of all action models, the user should be able to reproduce a task as a combination of all actions, in order to validate its usability.
@@ -297,7 +265,7 @@ As we experienced during our implementation tests, the surface of the object has
 Thus, it is crucial to keep track of the gripper, \ie
 whether it is still holding the object during the execution of the subsequent actions.
 This can be associated with the \texttt{carry ?p - product ?g gripper} predicate.
-In this respect, we created a function \texttt{holding_object}, which returns the correct state, depending on the infrared range sensor (gripper is within a certain distance to the object) and the gripper status (suction is activated).
+In this respect, we created a function \texttt{holding\_object}, which returns the correct state, depending on the infrared range sensor (gripper is within a certain distance to the object) and the gripper status (suction is activated).
 
 %%%% Step 3 %%%%
 \subsubsection{Execution to a new context}
@@ -316,7 +284,7 @@ However, in our final implementation, Baxter can execute any sequence of actions
 This allowed us to simulate an execution of a plan generated by an automated planner.
 
 Note that in our implementation, we rely on a general assumption on the objects included in the domain.
-The object search function assumes that all objects have a monotonous colour and a flat and homogeneous surface that guarantee a successful execution of the implemented \texttt{approach} and \texttt{holding_object} functions.
+The object search function assumes that all objects have a monotonous colour and a flat and homogeneous surface that guarantee a successful execution of the implemented \texttt{approach} and \texttt{holding\_object} functions.
 
 %In Section \ref{Conclusion} we will discuss possible extensions and respective implementations which allow the manipulation of other object types.
 
@@ -328,8 +296,8 @@ The object search function assumes that all objects have a monotonous colour and
 %\begin{center}
 %\begin{tabular}{l|l|l|l}
 %Action & Precondition & Effect\\ \hline
-%move\_block(X,Y) & block\_at\_position(X,Y) and clear(Z) & block\_at\_position(X,Z) and $X \neq Z$ \\
-%grasp(X) & gripper\_free() & not(gripper\_free())\\
+%move\\_block(X,Y) & block\\_at\\_position(X,Y) and clear(Z) & block\\_at\\_position(X,Z) and $X \neq Z$ \\
+%grasp(X) & gripper\\_free() & not(gripper\\_free())\\
 %\end{tabular}
 %\end{center}
 %\label{tab:actionmodels}
