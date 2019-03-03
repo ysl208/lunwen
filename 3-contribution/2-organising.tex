@@ -1,7 +1,7 @@
-In this chapter we demonstrate the generalisability of our chosen PbD approach using keyframe-based demonstration (\cite{akgun12klfd}), and its usability for end-user robot programming applications.
-To that end, we address the problem of robotic shelf arrangement tasks in stores or warehouses. 
+In this chapter we choose the state-of-the-art technique keyframe-based PbD (\cite{akgun12klfd}) as an approach to allow end-users to program robot applications.
+To that end, we specifically address the problem of robotic shelf arrangement tasks in stores or warehouses. 
 We present a system that allows end-users to teach robots low-level actions by demonstration and customise them via a graphical user interface.
-As the system includes an implementation of both a state-of-the-art PbD approach and a graphical user interface to facilitate end-user robot programming, it builds a firm foundation for the framework proposed in \chapt{chap:Contribution}.
+As the system includes an implementation of both the state-of-the-art PbD approach and a graphical user interface to facilitate end-user robot programming, it builds a firm foundation for the framework proposed in \chapt{chap:Contribution}.
 
 In the following we first provide some context (\sect{sec:irosintro}) and related work of robotic shelf organisation (\sect{sec:irosrelatedwork}).
 Then we propose a task representation for shelf arrangements based on a large dataset of grocery store shelf images and a method for inferring goal configurations from user inputs including demonstrations and direct parameter specifications (\sect{sec:irosorg-approach}).
@@ -528,8 +528,13 @@ Some limitations of our approach are as follows.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
 \label{sec:irosconclusion}
-We present an end-user robot programming system to efficiently teach a robot shelf arrangement tasks and actions.
-We propose augmenting Programming by Demonstration with domain-aware goal inference and direct user inputs to accelerate the teaching process.
+In this chapter we presented an end-user robot programming system to efficiently teach a robot shelf arrangement tasks and actions.
+We proposed augmenting Programming by Demonstration with domain-aware goal inference and direct user inputs to accelerate the teaching process.
 Our task goal representation is based on an analysis of a large database of grocery store shelf images.
-We evaluated our goal inference with different teaching strategies and with real human teachers.
+We evaluated our goal inference with different teaching strategies and with real human teachers in an online user study on AMT.
 We then demonstrated our system's ability to efficiently learn and perform various shelf arrangement tasks and actions on a Fetch mobile manipulator.
+
+In the context of this thesis, we demonstrated the generalisability of our chosen PbD approach using keyframe-based demonstration and validated its usability for end-user robot programming applications.
+The main focus was to demonstrate the system's expressivity by allowing users to easily teach robots a variety of customised actions.
+The implemented system is the first step towards creating the robot programming framework proposed in \chapt{chap:Contribution} and includes both teaching the robot low-level actions and a graphical interface to facilitate the end-user programming process.
+Building on top of this system, the remaining steps are to implement learning high-level action representations and to integrate the task planner resulting in an end-to-end robot programming system.
