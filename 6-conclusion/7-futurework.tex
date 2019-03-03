@@ -1,23 +1,36 @@
-\section{Discussions}
+\section{Contributions}
+\label{sec:contributions}
+In this thesis we proposed a framework that uses PbD to teach a robot a goal-oriented problem-solving behaviour.
+The framework combines solutions from PbD and Automated Planning, allowing non-expert users to teach a robot new actions together with their semantic meaning.
+The user teaches the robot not only the action, but also its underlying meaning in terms of preconditions and effects.
+This allows the robot to understand when an action can be executed and therefore use symbolic planners to generate solutions autonomously.
+Unlike existing PbD approaches, where a task execution is taught to reach a goal, our approach provides the robot with all skills needed to generate the task execution itself.
+
+As a first step we focused on evaluating the usability of our framework, rather than implementing all proposed functionalities.
+Thus, we implemented the main components of the framework, using a Baxter Research Robot, that allowed us to conduct initial experiments.
+%At the end of our implementation phase, Baxter was able to search objects on the table by their colour, learn a new action with user-defined predicates, and translate them into PDDL format.
+%Furthermore, Baxter could reproduce the learned actions in a new context and execute a sequence of actions from an externally defined source.
+%As we target cobotic environments, we evaluated the usability in terms of experiments simulating an assembly line in a manufacturing environment.
+%Using the wizard-of-oz approach, we managed to create an experimental scenario, which allowed us to obtain realistic feedback from participants.
+We evaluated the user's adoption of the robot programming process and their ability to comprehend symbolic representations used in automated planning techniques.
+Our experiments showed that users with and without programming experience understood the concepts of PbD and automated planning, despite learning about them for the first time.
+%As expected, none of the users managed to deduce immediately all predicates needed for the definition of a pick-and-place action model.
+%Users needed to be faced with different action reproduction scenarios in order to deduce all relevant predicates.
+%A future implementation of this framework would benefit from a user interface, which presents simple examples to provide guidance for new users.
+%Overall, users were satisfied with the robot programming process and the robot's ability to comprehend the taught predicates.
+
+We further presented work on a system for teaching robots organisation tasks using PbD and goal inference. 
+We evaluated this system in terms of user experiments on Amazon Mechanical Turk and compared users' teaching strategies.
+This work focused on shelf organisation tasks and demonstrated the representational power of a PbD system for end-users. 
+The same PbD system will be used for our proposed robot programming framework.
+
+%In conclusion, we believe that our framework offers a solution for users without programming experience to efficiently program a robot, by combining the techniques of the two main disciplines: Programming by Demonstration and Automated Planning.
+%Rather than teaching specific task executions, we take a goal-oriented problem-solving approach, which has been neglected in existing PbD implementations.
+%As shown in our evaluation phase, the robot's learning process and logical representations are intuitive enough for non-expert users to understand.
+
+
+\section{Discussions and Open Questions}
 \label{sec:discussions}
-Both system and user evaluations demonstrated that iRoPro can be used to generalise primitive actions to a range of complex manipulation tasks and that it is easy to learn for users with or without programming experience.
-In our system evaluation we could have programmed other actions, such as turning or pushing for packaging tasks.
-As the purpose of our evaluation was to show the generalisability of primitive actions with the use of a task planner, we decided to stick to pick-and-place actions.
-%Users particularly liked the PbD technique and found that
-%`generating plans automatically' was the most useful feature 
-In the following we discuss limitations and interesting extensions of our work:
-\begin{enumerate}
-	%\item No generalization from one item to another.
-	\item Our object perception is limited as it does not detect objects that are too close together (\eg stacked objects).
-	An improved perception system would allow the detection of initial states with stacked objects, automatically detecting goal states, or verifying action executions.
-	%s mentioned in \sect{sec:implementation}, we partly the latter by using a mental model, where we first executed a stacking task to save the latest object positions, then reused the saved state for subsequent tasks.
-	\item Due to the different grippers, we did not program actions that use both arms (\eg carrying a tray). A possible extension would be to include a better motion and task planning system in order to allow executing both arms simultaneously while avoiding self-collision.
-	%As our robot was equipped with a suction and a claw gripper, the kinesthetic teaching of both arms could be difficult to program by a single user.
-	\item We only included a minimal set of predicates (\sect{sec:highlevel}) that we deemed intuitive and useful for object manipulation tasks.
-	It could be interesting to include and learn predicates to capture more complex domains such as object orientation \cite{li2016learning}.
-	%the use a mobile robot that can move between workstations.
-	%\item A possible extension would be to incorporate probabilistic techniques to learn predicates or pre-train the robot on simulated scenarios to improve the condition inference.
-\end{enumerate}
 
 \subsection{Challenges in PbD}\label{sssec:Challenges in PbD}
 Despite ongoing research in PbD, there are several challenges that still need to be addressed:
@@ -34,8 +47,9 @@ Difficulties in comparing across applications arise from the use of different ro
 \cite{suay2012practical} partly addresses this challenge by comparing three well-established algorithms and evaluating their performance in a common domain.
 
 
-\section{On-going and Future work}
-The main focus for the remainder of the thesis is a complete implementation of the end-to-end framework and a graphical interface to allow easy interaction with the robot. In particular, the work for the remaining thesis duration will include the following:
+\subsection{On-going and Future work}
+Future work will focus on exploring more challenging domains by including a wider range of predicates and probabilistic techniques to improve the condition inference.
+In particular, the work for the remaining thesis duration will include the following:
 \begin{itemize}
 \item Complete user interface with options to modify planning domain, predicates, and define new problems.
 \item Integrate automated planner using PDDL4Jrospy.
