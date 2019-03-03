@@ -1,8 +1,8 @@
 
 \section{User Evaluation}
 \label{sec:quanteval}
-The second part of the evaluation was conducted using the THEDRE (Traceable Human Experiment Design Research) method \cite{mandran2018traceable,mandran2017thedre} which aims to evaluate computer systems in a research context by integrating a user-centered approach.
-It is based on continuous improvement and takes a pragmatic constructivist approach \cite{avenier2015finding}, allowing it to further develop the system as well as the scientific knowledge from the experimental ground.
+The second part of the evaluation was conducted using the THEDRE (Traceable Human Experiment Design Research) method (\cite{mandran2018traceable,mandran2017thedre}) which aims to evaluate computer systems in a research context by integrating a user-centered approach.
+It is based on continuous improvement and takes a pragmatic constructivist approach (\cite{avenier2015finding}), allowing it to further develop the system as well as the scientific knowledge from the experimental ground.
 To that end, it offered us the possibility to mix qualitative and quantitative approaches in order to gather as much data as possible to evaluate and improve our system. 
 
 User experiments aimed to evaluate our approach implemented on a Baxter robot with real end-users.
@@ -18,13 +18,6 @@ We set the following hypotheses for our experiments:
     \item[H4] Condition inference evaluation - Group 1 vs 2: users without automatic condition inference will understand the system better
     \item[H5] Pre-test questionnaire: users that perform better in the pre-test questionnaire can learn to use the system faster
 \end{enumerate}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.7\linewidth]{figures/dispositif.pdf}
-	\caption{Experimental setup for the user study (N=21), where users programmed the Baxter robot via a GUI to manipulate given object types (with predefined type hierarchy). }
-	\label{fig:dispositif}
-\end{figure}
 
 \subsection{Set up}
 The experiments were conducted with a Baxter robot with two grippers (suction and claw) and mounted with a Kinect Xbox 360 camera. 
@@ -52,6 +45,25 @@ When the generated plan was correct, they were executed on the robot.
 Otherwise, the user had to modify the existing input until the plan was correctly generated.
 Tasks 6-8 were similar to the previous tasks (1-5) but use both robot grippers.
 
+\begin{table}[h]
+	\centering
+	\caption{Benchmark tasks for the user study where the first two tasks were used to introduce participants to the system.}
+	\label{table:userstudytasks}
+	\begin{center}
+		\begin{tabular}{ll}
+			\# Task description & Main solution \\ \hline
+			(1) move a BASE object & create new action (+demo) \\
+			(2) move a BASE object to any position & create new problem \\
+			3 swap two BASE objects & add condition (`is clear') \\
+			4 stack a CUBE on a BASE & modify types\\
+			5 do not stack a CUBE on a ROOF & add condition (`is stackable')\\
+			6 move a ROOF object & create new action (+demo) \\
+			7 stack a ROOF on a CUBE & modify types  \\
+			8 build a house (BASE, CUBE, ROOF) & navigate autonomously \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
 \subsection{Metrics}
 We captured the following data during the experiments:
 \begin{enumerate}
@@ -66,9 +78,9 @@ The highest achievable score was 7.
 %Answers that were selected incorrectly were penalised with half a point
 %to discriminate users who selected unnecessary options
 
-In the post-study survey we used the System Usability Scale (SUS) \cite{brooke1996sus} where participants had to give a rating on a 5-Point Likert scale ranging from `Strongly agree' to `Strongly disagree'.
-It enabled us to measure the perceived usability of the system with a small sample of users \cite{tullis2004comparison}.
-As a benchmark, we compare overall responses to a similar user study published by \citet{liang2017evaluation}, where users were simulated a robot programming experience using the Wizard-of-Oz technique.
+In the post-study survey we used the System Usability Scale (SUS) (\cite{brooke1996sus}) where participants had to give a rating on a 5-Point Likert scale ranging from `Strongly agree' to `Strongly disagree'.
+It enabled us to measure the perceived usability of the system with a small sample of users (\cite{tullis2004comparison}).
+As a benchmark, we compare overall responses to our previous user study in \sect{sec:Exp2}, where users were simulated a robot programming experience using the Wizard-of-Oz technique.
 Finally, participants were asked which aspects they found most useful, most difficult, and which they liked the best and the least.
 
 
@@ -83,24 +95,6 @@ Finally, participants were asked which aspects they found most useful, most diff
 %     \item Duration per completed task
 % \end{itemize}
 
-\begin{table}[h]
-\centering
-\caption{Benchmark tasks for the user study where the first two tasks were used to introduce participants to the system.}
-\label{table:userstudytasks}
-\begin{center}
-\begin{tabular}{ll}
-\# Task description & Main solution \\ \hline
-(1) move a BASE object & create new action (+demo) \\
-(2) move a BASE object to any position & create new problem \\
- 3 swap two BASE objects & add condition (`is clear') \\
- 4 stack a CUBE on a BASE & modify types\\
- 5 do not stack a CUBE on a ROOF & add condition (`is stackable')\\
- 6 move a ROOF object & create new action (+demo) \\
- 7 stack a ROOF on a CUBE & modify types  \\
- 8 build a house (BASE, CUBE, ROOF) & navigate autonomously \\ \hline
-\end{tabular}
-\end{center}
-\end{table}
 \subsection{Results}
 20 participants completed all tasks, while one `non-CS' user failed to complete the majority of tasks and did not seem to understand the presented concepts.
 This participant was excluded in the presented results.
@@ -159,12 +153,6 @@ By the end of the experiment, users programmed two manipulation actions (one for
 The generated PDDL code for the planning domain can be found in the attached material.
 
 
-\begin{figure}[h]%
-  \centering
-    \includegraphics[width=0.5\columnwidth]{figures/quan-pretest-results.pdf}%
-    \caption{Participants who did better in the pre-test questionnaire completed the main tasks faster, with `non-CS' users scoring the highest and being the fastest on average.}\label{fig:pretestvstask}%
-\end{figure}%
-
 % \begin{figure}[tb]%
 %   \centering
 %   \begin{subfigure}[h]{0.24\textwidth}%
@@ -203,6 +191,11 @@ As an outlier we observed that the fastest participant scored only 4.7, but easi
 %the participant that took the longest (60min) scored 4.37.
 Even though Group 1 performed slightly better in the pre-test (AVG=7.5, STD=1.35) than Group 2 (AVG=6.4, STD=2.01), both completion times were on average similar (41min).
 
+\begin{figure}[h]%
+	\centering
+	\includegraphics[width=0.5\columnwidth]{figures/quan-pretest-results.pdf}%
+	\caption{Participants who did better in the pre-test questionnaire completed the main tasks faster, with `non-CS' users scoring the highest and being the fastest on average.}\label{fig:pretestvstask}%
+\end{figure}%
 %In Task 3: as all the users in Group 2 had added the missing condition (`posB is clear') in Task 1, a correct action sequence was generated directly.
 %In Group 1 8/10 had not added this condition and needed guidance to resolve this issue, with 3 participants trying to modify the problem definition instead of the action, 1 trying to add a new action for `clearing a position', and 1 failing to figure out the right condition to add.
 
@@ -232,7 +225,7 @@ Even though Group 1 performed slightly better in the pre-test (AVG=7.5, STD=1.35
 % \end{table}
 
 \subsubsection{System usability and learnability} 
-There are several ways to interpret the System Usability Scale (SUS) scores \cite{brooke2013sus} obtained from the post-study survey. 
+There are several ways to interpret the System Usability Scale (SUS) scores (\cite{brooke2013sus}) obtained from the post-study survey. 
 Using \citet{bangor2008suseval} categories, 14 (70\%) users ranked iRoPro as `acceptable', 6 (30\%) rated it `marginally acceptable', and no one ranked it `not acceptable'.
 Correlating this with the Net Promoter Score\footnote{https://measuringu.com/nps-sus/}, this corresponds to 10 (50\%) participants being `promoters' (most likely to recommend the system), 5 (25\%) `passive', and 5 (25\%) `detractors' (likely to discourage).
 Overall, iRoPro was rated with a good system usability which has been shown to be correlated with its learnability (\cite{borsci2009dimensionality,sauro2011practical}).
@@ -240,14 +233,14 @@ Overall, iRoPro was rated with a good system usability which has been shown to b
 \subsubsection{User experience} 
 %We asked users the same questions as in our previous work \textit{[Anonymous]} where we used the Wizard-of-Oz technique to conduct a qualitative evaluation of a potential system.
 % similar with mainly positive responses in both studies .
-Comparing the responses to the user study (N=11) conducted by \citet{liang2017evaluation}, where the Wizard-of-Oz technique was used to simulate the robot programming process, the main difference was regarding difficulties encountered during the experiment.
-While the authors had 11 (or 100\%) agree that they encountered no difficulties, only 7 (or 35\%) of our users stated the same (\fig{fig:exp1vsexp2-results}).
-However, all of our users claimed to have a good understanding of the action representation and how the robot learned new actions from the demonstration, while in Liang et al.'s study, an average of 2 (18\%) disagreed.
-Both differences can be explained by the fact that in our study, users had to use an end-to-end system to program the robot, while the authors simulated the system functionalities using the Wizard-of-Oz technique.
+Comparing the responses to the user study conducted in \sect{sec:Exp2}, where the Wizard-of-Oz technique was used to simulate the robot programming process, the main difference was regarding difficulties encountered during the experiment.
+While in \sect{sec:Exp2} we had 11 (or 100\%) agree that they encountered no difficulties, only 7 (or 35\%) of our users in this study stated the same (\fig{fig:exp1vsexp2-results}).
+However, all of our users claimed to have a good understanding of the action representation and how the robot learned new actions from the demonstration, while in the previous study, an average of 2 (18\%) disagreed.
+Both differences can be explained by the fact that in our latest study, users had to use an end-to-end system to program the robot, while we previously simulated the system functionalities using the Wizard-of-Oz technique.
 Even though our users encountered more difficulties, they got a better understanding of the functionalities due to getting hands-on experience.
 This also correlates with negative responses in our survey to the question if `no programming experience was required' where 13/20 (65\%) agreed and 4 disagreed.
 %3 out of the 4 who disagreed had at least taken a programming course before.
-Overall, our user study with iRoPro received positive responses similar to Liang et al.
+Overall, our user study with iRoPro received positive responses similar to our previous study.
 
 Users stated the most useful feature as `generate solutions to defined goals automatically' (9 or 45\%), followed by `robot learns the action from my demonstration' (4 or 20\%) -- two main aspects of our approach.
 A common feedback was that `it takes time to understand how the system works at the start'.
@@ -256,6 +249,11 @@ A common feedback was that `it takes time to understand how the system works at 
 The most liked actions were `executing the generated plan' (8 or 40\%) and `demonstrating an action on Baxter' (7 or 35\%).
 %Overall, users performed well in both control groups and gave positive feedback.
 
+\begin{figure*}
+	\includegraphics[width=0.98\linewidth]{figures/quan-exp1vsexp2-results.pdf}
+	\caption{User responses from the post-study survey (N=20) comparing iRoPro to a similar user study (N=11) \cite{liang2017evaluation}}
+	\label{fig:exp1vsexp2-results}
+\end{figure*}
 % \subsection{User strategies}
 % As we have two control groups A (with condition inference) and B (without condition inference), we noticed two user strategies
 % During the experiment, we noted the user's intended strategy to complete a task.
@@ -272,11 +270,34 @@ The most liked actions were `executing the generated plan' (8 or 40\%) and `demo
 
 % The main activities 
 % \todo {show graph of time spent at each option}
+\section{Discussions}
+\label{sec:discussion}
+Both system and user evaluations demonstrated that iRoPro can be used to generalise primitive actions to a range of complex manipulation tasks and that it is easy to learn for users with or without programming experience.
+In our system evaluation we could have programmed other actions, such as turning or pushing for packaging tasks.
+As the purpose of our evaluation was to show the generalisability of primitive actions with the use of a task planner, we decided to stick to pick-and-place actions.
+%Users particularly liked the PbD technique and found that
+%`generating plans automatically' was the most useful feature 
+In the following we discuss limitations and interesting extensions of our work:
+\begin{enumerate}
+	%\item No generalization from one item to another.
+	\item Our object perception is limited as it does not detect objects that are too close together (\eg stacked objects).
+	An improved perception system would allow the detection of initial states with stacked objects, automatically detecting goal states, or verifying action executions.
+	%s mentioned in \sect{sec:implementation}, we partly the latter by using a mental model, where we first executed a stacking task to save the latest object positions, then reused the saved state for subsequent tasks.
+	\item Due to the different grippers, we did not program actions that use both arms (\eg carrying a tray). A possible extension would be to include a better motion and task planning system in order to allow executing both arms simultaneously while avoiding self-collision.
+	%As our robot was equipped with a suction and a claw gripper, the kinesthetic teaching of both arms could be difficult to program by a single user.
+	\item We only included a minimal set of predicates (\sect{sec:highlevel}) that we deemed intuitive and useful for object manipulation tasks.
+	It could be interesting to include and learn predicates to capture more complex domains such as object orientation (\cite{li2016learning}).
+	%the use a mobile robot that can move between workstations.
+	%\item A possible extension would be to incorporate probabilistic techniques to learn predicates or pre-train the robot on simulated scenarios to improve the condition inference.
+\end{enumerate}
 
 
-
-% \begin{figure}
-% \includegraphics[width=0.9\linewidth]{figures/strategies}
-% \caption{}
-% \label{fig:strategies}
-% \end{figure}
+\section{Conclusion} 
+\label{sec:conclusion}
+In this chapter we presented iRoPro, an interactive Robot Programming system that allows simultaneous teaching of low- and high-level actions by demonstration.
+The robot reuses the actions with a task planner to generate solutions to complex tasks that go beyond the demonstrated action.
+The approach was implemented on a Baxter robot and we showed its generalisability on six benchmark tasks by teaching a minimal set of primitive actions that were reused for all tasks.
+We further demonstrated its usability with a user study (N=21) where participants with diverse educational backgrounds and programming levels learned how to use the system in less than an hour.
+Both user performance and feedback confirmed iRoPro's usability, with the majority ranking it as `acceptable' and half being promoters.
+Overall, we demonstrated that our approach allows users with any programming level to efficiently teach robots new actions that can be reused for complex tasks.
+Thus, we enable end-users to program robots from scratch, without writing code, therefore maximising the generalisability of taught actions with minimum programming effort.
