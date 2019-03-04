@@ -1,5 +1,4 @@
 \section{Context}
-% 1-2 pages max
 Technologies have revolutionised the manufacturing industry ever since the Industrial revolution in the 19th century.
 Robots are increasing productivity by replacing humans for arduous and repetitive manual tasks.
 %are increasing productivity, efficiency, lower costs, and relieve humans from operationally dangerous tasks.
@@ -48,7 +47,7 @@ Many PbD algorithms have been proposed in the literature (\cite{argall2009survey
 
 % teaching full action sequences
 Another major problem is that the robot is generally demonstrated an action sequence to complete a specific task (\cite{orendt2016robot,peppoloni2014ros}).
-Take for example the Tower of Hanoi problem (\cite{douglas1985metamagical}) as shown in \fig{fig:Tower of Hanoi}a.
+Take for example the Tower of Hanoi problem (\cite{douglas1985metamagical}) as shown in \fig{fig:Tower of Hanoi 3}.
 The objective is to move the entire stack from one rod to another, obeying the following rules:
 \begin{itemize}
 \item Only one disk can be moved at a time.
@@ -57,22 +56,31 @@ The objective is to move the entire stack from one rod to another, obeying the f
 \end{itemize}
 
 The robot can be taught an action sequence to solve the problem for three disks.
-When the problem changes to four disks (\fig{fig:Tower of Hanoi}b), the robot has to be demonstrated a new sequence, even though both problems obey the same rules.
+When the problem changes to four disks (\fig{fig:Tower of Hanoi 4}, the robot has to be demonstrated a new sequence, even though both problems obey the same rules.
 This reprogramming process can be complicated and time-consuming as it does not allow to generalise for different tasks.
-A more efficient approach would be to teach the robot the primitive action of moving a disk, associate rules or \textit{conditions} to this action (\eg smaller disks can only be placed on top of larger ones), and have the robot generate an optimal solution using an automated planner \cite{ghallab2004automated}.
+A more efficient approach would be to teach the robot the primitive action of moving a disk, associate rules or \textit{conditions} to this action (\eg smaller disks can only be placed on top of larger ones), and have the robot generate an optimal solution using an automated planner (\cite{ghallab2004automated}).
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=.4\textwidth]{figures/hanoi-0}\hspace{2cm}%\hfill
-	\includegraphics[width=.4\textwidth]{figures/hanoi-1}
-	\caption{Tower of Hanoi problem a) with three disks b) with four disks}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{figures/hanoi-0}
+		\caption{with three disks}		
+		\label{fig:Tower of Hanoi 3}
+	\end{subfigure}\hfill
+\begin{subfigure}[t]{0.45\textwidth}
+	\includegraphics[width=\textwidth]{figures/hanoi-1}
+	\caption{with four disks}
+	\label{fig:Tower of Hanoi 4}
+\end{subfigure}
+	
+	\caption{Tower of Hanoi problem}
 	\label{fig:Tower of Hanoi}
 \end{figure}
 
 \subsection{Automated Planning}
 Automated Planning, also known as \textit{AI Planning}, is a research field that focuses on the development of efficient search algorithms to generate solutions to problems.
-Given a set of actions, a description of the state of the world, and some goal state, the planner generates a sequence of actions, which guarantees the transition from the initial state to the goal state (\fig{fig:Planning domain and action}).
-To allow a correct transition between different states of the world, actions are defined in terms of preconditions and effects (\fig{fig:Planning domain and action}b). 
+Given a set of actions, a description of the state of the world, and some goal state, the planner generates a sequence of actions, which guarantees the transition from the initial state to the goal state (\fig{fig:Planning domain}).
+To allow a correct transition between different states of the world, actions are defined in terms of preconditions and effects (\fig{fig:Planning action}). 
 Planning algorithms use a symbolic planning language such as STRIPS (\cite{fikes1971strips}) or PDDL (\cite{ghallab2004automated}) as their standard encoding language.
 Thus, the Tower of Hanoi problem could be defined as a planning problem and solved for any number of disks using an automated planner.
 %In the initial state, the disks are stacked in ascending order (smallest at the top) on one of the pegs, in the goal state the disks are stacked in the same order on one of the other two remaining pegs. 
@@ -81,8 +89,18 @@ Thus, the Tower of Hanoi problem could be defined as a planning problem and solv
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=.55\linewidth]{figures/PbD-AutomatedPlanner}
-	\includegraphics[width=.4\linewidth]{figures/schema-logic-1}
-	\caption{Planning domain describing an initial world state, goal state, and a generated action sequence (left), where actions are described in terms of preconditions and effects (right).}
+	
+	\begin{subfigure}[t]{0.54\textwidth}
+		\includegraphics[width=\textwidth]{figures/PbD-AutomatedPlanner}
+		\caption{Planning domain describing an initial world state, goal state, and a generated action sequence}
+		\label{fig:Planning domain}
+	\end{subfigure}
+\hfill
+	\begin{subfigure}[t]{0.44\textwidth}
+		\includegraphics[width=\textwidth]{figures/schema-logic-1}
+		\caption{Actions are described in terms of preconditions and effects}
+		\label{fig:Planning action}
+	\end{subfigure}
+	\caption{Illustration of the main Automated Planning concepts}
 	\label{fig:Planning domain and action}
 \end{figure}

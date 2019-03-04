@@ -219,12 +219,20 @@ Predicate in PDDL & Description in English\\ \hline
 
 
 In a domain description, operators, \ie first-order actions, specify the different ways to perform changes to the world state. 
-In general, an action model consists of the following:
+In general, an action model consists of the following (see \fig{fig:action model}):
 \begin{itemize}
 	\item \texttt{:parameters} -- variables on which the action model operates,
 	\item \texttt{:precondition} -- conditions that must be satisfied before the action can be executed; if none are specified, the action is always executable,
 	\item \texttt{:effect} -- changes in the world state imposed by the action.
 \end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/schema-logic}
+	\caption{Action model representation of a move action in terms of preconditions and effects: demonstrated action model for a cube (top), and generalised action model for any object, variables are prefixed with `?' (bottom)}
+	\label{fig:action model}
+\end{figure}
+
 Consider a simple move action, which consists of grasping an object with the gripper and results in lifting it off the table.
 \begin{verbatim}
 (:action move
@@ -267,13 +275,7 @@ After the \texttt{move} action execution, the effects express that the object is
   %\item{   Current implementations include an {intermediate manual step to construct action sequences} to arrive to a goal state.  }
 %  \end{itemize}
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=0.48\linewidth]{figures/planning-permutation}
-	\includegraphics[width=0.48\linewidth]{figures/schema-logic}
-	\caption{Definition of a planning problem: Left: (a) properties describing the initial world state (b) object names and their types (c) instantiated actions (d) properties describing the goal state. Right: Action model representation of a move action in terms of preconditions and effects: demonstrated action model for a cube (top), and generalised action model for any object, variables are prefixed with `?' (bottom).}
-	\label{fig:action}
-\end{figure}
+
 \subsection{Planning Problem Description}\label{subsec:PPDescription}
 %In manufacturing domains, there exist installation procedures for various devices that need to be strictly followed. 
 %It can happen that assembly parts need to be moved around in the work place. 
@@ -305,21 +307,29 @@ For example, the problem of swapping two objects obj1, obj2 on A and B respectiv
 %(at hood zoneB)))
 
 The planning problem is defined using a name and by specifying the domain it operates in.
-It then lists all objects of the world and their initial states. 
+It then lists all objects of the world and their initial states (\fig{fig:planning problem}ab). 
 This world is composed of three positions, \texttt{A}, \texttt{B} and \texttt{C}, and two objects, \texttt{obj1} and \texttt{obj2}, which are both of type \texttt{base}. 
 The initial state of the world is that two \texttt{obj1} and \texttt{obj2} are on \texttt{A} and \texttt{B} respectively with \texttt{C} unoccupied.
 %The engine needs to be installed before the hood, therefore the engine needs to be placed in \texttt{A} and the hood needs to be in \texttt{B}. As devices on assembly lines arrive arbitrarily, depending on the completion time of the previous task, it is possible that they arrive in the reversed order. 
-Given only one gripper, the goal is to find a plan to move \texttt{obj1} from \texttt{A} to \texttt{B} and \texttt{obj2} from \texttt{B} to \texttt{C}. 
-The planner would generate the following action sequence (see \fig{fig:action}):
+Given only one gripper, the goal is to find a plan to move \texttt{obj1} from \texttt{A} to \texttt{B} and \texttt{obj2} from \texttt{B} to \texttt{C} (\fig{fig:planning problem}d). 
+The planner would generate the following action sequence (\fig{fig:planning problem}c):
 \begin{verbatim}
 1. move(obj1, A, C)
 2. move(obj2, B, A)
 3. move(obj1, C, B)
 \end{verbatim}
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/planning-permutation}
+	\caption{Definition of a planning problem: (a) properties describing the initial world state (b) object names and their types (c) instantiated actions (d) properties describing the goal state}
+	\label{fig:planning problem}
+\end{figure}
+
 Another planning problem in this domain could include multiple objects of different types which need to be stacked in a given order, such as the Tower of Hanoi problem.
 As we can define an infinite number of objects in our planning domain, there exist an infinite number of planning problems that can be defined and solved. 
 PDDL provides a means to model any real-world environment in the form of a planning domain. 
+
 
 \subsection{PDDL evolution and extensions}\label{subsec:PDDL evolution}
 
