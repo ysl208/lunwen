@@ -1,10 +1,12 @@
 
 \section{User Evaluation}
 \label{sec:quanteval}
-The second part of the evaluation was conducted using the THEDRE (Traceable Human Experiment Design Research) method (\cite{mandran2018traceable,mandran2017thedre}) which aims to evaluate computer systems in a research context by integrating a user-centered approach.
+%\minitoc% Creating an actual minitoc
+The second and main part of the evaluation was conducted using the THEDRE (Traceable Human Experiment Design Research) method (\cite{mandran2018traceable,mandran2017thedre}) which aims to evaluate computer systems in a research context by integrating a user-centered approach.
 It is based on continuous improvement and takes a pragmatic constructivist approach (\cite{avenier2015finding}), allowing it to further develop the system as well as the scientific knowledge from the experimental ground.
 To that end, it offered us the possibility to mix qualitative and quantitative approaches in order to gather as much data as possible to evaluate and improve our system. 
 
+\subsection{User Experiments}
 User experiments aimed to evaluate our approach implemented on a Baxter robot with real end-users.
 However, we were also interested in the user's programming strategy of using the system.
 Thus, we split participants into two control groups, with and without condition inference (\sect{sec:inference}) and observe user strategies for completing the tasks.
@@ -24,7 +26,7 @@ The experiments were conducted with a Baxter robot with two grippers (suction an
 A table with 4 marked positions was placed in front of the robot with different objects to be manipulated by the robot during the experiment (\fig{fig:dispositif}).
 Participants had access to a computer with a mouse and a keyboard to program the robot via the graphical interface.
 
-\subsection{Participants}
+\subsection{Participants}\label{exp3-participants}
 The study was conducted with 21 participants (10M, 11F) in the range of 18-39 years (M=24.67, SD=6.1).
 We recruited participants with different educational background and programming levels: 
 6 `CS' (either completed a degree in computer science or were currently pursuing one),
@@ -251,7 +253,7 @@ The most liked actions were `executing the generated plan' (8 or 40\%) and `demo
 
 \begin{figure*}
 	\includegraphics[width=0.98\linewidth]{figures/quan-exp1vsexp2-results.pdf}
-	\caption{User responses from the post-study survey (N=20) comparing iRoPro to a similar user study (N=11) \cite{liang2017evaluation}}
+	\caption{User responses from the post-study survey (N=20) comparing iRoPro to our previous user study (N=11) in \sect{sec:Exp2}}
 	\label{fig:exp1vsexp2-results}
 \end{figure*}
 % \subsection{User strategies}
@@ -270,6 +272,52 @@ The most liked actions were `executing the generated plan' (8 or 40\%) and `demo
 
 % The main activities 
 % \todo {show graph of time spent at each option}
+
+\subsection{Continuous Improvement of the System}
+The system underwent four phases of improvement, allowing us to refine the system functionalities, graphical user interface, and user instruction methods.
+The four phases consisted of the following:
+
+\begin{enumerate}
+	\item {Feedback from Nadine Mandran:\\
+		Based on the feedback we received on our initial prototype, we changed the flow for introducing the system to a novice user as it included a lot of new information (\eg Programming by demonstration and Automated planning concepts) that they were not familiar with.
+		We also updated the questions in the pre-test questionnaire to include the same keywords (\ie predicate names) as used during the experiment to allow consistency and participants to familiarise themselves.
+		%		We also decided to change the PbD part to a simple recording.
+	}
+	\item {Pre-tests with 3 users:\\
+		We ran pre-tests with 3 users who have never seen the system before and further improved the experiment flow (\eg create an action for one object at a time).
+		We also made the user interface more friendly to include Baxter icons (\fig{?}) and display eyes on the robot's screen \footnote{https://github.com/Anne-Gaisne/baxter_eyes} so that it seemed more human-like.
+		We also noticed that troubleshooting incorrect actions seemed difficult for all users, so we included an option to review actions and goals which provides a summary of the created input and hints to guide the debugging steps.}
+	\item {First experimental tests with 5 users with condition inference:\\
+		After running the experiments with 5 users, we noticed that the majority did not bother modifying the inferred action conditions.
+		This raised an interesting HRI question of whether users who were given automatically generated conditions would `blindly trust' them.
+		Hence, we decided to create two experiment groups: with and without condition inference, where the first 5 participants belonged to the former.
+		Participants in the latter group would need to manually enter all conditions via the interface. }
+	\item {Final experimental tests with 16 users: \\
+		The remaining users were divided into the two control groups so that we had an equal number of participants in both control groups, while also maintaining an even distribution of programming levels (\sect{exp3-participants}).
+		The results of the overall 21 participants were used as the final evaluation of the system as discussed in the previous sections.
+	}
+\end{enumerate}
+
+%\begin{table}[h]
+%	\centering
+%	\caption{Continuous Improvement of the System}
+%	\label{table:studyphases}
+%	\begin{center}
+%		\begin{tabular}{lll}
+%			\#  & Evaluation & Improvements \\ \hline
+%			1 & Initial prototype Feedback from Nadine Mandran & create new action (+demo) \\
+%			2 & Pre-tests with 3 users & create new problem \\
+%			3 & First experimental tests with 5 users & add condition (`is clear') \\
+%			4 & Final experimental tests with remaining 15 users & modify types\\ \hline
+%		\end{tabular}
+%	\end{center}
+%\end{table}
+
+%In the following section we provide more details on the final two phases involving end-users.
+
+
+
+
 \section{Discussions}
 \label{sec:discussion}
 Both system and user evaluations demonstrated that iRoPro can be used to generalise primitive actions to a range of complex manipulation tasks and that it is easy to learn for users with or without programming experience.
@@ -282,6 +330,7 @@ In the following we discuss limitations and interesting extensions of our work:
 	%\item No generalization from one item to another.
 	\item Our object perception is limited as it does not detect objects that are too close together (\eg stacked objects).
 	An improved perception system would allow the detection of initial states with stacked objects, automatically detecting goal states, or verifying action executions.
+	% TO DO: Could include limited gripper width, etc. as in tremblay2018synthetically
 	%s mentioned in \sect{sec:implementation}, we partly the latter by using a mental model, where we first executed a stacking task to save the latest object positions, then reused the saved state for subsequent tasks.
 	\item Due to the different grippers, we did not program actions that use both arms (\eg carrying a tray). A possible extension would be to include a better motion and task planning system in order to allow executing both arms simultaneously while avoiding self-collision.
 	%As our robot was equipped with a suction and a claw gripper, the kinesthetic teaching of both arms could be difficult to program by a single user.
@@ -290,7 +339,6 @@ In the following we discuss limitations and interesting extensions of our work:
 	%the use a mobile robot that can move between workstations.
 	%\item A possible extension would be to incorporate probabilistic techniques to learn predicates or pre-train the robot on simulated scenarios to improve the condition inference.
 \end{enumerate}
-
 
 \section{Conclusion} 
 \label{sec:conclusion}
