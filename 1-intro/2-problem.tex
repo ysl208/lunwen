@@ -62,7 +62,7 @@ We evaluate our approach with pick and place robots, addressing assembly and pac
 
 The contributions of this thesis can be summarised as follows:
 \begin{itemize}
-	\item {A proposed end-user robot programming framework that combines PbD and Automated Planning, where the robot learns action models by demonstration, and the problem of finding an action sequence is delegated to a planner (\cite{liang2017framework}).
+	\item {A proposed end-user robot programming framework that combines PbD and Automated Planning, where the robot learns action models by demonstration, and the problem of finding an action sequence is delegated to a planner. %(\cite{liang2017framework}).
 	The robot programming process consists of the following steps:
 	\begin{enumerate}
 		\item the user teaches the robot new actions by kinesthetic demonstration, including both low- and high-level action representations
@@ -75,8 +75,14 @@ The contributions of this thesis can be summarised as follows:
     \textbf{Research question:} \textit{Can users teach a robot action models for automated planning using the robot programming framework?}}
 
     \item {User study 2: Experimental findings on issues encountered when non-robotics experts are tasked to use AI planning concepts and a symbolic planning language to describe the world state to a robot. 
-    We evaluated the user's ability to construct symbolic action models, in terms of preconditions and effects, used by automated planners and show that users with little to no programming experience can easily learn and use symbolic planning languages (\cite{liang2017evaluation}).\\
+    We evaluated the user's ability to construct symbolic action models, in terms of preconditions and effects, used by automated planners and show that users with little to no programming experience can easily learn and use symbolic planning languages.\\% (\cite{liang2017evaluation}).\\
     \textbf{Research question:} \textit{How do non-expert users adopt the automated planning language with its action model representation?}}
+
+	\item {A system for robotic shelf organisation tasks: simultaneous end-user programming of goals and actions using PbD and interactive visualisation. %(\cite{liang2018simultaneous}).
+		The system allows the robot to learn and execute organisation tasks from user input via kinesthetic demonstration and a graphical interface.
+		We teach the robot \textit{what} and \textit{how} to perform a task using PbD and a goal inference model.
+		We evaluated user teaching strategies with experiments on Amazon Mechanical Turk and compared their performance to eight benchmark strategies.\\
+		\textbf{Research question:} \textit{Can users teach the robot an organisation task using PbD and goal inference and what teaching strategies do users prefer?}}
 
 	\item {iRoPro - an end-to-end robot programming system (\cite{liang2018simultaneous}): the proposed framework implemented on a Baxter research robot that 
 		\begin{enumerate}
@@ -94,10 +100,5 @@ The contributions of this thesis can be summarised as follows:
 	(\sect{sec:quanteval}).
 	To better understand user teaching strategies, we split participants into two control groups, with and without automatic condition inference, and showed that users in both groups can easily learn and use the system.}
 	
-	\item {A system for robotic shelf organisation tasks: simultaneous end-user programming of goals and actions using PbD and interactive visualisation (\cite{liang2018simultaneous}).
-		The system allows the robot to learn and execute organisation tasks from user input via kinesthetic demonstration and a graphical interface.
-		We teach the robot \textit{what} and \textit{how} to perform a task using PbD and a goal inference model.
-		We evaluated user teaching strategies with experiments on Amazon Mechanical Turk and compared their performance to eight benchmark strategies.\\
-		\textbf{Research question:} \textit{Can users teach the robot an organisation task using PbD and goal inference and what teaching strategies do users prefer?}}
 	
 \end{itemize}
