@@ -355,14 +355,20 @@ PDDL provides a means to model any real-world environment in the form of a plann
 \subsection{PDDL evolution and extensions}\label{subsec:PDDL evolution}
 
 Ever since the first version of \textsc{Pddl} 1.2 (\cite{mcdermott1998pddl}) was introduced as the official language of the 1st \textsc{Ipc} (International Planning Competition), there have been several new versions and extensions.
-Succeeding versions that allow the representation of real-world problems had a particular influence on the adaptation of planners with robots in cobotic environments. In 2002, \textsc{Pddl} 2.1 introduced functions to express numerical objects, durative actions and plan-metrics for assessing plan quality. 
+Succeeding versions that allow the representation of real-world problems had a particular influence on the adaptation of planners with robots in cobotic environments. 
+In 2002, \textsc{Pddl} 2.1 introduced functions to express numerical objects, durative actions and plan-metrics for assessing plan quality.
 An extension called \textsc{Mapl} (Multi-Agent Planning Language), introduced finite domain state-variables, actions with duration determined in runtime, and explicit plan synchronisation obtained through speech acts and communications among agents. 
 The newly introduced functionalities are particularly useful for cobotic environments to incorporate actions of varying durations into the planning system, or to allow multi-agent planning for several robots to collaborate in the same environment.
-In the following years \textsc{Ppddl} (Probabilistic \textsc{Pddl})(\cite{younes:04a}) was proposed, extending \textsc{Pddl} 2.1 with probabilistic effects and introducing partial observability. This extension opened up the possibility to integrate statistical models into the planning system and improved the robot's learning capabilities and performance in uncertain situations. Cobots can benefit from this as they are often faced with uncertain situations when working with different human operators, who have varying behaviours.
+In the following years \textsc{Ppddl} (Probabilistic \textsc{Pddl})(\cite{younes:04a}) was proposed, extending \textsc{Pddl} 2.1 with probabilistic effects and introducing partial observability. 
+This extension opened up the possibility to integrate statistical models into the planning system and improved the robot's learning capabilities and performance in uncertain situations. 
+Cobots can benefit from this as they are often faced with uncertain situations when working with different human operators, who have varying behaviours.
 
 \subsection{Planners}\label{subsec:Planners}
 Automated planners have found increasing applications in various areas from aeronautics and space to agricultural and industrial domains (\cite{aarup1992optimum}). 
-We conclude this section by introducing the most significant planners for classical planning (Table \ref{tab:planningapproaches}), that have been implemented to date and open-source planning toolkits.
+The majority of planning procedures are search procedures, where the difference lies in the search spaces.
+We conclude this section by introducing the most commonly known techniques for classical planning (Table \ref{tab:planningapproaches}):
+state-space planning, plan-space planning, and planning graphs. 
+We refer the reader to \cite{nau2007current} who provides a more detailed overview of the techniques with accompanying illustrations.
 
 %Nearly all planning procedures are search procedures - Different planning procedures have different search spaces
 % 1. state space planners: 
@@ -370,23 +376,31 @@ We conclude this section by introducing the most significant planners for classi
 The simplest planners are state-space planners (\cite{ghallab2004automated}), which rely on search algorithms in which the search space is a subset of the state space. 
 Each node corresponds to a state of the world, each arc represents a state transition, \ie an action, and a plan is a path from the initial state to a goal state in the search space. 
 An extended version of the planner is the Heuristics Search Planner (\cite{bonet:01}), which includes several basic search algorithms like breadth-first search, best-first search (\eg A*) and iterative deepening search. 
-The Fast Forward planning system (\cite{hoffmann2001ff}) is based on the HSP, but managed to outperform it, due to modifications aimed to avoid getting trapped in local minima (\cite{hoffmann2000heuristic}): 
-It includes a variation of the hill-climbing search, called the \textit{enforced hill climbing}, and a heuristic called \textit{helpful actions}. 
+The Fast Forward planning system (\cite{hoffmann2001ff}) is based on the HSP, but managed to outperform it, due to modifications aimed to avoid getting trapped in local minima. % (\cite{hoffmann2000heuristic}): 
+%It includes a variation of the hill-climbing search, called the \textit{enforced hill climbing}, and a heuristic called \textit{helpful actions}. 
 Finally, Fast Downward (\cite{helmert:06a}) is a state-space planner based on a finite domain representation, with a greedy best-first search as its main search procedure. 
 % Problem with state-space search : we may try many different orderings of the same actions before realizing there is no solution -> Least-commitment strategy: don’t commit to orderings, instantiations, etc., until necessary
+The problem with state-space search is that it commits to plan step orderings, meaning that many different orderings of the same actions are considered even if none of them lead to a solution.
 
 % 2. plan space planners : Backward search from the goal 
 % Each node is a set of partially-instantiated operators, plus some constraints »Impose more and more constraints, until we get a plan
-A second category are plan-space planners (\cite{penberthy1992ucpop}), where each node is a set of partially instantiated-operators with constraints.
+A second category known as plan-space planners (\cite{penberthy1992ucpop}) handle goal orderings in an optimal way and are generally considered more efficient. 
+For such partial-order planners each node is a set of partially instantiated-operators with constraints (\eg temporal constraints for the application of an action).
 The idea is to perform a backward search from the goal and impose an increasing number of constraints until a complete plan has been found.
+
 %
 % 3. planning-graph techniques
-Another category are planning-graph planners, first proposed in the Graphplan (\cite{blum:97}).
-It uses a backward search by encoding the search space in a structure called the \textit{planning graph} and replaces the goal with preconditions.
-It considers the union of sets of propositions of several reachable states rather than individual states.  
+Another category are planning-graph planners, first introduced in the Graphplan (\cite{blum:97}).
+The idea is to encode the search space in a structure called the \textit{planning graph} that is much smaller than the state transition graph and contains information about possibly reachable states.
+%It uses a backward search by  and replaces the goal with preconditions.
+The true set of reachable states can be quickly estimated by eliminating many impossible ones in the search process.
+A plan is then extracted from the planning graph.
+%It considers the union of sets of propositions of several reachable states rather than individual states.  
+
 % other planners
 Other graph-based planners include SATPlan (\cite{kautz:06,kautz:99}), that uses a \textsc{SAT} solver, and the GP-CSP (\cite{do:01}) that uses a \textsc{CSP} solver.
-The main planning toolkits are the Lightweight Automated Planning ToolKit (\cite{lapkt}), based on Fast Downward and Fast Forward, and PDDL4J, an open-source Planning Domain Description Library for Java cross-platform developers (\cite{pellier2018pddl4j}).
+However, there is no single planning strategy or domain-independent search heuristic that is universally better than others.
+The main open-source planning toolkits are the Lightweight Automated Planning ToolKit (\cite{lapkt}), based on Fast Downward and Fast Forward, and PDDL4J, a Planning Domain Description Library for Java cross-platform developers (\cite{pellier2018pddl4j}).
 \begin{table}[h]
 	\centering
 	\caption{Main Planning Approaches}
@@ -402,7 +416,8 @@ The main planning toolkits are the Lightweight Automated Planning ToolKit (\cite
 		Plan-space & partially ordered set of actions &  
 		\begin{tabular}{l}
 			UCPOP (\cite{penberthy1992ucpop})\\
-			FAPE (\cite{dvo2014plan})\\
+			SNLP (\cite{mcallester1991systematic})\\
+%			FAPE (\cite{dvo2014plan})\\
 		\end{tabular}\\
 		Planning graph & sequence of sets of parallel actions &
 		\begin{tabular}{l}
