@@ -22,7 +22,7 @@ Actions are defined with \textit{preconditions}, \ie conditions on the state of 
 Planning can be considered the process of choosing appropriate actions to bring the state of the world to a target state.
 In the following section we will present the main definitions used in classical planning.
 %The planner produces an ordered sequence of actions, known as a \textit{plan}, which guarantees the transition from the initial state to the goal state.
-%There exist different types of planning:
+%For instance, there exist different types of planning:
 %\begin{itemize}
 %    \item Classical planning
 %    \item Optimisation: minimise or maximise a given cost function
@@ -32,35 +32,33 @@ In the following section we will present the main definitions used in classical 
 %\end{itemize}
 
 \section{Classical planning}\label{subsec:Classical planning problem}
-In classical planning, world dynamics are modelled as state transition systems.
+In classical planning, world dynamics are modelled as state transition systems. 
+We will start by providing some definitions of general concepts used in this thesis that have been derived from \cite{ghallab2004automated}.
+
 
 \begin{definition}
 A \textit{state transition system} is a triple $\Sigma = (S, A, \gamma)$ such that:
 \begin{itemize}
-\item $S$ is a finite set of states,
-\item $A$ is a set of actions,
+\item $S=\{s_1, s_2, \dots \}$ is a finite set of states,
+\item $A=\{a_1, a_2, \dots \}$ is a set of actions,
 %\item $c : A \rightarrow \mathbb{R}^{+}$ is a cost function,
 \item $\gamma : S \times A \rightarrow S$ is a state transition function.
 \end{itemize}
 \end{definition}
 
 A state transition system $\Sigma$ can be represented as a directed graph whose nodes are states of $S$ and arcs are actions of $A$. 
-Applying an action $a$ to a state $s$ produces a new state $s'= \gamma(s,a)$.
+Applying an action $a$ to state $s$ produces a new state $s'= \gamma(s,a)$ that is represented as an arc from $s$ to $s'$, referred to as a  \textit{state transition}.
 %with a cost $c(a)$
- 
 $\Sigma$ is deterministic if for all states $s$ and actions $a$ and the transition function $\gamma(a, s)$ produces a unique state $s'$. 
 %$\Sigma$ has a unit cost if, for all $a \in A$, $c(a) = 1$. 
-A \textit{plan} is any sequence of $k$ actions $\pi = <a_1,\cdots, a_k>$. The state produced by applying $\pi$ to a state $s$ is the state obtained by applying each action of $\pi$ sequentially. 
-We can denote this by extending the state transition function to plans as follows:
-\[\gamma(s,\pi)=\left\{
-\begin{array}{ll}
-   s, &\mbox{if $k=0$} \\
-   \gamma(\gamma(s,a_1),<a_2,\cdots, a_k>), &\mbox{if $k>0$ and $a_1$ is applicable to $s$} \\
-   \mbox{undefined}, &\mbox{otherwise.}
-\end{array}
-\right.
-\]
-A state $s_n$ is reachable from a state $s_0$, if there exists a plan $\pi$ such that $s_{n} = \gamma(s_0, \pi)$.
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figures/toh-solutions}
+	\caption{Examples of plans to the Tower of Hanoi problem, starting from an initial state $S_0$ but moving towards different goal states, where the set of actions $A$ consists of moving a disc from one peg to another.}
+	\label{fig:toh-solutions}
+\end{figure}
 
 %\subsubsection{Classical Planning Representations}
 
@@ -75,7 +73,7 @@ A state $s_n$ is reachable from a state $s_0$, if there exists a plan $\pi$ such
 %\noindent The set-theoretic representation can take up much more space than the classical representation. The state-variable representation is less natural for logicians but useful for non-classical planning problems to handle numbers, function and time. The classical representation is the most popular choice for restricted state-transition systems \cite{ghallab2004automated}.
 
 Logical representations are one of the most commonly used representations for classical planning problems. 
-Each state of the world $s$ is represented by a set of logical propositions $p_i$, denoting facts of the world that are \textit{true} in the state $s$. 
+Each state of the world $s$ is represented by a set of logical propositions $p$, denoting facts of the world that are \textit{true} in the state $s$. 
 If $p$ is not in the state $s$, it is considered to be \textit{false}.
 
 \textit{Planning operators} change the state of the world by modifying the truth values of the propositions. 
@@ -87,10 +85,10 @@ A \textit{planning operator} $o$ is a tuple $o = (\text{name}(o), \text{precond}
 	\item $\text{name}(o)$ is the {\em name} of the operator,
 	\item $\text{precond}(o)$ is a set of literals that must be true to apply the operator $o$,
 	\item $\text{effect}(o)^{-}$ is a set of literals that are false after the application of the operator $o$,
-	\item $\text{effect}(o)^{+}$ is a set of literals that are true after the application of the operator $o$.
+	\item $\text{effect}(o)^{+}$ is a set of literals that are true after the application of the operator $o$,
 \end{itemize}
 \end{definition}
-where $\text{effect}(a) = \text{effect}(a)^{-} \cup \text{effect}(a)^{+}$. 
+where $\text{effect}(a) = \text{effect}(a)^{-} \cup \text{effect}(a)^{+}$ and $\text{effect}^{-}(a) \cap \text{effect}^{+}(a) = \emptyset$. 
 An operator is applied to a set of parameters that are associated with a \textit{type}.
 For example, a general type could be \textit{OBJECT} or \textit{POSITION}.
 Some planning problems include type hierarchies with a general type (\eg OBJECT) that consists of subtypes (\eg BASE and CUBE).
@@ -98,27 +96,50 @@ Some planning problems include type hierarchies with a general type (\eg OBJECT)
 \begin{definition}
 	An \textit{action} is any ground instance of an operator. 
 	If $a$ is an action and $s$ is a state such that $\text{precond}(a)$ are true in $s$, then $a$ is {\em applicable} to $s$ and the result of applying action $a$ to state $s$ is the state $s'$:  
-	\[s' = \gamma(s, a) = (s - \text{effects}^{-}(a)) \cup \text{effects}^{+}(a).\]
+	\begin{equation}\label{eq:statetrans}
+		s' = \gamma(s, a) = (s - \text{effects}^{-}(a)) \cup \text{effects}^{+}(a),
+	\end{equation}
+	
 \end{definition}
 
-An operator can be considered as a \textit{generalised} action.
+%For each $a \in A$, $\text{precond}(a)$ and $\text{effect}(a)$ are subsets of $S$ and . 
+We consider an operator as as a \textit{generalised} action.
 
 \begin{definition}
-A \textit{planning problem} in the logical representation is a quadruplet $(P, A, I, G)$ where:
+A \textit{planning domain} is a state transition system $\Sigma = (S, A, \gamma)$, with the state transition function stated as in Eq. \ref{eq:statetrans}.
+\end{definition}
+
+\begin{definition}
+A \textit{planning problem} is a triplet $(\Sigma, s_0, g)$ where:
 \begin{itemize}
-	\item $P$ is a finite set of propositions,
-	\item $A$ is a finite set of actions,% where for each $a \in A$, $\text{precond}(a), \text{effect}(a) \subset P$
+%	\item $P$ is a finite set of propositions,
+%	\item $A$ is a finite set of actions,% where for each $a \in A$, $\text{precond}(a), \text{effect}(a) \subset P$
 	%\item $c : A \rightarrow \mathbb{R}^{+}$ is a cost function,
-	\item $I \subseteq P$ is the initial state,
-	\item $G \subseteq P$ is the goal state.
+	\item $s_0 \subseteq S$ is the initial state of the world,
+	\item $g$ is a set of goal propositions that belong to the goal states to achieve.
 \end{itemize}
 \end{definition}
 
-
-For each $a \in A$, $\text{precond}(a)$ and $\text{effect}(a)$ are subsets of $P$ and $\text{effect}^{-}(a) \cap \text{effect}^{+}(a) = \emptyset$. 
-The {\em state space} of a planning problem $(P, A, I, G)$ in the logical representation is a state transition system $(S, A, \gamma)$, where $S\subseteq 2^{P}$ is a subset of states defined on $P$.\\
-
+\begin{definition}
+	A \textit{plan} is any sequence of $k$ actions $\pi = \langle a_1,\cdots, a_k\rangle$, where $k\geq 0$. 
+\end{definition}
+The state produced by applying $\pi$ to a state $s$ is the state obtained by applying each action of $\pi$ sequentially. 
+We can denote this by extending the state transition function to plans as follows:
+\[\gamma(s,\pi)=\left\{
+\begin{array}{ll}
+s, &\mbox{if $|\pi|=0$} \\
+\gamma(\gamma(s,a_1),\langle a_2,\cdots, a_k\rangle ), &\mbox{if $|\pi|>0$ and $a_1$ is applicable to $s$} \\
+\mbox{undefined}, &\mbox{otherwise.}
+\end{array}
+\right.
+\]
+A state $s_n$ is reachable from a state $s_0$, if there exists a plan $\pi$ such that $s_{n} = \gamma(s_0, \pi)$.
 When a full specification (planning domain and problem) are provided to the planner, it generates a plan to achieve the specified goals using the available actions.
+Thus, a plan is a \textit{solution} to a planning problem if it guarantees the transition from the initial states $s_0$ to the goal states, \ie $g \subseteq \gamma (s_0,\pi)$. 
+
+%The {\em state space} of a planning problem $(P, A, I, G)$ in the logical representation is a state transition system $(S, A, \gamma)$, where $S\subseteq 2^{P}$ is a subset of states defined on $P$.\\
+
+
 %Once this specification is provided to the planner, the planning process is a mean-ends reasoning, deciding how to achieve goals given the means of available actions. The hardness of the mean-ends planning process is high (NP-hard), as it entails non-deterministic decisions on selecting objects, committing actions on objects, sorting out actions, as well as backtracking from dead-end decisions in combinatorial search spaces.
 
 When actions are triggered, they change the state of the world according to their effects and are not necessarily reversible. 
@@ -129,7 +150,7 @@ Reversing the order will result in a violation of the rule that larger disks can
 Furthermore, the progression towards the goal is not always monotone, as actions can also have negative side effects. 
 Consider again the Tower of Hanoi problem, where the disks need to be stacked in ascending order (smallest at the top) on the right-most peg. 
 Our goal state is to have \textit{``disk$_{n}$ is on top of disk$_{n+1}$"} and \textit{``disk$_{n+1}$ is on the table"} for a problem with $n>0$ disks. 
-If in the initial state the disks are stacked in ascending order on the left peg, then moving the top-most disk$_1$ to any other peg will delete the fact \textit{``disk$_1$ is on top of disk$_2$"}, and will have to be added again later to fulfill the goal.
+If in the initial state the disks are stacked in ascending order on the left peg, then moving the top-most disk$_1$ to any other peg will delete the fact \textit{``disk$_1$ is on top of disk$_2$"}, and will have to be added again later to fulfill the goal (\fig{fig:toh-solutions}).
 
 
 %\subsection{STRIPS}\label{subsec:STRIPS}
@@ -341,19 +362,57 @@ In the following years \textsc{Ppddl} (Probabilistic \textsc{Pddl})(\cite{younes
 
 \subsection{Planners}\label{subsec:Planners}
 Automated planners have found increasing applications in various areas from aeronautics and space to agricultural and industrial domains (\cite{aarup1992optimum}). 
-We conclude this section by introducing the most significant planners for classical planning, that have been implemented to date. 
+We conclude this section by introducing the most significant planners for classical planning (Table \ref{tab:planningapproaches}), that have been implemented to date and open-source planning toolkits.
 
+%Nearly all planning procedures are search procedures - Different planning procedures have different search spaces
+% 1. state space planners: 
+% Each node represents a state of the world »A plan is a path through the space
 The simplest planners are state-space planners (\cite{ghallab2004automated}), which rely on search algorithms in which the search space is a subset of the state space. 
 Each node corresponds to a state of the world, each arc represents a state transition, \ie an action, and a plan is a path from the initial state to a goal state in the search space. 
-An extended version of the planner is the Heuristics Search Planner (\cite{bonet:01}), which includes several basic search algorithms like best-first search, breadth-first-search, A* and iterative deepening search. 
-The Fast-Forward planning system (\cite{hoffmann:11}) is based on the HSP, but managed to outperform it, due to modifications aimed to avoid getting trapped in local minima (\cite{hoffmann2000heuristic}): 
+An extended version of the planner is the Heuristics Search Planner (\cite{bonet:01}), which includes several basic search algorithms like breadth-first search, best-first search (\eg A*) and iterative deepening search. 
+The Fast Forward planning system (\cite{hoffmann2001ff}) is based on the HSP, but managed to outperform it, due to modifications aimed to avoid getting trapped in local minima (\cite{hoffmann2000heuristic}): 
 It includes a variation of the hill-climbing search, called the \textit{enforced hill climbing}, and a heuristic called \textit{helpful actions}. 
 Finally, Fast Downward (\cite{helmert:06a}) is a state-space planner based on a finite domain representation, with a greedy best-first search as its main search procedure. 
+% Problem with state-space search : we may try many different orderings of the same actions before realizing there is no solution -> Least-commitment strategy: don’t commit to orderings, instantiations, etc., until necessary
 
-Another category are planning-graph planners (\cite{blum:97}), which carry out the search by encoding the search space in a structure called the \textit{planning graph}. 
-It considers the union of sets of propositions of several states rather than individual states. 
-The first planner being the Graphplan, which uses a backward search and replaces the goal with preconditions. 
-Other planners include SATPlan (\cite{kautz:06,kautz:99}) and the GP-CSP (\cite{do:01}).
+% 2. plan space planners : Backward search from the goal 
+% Each node is a set of partially-instantiated operators, plus some constraints »Impose more and more constraints, until we get a plan
+A second category are plan-space planners (\cite{penberthy1992ucpop}), where each node is a set of partially instantiated-operators with constraints.
+The idea is to perform a backward search from the goal and impose an increasing number of constraints until a complete plan has been found.
+%
+% 3. planning-graph techniques
+Another category are planning-graph planners, first proposed in the Graphplan (\cite{blum:97}).
+It uses a backward search by encoding the search space in a structure called the \textit{planning graph} and replaces the goal with preconditions.
+It considers the union of sets of propositions of several reachable states rather than individual states.  
+% other planners
+Other graph-based planners include SATPlan (\cite{kautz:06,kautz:99}), that uses a \textsc{SAT} solver, and the GP-CSP (\cite{do:01}) that uses a \textsc{CSP} solver.
+The main planning toolkits are the Lightweight Automated Planning ToolKit (\cite{lapkt}), based on Fast Downward and Fast Forward, and PDDL4J, an open-source Planning Domain Description Library for Java cross-platform developers (\cite{pellier2018pddl4j}).
+\begin{table}[h]
+	\centering
+	\caption{Main Planning Approaches}
+	\label{tab:planningapproaches}
+	\begin{center}
+		\begin{tabular}{rll} \hline
+			Approach & Generated Plan & Planning Systems\\ \hline
+		State-space & sequence of actions &
+		\begin{tabular}{l}
+					\textsc{Ff} (\cite{hoffmann2001ff})\\
+					 \textsc{Fd} (\cite{helmert:06a}) 
+		\end{tabular}\\
+		Plan-space & partially ordered set of actions &  
+		\begin{tabular}{l}
+			UCPOP (\cite{penberthy1992ucpop})\\
+			FAPE (\cite{dvo2014plan})\\
+		\end{tabular}\\
+		Planning graph & sequence of sets of parallel actions &
+		\begin{tabular}{l}
+			\textsc{Stan} (\cite{long1999efficient})\\
+			Blackbox (\cite{kautz:99})  \\
+		\end{tabular}\\
+	\end{tabular}
+	\end{center}
+\end{table}
+
 
 \section{Knowledge Engineering Tools}\label{subsec:Knowledge Engineering}
 Defining planning domain models from scratch can be expensive and error-prone, even for experts in automated planning.
@@ -367,6 +426,19 @@ itSimple (\cite{vaquero2013itsimple}) takes an input in the form of UML (Unified
 GIPO (\cite{simpson2007planning}) uses Opmaker2 (\cite{mccluskey2009automated}), a knowledge acquisition and formulation tool that generates a set of PDDL action schema from a given partial domain model and training sequence.
 It has been identified as the only beginner-friendly system as it simplifies the creation of planning domain models using a graphical interface.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figures/gipoaction}
+	\caption{Screenshot of the operator editor tool in GIPO (\cite{mccluskey2005using})}
+	\label{fig:gipoaction}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figures/itsimple}
+	\caption{Screenshot of a Planning UML model in itSIMPLE software (\cite{vaquero2013itsimple})}
+	\label{fig:itSimple}
+\end{figure}
 
 \section{Discussions and Relations to Present Work}
 Automated planning has found its application in a wide range of areas from virtual agent games (\cite{fernandez2006planning}) to space exploration (\cite{backes2004multi,bresina2005activity}).
