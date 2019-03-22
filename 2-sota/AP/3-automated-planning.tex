@@ -53,12 +53,12 @@ $\Sigma$ is deterministic if for all states $s$ and actions $a$ and the transiti
 %$\Sigma$ has a unit cost if, for all $a \in A$, $c(a) = 1$. 
 
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.7\linewidth]{figures/toh-solutions}
-	\caption{Examples of plans to the Tower of Hanoi problem, starting from an initial state $S_0$ but moving towards different goal states, where the set of actions $A$ consists of moving a disc from one peg to another.}
-	\label{fig:toh-solutions}
-\end{figure}
+%\begin{figure}[t]
+%	\centering
+%	\includegraphics[width=0.7\textwidth]{figures/toh-solutions}
+%	\caption{Examples of plans to the Tower of Hanoi problem, starting from an initial state $S_0$ but moving towards different goal states, where the set of actions $A$ consists of moving a disc from one peg to another.}
+%	\label{fig:toh-solutions}
+%\end{figure}
 
 %\subsubsection{Classical Planning Representations}
 
@@ -396,14 +396,16 @@ The idea is to encode the search space in a structure called the \textit{plannin
 The true set of reachable states can be quickly estimated by eliminating many impossible ones in the search process.
 A plan is then extracted from the planning graph.
 %It considers the union of sets of propositions of several reachable states rather than individual states.  
-
 % other planners
 Other graph-based planners include SATPlan (\cite{kautz:06,kautz:99}), that uses a \textsc{SAT} solver, and the GP-CSP (\cite{do:01}) that uses a \textsc{CSP} solver.
 However, there is no single planning strategy or domain-independent search heuristic that is universally better than others.
+
 The main open-source planning toolkits are the Lightweight Automated Planning ToolKit (\cite{lapkt}), based on Fast Downward and Fast Forward, and PDDL4J, a Planning Domain Description Library for Java cross-platform developers (\cite{pellier2018pddl4j}).
+Integrating classical planning with the Robot Operating System (ROS) has been addressed recently \eg with the ROSPlan framework (\cite{cashmore2015rosplan}) and other libraries such as the ROS package \textit{pddl_planner} (\cite{pddlplanner}) and ROS implementations of planners \eg PDDL4Jrospy (\cite{pddl4jrospy}) and Downward (\cite{downward}).
+
 \begin{table}[h]
 	\centering
-	\caption{Main Planning Approaches}
+	\caption{Main planning techniques}
 	\label{tab:planningapproaches}
 	\begin{center}
 		\begin{tabular}{rll} \hline
@@ -431,15 +433,28 @@ The main open-source planning toolkits are the Lightweight Automated Planning To
 
 \section{Knowledge Engineering Tools}\label{subsec:Knowledge Engineering}
 Defining planning domain models from scratch can be expensive and error-prone, even for experts in automated planning.
-Knowledge engineering (KE) tools for automated planning facilitate this process by automatically encoding a domain model from observed plans.
-However, KE tools for visualising and editing planning domain models remain sparse.
-There exist a few tools such as itSimple (\cite{vaquero2013itsimple}), GIPO (\cite{simpson2007planning}), Planning.Domains (\cite{muise2016planning}), plan editors \eg PDDL Studio (\cite{plch2012inspect}), and plan visualisers \eg VIZ (\cite{vodrazka2010visual}), iGantt (\cite{bartak2009local}), VisPlan (\cite{glinsky2011visplan}), TransportEditor (\cite{vskopek2017transporteditor}).
-\cite{jilani2014automated} evaluates the quality and efficiency of nine state-of-the-art tools by comparing input requirements, user experience, and other criteria and concluded that most tools require PDDL experts, or common knowledge in software engineering (\cite{simpson2007planning,vaquero2013itsimple}).
+Knowledge engineering (KE) tools for automated planning facilitate this process by automatically encoding a domain model from provided input data.
+These tools provide support with consistency checks, syntactic error checking, domain visualisation and other functionalities.
+There exist a few tools such as itSIMPLE (\cite{vaquero2013itsimple}), GIPO (\cite{simpson2007planning}), Planning.Domains (\cite{muise2016planning}), 
+as well as plan editors \eg PDDL Studio (\cite{plch2012inspect}), and plan visualisers \eg VIZ (\cite{vodrazka2010visual}), iGantt (\cite{bartak2009local}), VisPlan (\cite{glinsky2011visplan}), TransportEditor (\cite{vskopek2017transporteditor}).
+Different systems require different inputs such as plan traces, a partial domain model, predicates, or noisy plans.
+%predicates, intermediate states; NP: Noisy Plans; 
+%DM: Domain Model; RDM: Refined Domain Model; H: Heuristics.
 For example, LOCM (Learning Object Centred Models) (\cite{cresswell2013acquiring}) learns action schema from planning traces in Prolog, 
-itSimple (\cite{vaquero2013itsimple}) takes an input in the form of UML (Unified Modeling Language) (\cite{omg2005unified}) and generates representations in Petri Nets (\cite{murata1989petri}) and PDDL. 
+% LOCM propose une méthodologie pour la modélisation de problème en PDDL
+itSIMPLE (\fig{fig:itSimple}) takes an input in the form of UML (Unified Modeling Language) % (\cite{omg2005unified}) 
+and generates representations in Petri-Nets %(\cite{murata1989petri}) 
+and PDDL. 
+\cite{kootbally2015towards} created the OWL2PDDL and SQL2PDDL tools that generate PDDL files from OWL files that are stored in a MySQL database for replanning in case of plan execution failures.
 %The authors have been consistently working on improvements to allow new features, with the latest version published in 2013.
-GIPO (\cite{simpson2007planning}) uses Opmaker2 (\cite{mccluskey2009automated}), a knowledge acquisition and formulation tool that generates a set of PDDL action schema from a given partial domain model and training sequence.
-It has been identified as the only beginner-friendly system as it simplifies the creation of planning domain models using a graphical interface.
+GIPO (\fig{fig:gipoaction}) uses Opmaker2 (\cite{mccluskey2009automated}), a knowledge acquisition and formulation tool that generates a set of PDDL action schema from a given partial domain model and training sequence.
+%It has been identified as the only beginner-friendly system as it simplifies the creation of planning domain models using a graphical interface.
+
+\cite{shah2013knowledge} and \cite{jilani2014automated} compare a subset of state-of-the-art KE tools by their learning efficiency, the required user experience, system availability and support.
+Both concluded that most state-of-the-art tools require PDDL experts, or common knowledge in software engineering.
+However, KE tools that are available online and provide documentation to facilitate the use for beginners remain sparse (\eg itSIMPLE, GIPO).
+As most users with different research backgrounds do not have the required background knowledge or expertise, they cannot fully exploit KE tools and automated planners in general.
+This represents a bottleneck and significantly reduces the number of potential users in this domain.
 
 \begin{figure}[h]
 	\centering
