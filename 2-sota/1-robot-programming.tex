@@ -1,3 +1,6 @@
+In this chapter we first provide an overview of traditional and latest robot programming techniques to identify common bottlenecks and issues encountered.
+We end this chapter by discussing relations to this thesis.
+
 \section{Introduction}
 Robot Programming is the process of defining desired motions and associated skills so that the robot may perform them without human intervention.
 Classical robot programming processes in the industry have task-specific definitions, which are generally robot-dependent, and require programming expertise.
@@ -25,8 +28,8 @@ However, the range of programming systems was very limited at that time and exam
 Instead, \cite{Biggs2003} divided them into two main categories, distinguishing systems for users and for programmers:
 
 \begin{itemize}
- \item {\textbf{Manual programming (\sect{subsec:Manual Programming Systems})}, where the user can directly control the robot's execution code, using a text-based or a graphical system.}
- \item {\textbf{Automatic programming (\sect{subsec:Automatic Programming Systems})}, where the user does not need to write explicit code and the robot learns using a learning system, Programming by demonstration (PbD), or an instructive system.}
+ \item {\textbf{Manual programming}, where the user can directly control the robot's execution code, using a text-based or a graphical system.}
+ \item {\textbf{Automatic programming}, where the user does not need to write explicit code and the robot learns using a learning system, Programming by demonstration (PbD), or an instructive system.}
 \end{itemize}
 % - also mention software architectures which are important for any robot programming systems
 
@@ -42,13 +45,13 @@ Even though many state of the art systems use a combination of techniques, such 
 We identified three key factors: 
 %control over the robot code, learning data, and end-user involvement.
 \begin{itemize}
-	\item Control over the robot behaviour: if the robot behaviour code is directly entered and how it is generated (text-based or visual programming) and if the code directly encodes the robot's executed behaviour (manual or automatic programming)
-	\item Learning data: for automated programming systems the robot learns from data and we differentiate how it is acquired (provided by the teacher vs by self-exploration), and what type it is (\eg positive vs negative examples, labelled)
-	\item End-user involvement: the level that the end-user is involved in the programming process ranging from writing code manually, providing data or continuous feedback during the learning process to defining reward functions.
+	\item \textbf{Control over the robot behaviour:} if the robot behaviour code is directly entered and how it is generated (text-based or visual programming) and if the code directly encodes the robot's executed behaviour (manual or automatic programming)
+	\item \textbf{Learning data:} for automated programming systems the robot learns from data and we differentiate how it is acquired (provided by the teacher vs by self-exploration), and what type it is (\eg positive vs negative examples, labelled)
+	\item \textbf{End-user involvement:} the level that the end-user is involved in the programming process ranging from writing code manually, providing data or continuous feedback during the learning process to defining reward functions.
 \end{itemize}
 
 %From an end-user programming perspective, it is useful to assign different levels of teacher involvement in the programming process and an estimation of the programming time required.
-In the following sections we will give a brief overview of the different programming systems by first distinguishing between the user's control over the robot behaviour, \ie manual (\sect{subsec:Manual Programming Systems}) vs. automatic (\sect{subsec:Automatic Programming Systems}) programming.
+In the following sections we will give a brief overview of the different programming systems by first distinguishing between the user's control over the robot behaviour, \ie manual (\sect{subsec:Manual Programming Systems}) and automatic (\sect{subsec:Automatic Programming Systems}) programming.
 For manual programming, we compare text-based (\sect{sssec:Text-based Systems}) and graphical (\sect{sssec:Graphical systems}) systems.
 For automatic programming, we differentiate those that learn from unbiased and biased data, \ie machine learning systems (\sect{sssec:Learning Systems}) vs programming by demonstration (\sect{sssec:PbD}).
 Finally, we will discuss different levels of end-user involvement and their interaction modalities (\sect{sssec:End-User Involvement}).
@@ -71,19 +74,11 @@ Finally, we will discuss different levels of end-user involvement and their inte
 %\label{tab:Programming Overview}
 %\end{table}
 
-\begin{sidewaysfigure}
-	\centering
-	\includegraphics[width=\linewidth]{figures/RobotProgrammingOverview}
-	\caption{Overview of Robot Programming methods.}
-	\label{fig:RobotProgrammingOverview}
-\end{sidewaysfigure}
-
-\newpage
 
 \section{Manual Programming Systems}\label{subsec:Manual Programming Systems}
 In manual programming systems users have direct control over the robot code
 and often require expert knowledge in a programming language. % and a good understanding of the program flow.
-There exist a variety of tools to make programming, as well as testing and debugging, easier such as IDEs, spreadsheets, macros, \etc
+There exist a variety of tools to make programming, as well as testing and debugging, easier such as IDEs, spreadsheets, macros, \etc 
 There are two types of manual programming: text-based programming, where the code is written manually in a chosen programming language (python, C++, java, \etc) and graphical programming, where the code structure is created with the help of a graphical interface (\eg Flowcharts). 
 
 \subsection{Text-based Systems}\label{sssec:Text-based Systems}
@@ -94,24 +89,14 @@ generic procedural languages, where multi-purpose languages such as C++ that hav
 There has been a trend to move from low-level command-based languages towards more intelligent programming systems with high-level languages that provide more support to the user and reduce the programming workload.
 However, text-based systems still require trained users with programming knowledge and are more likely to be used by robot developers than end-users.
 
-\begin{figure}[!h]
+\clearpage
+\begin{sidewaysfigure}[!h]
 	\centering
-	\includegraphics[width=\linewidth]{figures/kuka-interface2}
-	\caption{KUKA Robotics graphical user interface (\cite{abdeetedal2017kuka})}
-	\label{fig:Kuka}
-\end{figure} 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=\linewidth]{figures/lego-mindstorm2}
-\caption{Lego Mindstorms EV3 icon-based interface (\cite{lego2003})}
-\label{fig:lego-mindstorm}
-\end{figure} 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\linewidth]{figures/scratch-interface}
-	\caption{Scratch: block-based visual programming language (\cite{majed2014learn})}
-	\label{fig:scratch-interface}
-\end{figure} 
+	\includegraphics[width=0.9\linewidth]{figures/RobotProgrammingOverview}
+	\caption{Overview of Robot Programming methods.}
+	\label{fig:RobotProgrammingOverview}
+\end{sidewaysfigure}
+\clearpage
 
 \subsection{Graphical Systems}\label{sssec:Graphical systems}
 Graphical (or icon-based) systems use a graph, flow-chart or diagram view where users manually specify actions and program flow.
@@ -121,7 +106,6 @@ Similarly, Scratch (\cite{majed2014learn}) is a block-based visual programming l
 \cite{huang2017code3} created a system for programming mobile manipulator robots with a drag-and-drop interface as a high-level programming component.
 For all of these systems, the user has direct control over the programmed behaviour, thus increasing their programming effort.
 %They are typically easy to use and generally used for robot applications rather than system programming. 
-
 \section{Automatic Programming Systems}\label{subsec:Automatic Programming Systems}
 Automatic programming systems relate to robots that can learn from data and generate their behaviour, known as a \textit{policy}, from data provided as input to the system.
 Unlike manual programming, the end-user does not need to sequence robot code and does not have direct control over the robot's executed behaviour.
@@ -141,8 +125,6 @@ The most efficient policy derivation techniques approximate the state-action map
 
 \begin{table}[ht]
 	\centering
-	\caption{State representations: continuous vs discrete}
-	\label{tab:representations}
 	\begin{tabular}{r|ll}
 		& Continuous representation & Discrete representation\\ \hline
 		Position & (x,y,z) coordinates & table \\
@@ -150,12 +132,34 @@ The most efficient policy derivation techniques approximate the state-action map
 		Colour & (r,g,b) & red, yellow, green\\
 		Spatial relation & (x,y,z) distance vector & left/right/front/behind of 
 	\end{tabular}
+\caption{State representations: continuous vs discrete}
+\label{tab:representations}
 \end{table}
 
 A policy can describe either a low-level skill (\ie a motion trajectory) or a high-level task (\ie symbolic encoding).
 Low-level representations focus on learning generalised trajectories, high-level representations focus on learning a sequence of motion elements (primitives) (\cite{peppoloni2014ros}). 
 In the following we will give an overview of both techniques.
 
+\clearpage
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.99\linewidth]{figures/kuka-interface2}
+	\caption{KUKA Robotics graphical user interface (\cite{abdeetedal2017kuka})}
+	\label{fig:Kuka}
+\end{figure} 
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\linewidth]{figures/lego-mindstorm2}
+	\caption{Lego Mindstorms EV3 icon-based interface (\cite{lego2003})}
+	\label{fig:lego-mindstorm}
+\end{figure} 
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\linewidth]{figures/scratch-interface}
+	\caption{Scratch: block-based visual programming language (\cite{majed2014learn})}
+	\label{fig:scratch-interface}
+\end{figure} 
+\clearpage
 \subsubsection{Low-level skill learning}\label{ssec:lowlevel}
 In the literature low-level actions have been referred to as \textit{skill, motor skill, primitive action,} or \textit{low-level motion} (\cite{chernova2014robot}).
 Generalisable low-level actions can be learned by recording joint angle trajectories using GMM (\cite{billard2008robot}), using keyframe-based learning (\cite{akgun2012keyframe}), or using Dynamic Movement Primitives (DMP) (\cite{pastor2009learning}), which consist of differential equations that can create a smooth trajectory to a new goal point.
@@ -314,23 +318,84 @@ Table \ref{tab:enduserinvolvement} shows an overview of user involvement tasks, 
 We consider five categories from `high', `moderately high', `medium', `moderately low', and `low'.
 %In this case we consider experts as users who have received formal training or experience in the stated robot programming method, \eg programming languages or RL/DL-related concepts.
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=\linewidth]{figures/robot-programming-comparison}
-	\caption{End-user involvement for common robot programming approaches}
-	\label{tab:enduserinvolvement}
-\end{figure}
+%\begin{figure}[ht]
+%	\centering
+%	\includegraphics[width=\linewidth]{figures/robot-programming-comparison}
+%	\caption{End-user involvement for common robot programming approaches}
+%	\label{tab:enduserinvolvement}
+%\end{figure}
 
-%\begin{table}[]
-%	\begin{tabular}{llccc}
-%		\textbf{Approach/method for teaching the robot} & \textbf{Involved tasks}                                                                & \textbf{Difficulty for the teacher} & \textbf{Data required} & \textbf{Time required to learn a skill} \\
-%		Text-based programming                          & manually write code                                                                    & high                                & low                    & high                                    \\
-%		Visual/graphical programming                    & manually sequence code                                                                 & moderately high                     & low                    & high                                    \\
-%		Programming by demonstration                    & provide action demonstrations                                                          & moderately low                      & moderately low         & moderately low                          \\
-%		Reinforcement learning                          & specify reward function, policy parameterization,  initial policy, \textbackslash{}etc & moderately high                     & high                   & moderately high                         \\
-%		Deep learning                                   & preprocess data, tune parameters                                                       & medium                              & high                   & moderately high                        
-%	\end{tabular}
-%\end{table}
+\begin{table}[h]
+	\begin{tabular}{@{}l@{\hskip1.5pt}l@{\hskip1pt}c@{\hskip1pt}c@{\hskip1pt}c}
+		\noindent\begin{tabular}{@{}l}
+			\textbf{Programming}\\
+			\textbf{approach}
+		\end{tabular}  & \textbf{Involved tasks}& 
+		\begin{tabular}{c}
+			\textbf{Difficulty}\\
+			\textbf{for the teacher}
+		\end{tabular}  & 
+		\begin{tabular}{c}
+			\textbf{Data}\\
+			\textbf{required}
+		\end{tabular}  &
+		 \begin{tabular}{c}
+			\textbf{Time required}\\
+			\textbf{to learn skill}
+		\end{tabular} \\ \hline
+		Text-based    & manually write code    & high& low & high\\ \hline
+		Visual/graphical  & manually sequence code & 
+		\noindent\begin{tabular}{@{}c}
+			{moderately}\\
+			{high}
+		\end{tabular}   & low & high\\ \hline
+		\noindent\begin{tabular}{@{}l}
+			{Programming}\\
+			{by demonstration}
+		\end{tabular}  & provide demonstrations  & 
+		\noindent\begin{tabular}{@{}c}
+		{moderately}\\
+		{low}
+		\end{tabular} & 
+			\noindent\begin{tabular}{@{}c}
+			{moderately}\\
+			{low}
+		\end{tabular}    & 
+			\noindent\begin{tabular}{@{}c}
+			{moderately}\\
+			{low}
+		\end{tabular}     \\ \hline
+		\noindent\begin{tabular}{@{}l}
+			{Reinforcement}\\
+			{learning}
+		\end{tabular}  &
+		\noindent\begin{tabular}{@{}l}
+			specify reward function, \\
+			policy parameterization,  \\
+			initial policy, \etc \\
+		\end{tabular} 
+		& 
+		\noindent\begin{tabular}{@{}c}
+			{moderately}\\
+			{high}
+		\end{tabular} & high & 
+		\noindent\begin{tabular}{@{}c}
+			{moderately}\\
+			{high}
+		\end{tabular}   \\ \hline
+		Deep learning   & 
+		\noindent\begin{tabular}{@{}l}
+			preprocess data,\\ 
+			tune parameters \\
+		\end{tabular}   & medium   & high& 
+	\noindent\begin{tabular}{@{}c}
+	{moderately}\\
+	{high}
+\end{tabular} 
+	\end{tabular}
+\caption{End-user involvement for common robot programming approaches}
+\label{tab:enduserinvolvement}
+\end{table}
 %
 %\begin{table}[h]
 %	\centering
