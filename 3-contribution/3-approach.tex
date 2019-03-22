@@ -20,6 +20,37 @@ In \sect{sec:quanteval} we empirically investigate the usability of our system a
 To better understand user teaching strategies, we split participants into two control groups, with and without automatic condition inference, and investigate how users in both groups learn and use the system.
 Finally, we discuss limitations and possible extensions to further increase the system's generalisability (\sect{sec:discussion}).
 
+\section{Related Work}
+\label{sec:relatedwork}
+Our work relates to several topics explored in previous research.
+End-user robot programming has been addressed previously for industrial robots to be programmed by non-robotics domain experts, where users specify and modify existing plans for robots to adapt to new scenarios \cite{paxton2017costar,perzylo2016intuitive,stenmark2017simplified}.
+For example, CoSTAR \citet{paxton2017costar} uses Behaviour Trees to represent task plans that are explicitly defined by the user and can be modified to adapt to new tasks.
+In our work we argue for the use of task planners to automatically generate plans for new scenarios, rather than have the user manually modify them.
+
+Previous work has addressed knowledge engineering tools for constructing planning domains but usually require PDDL experts (PDDL Studio \cite{plch2012inspect}), or common knowledge in software engineering (GIPO \cite{simpson2007planning}, itSIMPLE \cite{vaquero2013itsimple}).
+%Integrating task planning with robotic systems has been addressed with
+%the ROSPlan framework  which provides a collection of tools to integrate task planning in ROS systems.
+There has been previous work on integrating task planning with robotic systems \cite{cashmore2015rosplan,kuhner2018closed}, learning high-level actions through natural language instructions (\cite{she2014teaching}) or preconditions and effects of actions to be used in planning (\cite{jetchev2013learning,konidaris2018fromSkills,ugur2015bottom}).
+However, in all of these cases, the robot is provided with a fixed set of low-level motor skills.
+%It assumes that low-level actions have already been programmed and can be called directly after mapping them to PDDL actions.
+We do not provide the robot with any predefined actions but allow users to teach both low- and high-level actions from scratch.
+
+Programming by demonstration \cite{argall2009survey,billard2008robot} has been commonly applied to allow end-users to teach robots new actions by demonstration.
+Recent work has focused on mobile and industrial manipulators \cite{pedersen2014intuitive,huang2017code3,stenmark2017simplified} and learning from single demonstrations \cite{perez2017c,wu2010towards,yu2018one,tremblay2018synthetically}.
+%\citet{stenmark2017simplified} uses assembly tasks to pick and stack lego blocks and compares the performance of non-experts with reusable tasks (N=21).
+\citet{alexandrova2014robot} created an end-user programming framework with an interactive action visualisation allowing the user to teach new actions from single demonstrations but do not reuse them with a task planner.
+%The system is evaluated on 12 benchmark tasks as well as a user study (N=10) for box closing tasks, stacking cups, and putting objects into a box.
+
+%In \citet{konidaris2018fromSkills} the robot learns symbolic representations for high-level task planning by gathering data from 167 motor skills executions.
+%The authors mention the drawback of unnecessary learning and the need to learn a representation that generalises across related motor skills.
+Most closely related to our approach is the work by \citet{abdo2013learning} where manipulation actions are learned from kinesthetic demonstrations and reused with task planners.
+%They evaluate the system with experiments on teaching the robot to stack blocks, pour from a bottle and open a door.
+However, the approach requires 5-10 demonstrations to learn action conditions which becomes tedious and impractical if several actions need to be taught.
+Our work argues for having the user act as the expert by letting them correct inferred action conditions, thus allowing a new action to be learned from a single demonstration.
+%and uses k-means and entropy to deduce action conditions from demonstrations. 
+We further provide a graphical interface that allows users to create new actions and previously unseen problems that can be solved with task planners.
+
+
 \section{Approach}
 \label{sec:approach}
 Our approach aims at providing end-users with an intuitive way of teaching robots new actions that can be reused with a task planner to solve more complex tasks.
@@ -105,10 +136,10 @@ If the nearest position \emph{p} to the object \emph{o} is within a certain thre
 To infer the action conditions, the robot perceives the initial world state   before %(\textit{precondition})
 and after the kinesthetic action demonstration as seen in similar work for learning object manipulation tasks (\cite{ahmadzadeh2015learning}).
 %(\textit{effects}).
-Let $O_1 = \{\phi_1, \phi_2, ... \}$ be the set of predicates observed before the action demonstration and $O_2 = \{\psi_1, \psi_2, ... \}$ after.
-The action inference is the heuristic deduction of predicates that have changed between $O_1$ and $O_2$, \ie
-\begin{align*} \text{pre}(a) = \{\phi_i | \phi_i \in O_1 \wedge \phi_i \notin O_2 \}, \\
-\text{eff}(a) = \{\psi_i | \psi_i \notin O_1 \wedge \psi_i \in O_2 \}, 
+Let $O_b = \{\phi_1, \phi_2, ... \}$ be the set of predicates observed \emph{before} the action demonstration and $O_a = \{\psi_1, \psi_2, ... \}$ \emph{after}.
+The action inference is the heuristic deduction of predicates that have changed between $O_b$ and $O_a$, \ie
+\begin{align*} \text{pre}(a) = (O_b - O_b \cap O_a) = \{\phi_i | \phi_i \in O_b \wedge \phi_i \notin O_a \}, \\
+\text{eff}(a) = (O_a - O_b \cap O_a) = \{\psi_i | \psi_i \notin O_b \wedge \psi_i \in O_a \}, 
 \end{align*}
 where $\text{eff}(a)$ includes positive and negative effects (\fig{fig:action-model}).
 
@@ -128,7 +159,7 @@ Our work argues for accelerating the teaching phase by learning from a single de
  \begin{figure}[h]
  	\centering
  	\includegraphics[width=0.5\linewidth]{figures/high-level.pdf}
- 	\caption{Example of a high-level action for moving an object from A to B. Conditions are inferred from the observed predicates before ($O_1$) and after ($O_2$) the demonstration.
+ 	\caption{Example of a high-level action for moving an object from A to B. Conditions are inferred from the observed predicates before ($O_b$) and after ($O_a$) the demonstration.
  	}
  	\label{fig:action-model}
  \end{figure}
@@ -189,7 +220,8 @@ An example of a complete planning domain and problem in PDDL can be found in App
 \label{sec:platform}
 We implemented our system on a Baxter robot with two arms (one claw and one suction gripper), both with 7-DoF and a load capacity of 2.2kg each (\sect{sec:baxter}).
 For the object perception we mounted a Kinect Xbox 360 depth camera on the robot.
-We developed a user interface as a web application that can be accessed via a browser on a PC, tablet or smartphone.
+We developed a user interface as a web application, based on HTML and JavaScript, that can be accessed via a browser on a PC, tablet or smartphone.
+The user interface provides an abstraction from the underlying planning language and displays predicates in natural language.
 
 The source code for iRoPro is developed in ROS (\cite{quigley2009ros}) and available online\footnote{todo}. %ysl208/rapid\_pbd}.
 The low-level action is learned using the open-source system Rapid PbD\footnote{https://github.com/jstnhuang/rapid_pbd}.
