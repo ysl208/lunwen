@@ -90,6 +90,8 @@
 \chapter*{Abstract}
 \input{0-frontmatter/1-abstract.tex}
 
+\input{0-frontmatter/0-acknowledgements.tex}
+
 \dominitoc% Initialization
 \tableofcontents
 %\authorlist
@@ -100,7 +102,7 @@
 \chapter{Introduction} \label{chap:Intro}
 \minitoc% Creating an actual minitoc
 \input{1-intro/0-main.tex}
-
+\part{Literature Review}\label{part1}
 \chapter{Robot Programming}\label{chap:Sota}
 \minitoc% Creating an actual minitoc
 \input{2-sota/0-main.tex}
@@ -108,16 +110,16 @@
 \chapter{Automated Planning}\label{chap:Sota-AP}
 \minitoc% Creating an actual minitoc
 \input{2-sota/AP/0-main.tex}
-
+\part{Contribution}\label{part2}
 \chapter{A Robot Programming Framework for End-users in Cobotic Environments}\label{chap:Contribution}
-\minitoc% Creating an actual minitoc
+%\minitoc% Creating an actual minitoc
 \input{3-contribution/3-framework.tex}
 
 \chapter{Pre-Experiments}\label{chap:Pre-Experiments}
 \minitoc
 \input{5-evaluation/0-main.tex}
 
-\chapter{End-User Programming for Robotic Shelf Organisation}\label{chap:OrganisingTasks}
+\chapter{Goal-Oriented End-User Robot Programming}\label{chap:OrganisingTasks}
 \minitoc% Creating an actual minitoc
 \input{3-contribution/2-organising.tex}
 
@@ -130,6 +132,7 @@
 \input{5-evaluation/5-syseval.tex}
 \input{5-evaluation/6-finaleval.tex}
 
+%\part{Conclusion}
 \chapter{Conclusion and Future Work}\label{chap:Conclusion}
 \minitoc% Creating an actual minitoc
 \input{6-conclusion/0-main.tex}
@@ -137,9 +140,9 @@
 
 % the back matter
 \clearpage
-\bibliography{references}
 \addcontentsline{toc}{chapter}{References}
-\bibliographystyle{plainnat}
+\bibliographystyle{apa}
+\bibliography{references}
 \appendix
 %\chapter{Appendix}\label{chap:Appendix}
 \input{7-appendix/0-main.tex}
