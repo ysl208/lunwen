@@ -93,7 +93,7 @@ An operator is applied to a set of parameters that are associated with a \textit
 For example, a general type could be \textit{OBJECT} or \textit{POSITION}.
 Some planning problems include type hierarchies with a general type (\eg OBJECT) that consists of subtypes (\eg BASE and CUBE).
 
-\begin{definition}
+\begin{definition}\label{def:action}
 	An \textit{action} is any ground instance of an operator. 
 	If $a$ is an action and $s$ is a state such that $\text{precond}(a)$ are true in $s$, then $a$ is {\em applicable} to $s$ and the result of applying action $a$ to state $s$ is the state $s'$:  
 	\begin{equation}\label{eq:statetrans}
@@ -250,7 +250,7 @@ In general, an action model consists of the following (see \fig{fig:action model
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/schema-logic}
-	\caption{Action model representation of a move action in terms of preconditions and effects: demonstrated action model for a cube (top), and generalised action model for any object, variables are prefixed with `?' (bottom)}
+	\caption{Action model representation of a move action in terms of preconditions and effects: demonstrated action model for a cube (top), and generalised action model for any object, variables are prefixed with `?' (bottom).}
 	\label{fig:action model}
 \end{figure}
 
@@ -384,7 +384,8 @@ The problem with state-space search is that it commits to plan step orderings, m
 
 % 2. plan space planners : Backward search from the goal 
 % Each node is a set of partially-instantiated operators, plus some constraints »Impose more and more constraints, until we get a plan
-A second category known as plan-space planners (\cite{penberthy1992ucpop}) handle goal orderings in an optimal way and are generally considered more efficient. 
+A second category known as plan-space planners (\cite{chapman1987planning,mcallester1991systematic}) handle goal orderings in an optimal way and are generally considered more efficient. 
+%The adaptation method is based on a constraint-posting technique of Chapman [1987] and its laterrefinement [McAllester and Rosenblitt 1991]. The fitted plan to be adapted constitutes a node in thesearch space and the search starts from there instead of traversing the space of partial-order plans inbreadth-first manner starting from the root, as SNLP does
 For such partial-order planners each node is a set of partially instantiated-operators with constraints (\eg temporal constraints for the application of an action).
 The idea is to perform a backward search from the goal and impose an increasing number of constraints until a complete plan has been found.
 
@@ -397,38 +398,51 @@ The true set of reachable states can be quickly estimated by eliminating many im
 A plan is then extracted from the planning graph.
 %It considers the union of sets of propositions of several reachable states rather than individual states.  
 % other planners
-Other graph-based planners include SATPlan (\cite{kautz:06,kautz:99}), that uses a \textsc{SAT} solver, and the GP-CSP (\cite{do:01}) that uses a \textsc{CSP} solver.
-However, there is no single planning strategy or domain-independent search heuristic that is universally better than others.
-
-The main open-source planning toolkits are the Lightweight Automated Planning ToolKit (\cite{lapkt}), based on Fast Downward and Fast Forward, and PDDL4J, a Planning Domain Description Library for Java cross-platform developers (\cite{pellier2018pddl4j}).
-Integrating classical planning with the Robot Operating System (ROS) has been addressed recently \eg with the ROSPlan framework (\cite{cashmore2015rosplan}) and other libraries such as the ROS package \textit{pddl_planner} (\cite{pddlplanner}) and ROS implementations of planners \eg PDDL4Jrospy (\cite{pddl4jrospy}) and Downward (\cite{downward}).
+Other graph-based planners include SATPlan (\cite{kautz:06,kautz:99}), that uses a \textsc{Sat} solver, and the GP-CSP (\cite{do:01}) that uses a \textsc{CSP} solver.
 
 \begin{table}[h]
 	\centering
-	\caption{Main planning techniques}
-	\label{tab:planningapproaches}
 	\begin{center}
-		\begin{tabular}{rll} \hline
-			Approach & Generated Plan & Planning Systems\\ \hline
-		State-space & sequence of actions &
-		\begin{tabular}{l}
-					\textsc{Ff} (\cite{hoffmann2001ff})\\
-					 \textsc{Fd} (\cite{helmert:06a}) 
-		\end{tabular}\\
-		Plan-space & partially ordered set of actions &  
-		\begin{tabular}{l}
-			UCPOP (\cite{penberthy1992ucpop})\\
-			SNLP (\cite{mcallester1991systematic})\\
-%			FAPE (\cite{dvo2014plan})\\
-		\end{tabular}\\
-		Planning graph & sequence of sets of parallel actions &
-		\begin{tabular}{l}
-			\textsc{Stan} (\cite{long1999efficient})\\
-			Blackbox (\cite{kautz:99})  \\
-		\end{tabular}\\
-	\end{tabular}
+		\begin{tabular}{@{\hskip0pt}l@{\hskip2.5pt}l@{\hskip1.5pt}l@{\hskip1.5pt}} \hline
+			\textbf{Approach} & \textbf{Generated Plan} & \textbf{Planning Systems}\\ \hline
+			State-space & sequence of actions &
+			\begin{tabular}{l}
+				HSP (\cite{bonet:01})\\
+				\textsc{Ff} (\cite{hoffmann2001ff})\\
+				\textsc{Fd} (\cite{helmert:06a}) \\
+				\textsc{Lama} (\cite{richter2010lama}) \\
+			\end{tabular}\\ \hline
+			Plan-space & partially ordered set of actions &  
+			\begin{tabular}{l}
+				TWEAK (\cite{chapman1987planning})\\
+				SNLP (\cite{mcallester1991systematic})\\
+				UCPOP (\cite{penberthy1992ucpop})\\
+				O-Plan (\cite{tate1994plan2})\\
+				FAPE (\cite{dvo2014plan})\\
+			\end{tabular}\\ \hline
+			Planning graph & sequence of sets of parallel actions &
+			\begin{tabular}{l}
+				Graphplan (\cite{blum:97})\\
+				\textsc{Stan} (\cite{long1999efficient})\\
+				CSP (\cite{lopez2003generalizing})\\
+				weighted CSP (\cite{cooper2011weighted})\\
+				SATPlan (\cite{rintanen2014madagascar})\\
+			\end{tabular}\\ \hline
+%			Other & sequence of sets of parallel actions &
+%			\begin{tabular}{l}
+%				\textsc{Stan} (\cite{long1999efficient})\\
+%				Blackbox (\cite{kautz:99})  \\
+%			\end{tabular}\\ \hline
+		\end{tabular}
 	\end{center}
+	\caption{Main automated planning approaches and systems}
+	\label{tab:planningapproaches}
 \end{table}
+
+There exist other planning techniques such as model checking (\cite{triantafillou2015unifying}) or Markov Decision Process (\cite{kolobov2012planning}) but there is no single planning strategy or domain-independent search heuristic that is universally better than others.
+
+The main open-source planning toolkits are the Lightweight Automated Planning ToolKit (\cite{lapkt}), based on Fast Downward and Fast Forward, and PDDL4J, a Planning Domain Description Library for Java cross-platform developers (\cite{pellier2018pddl4j}).
+Integrating classical planning with the Robot Operating System (ROS) has been addressed recently \eg with the ROSPlan framework (\cite{cashmore2015rosplan}) and other libraries such as the ROS package \textit{pddl_planner} (\cite{pddlplanner}) and ROS implementations of planners \eg PDDL4Jrospy (\cite{pddl4jrospy}) and Downward (\cite{downward}).
 
 
 \section{Knowledge Engineering Tools}\label{subsec:Knowledge Engineering}
@@ -486,7 +500,7 @@ While knowledge engineering tools facilitate the modelling of planning domains, 
 In this thesis, we argue that end-users without this experience can still learn and use automated planning concepts to program robots.
 We first conduct user studies (\chapt{chap:Pre-Experiments}) to evaluate this hypothesis and analyse the user's adoption when first presented to these concepts.
 We then propose and implement a framework (\chapt{chap:Implementation}) that allows them to teach robots actions that can be used with an automated planner to solve previously unseen tasks.
-Finally we evaluate the implemented framework with another user study (\chapt{chap:Evaluation}).
+We evaluate the implemented system and present experimental findings from a user study. %(\chapt{chap:Evaluation}).
 %In general, the majority of tasks can be completed using the simple actions pick, move and drop. 
 %For our framework, we considered planning problems, such as the Tower of Hanoi problem (\cite{douglas1985metamagical}) or a real-life game of Tetris (\cite{tetris}), which use these actions. 
 %Since we focus on applications in cobotic environments, we wanted to choose a planning problem that occurs in real-world applications. 
