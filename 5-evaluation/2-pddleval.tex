@@ -10,7 +10,7 @@ In this experiment, we are addressing the following question:
 	\item[\textbf{Q1}] How do non-expert users adopt the automated planning language with its action model representation?
 \end{enumerate}
 
-Users were introduced to a symbolic planning language (a simplified version of PDDL), involving the STRIPS formalism with type structures used in automated planning (\chapt{chap:Sota-AP}).
+Users were introduced to a symbolic planning language (a simplified version of PDDL), involving the STRIPS formalism (\cite{fikes1971strips}) with type structures used in automated planning (\chapt{chap:Sota-AP}).
 Users were instructed to describe world state configurations to the robot.
 The goal was to assess the user's adoption of the planning concepts (object types, properties, generalised properties, action models) and to verify that the symbolic planning language is appropriate for non-expert users.
 
@@ -29,7 +29,7 @@ The goal was to assess the user's adoption of the planning concepts (object type
 	% 	\includegraphics[width=.3\textwidth]{figures/experiment-setup2}
 \end{figure}
 \subsection{Experimental Setup \& Participants}
-We recruited 10 participants (1 male, 9 female), who were Sociology students at the Universit\'{e} Grenoble Alpes.
+We recruited 10 participants (1 male, 9 female), who were sociology students at the Universit\'{e} Grenoble Alpes.
 3 participants reported no programming experience, 6  had experience with office productivity software (`beginner'), and 1 had previously taken a programming course before (`advanced').
 
 The experimental setup consisted of a 2x2 board (with positions A1, A2, B1, B2), 2 cubes, 1 ball, and 1 ball recipient in the form of a bowl (\fig{fig:exp1-setup}).
@@ -67,11 +67,12 @@ We evaluated their capability to apply the planning language to different situat
 The experiment consisted of the following phases:
 \begin{itemize}
 %  \item{Introduction: After a short introduction to the Baxter robot \cite{Baxter}, users were told that they needed to use a planning language (STRIPS) to explain Baxter the state of the world and the semantic meaning of the actions.}
-  \item{\textbf{Training:} Users were presented the symbolic planning language to describe object \textit{types} (\ie position, ball, cube, bowl) and predicates, which we called \textit{properties} (\ie \texttt{empty}, \texttt{at}, \texttt{stackable}, \texttt{is\_red}, \texttt{is\_blue}) to describe world states.
-They were shown how to model a simple move action in terms of preconditions and effects (\fig{fig:action}).
+  \item{\begin{sloppypar} \textbf{Training:} Users were presented the symbolic planning language to describe object \textit{types} (\ie position, ball, cube, bowl) and predicates, which we called \textit{properties} (\ie \texttt{empty}, \texttt{at}, \texttt{stackable}, \texttt{is\_red}, \texttt{is\_blue}) to describe world states.
+They were shown how to model a simple move action in terms of preconditions and effects (\fig{fig:action model}).
 For all properties and actions, they had to use syntax of the form \texttt{name(arg1,arg2,\dots)} which users without a  Computer Science background might be unfamiliar with.
 Additionally, they were introduced to the concepts of \textit{instantiated} and \textit{generalised} actions, which were equivalent to actions (\eg \texttt{move(X1)}) and planning operators (\eg \texttt{move(cube)}) respectively (\sect{subsec:Classical planning problem}).
-In this phase, they were given a simple example of a cube at position A1 and moved to position B2.}
+In this phase, they were given a simple example of a cube at position A1 and moved to position B2.\end{sloppypar}
+}
   \item{\textbf{Experimental test:} Users were presented a new world state that involved a cube, a bowl and a ball object. 
   	First they were instructed to provide a description of the initial state to the robot by using the symbolic planning language (\fig{fig:scenarios-exp1}a).
 Then they were asked to define a move action model in terms of preconditions and effects (\fig{fig:scenarios-exp1}b).
@@ -88,8 +89,8 @@ This optional test allowed us to further verify their understanding of the plann
   logical reasoning 
   	(\eg `Is it possible to have \texttt{(empty A)} and \texttt{(at cube A)} in the same state?'), and other concepts (\eg `What is the generalised form of the given object property?').
   The complete questionnaire can be found in Appendix \ref{app:exp1}.}
-   \item {\textbf{Debriefing:} Throughout the experiment, users were asked open-ended questions (\eg ``What properties do you observe in the current world state?"), so that they were guided as little as possible and their responses were unbiased.
-When the participant struggled to find an answer, the experimenter guided the participant in a possible direction (\eg ``Why can the ball not be placed on the cube?").} 
+   \item {\textbf{Debriefing:} Throughout the experiment, users were asked open-ended questions (\eg `What properties do you observe in the current world state?'), so that they were guided as little as possible and their responses were unbiased.
+When the participant struggled to find an answer, the experimenter guided the participant in a possible direction (\eg `Why can the ball not be placed on the cube?').} 
 \end{itemize}
 
 \begin{figure}[ht]
@@ -105,8 +106,8 @@ We did not observe any significant differences in the performance of users with 
 9 (out of 10) participants found the symbolic representation of properties and actions easy to understand.
 During the experimental test, the majority (9 or 90\%) of the participants managed to describe the complete world state using the correct syntax.
 When faced with different scenarios to refine the move action model, 5 (or 50\%) of the participants struggled to formalise the \textit{stackable} condition in the symbolic language.
-They provided alternative formulations related to the cube's properties (\eg ``if the cube can hold the ball").
-However, once the condition was defined, the majority (8 or 80\%) of the participants had little to no difficulties generalising this property.
+They provided alternative formulations related to the cube's properties (\eg `if the cube can hold the ball').
+However, once the condition was defined, the majority (8 or 80\%) of the participants had little to no difficulties generalising properties, \eg defining planning operators (\fig{fig:action model}).
 Due to time constraints, only 5 (or 50\%) participants were presented the planning phase.
 All 5 encountered no problems when defining the action sequence to achieve the given goal.
 
