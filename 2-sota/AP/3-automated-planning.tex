@@ -378,18 +378,20 @@ Each node corresponds to a state of the world, each arc represents a state trans
 An extended version of the planner is the Heuristics Search Planner (\cite{bonet:01}), which includes several basic search algorithms like breadth-first search, best-first search (\eg A*) and iterative deepening search. 
 The Fast Forward planning system (\cite{hoffmann2001ff}) is based on the HSP, but managed to outperform it, due to modifications aimed to avoid getting trapped in local minima. % (\cite{hoffmann2000heuristic}): 
 %It includes a variation of the hill-climbing search, called the \textit{enforced hill climbing}, and a heuristic called \textit{helpful actions}. 
-Finally, Fast Downward (\cite{helmert:06a}) is a state-space planner based on a finite domain representation, with a greedy best-first search as its main search procedure. 
+Fast Downward (\cite{helmert:06a}) is a state-space planner based on a finite domain representation, with a greedy best-first search as its main search procedure.
+A more recent approach is BFWS, a best-first width search  (\cite{lipovetzky2017best}) that combines width and simple goal-directed heuristic search.
 % Problem with state-space search : we may try many different orderings of the same actions before realizing there is no solution -> Least-commitment strategy: don’t commit to orderings, instantiations, etc., until necessary
 The problem with state-space search is that it commits to plan step orderings, meaning that many different orderings of the same actions are considered even if none of them lead to a solution.
 
 % 2. plan space planners : Backward search from the goal 
 % Each node is a set of partially-instantiated operators, plus some constraints »Impose more and more constraints, until we get a plan
-A second category known as plan-space planners (\cite{chapman1987planning,mcallester1991systematic}) handle goal orderings in an optimal way and are generally considered more efficient. 
-%The adaptation method is based on a constraint-posting technique of Chapman [1987] and its laterrefinement [McAllester and Rosenblitt 1991]. The fitted plan to be adapted constitutes a node in thesearch space and the search starts from there instead of traversing the space of partial-order plans inbreadth-first manner starting from the root, as SNLP does
+A second category known as plan-space planners, first proposed in TWEAK (\cite{chapman1987planning}), handle goal orderings in an optimal way and are generally considered more efficient. 
+%The adaptation method is based on a constraint-posting technique of Chapman [1987] and its later refinement [McAllester and Rosenblitt 1991]. The fitted plan to be adapted constitutes a node in thesearch space and the search starts from there instead of traversing the space of partial-order plans inbreadth-first manner starting from the root, as SNLP does
 For such partial-order planners each node is a set of partially instantiated-operators with constraints (\eg temporal constraints for the application of an action).
 The idea is to perform a backward search from the goal and impose an increasing number of constraints until a complete plan has been found.
+Besides later refinements of the initially proposed technique (SNLP (\cite{mcallester1991systematic}), UCPOP \cite{penberthy1992ucpop}, O-Plan (\cite{tate1994plan2})), a more recent system is FAPE, a Flexible Acting and Planning Environment proposed by \cite{dvorak2014flexible}.
+FAPE focuses on integrating acting, task decomposition and temporal planning embedded into a robotic platform.
 
-%
 % 3. planning-graph techniques
 Another category are planning-graph planners, first introduced in the Graphplan (\cite{blum:97}).
 The idea is to encode the search space in a structure called the \textit{planning graph} that is much smaller than the state transition graph and contains information about possibly reachable states.
@@ -398,7 +400,7 @@ The true set of reachable states can be quickly estimated by eliminating many im
 A plan is then extracted from the planning graph.
 %It considers the union of sets of propositions of several reachable states rather than individual states.  
 % other planners
-Other graph-based planners include SATPlan (\cite{kautz:06,kautz:99}), that uses a \textsc{Sat} solver, and the GP-CSP (\cite{do:01}) that uses a \textsc{CSP} solver.
+Other graph-based planners include SATPlan (\cite{kautz:06,kautz:99,rintanen2014madagascar}), that uses a \textsc{Sat} solver, and the GP-CSP (\cite{do:01,lopez2003generalizing,cooper2011weighted}) that uses a \textsc{CSP} solver.
 
 \begin{table}[h]
 	\centering
@@ -411,6 +413,7 @@ Other graph-based planners include SATPlan (\cite{kautz:06,kautz:99}), that uses
 				\textsc{Ff} (\cite{hoffmann2001ff})\\
 				\textsc{Fd} (\cite{helmert:06a}) \\
 				\textsc{Lama} (\cite{richter2010lama}) \\
+				BFWS (\cite{lipovetzky2017best})
 			\end{tabular}\\ \hline
 			Plan-space & partially ordered set of actions &  
 			\begin{tabular}{l}
@@ -486,21 +489,31 @@ This represents a bottleneck and significantly reduces the number of potential u
 
 \section{Discussions and Relations to Present Work}
 Automated planning has found its application in a wide range of areas from virtual agent games (\cite{fernandez2006planning}) to space exploration (\cite{backes2004multi,bresina2005activity}).
-A main research area has focused on integrating task planning with robot architectures \cite{cashmore2015rosplan}, in particular to handle time, resources and synchronisation (\cite{di2014planner,dvorak2014flexible}).
-Combining task and motion planning is an open research problem and has been addressed previously (\cite{ferrer2015planning,garrett2015ffrob}), especially learning preconditions and effects of actions to be used in planning (\cite{ahmadzadeh2015learning,jetchev2013learning,konidaris2018fromSkills,ugur2015bottom}).
+A main research area has focused on integrating task planning with robot architectures (\cite{cashmore2015rosplan}), in particular to handle time, resources and synchronisation (\cite{di2014planner,dvorak2014flexible}).
+Planners can be very powerful for generating optimal plans for problems that even humans struggle to solve, \eg Tower of Hanoi problem (\cite{hanoiPddlGit}), Tetris (\cite{ipc14site}).
+However, they are generally not accessible to end-users who do not have experience in this domain. 
+While knowledge engineering tools facilitate the modelling of planning domains, they still require PDDL experts or common knowledge in software engineering.
+In the previous Chapter \ref{chap:Sota}, we discussed several end-user robot programming techniques and concluded that Programming by Demonstration (PbD) was the most appropriate for our approach.
+In order to allow task planning, the robot needs to not only learn the low-level action but also its high-level representation in terms of preconditions and effects.
+Combining task and motion planning is an open research problem and has been addressed previously (\cite{ferrer2015planning,garrett2015ffrob}), especially learning preconditions and effects of actions to be used in planning (\cite{jetchev2013learning,ahmadzadeh2015learning,ugur2015bottom,konidaris2018fromSkills}).
 In these works, the focus often lies in grounding actions or learning symbolic action representations, so the robot is generally provided with a predefined set of motor skills that are refined by learning from plan traces or demonstrations.
 %It is assumed that low-level actions have already been programmed and can be called directly after mapping them to PDDL actions.
 For example, \citet{abdo2013learning} learns a fixed set of manipulation actions from user demonstrations, \ie stack blocks, pour from a bottle and open a door.
-The robot only uses the actions to achieve a predefined task, \eg going through a door, but does not reuse them for unseen tasks.
+The robot only uses the actions to achieve a predefined task, \eg going through a door, but does not reuse them for new tasks.
 %However, as the approach requires 5-10 demonstrations to learn action conditions, it becomes tedious and impractical if several actions need to be taught.
+In this thesis we address scenarios where the robot has no predefined set of actions and can learn them from scratch, in particular, from human demonstrations.
 
-Automated planners can be very powerful for generating optimal plans for problems that even humans struggle to solve, \eg Tower of Hanoi problem (\cite{hanoiPddlGit}), Tetris (\cite{ipc14site}).
-However, they are generally not accessible to end-users who do not have experience in this domain. 
-While knowledge engineering tools facilitate the modelling of planning domains, they still require PDDL experts or common knowledge in software engineering.
-In this thesis, we argue that end-users without this experience can still learn and use automated planning concepts to program robots.
-We first conduct user studies (\chapt{chap:Pre-Experiments}) to evaluate this hypothesis and analyse the user's adoption when first presented to these concepts.
-We then propose and implement a framework (\chapt{chap:Implementation}) that allows them to teach robots actions that can be used with an automated planner to solve previously unseen tasks.
-We evaluate the implemented system and present experimental findings from a user study. %(\chapt{chap:Evaluation}).
+In the first part of the thesis, we reviewed state-of-the-art techniques in end-user robot programming and automated planning.
+We identified Programming by Demonstration as an appropriate approach for end-users to teach new low-level actions.
+However, they also need to teach the high-level action representation in terms of preconditions and effects to allow the use of planners.
+While task planning has been integrated in robotics systems, they are generally not accessible to end-users without experience in automated planning or related fields.
+In this thesis, we argue that these end-users can still learn and use these concepts to teach robots actions that can be reused for previously unseen scenarios.
+
+The second part of this thesis presents our contributions.
+We first conduct qualitative user experiments to analyse the user's understanding when first presented to basic concepts in Automated Planning and Programming by Demonstration (\chapt{chap:Pre-Experiments}).
+We then focus on goal-oriented robot programming, where users simultaneously teach robots actions and goals by demonstration (\chapt{chap:OrganisingTasks}).
+Finally, we present iRoPro, an interactive Robot Programming framework that allows users to teach robots low- and high-level actions that can be reused with an automated planner to solve previously unseen tasks (\chapt{chap:Implementation}).
+We evaluate the system implemented on a Baxter robot and present experimental findings from a user study. %(\chapt{chap:Evaluation}).
 %In general, the majority of tasks can be completed using the simple actions pick, move and drop. 
 %For our framework, we considered planning problems, such as the Tower of Hanoi problem (\cite{douglas1985metamagical}) or a real-life game of Tetris (\cite{tetris}), which use these actions. 
 %Since we focus on applications in cobotic environments, we wanted to choose a planning problem that occurs in real-world applications. 
