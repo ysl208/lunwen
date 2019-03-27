@@ -96,5 +96,31 @@ If the generated plan is incorrect, there are several possible causes:
 Knowledge engineering tools (\sect{subsec:Knowledge Engineering}) facilitate this process of modifying action models used for automated planners.
 They often provide useful functionalities for dynamic testing, model checking and visualisation (\cite{simpson2007planning}), but most tools require expertise in automated planning or common software engineering concepts.
 %where the quality of the models generated does not depend on the user's expertise.
-In this thesis we argue that the proposed programming process does not require expertise this expertise and can be learned easily by users with different educational backgrounds.
-We first evaluate this hypothesis by conducting preliminary user studies presented in the next chapter (\chapt{chap:Pre-Experiments}).
+In this thesis we argue that the proposed robot programming process does not require this expertise and can be learned easily by users with different educational backgrounds.
+
+
+\section{Methodology}
+The contributions in this thesis were constructed using both quantitative and qualitative research methodologies.
+Our general approach follows the design wheel\footnote{\url{http://www.designingourtomorrow.com/business/CDA_map/}} consisting of successive cycles of `Explore', `Create', `Evaluate' and `Manage' phases (\fig{fig:designwheel}).
+Our contributions represent the following stages:
+\begin{enumerate}
+	\item {\textbf{Pre-Experiments: }We start by conducting initial qualitative user experiments to investigate how end-users adopt basic concepts in Automated Planning and Programming by Demonstration.
+	We are particularly interested in the difficulties they encounter when learning and applying automated planning concepts as they can be considered in the iRoPro system implementation.
+	For this we create an initial prototype used for simulating iRoPro with the Wizard-of-Oz technique (\chapt{chap:Pre-Experiments}).
+	}
+	\item {\textbf{Goal-oriented Programming: }We then explore goal-oriented end-user programming approaches by allowing users to simultaneously teach the robot actions and goals by demonstration.
+	For this we implement a system that includes learning new actions and goal inference and evaluate it in an online user study on Amazon Mechanical Turk (\chapt{chap:OrganisingTasks}).}
+	\item {\textbf{End-to-End System Implementation:}Taking the existing work as a basis, we implement iRoPro on a Baxter robot to allow simultaneous teaching of low- and high-level actions by demonstration.
+	The end-to-end system includes a graphical interface that users interact with directly to program the robot (\chapt{chap:Implementation}).}
+	\item {\textbf{Post-Experiments: }Finally, we conclude this thesis work by conducting further user experiments using the implemented system.
+		We compare user groups with different educational backgrounds and investigate their performance on how they learn and use the system for programming the robot.
+		These experiments allow us to compare draw a comparison with our initial qualitative experiments conducted at the start of this thesis work and evaluates the proposed framework with real users (\sect{sec:quanteval})}
+\end{enumerate}
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figures/designwheel}
+	\caption{The design wheel consists of successive cycles of `Explore', `Create', `Evaluate' and `Manage' phases.}
+	\label{fig:designwheel}
+\end{figure}
