@@ -48,7 +48,7 @@ A \textit{state transition system} is a triple $\Sigma = (S, A, \gamma)$ such th
 \end{definition}
 
 A state transition system $\Sigma$ can be represented as a directed graph whose nodes are states of $S$ and arcs are actions of $A$. 
-Applying an action $a$ to state $s$ produces a new state $s'= \gamma(s,a)$ that is represented as an arc from $s$ to $s'$, referred to as a  \textit{state transition}.
+Applying an action $a$ to state $s$ produces a new state $s'= \gamma(s,a)$ that is represented as an arc from $s$ to $s'$, referred to as a  \textit{state transition} (\fig{fig:state-transition-system}).
 %with a cost $c(a)$
 $\Sigma$ is deterministic if for all states $s$ and actions $a$ and the transition function $\gamma(a, s)$ produces a unique state $s'$. 
 %$\Sigma$ has a unit cost if, for all $a \in A$, $c(a) = 1$. 
@@ -73,9 +73,17 @@ $\Sigma$ is deterministic if for all states $s$ and actions $a$ and the transiti
 
 %\noindent The set-theoretic representation can take up much more space than the classical representation. The state-variable representation is less natural for logicians but useful for non-classical planning problems to handle numbers, function and time. The classical representation is the most popular choice for restricted state-transition systems \cite{ghallab2004automated}.
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth]{figures/state-transition-system}
+	\caption{Example of a state transition system, nodes representing the states of $S$ and arcs the actions in $A$.}
+	\label{fig:state-transition-system}
+\end{figure}
+
 Logical representations are one of the most commonly used representations for classical planning problems. 
 Each state of the world $s$ is represented by a set of logical propositions $p$, denoting facts of the world that are \textit{true} in the state $s$. 
 If $p$ is not in the state $s$, it is considered to be \textit{false}.
+
 
 \textit{Planning operators} and \textit{actions} change the state of the world by modifying the truth values of the propositions and consist of \textit{preconditions} and \textit{effects}.
 
@@ -344,12 +352,24 @@ This world is composed of three positions, \texttt{A}, \texttt{B} and \texttt{C}
 \texttt{:init} describes the initial world state of \texttt{obj1} and \texttt{obj2} on positions \texttt{A} and \texttt{B} respectively, and \texttt{C} is unoccupied.
 %The engine needs to be installed before the hood, therefore the engine needs to be placed in \texttt{A} and the hood needs to be in \texttt{B}. As devices on assembly lines arrive arbitrarily, depending on the completion time of the previous task, it is possible that they arrive in the reversed order. 
 The goal is to find a plan to swap the two objects, \ie \texttt{obj1} from \texttt{A} to \texttt{B} and \texttt{obj2} from \texttt{B} to \texttt{A} (\fig{fig:planning problem}d). 
-The planner would generate the following action sequence (\fig{fig:planning problem}c):
-\begin{verbatim}
-1. move(obj2, B, C)
-2. move(obj1, A, B)
-3. move(obj2, C, A)
-\end{verbatim}
+The planner can generate one of the following two action sequences (\fig{fig:planning problem}c):
+
+\begin{table}[h]
+	\label{tab:swapsolutions}
+	\begin{center}
+		\begin{tabular}{l|l} 
+			Plan 1: & Plan 2:\\ 
+			1. move(obj2, B, C) &
+			1. move(obj1, A, C)\\
+			2. move(obj1, A, B)&
+			2. move(obj2, B, A)\\
+			3. move(obj2, C, A)&
+			3. move(obj1, C, B)\\
+%			\begin{verbatim}
+%			\end{verbatim}\\
+		\end{tabular}
+	\end{center}
+\end{table}
 
 \begin{figure}[h]
 	\centering
@@ -358,6 +378,7 @@ The planner would generate the following action sequence (\fig{fig:planning prob
 	\label{fig:planning problem}
 \end{figure}
 
+Even though both plans consist of different actions, they both lead to the same goal states (\fig{fig:state-transition-system}).
 Another planning problem in this domain could include multiple objects of different types which need to be stacked in a given order, such as the Tower of Hanoi problem.
 As we can define an infinite number of objects in our planning domain, there exist an infinite number of planning problems that can be defined and solved. 
 PDDL provides a means to model and solve problems in any real-world environment in the form of a planning domain. 
