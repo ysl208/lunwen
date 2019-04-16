@@ -1,16 +1,16 @@
-This thesis is motivated by the idea of allowing non-robotics end-users teach robots new actions from scratch that can be generalised and reused for more complex and unseen tasks.
+This thesis is motivated by the idea of enabling non-robotics end-users teach robots new actions from scratch that can be generalised and reused for more complex and previously unseen tasks.
 We proposed an end-user robot programming framework that combines solutions from PbD and Automated Planning (\chapt{chap:Contribution}).
 % allowing non-expert users to teach a robot new actions together with their semantic meaning in terms of preconditions and effects.
 %This allows the robot to understand when an action can be executed and therefore use symbolic planners to generate solutions autonomously.
-Unlike existing approaches where a task execution is taught to reach a goal, our method lets users teach the robot primitive actions and delegate the logical reasoning process of finding a solution to a task planner.
+Unlike existing approaches where a complete task execution is taught to reach a goal, our method lets users teach the robot primitive actions and delegate the logical reasoning process of finding a solution to a task planner.
 
-We claimed that users with or without experience in programming or related Computer Science fields can easily learn and use Automated Planning concepts.
+We claimed that users with or without experience in programming or related Computer Science fields can easily learn and use Automated Planning concepts needed for our framework.
 We validated this claim by conducting qualitative user experiments (\chapt{chap:Pre-Experiments}).
 %Our experiments showed that all users understood the concepts of PbD and automated planning, despite learning about them for the first time.
-Furthermore, we chose Programming by Demonstration, in particular keyframe-based PbD, as it provides a good middle ground between programming difficulty for the user and data and time required to teach the robot a new skill (\sect{sssec:End-User Involvement}).
-We showed the generalisability and expressiveness of a goal-oriented programming approach as a feasible end-user programming solution by addressing robotic organisation tasks (\chapt{chap:OrganisingTasks}).
-Based on the obtained results, we implemented an end-user robot programming framework simultaneously to teach low- and high-level actions by demonstration that can be reused with a task planner and conducted both system and user evaluations (\chapt{chap:Implementation}).
-We found that the majority of users learned how to use and navigate the system with less than an hour of training, despite being introduced to the automated planning concepts for the first time.
+We chose Programming by Demonstration, in particular keyframe-based PbD, as it provides a good middle ground between programming difficulty for the user and data and time required to teach the robot a new skill (\sect{sssec:End-User Involvement}).
+We showed the generalisability and expressiveness of a goal-oriented programming approach to be a feasible end-user programming solution by addressing robotic organisation tasks (\chapt{chap:OrganisingTasks}).
+Based on the obtained results, we implemented an end-user robot programming framework to teach low- and high-level actions by demonstration that can be reused with a task planner and conducted both system and user evaluations (\chapt{chap:Implementation}).
+We found that the majority of users learned how to use and navigate the system in less than an hour of training, despite being introduced to the automated planning concepts for the first time.
 %We evaluated the user's adoption of the robot programming process and their ability to comprehend symbolic representations used in automated planning techniques.
 In the following we give an overview of the contributions, discuss limitations, potential future work to address them, and perspectives for future research directions.
 
@@ -35,7 +35,7 @@ In the following we give an overview of the contributions, discuss limitations, 
 %Rather than teaching specific task executions, we take a goal-oriented problem-solving approach, which has been neglected in existing PbD implementations.
 %As shown in our evaluation phase, the robot's learning process and logical representations are intuitive enough for non-expert users to understand.
 
-The contributions of this thesis can be summarised as follows:
+%The contributions of this thesis can be summarised as follows:
 
 \subsection{End-user robot programming framework}
 In \chapt{chap:Contribution}, we proposed iRoPro, an end-user robot programming framework that combines PbD and Automated Planning, where the robot learns action models by demonstration, and the problem of finding an action sequence is delegated to a planner.
@@ -43,22 +43,22 @@ The robot programming process consists of the following steps:
 		\begin{enumerate}
 			\item The user teaches the robot new actions by kinesthetic demonstration, including both low- and high-level action representations.
 			\item The robot uses these actions with a task planner to generate solutions to user-defined problems.
-			\item The user can revisit the taught action models to refine them.
+			\item The user can revisit the taught action models via the graphical interface to refine them.
 		\end{enumerate}
 %		\textbf{Research question:} \textit{Can end-users teach the robot actions and associated conditions using PbD that can be used by a planner to solve a user-defined task?}
 
 	
 \subsection{Experimental findings}
 %(\chapt{chap:Pre-Experiments})
-In \chapt{chap:Pre-Experiments}, we conducted qualitative experiments and obtained initial results of the framework's usability and user's ease to learn Automated Planning concepts.
+In \chapt{chap:Pre-Experiments}, we conducted qualitative experiments and obtained initial results of the framework's usability and the user's ease to learn Automated Planning concepts.
 \begin{itemize}
 	\item {User study 1 - Findings on user acceptance of Automated Planning concepts:
 		We observed the issues encountered when non-robotics expert users are introduced to Automated Planning concepts and asked to use the presented language to describe the world state to a robot. 
-		We evaluated the user's ability to construct symbolic action models, in terms of preconditions and effects, used by automated planners and show that users with little to no programming experience can easily learn and use symbolic planning languages.
+		We evaluated the user's ability to construct symbolic action models, in terms of preconditions and effects, used by automated planners and showed that users with little to no programming experience can easily learn and use symbolic planning languages.
 		%		\textbf{Research question:} \textit{How do non-expert users adopt the automated planning language with its action model representation?}
 	}
 	\item {User study 2 - Findings on user acceptance of the proposed robot programming framework:
-	Using the Wizard-of-Oz technique, users were tasked to teach a robot actions by kinesthetically manipulating the robot's arm and correctly assign action conditions that can be used for automated planning.
+	Using the Wizard-of-Oz technique, users were tasked to teach a robot actions by kinesthetically manipulating the robot's arm and assign action conditions that can be used for automated planning.
 	We obtained qualitative results on user experience during the programming process as well as difficulties encountered, which contributed to the design of the iRoPro system implementation.
 	%		\textbf{Research question:} \textit{Can users teach a robot action models for automated planning using the robot programming framework?}
 	}
@@ -66,17 +66,17 @@ In \chapt{chap:Pre-Experiments}, we conducted qualitative experiments and obtain
 	
 \subsection {Goal-oriented robot programming}
 In \chapt{chap:OrganisingTasks}, we presented work on a goal-oriented programming system for teaching robots shelf organisation tasks using keyframe-based PbD. 
-The system allows the robot to learn low-level actions from kinesthetic demonstrations and user input via a graphical interface.
-The robot learns both \textit{what} and \textit{how} to perform a task using PbD and a goal inference model for shelf organisation tasks consisting of pick and place actions.
+The system allows the robot to learn low-level actions from kinesthetic demonstrations and other user input via a graphical interface.
+The robot learns both \textit{what} and \textit{how} to perform a task using PbD and a goal inference model for inferring likely shelf arrangements.
 We evaluated user teaching strategies with experiments on Amazon Mechanical Turk and compared their performance to eight benchmark strategies.
 %We evaluated this system in terms of user experiments on Amazon Mechanical Turk and compared users' teaching strategies.
-This work focused on shelf organisation tasks and demonstrated the representational power of a goal-oriented PbD system for end-users. 
+This work focused on shelf organisation tasks with pick-and-place actions and demonstrated the representational power of a goal-oriented PbD system for end-users. 
 The same system was used as a foundation for the implementation of the proposed robot programming framework.
 %		\textbf{Research question:} \textit{Can users teach the robot an organisation task using PbD and goal inference and what teaching strategies do users prefer?}
 
 	
 \subsection{iRoPro - System implementation}
-In \chapt{chap:Implementation}, we implemented iRoPro on a Baxter research robot that 
+In \chapt{chap:Implementation}, we presented the implementation of iRoPro on a Baxter research robot that 
 		\begin{enumerate}
 			\item allows simultaneous teaching of low- and high-level actions from a single demonstration, 
 			\item includes a user interface for action creation with condition inference and modification, and
@@ -86,13 +86,12 @@ The implementation includes a graphical interface, which allows the user to teac
 Thus, it provides end-users with a goal-oriented approach to program robots from scratch, without writing code, therefore maximising the generalisability of taught actions with minimum programming effort.
 	
 \subsection{User and system evaluation}
-Finally, we presented the implementation of iRoPro as a working end-user robot programming system.
 We demonstrated iRoPro's capability to generalise primitive actions on six benchmark tasks that were programmed and executed on the Baxter robot (\sect{sec:syseval}).
 We empirically investigated the usability of our system and validated its intuitiveness through a study with 21 users of different educational backgrounds and programming levels
 %and perform an analysis on both quantitative and qualitative data 
 (\sect{sec:quanteval}).
 To better understand user teaching strategies, we split participants into two control groups, with and without automatic condition inference.
-We showed that users in both control groups can easily learn and use the system, regardless of their technical expertise.
+We showed that users in both control groups can easily learn and use the system, regardless of their programming experience.
 
 
 %\section{Limitations and Open Questions}
@@ -113,29 +112,28 @@ We categorise them into the main aspects of the end-to-end system and discuss po
 \begin{itemize}
 	\item 
 {	\textbf{{Improved Perception System: }}
-	An improved perception system by using multiple sensors and state-of-the-art computer vision solutions, would allow automatic detection of object types, properties and world states. This further increases the user experience with the detection of initial states of stacked objects, automatic detection of goal states, verifying action executions, or real-time tracking of the world states.
-	While we use PCL for object pose estimation, latest state-of-the-art techniques can estimate 6-DoF poses from RGB image data (\cite{tremblay2018deep}), allowing to detect more accurate object orientations.}
+	An improved perception system by using multiple sensors and state-of-the-art computer vision solutions, would allow automatic detection of object types, properties and world states. This would further increase the user experience with the detection of initial states of stacked objects, automatic detection of goal states, verifying action executions, or real-time tracking of the world states.
+	While we use PCL for object pose estimation, latest state-of-the-art techniques can estimate 6-DoF poses from RGB image data (\cite{tremblay2018deep}), allow the detection of more accurate object orientations.}
 \item {
 	\textbf{{Low-level Action Learning - Motion Planning:}}
 	While we chose keyframe-based PbD to learn low-level manipulation actions, there exist other state-of-the-art solutions such as Dynamic Movement Primitives (\cite{pastor2009learning}) or the use of statistical methods for the generalisation of learned trajectories from multiple trajectories (\cite{billard2008robot}).
 	Another approach to learn primitive actions would be to segment demonstrated task executions into smaller primitive actions (\cite{kuniyoshi1994learning,wu2010hierarchical}) that can be reused for new tasks.
-	Furthermore, the current implementation does not take into account dynamic environments as objects are not tracked in real-time, causing problems with navigation in cluttered environments and avoidance of obstacles that were not present during the demonstration.
-	Thus, taught low-level actions need to take into account the safety of human operators.
+	Furthermore, the current implementation does not take into account dynamic environments as objects are not tracked in real-time, nor problems with navigation in cluttered environments to avoid obstacles that were not present during the demonstration.
+	In cobotic environments it is important for taught low-level actions to take into account the safety of human operators.
 	Another extension would be to include a better motion and task planning system in order to allow executing both arms simultaneously while avoiding self-collision.
 }
 \item {
 	\textbf{High-level Action Learning - Symbolic Action Representations:}
 	We only included a minimal set of predicates (\sect{sec:highlevel}) that we deemed intuitive and useful for object manipulation tasks.
 	Further user studies could involve more challenging use cases and planning domains by including a wider range of predicates.
-	It could be interesting to include and automatically infer predicates to capture more complex domains, such as object orientation (\cite{li2016learning}) or spatial relations between objects (\cite{tremblay2018synthetically}).
+	It could be interesting to infer predicates to capture more complex domains, such as object orientation (\cite{li2016learning}) or spatial relations between objects (\cite{tremblay2018synthetically}).
 	Functionality to learn the colours and shapes of new object types would increase the possible end-user applications.
 	A possible extension would be to incorporate probabilistic techniques to learn predicates or pre-train the robot on simulated scenarios to improve the condition inference.
 }
 \item {
 	\textbf{Improved Robot Programming Process:}
-	While the overall robot programming process seems intuitive for end-users, there are several possible improvements and extensions to make.
-	The programming process can be facilitated by enhancing the user experience by following state-of-the-art human-computer interaction paradigms for the design of the graphical interface.
-	The PbD process can be improved by implementing Natural Language Processing solutions for automatic voice recognition, allowing voice commands to save poses and changing gripper states.
+	While the overall robot programming process seems intuitive for end-users, the programming process can be improved with state-of-the-art human-computer interaction paradigms for the design of the graphical interface.
+	The PbD process can be facilitated using Natural Language Processing solutions to allow voice commands to save poses and change gripper states.
 	To reduce the programming overhead, it would be useful to include a feature that compares newly created actions with already existing actions to avoid redundancies.
 }
 \end{itemize}
@@ -160,7 +158,7 @@ We categorise them into the main aspects of the end-to-end system and discuss po
 		Na\"{\i}ve teachers often have greater assumptions on the robot's intelligence and take less care in executing demonstrations as compared to roboticists, who understand the effects of noisy demonstrations (\cite{suay2012practical}).
 		\cite{chen2003programing} and \cite{kaiser1995obtaining} recognised different sources for sub-optimality in demonstration, such as the user demonstrating unnecessary or incorrect actions due to the lack of knowledge about the task.
 		Instructional materials in the form of tutorials and videos can be used to support the learnability of a PbD system (\cite{cakmak2014teaching}).
-		Future research could explore the development of a standardised human-robot interaction protocol for na\"{\i}ve end-users that follows successful curricula in modern education systems.
+		Future research could explore the development of a standardised human-robot interaction protocol for end-user robot programming that follows successful curricula in modern education systems.
 	}
 	\item {
 	Instead of training users directly on the real robot, an alternative approach would be to let them perform the training in a simulated environment, such as a robot simulation on the PC.
@@ -171,7 +169,7 @@ We categorise them into the main aspects of the end-to-end system and discuss po
 	\item {%\textbf{Human-Robot Interaction for End-User Programming.} 
 		The proposed robot programming process involves interacting with the robot as well as with a graphical interface on a tablet or a PC. 
 	While there has been increasing research in human-robot interaction, little attention has been given to end-user robot programming.
-	Similarly, as end-user programming solutions mostly focuses on developing programs without real robots, while research in human-computer interaction addresses graphical interfaces on smartphones, tablets or PCs,
+	Similarly, as end-user programming solutions mostly focuses on developing programs without real robots and research in human-computer interaction addresses graphical interfaces on smartphones, tablets or PCs,
 	there has been little work on improving the robot programming experience for end-users.
 	Future research could explore the intersection of these domains involving end-user robot programming interfaces that include multiple interaction modalities and the robot as an additional interface.}
 

@@ -189,12 +189,13 @@ Actions are represented as a sparse sequence of gripper states (open/close) and 
 
 \subsubsection{High-level task learning}\label{ssec:highlevel}
 High-level task learning focuses on learning the \textit{sequence} of primitive actions, \ie the order to execute them.
-Primitive actions are generally preprogrammed into the robot (\cite{peppoloni2014ros}).
+Primitive actions are generally preprogrammed into the robot (\cite{peppoloni2014ros}), where high-level tasks are learned from observing complete task executions and extracting the primitive actions.
+\citet{paxton2017costar} represent task plans with Behaviour Trees that users can modify manually to adapt to other tasks.
 %For learning high-level tasks it is assumed that a set of low-level primitive actions is . 
 \cite{she2014teaching} teaches the robot new high-level tasks by instructing the robot a sequence of lower-level actions.
-Rather than representing the new action as an action sequence, it is modelled by their desired goal states, depending on the scene objects and their states at the beginning and the end of the instruction.
+Rather than representing the new action as an action sequence, it is modelled by their desired goal states obtained from object states at the beginning and at the end of the instruction.
 % calculated as: $A_i(c_1 \dots c_k) = (S_e - S_e \cap S_b) \cup p_{grip}$ where $c_i$ are objects in the scene, $S_b$ and $S_e$ are the states at the beginning and end of the instruction and $p_{grip} = \{open, close\}$ is the gripper status at the end of instruction.
-Similarly, \cite{ahmadzadeh2015learning} learns the goal by inferring preconditions and effects from multiple demonstrations.
+\cite{ahmadzadeh2015learning} learns the task goal by inferring preconditions and effects from multiple demonstrations.
 %As the work uses the blocks world domain with a single object type (`block'), an operator for the new high-level action can be inferred easily. 
 %Preconditions and effects for the domain are already specified in advance.
 

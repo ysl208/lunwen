@@ -217,8 +217,8 @@ Changing these properties via the GUI allows an action to be generalised and the
 
 \section{System Implementation}
 \label{sec:system}
-\subsection{Platform}
-\label{sec:platform}
+%\subsection{Platform}
+%\label{sec:platform}
 We implemented our system on a Baxter robot with two arms (one claw and one suction gripper), both with 7-DoF and a load capacity of 2.2kg each (\sect{sec:baxter}).
 For the object perception we mounted a Kinect Xbox 360 depth camera on the robot.
 We developed a user interface as a web application, based on HTML and JavaScript, that can be accessed via a browser on a PC, tablet or smartphone.
@@ -228,9 +228,8 @@ The source code for iRoPro is developed in ROS (\cite{quigley2009ros}) and avail
 The low-level action is learned using the open-source system Rapid PbD (\cite{rapidpbd}).
 %for teaching actions by keyframe-based demonstration.
 The integration of the task planner is implemented using the ROS package PDDL planner (\cite{pddlplanner}).
-
-\subsection{Implementation Details}
-\label{sec:implementation}
+%\subsection{Implementation Details}
+%\label{sec:implementation}
 In our implementation, landmarks are either predefined table positions or 
 objects that are detected from Kinect Point Cloud clusters using an open-source tabletop segmentation library (\cite{surfaceperception}).
 An object is represented by its detected location and bounding box, \ie 
@@ -247,6 +246,11 @@ The user completes the domain by creating new actions via the interface and uses
 The user interacts with the GUI (\fig{fig:gui-action-3}) to visualise the robot and the detected objects, create new actions, run the kinesthetic teaching by demonstration, correct inferred action parameters or conditions, create and solve new problems with the task planner.
 The interactive robot programming cycle consists of creating and modifying actions and problems.
 
+\begin{figure}[h]
+	\includegraphics[width=0.96\linewidth]{figures/gui.png}
+	\caption{The iRoPro interface showing the action condition menu and an interactive visualisation of the Baxter robot and detected objects.}\label{fig:gui-action-3}%
+\end{figure}
+
 \subsubsection*{Actions} New actions are taught by kinesthetically moving the robot's arms (low-level action) and assigning action conditions (high-level action).
 The low-level action is learned %using the open-source system Rapid PbD for teaching actions 
 by keyframe-based demonstration.
@@ -254,11 +258,6 @@ To verify the taught action, the user can have the robot re-execute it immediate
 The high-level action is inferred by capturing the world state before and after the action demonstration (as described in \sect{sec:inference}).
 Action generalisation can be done by modifying action properties.
 To teach more actions, the user can either create a new one or copy a previously taught action and modify it.
-\begin{figure}[h]
-	\includegraphics[width=0.96\linewidth]{figures/gui.png}
-	\caption{The iRoPro interface showing the action condition menu and an interactive visualisation of the Baxter robot and detected objects.}\label{fig:gui-action-3}%
-\end{figure}
-
 \subsubsection*{Problems} New planning problems can be created if at least one action exists.
 To create a problem, the robot first detects the existing landmarks and infers their types and initial states.
 The user can modify them via the interface if the inference was not correct.
@@ -274,7 +273,7 @@ To solve new tasks, the user can create a new planning problem or modify existin
 \subsection{Plan Execution} 
 The generated plan is a sequence of actions with parameters that correspond to detected objects.
 For each action, the sequence of end-effector poses are calculated relative to the landmarks that the action is being applied to (\sect{sec:lowlevel}).
-To accelerate the execution, we only detect the landmarks once at the start and save their new positions in a mental model.
+To accelerate the execution, we only detect the landmarks once at the start and save their new positions in a \textit{mental model}, \ie a temporary memory.
 After each action execution, the user can confirm that it executed correctly and the mental model is updated with the latest positions of the changed landmarks.
 The mental model is also used as a workaround for our limited perception system for problems with stacked objects in their initial states (\sect{sec:discussion}).
 
