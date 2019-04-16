@@ -1,6 +1,6 @@
 \section{Discussions and Relations to Present Work}\label{sota-discussions}
-Robots are currently being used for many industrial applications from welding (\eg arc, spot welding) to material handling (\eg pick and place, packaging, palletizing).
-Furthermore, there exist a wide range of robot grippers (\eg claw, suction, magnetic grippers) that are dependent on the robot platform.
+Robots are currently being used for many industrial applications from welding (\eg arc, spot welding) to material handling (\eg pick-and-place, packaging, palletizing) (\cite{technavio}).
+Furthermore, there exists a wide range of robot grippers (\eg claw, suction, magnetic grippers) that are dependent on the robot platform.
 Instead of developing robots for domain-specific tasks, a more flexible solution is to have robots learn new actions directly from end-users and let them customise the robot for their specific application.
 A feasible programming system could involve a human operator teach the robot new actions and have the robot automatically generalise the taught action to new scenarios.
 
@@ -8,8 +8,8 @@ Manual programming systems provide direct control over the robot's behaviour, bu
 The solutions are often task-specific and cannot be changed easily by end-users.
 Automatic programming systems require significantly less effort when it comes to the programming process. 
 However, DL solutions generally need large amounts of training data that is relevant for the desired application.
-RL solutions can be time-consuming as they require the robot to explore the environment and collect the necessary data to learn the optimal policy.
-There is on-going research to reduce the amount of data and time required to learn the optimal policy with DL or RL systems, but the involved tasks (\eg define reward function or parameters) remain difficult for end-users without programming experience. %when deploying robots in the real world, it remains extremely challenging %to pre-program them for specific end-user applications.
+RL solutions can be time-consuming as they require the robot to explore the environment and collect the necessary data to learn an optimal policy.
+There is on-going research to reduce the amount of data and time required to learn an optimal policy with DL or RL systems, but the involved tasks (\eg defining the reward function or tuning parameters) remain difficult for end-users without programming experience. %when deploying robots in the real world, it remains extremely challenging %to pre-program them for specific end-user applications.
 %these solutions become cost-expensive and inefficient to adapt to user-specific tasks.
 
 Programming by Demonstration (PbD) allows end-users to teach the robot new tasks by taking demonstrations as input and inferring the policy for the task.
@@ -17,31 +17,35 @@ An intuitive way to provide demonstrations is to kinesthetically manipulate the 
 This allows users to teach the robot new actions with minimal programming effort and independent of the robot's architecture.
 However, existing PbD solutions usually require users to teach robots an entire action sequence to achieve a certain goal.
 If the goal changes, the user has to find a new solution and teach the robot again.
-In this thesis we argue for teaching robots primitive actions with their semantic meanings, instead of entire action sequences, and delegating the logical reasoning process of finding a solution to task planners.
+In this thesis we argue for teaching robots primitive actions, instead of entire action sequences, that can be used with task planners.
+The idea is to associate semantic meanings to actions in order to delegate the logical reasoning process of finding a solution to task planners.
 %\textbf{Reusable actions.}
 % teaching action semantics
 %Current approaches only teach the robot an action for a specific task, but do not explicitly associate a semantic meaning to it.
-For example, when teaching a pick and place action, the robot should be taught the semantic meaning in the form of high-level conditions for executing the action (\eg to grab an object only if the gripper is empty). %are generally neglected during the demonstration.
+For example, when teaching a pick-and-place action, the robot should be taught the semantic meaning in the form of high-level conditions for executing the action (\eg to grab an object only if the gripper is empty). %are generally neglected during the demonstration.
 %If the robot is taught an action's semantic meaning, \ie the conditions for executing the action, 
 This information allows the robot to reuse and apply the taught actions in a different context.
 %If the teacher demonstrates a pick-up action to the robot, there is no mention of communicating the conditions for when it can execute the action.
 %The user could select task execution plans via a user interface (\cite{guerin2015framework}), but ideally, the robot should deduce a task execution plan for a given goal autonomously. 
 %In this thesis we focus on teaching robots material handling tasks, in particular pick and place tasks.
-To that end, we have identified two main aspects:
-
-\textbf{Teaching reusable actions from scratch.}
-Existing PbD implementations are task-specific and cannot be applied to previously unseen scenarios.
-Many PbD implementations already have pick and place actions coded into the system (\cite{veeraraghavan2008teaching}) and the robot is taught an action sequence to achieve a predefined goal.
-Even slight changes in the goal could require a different solution, so the robot needs to be taught the new action sequence.
-This highlights a key issue in PbD, namely, to design a system that allows the robot to learn  generic tasks that are applicable to different scenarios.
-In this work, we assume that the robot does not have any atomic actions preprogrammed.
-We want to allow the user to teach reusable actions from scratch.
-
-\textbf{Automatic action sequence generation.}
-After having learned all primitive actions, the robot should be able to reuse them to complete previously unseen tasks.
-Current solutions either teach the robot entire action sequences or include an intermediate manual step where the user has to sequence actions to complete a task.
-Finding an optimal solution can be tedious, expensive, or even computationally impossible for humans (\eg for solving a rubik's cube).
-Instead, we want to delegate this logical reasoning process of finding a solution to state-of-the-art task planners, thus facilitating the programming process for the human operator.
+We have identified two main aspects that we address in this thesis:
+\begin{enumerate}
+	\item{\textbf{Teaching reusable actions from scratch.}
+		Existing PbD implementations are task-specific and cannot be applied to previously unseen scenarios.
+		Many PbD implementations already have pick and place actions coded into the system (\cite{veeraraghavan2008teaching}) and the robot is taught an action sequence to achieve a predefined goal.
+		Even slight changes in the goal could require a different solution, so the robot needs to be taught a new action sequence again.
+		This highlights a key issue in PbD, namely, to design a system that allows the robot to learn  generic tasks that are applicable to different scenarios.
+		In this work, we assume that the robot does not have any primitive actions preprogrammed.
+		We want to enable the user to teach reusable actions from scratch.
+	}
+	\item{
+		\textbf{Automatic action sequence generation.}
+		After having learned all primitive actions, the robot should be able to reuse them to complete previously unseen tasks.
+		Current solutions for high-level task learning either teach the robot entire action sequences or include an intermediate manual step where the user has to manually sequence actions.
+		Finding an optimal solution can be tedious, expensive, or even computationally impossible for humans (\eg solving a rubik's cube).
+		Instead, we want to delegate this logical reasoning process of finding a solution to task planners, thus facilitating the programming process for the human operator.
+	}
+\end{enumerate}
 %We want to equip the robot with all the skills needed to act autonomously in any state of the world, rather than teaching it how to react to a given state of the world.
 %To achieve this, we have to design our framework using plans, which provides us with the required tools.
 %As we focus on collaborative environments, where the teacher is actively involved in the learning process, plans allow a means to communicate the teacher's intentions together with the demonstrations.

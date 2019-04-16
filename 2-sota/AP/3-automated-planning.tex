@@ -1,5 +1,5 @@
 %%%%%%%%%%% ******  AUTOMATED PLANNING ******* %%%%%%%%%%%%%
-%\section{Introduction}
+\section{Introduction}
 %\begin{center}
 %\textit{``Planning is an important component of rational behaviour." }\\ \cite{ghallab2004automated}
 %\end{center}
@@ -10,15 +10,14 @@
 % \end{center}
 
 % Introduction/Definition
-Automated planning, also known as AI planning, is an area in A.I. that studies the deliberation process of choosing and organising actions to achieve a goal (\cite{ghallab2004automated}). 
+Automated planning, also known as AI planning or task planning, is an area in A.I. that studies the deliberation process of choosing and organising actions to achieve a goal (\cite{ghallab2004automated}). 
 Humans automatically anticipate the outcome of their actions, even if they are not fully aware of it. 
 Automated planning techniques try to %are used to create information processing tools that
- efficiently reproduce human reasoning and behaviour. 
-In particular, it can be used to model a robot's skills and strategies, when operating in diverse environments, without the need for expensive hand-coding.
+ efficiently reproduce human reasoning and behaviour and can be used to model a robot's skills and strategies, when operating in diverse environments, without the need for expensive hand-coding.
 
-The focus in automated planning lies within the development of {domain-independent} planning systems, called \textit{planners}.
-These planners consist of search algorithms, which are not problem-specific, hence generate solutions to problems, no matter what the input. 
-Given a description of the state of the world,  a set of actions, an initial and a goal state, the planner generates an ordered sequence of actions, which guarantees the transition from the initial state to the goal state. 
+The focus in automated planning lies within the development of {domain-independent} planning systems, called planners or \textit{task planners}.
+These planners consist of search algorithms which are not problem-specific and can generate solutions to previously unseen problems. 
+Given a description of the state of the world,  a set of actions, an initial and a goal, the planner generates an ordered sequence of actions, which guarantees the transition from the initial state to the goal. 
 Actions are defined with \textit{preconditions}, \ie conditions on the state of the world in order to execute the action, and \textit{effects}, \ie changes in the state of the world after the action execution.
 Planning can be considered the process of choosing appropriate actions to bring the state of the world to a target state.
 In the following section we will present the main definitions used in classical planning.
@@ -46,13 +45,21 @@ A \textit{state transition system} is a triple $\Sigma = (S, A, \gamma)$ such th
 \item $\gamma : S \times A \rightarrow S$ is a state transition function.
 \end{itemize}
 \end{definition}
-
-A state transition system $\Sigma$ can be represented as a directed graph whose nodes are states of $S$ and arcs are actions of $A$. 
-Applying an action $a$ to state $s$ produces a new state $s'= \gamma(s,a)$ that is represented as an arc from $s$ to $s'$, referred to as a  \textit{state transition} (\fig{fig:state-transition-system}).
+\noindent
+A state transition system $\Sigma$ is represented as a directed graph where nodes are states of $S$ and arcs are actions of $A$ (\fig{fig:state-transition-system}). 
+Applying an action $a$ to state $s$ produces a new state $s'= \gamma(s,a)$ that is represented as an arc from $s$ to $s'$, referred to as a  \textit{state transition}.
 %with a cost $c(a)$
 $\Sigma$ is deterministic if for all states $s$ and actions $a$ and the transition function $\gamma(a, s)$ produces a unique state $s'$. 
 %$\Sigma$ has a unit cost if, for all $a \in A$, $c(a) = 1$. 
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth]{figures/state-transition-system}
+	\caption{A state transition system consisting of six states $s_0$ to $s_5$  %Nodes represent the states of $S$ and arcs the actions in $A$. 
+		%There are two optimal action sequences to get from $s_0$ to $s_5$.
+	}
+	\label{fig:state-transition-system}
+\end{figure}
 
 %\begin{figure}[t]
 %	\centering
@@ -73,19 +80,11 @@ $\Sigma$ is deterministic if for all states $s$ and actions $a$ and the transiti
 
 %\noindent The set-theoretic representation can take up much more space than the classical representation. The state-variable representation is less natural for logicians but useful for non-classical planning problems to handle numbers, function and time. The classical representation is the most popular choice for restricted state-transition systems \cite{ghallab2004automated}.
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=\linewidth]{figures/state-transition-system}
-	\caption{Example of a state transition system, nodes representing the states of $S$ and arcs the actions in $A$.}
-	\label{fig:state-transition-system}
-\end{figure}
 
 Logical representations are one of the most commonly used representations for classical planning problems. 
-Each state of the world $s$ is represented by a set of logical propositions $p$, denoting facts of the world that are \textit{true} in the state $s$. 
+Each world state $s$ is represented by a set of logical propositions $p$, denoting facts of the world that are \textit{true}. 
 If $p$ is not in the state $s$, it is considered to be \textit{false}.
-
-
-\textit{Planning operators} and \textit{actions} change the state of the world by modifying the truth values of the propositions and consist of \textit{preconditions} and \textit{effects}.
+\textit{Planning operators} and \textit{actions} change the world state by modifying the truth values of the propositions and are represented in terms of \textit{preconditions} and \textit{effects}.
 
 \begin{definition}\label{def:operator}
 A \textit{planning operator} $o$ is a tuple $o = (\text{name}(o), \text{precond}(o),$ $\text{effect}(o))$, whose elements are as follows:
@@ -97,20 +96,20 @@ A \textit{planning operator} $o$ is a tuple $o = (\text{name}(o), \text{precond}
 \end{itemize}
 \end{definition}
 where $\text{effect}(o) = \text{effect}(o)^{-} \cup \text{effect}(o)^{+}$ and $\text{effect}^{-}(o) \cap \text{effect}^{+}(o) = \emptyset$. 
-An operator has a set of parameters that are associated with a \textit{type}.
-For example, types \textit{OBJECT} and \textit{POSITION} can be part of a type hierarchy with multiple layers of subtypes (\fig{fig:object-type-hierarchy}). %(\eg \textit{BASE} and \textit{CUBE} objects).
+An operator has a set of parameters that are associated with a \textit{type} which can be part of a type hierarchy with multiple layers of subtypes.
+For example, a general type \textit{ELEMENT} with subtypes \textit{OBJECT} and \textit{POSITION}, and \textit{BASE}, \textit{CUBE}, \textit{ROOF} objects (\fig{fig:object-type-hierarchy}).
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.7\linewidth]{figures/object-type-hierarchy}
-	\caption{Example of a type hierarchy showing a general type \textit{ELEMENT} with subtypes \textit{OBJECT} and \textit{POSITION}, and \textit{BASE} \textit{CUBE}, \textit{ROOF} objects.}
+	\caption{Example of a type hierarchy showing a general type \textit{ELEMENT} with subtypes \textit{OBJECT} and \textit{POSITION}, and \textit{BASE}, \textit{CUBE}, \textit{ROOF} objects.}
 	\label{fig:object-type-hierarchy}
 \end{figure}
 
 
 \begin{definition}\label{def:action}
-	An \textit{action} is any ground instance of an operator. 
-	If $a$ is an action and $s$ is a state such that $\text{precond}(a)$ are true in $s$, then $a$ is {\em applicable} to $s$ and the result of applying action $a$ to state $s$ is the state $s'$:  
+	An \textit{action} is any ground instance of an operator. Or reversely, we consider an operator as a \textit{generalised} action.
+	If $a$ is an action and $s$ is a state such that $\text{precond}(a)$ are true in $s$, then $a$ is {\em applicable} to $s$ and applying action $a$ to state $s$ results in a state $s'$, such that:
 	\begin{equation}\label{eq:statetrans}
 		s' = \gamma(s, a) = (s - \text{effects}^{-}(a)) \cup \text{effects}^{+}(a),
 	\end{equation}
@@ -118,7 +117,6 @@ For example, types \textit{OBJECT} and \textit{POSITION} can be part of a type h
 \end{definition}
 
 %For each $a \in A$, $\text{precond}(a)$ and $\text{effect}(a)$ are subsets of $S$ and . 
-We consider an operator as a \textit{generalised} action.
 
 \begin{definition}
 A \textit{planning domain} is a state transition system $\Sigma = (S, A, \gamma)$, with the state transition function $\gamma$ as stated in Eq. \ref{eq:statetrans}.
@@ -132,7 +130,7 @@ A \textit{planning problem} is a triplet $(\Sigma, s_0, g)$ where:
 	%\item $c : A \rightarrow \mathbb{R}^{+}$ is a cost function,
 	\item $\Sigma$ is a planning domain,
 	\item $s_0 \subseteq S$ is the initial state of the world,
-	\item $g$ is a set of goal propositions that belong to the goal states to achieve.
+	\item $g$ is a set of goal propositions describing the goal to achieve.
 \end{itemize}
 \end{definition}
 
@@ -150,7 +148,7 @@ s, &\mbox{if $|\pi|=0$} \\
 \right.
 \]
 A state $s_n$ is reachable from a state $s_0$, if there exists a plan $\pi$ such that $s_{n} = \gamma(s_0, \pi)$.
-When a full specification (\ie planning domain and problem) are provided to the planner, it generates a plan to achieve the specified goals using the available actions.
+When a full specification (\ie planning domain and problem) are provided to the planner, it generates a plan to achieve the specified goal using the available actions.
 Thus, a plan $\pi$ is a \textit{solution} to a planning problem if it guarantees the transition from the initial states $s_0$ to the goal states, \ie $g \subseteq \gamma (s_0,\pi)$. 
 
 %The {\em state space} of a planning problem $(P, A, I, G)$ in the logical representation is a state transition system $(S, A, \gamma)$, where $S\subseteq 2^{P}$ is a subset of states defined on $P$.\\
@@ -158,13 +156,13 @@ Thus, a plan $\pi$ is a \textit{solution} to a planning problem if it guarantees
 
 %Once this specification is provided to the planner, the planning process is a mean-ends reasoning, deciding how to achieve goals given the means of available actions. The hardness of the mean-ends planning process is high (NP-hard), as it entails non-deterministic decisions on selecting objects, committing actions on objects, sorting out actions, as well as backtracking from dead-end decisions in combinatorial search spaces.
 
-When actions are triggered, they change the state of the world according to their effects and are not necessarily reversible. 
-In other words, actions are not combinable in any order and have precedence constraints. 
-Consider again the Tower of Hanoi problem, where the disks need to be stacked in ascending order (smallest at the top) on the right-most peg. 
+When actions are triggered, they change the world state according to their effects and are not necessarily reversible. 
+Actions are not combinable in any order and have precedence constraints. 
+Consider again the Tower of Hanoi problem, where the disks need to be stacked in ascending order (smallest at the top). 
 The two last actions consist of stacking the second smallest disk and then the smallest disk on the peg. 
-Reversing the order will result in a violation of the rule that larger disks cannot be stacked onto smaller ones. Thus, plans need to be performed in the correct order to achieve the a goal.
+Reversing the order will result in a violation of the rule that larger disks cannot be stacked onto smaller ones. Thus, plans need to be performed in the correct order to achieve the goal.
 
-Furthermore, the progression towards the goal is not always monotone, as actions can also have negative side effects. 
+Furthermore, the progression towards the goal is not always monotone, as actions can also have negative effects. 
 In the example with the Tower of Hanoi problem, our goal state is to have \textit{``disk$_{n}$ is on top of disk$_{n+1}$"} and \textit{``disk$_{n+1}$ is on the table"} for a problem with $n+1$ disks. 
 If in the initial state the disks are stacked in ascending order on the left peg, then moving the top-most disk$_1$ to any other peg will delete the fact \textit{``disk$_1$ is on top of disk$_2$"}, and will have to be added again later to fulfil the goal. %(\fig{fig:toh-solutions}).
 
@@ -175,10 +173,10 @@ If in the initial state the disks are stacked in ascending order on the left peg
 
 %%%%%%%%%%%%%%% *************PDDL************* %%%%%%%%%%%%%%%%%
 \section{Planning Domain Definition Language (PDDL)}\label{subsec:PDDL}
-Originally developed by \cite{mcdermott1998pddl} and the Planning Competition Committee, the Planning Domain Definition Language (PDDL) has become the standard encoding language for classical planning tasks. 
+Originally developed by \cite{mcdermott1998pddl} and the Planning Competition Committee, the Planning Domain Definition Language (PDDL) has become the standard encoding language for classical planning. 
 PDDL expresses the `physics' of a domain, \ie available predicates, possible actions and their effects.
 It supports several syntactic features including conditional effects, specification of safety constraints and hierarchical actions composed of subactions and subgoals. 
-For example, in manufacturing environments, PDDL can be used to formalise the configuration of available resources together with the intended goal to eventually find a solution using PDDL planners (\cite{huckaby2013planning}). 
+For example, in manufacturing environments, PDDL can be used to formalise the configuration of available resources together with the intended goal in order to find a solution using task planners (\cite{huckaby2013planning}). 
 %Table \ref{tab:Domain examples} shows a list of standard planning domains. 
 %
 %\begin{table}[h]
@@ -195,10 +193,10 @@ For example, in manufacturing environments, PDDL can be used to formalise the co
 %\end{table}
 
 \subsection{Planning domain description}\label{subsec:Planning domain description}
-A PDDL planning domain consists of objects and their types, predicates describing the object states and actions, as described as planning operators in Definition \ref{def:operator}. 
-As a running example we will consider a planning domain \textit{iRoPro} to describe a pick-and-place tasks with three types of objects (\textit{BASE, CUBE, ROOF}).
+A PDDL planning domain consists of objects and their types, predicates describing the object states and possible actions. 
+As a running example we will consider a planning domain \textit{iRoPro} to describe pick-and-place tasks with three types of objects (\textit{BASE, CUBE, ROOF}).
 %manufacturing environment on an assembly line, with objects on the table and an arm with a gripper for manipulating them.
-The head of a domain description is given as follows:
+The planning domain description is given as follows:
 % Head of the domain description
 \begin{verbatim}
 (define (domain iRoPro)
@@ -211,24 +209,24 @@ The head of a domain description is given as follows:
     base - object 
     roof - object )
  (:predicates
-    (clear ?obj - element)
-    (thin ?obj - object)
-    (flat ?obj - element)
+    (clear ?e - element)
+    (thin ?o - object)
+    (flat ?e - element)
     (on ?o - object ?e - element)
     (stackable ?o - object ?e - element) 
   (:action move
-    :parameters (?obj - object ?A - position ?B - position)
-    :precondition (and (on ?obj ?A) (clear ?obj) (clear ?B)
-    :effect (and (on ?obj ?B) (clear ?A)
-                       not(on ?obj ?A) not(clear ?B))
+    :parameters (?o - object ?A - position ?B - position)
+    :precondition (and (on ?o ?A) (clear ?o) (clear ?B)
+    :effect (and (on ?o ?B) (clear ?A)
+                       not(on ?o ?A) not(clear ?B))
 )
 \end{verbatim}
 
 A domain description always starts with the declaration of its name, \eg iRoPro, preceded by the keyword \texttt{:domain}.
 %Then, the requirements of the domain are defined, . 
 The requirements (identified by \texttt{:requirements}) allow to characterise the expressiveness and abstraction levels of the domain, \eg
-\texttt{:strips} indicates the most basic subset of PDDL as STRIPS (\cite{fikes1971strips}),
-\texttt{:typing} indicates that the domain can declare parameter and object types and that type names have to be declared before they are used under \texttt{:types}.
+\texttt{:strips} indicates the use of STRIPS (\cite{fikes1971strips}), the most basic subset of PDDL,
+\texttt{:typing} indicates that the domain can declare parameter and object types. % and that type names have to be declared before they are used under \texttt{:types}.
 %For instance, in the domain description above, the requirements specify that action descriptions can use typed terms. 
 Other requirements include \texttt{:equality} to use the predicate `=' as an equality term or \texttt{:adl} to use conditional and universal quantifier terms. 
 
@@ -236,10 +234,9 @@ Other requirements include \texttt{:equality} to use the predicate `=' as an equ
 In this domain, we defined a 3-layered type hierarchy consisting of a general type \textit{ELEMENT}, subtypes \textit{POSITION} and \textit{OBJECT}, with \textit{BASE, CUBE}, and \textit{ROOF} (\fig{fig:object-type-hierarchy}).
 %All domains define a few primitive types from which it is possible to derive all the types necessary for the domain description. 
 %The keyword \texttt{:constants} defines the values that remain unchanged and that can be referenced directly.
-
-\texttt{:predicates} are logical symbols to specify facts about objects and can subsequently be used for planning operators.
+\texttt{:predicates} are logical symbols to specify facts about objects that can be used for actions.
 Predicates can be standalone or have parameters with specified types. 
-A parameter name is preceded with a question mark `\texttt{?}' and followed by a `\texttt{?}' and its type. 
+Each parameter name is preceded with a question mark `\texttt{?}', followed by a `\texttt{-}' and its type name. 
 For instance, \texttt{(on ?o - object ?e - element)} expresses that a variable \texttt{?o}, whose type is \texttt{object}, is placed on top of an element \texttt{?e}.
 The example planning domain is comprised of the following predicates, described as follows:
 
@@ -249,11 +246,11 @@ The example planning domain is comprised of the following predicates, described 
 	\caption{Predicates for the {iRoPro} domain}
 \begin{tabular}{l|l}
 Predicate in PDDL & Description in English\\ \hline
-(clear ?obj - element) & an element has nothing on top of it \\
-(thin ?obj - object) & an object is thin\\
-(flat ?obj - element) & an element has a flat top \\
-(on ?o - object ?e - element)& an object is on an element\\
-(stackable ?o - object ?e - element) & an object can be placed on an element\\
+\texttt{(clear ?e - element)} & an element has nothing on top of it \\
+\texttt{(thin ?o - object)} & an object is thin\\
+\texttt{(flat ?e - element)} & an element has a flat top \\
+\texttt{(on ?o - object ?e - element)} & an object is on an element\\
+\texttt{(stackable ?o - object ?e - element)} & an object can be placed on an element\\
 %\texttt{at-gripper ?g - gripper ?l - location} & The gripper \texttt{?g} is at position \texttt{?l}.\\
 %\texttt{at ?p - product ?l - location} & The product \texttt{?p} is at location \texttt{?l}.\\
 %\texttt{free ?g - gripper} & The gripper \texttt{?g} is free.\\
@@ -264,26 +261,33 @@ Predicate in PDDL & Description in English\\ \hline
 \end{table}%
 
 Note that \texttt{thin} can only be applied to an object type, while \texttt{flat} can refer to any element type.
-Furthermore, \texttt{on} describes the spatial relation between two parameters and \texttt{stackable} describes the \textit{possibility} to place them on top of each other.
+Furthermore, \texttt{on} describes the spatial relation between two parameters and \texttt{stackable} describes the \textit{possibility} of placing them on top of each other.
 
-Finally, the keyword \texttt{:action} defines a planning operator \ie first-order action to perform changes to the world state.
+Finally, the keyword \texttt{:action} defines a planning operator as in Definition \ref{def:operator}.
 %gripper \texttt{?g} is currently carrying the product \texttt{?p}, that it is not free anymore and that the product is no longer placed at location \texttt{?l}.
-In general, an action declaration consists of the following (\fig{fig:action model}):
+In general, an action declaration consists of the following:
 \begin{itemize}
-	\item \texttt{:parameters} -- variables which the operator applies to,
+	\item \texttt{:parameters} -- variables which it applies to,
 	\item \texttt{:precondition} -- conditions that must be satisfied before it can be executed; if none are specified, it is always executable,
 	\item \texttt{:effect} -- changes in the world state imposed after the execution.
 \end{itemize}
 
 In the example domain, the \texttt{move} action describes moving an object (\texttt{?obj}) from position A to B, if both the object itself and the target position (\texttt{?B}) are clear.
 %if both the gripper \texttt{?g} and the product are at the location \texttt{?l} and the gripper is free (preconditions). 
-After the \texttt{move} action execution, the effects express that the object is no longer at initial position \texttt{?A} but on \texttt{?B} and that \texttt{?A} is clear, but \texttt{?B} is not.
+After the \texttt{move} action execution, the effects express that the object is no longer at initial position \texttt{?A} but on \texttt{?B} and that \texttt{?A} is clear, but \texttt{?B} is not (\fig{fig:action model}).
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/schema-logic}
-	\caption{Action model representation of a move action in terms of preconditions and effects: demonstrated action model for a cube (top), and generalised action model for any object, variables are prefixed with `?' (bottom).}
+	\caption{Action model representation of a move action in terms of preconditions and effects: an action (or instantiated operator) for a cube (top), and generalised action (or planning operator) for any object, where variables are prefixed with `?' (bottom).}
 	\label{fig:action model}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/planning-permutation-01}
+	\caption{Definition of a planning problem: (a) properties describing the initial world state (b) object names and their types (c) instantiated actions (d) properties describing the goal state}
+	\label{fig:planning problem}
 \end{figure}
 
 
@@ -313,13 +317,13 @@ After the \texttt{move} action execution, the effects express that the object is
   %\item{   Current implementations include an {intermediate manual step to construct action sequences} to arrive to a goal state.  }
 %  \end{itemize}
 
-
-\subsection{Planning Problem Description}\label{subsec:PPDescription}
+\newpage
+\subsection{Planning problem description}\label{subsec:PPDescription}
 %In manufacturing domains, there exist installation procedures for various devices that need to be strictly followed. 
 %It can happen that assembly parts need to be moved around in the work place. 
 %Consider a planning problem for the above domain:
-A planning problem consists of an initial state and a goal state and can be solved using existing actions in the planning domain.
-For example, the problem of swapping two objects obj1 and obj2 on positions A and B respectively, with a third position C unoccupied, is described as follows:
+A planning problem consists of an initial state and a goal to be solved using actions in the associated planning domain.
+For example, the problem of swapping two cube objects obj1 and obj2 on positions A and B respectively, with a third position C unoccupied, is described as follows:
 
 \begin{verbatim}
 (define (problem swap)
@@ -346,19 +350,18 @@ For example, the problem of swapping two objects obj1 and obj2 on positions A an
 %(at hood zoneB)))
 
 A planning problem description always starts with the declaration of its name, \eg swap, preceded by the keyword \texttt{:problem}.
-The planning problem is defined by specifying the domain it operates in, \eg iRoPro.
-\texttt{:objects} lists all objects in the world (\fig{fig:planning problem}b). 
+\texttt{:domain} specifies the domain it operates in, \eg iRoPro.
+\texttt{:objects} lists all instantiated objects in the world state with their names (\fig{fig:planning problem}b). 
 This world is composed of three positions, \texttt{A}, \texttt{B} and \texttt{C}, and two objects, \texttt{obj1} and \texttt{obj2}, which are both of type \texttt{cube}. 
-\texttt{:init} describes the initial world state of \texttt{obj1} and \texttt{obj2} on positions \texttt{A} and \texttt{B} respectively, and \texttt{C} is unoccupied.
+\texttt{:init} describes the initial world state of \texttt{obj1} and \texttt{obj2} on positions \texttt{A} and \texttt{B} respectively, and \texttt{C} unoccupied.
 %The engine needs to be installed before the hood, therefore the engine needs to be placed in \texttt{A} and the hood needs to be in \texttt{B}. As devices on assembly lines arrive arbitrarily, depending on the completion time of the previous task, it is possible that they arrive in the reversed order. 
 The goal is to find a plan to swap the two objects, \ie \texttt{obj1} from \texttt{A} to \texttt{B} and \texttt{obj2} from \texttt{B} to \texttt{A} (\fig{fig:planning problem}d). 
-The planner can generate one of the following two action sequences (\fig{fig:planning problem}c):
-
-\begin{table}[h]
-	\label{tab:swapsolutions}
+The planner can generate one of the two action sequences shown in Table \ref{tab:swapsolutions}.
+\begin{table}[!h]
+	\caption{Two plans generated by the planner to swap the positions of two objects (\fig{fig:state-transition-system}).}
 	\begin{center}
 		\begin{tabular}{l|l} 
-			Plan 1: & Plan 2:\\ 
+			Plan 1 (\fig{fig:planning problem}c): & Plan 2:\\ \hline
 			1. move(obj2, B, C) &
 			1. move(obj1, A, C)\\
 			2. move(obj1, A, B)&
@@ -369,36 +372,29 @@ The planner can generate one of the following two action sequences (\fig{fig:pla
 %			\end{verbatim}\\
 		\end{tabular}
 	\end{center}
+\label{tab:swapsolutions}
 \end{table}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.8\textwidth]{figures/planning-permutation}
-	\caption{Definition of a planning problem: (a) properties describing the initial world state (b) object names and their types (c) instantiated actions (d) properties describing the goal state}
-	\label{fig:planning problem}
-\end{figure}
-
-Even though both plans consist of different actions, they both lead to the same goal states (\fig{fig:state-transition-system}).
+Even though both plans consist of different actions, they both lead to the same goal states (similar to \fig{fig:state-transition-system}).
 Another planning problem in this domain could include multiple objects of different types which need to be stacked in a given order, such as the Tower of Hanoi problem.
-As we can define an infinite number of objects in our planning domain, there exist an infinite number of planning problems that can be defined and solved. 
+As we can define an infinite number of objects in our planning domain, there exists an infinite number of planning problems that can be defined and solved. 
 PDDL provides a means to model and solve problems in any real-world environment in the form of a planning domain. 
 
 
 \subsection{PDDL evolution and extensions}\label{subsec:PDDL evolution}
 
-Since the first version \textsc{Pddl} 1.2 (\cite{mcdermott1998pddl}) was introduced as the official language of the 1st \textsc{Ipc} (International Planning Competition), there have been several new versions and extensions.
+Since the first version \textsc{Pddl} 1.2 (\cite{mcdermott1998pddl}) was introduced as the official language of the 1st International Planning Competition (\textsc{Ipc}), there have been several new versions and extensions.
 Succeeding versions that allow the representation of real-world problems had a particular influence on the adaptation of planners with robots in cobotic environments. 
-In 2002, \textsc{Pddl} 2.1 introduced functions to express numerical objects, durative actions and plan-metrics for assessing plan quality.
-An extension called \textsc{Mapl} (Multi-Agent Planning Language), introduced finite domain state-variables, actions with duration determined in runtime, and explicit plan synchronisation obtained through speech acts and communications among agents. 
-The newly introduced functionalities are particularly useful for cobotic environments to incorporate actions of varying durations into the planning system, or to allow multi-agent planning for several robots to collaborate in the same environment.
+In 2002, \textsc{Pddl} 2.1 (\cite{fox2003pddl2}) introduced functions to express numerical objects, durative actions and plan-metrics for assessing plan quality.
+An extension called \textsc{Mapl} (Multi-Agent Planning Language) (\cite{brenner2003multiagent}), introduced finite domain state-variables, actions with duration determined in runtime, and explicit plan synchronisation obtained through speech acts and communications among agents. 
+The newly introduced functionalities are particularly useful in cobotic environments to incorporate actions of varying durations into the planning system, or to allow multi-agent planning for several robots to collaborate in the same environment.
 In the following years \textsc{Ppddl} (Probabilistic \textsc{Pddl})(\cite{younes:04a}) was proposed, extending \textsc{Pddl} 2.1 with probabilistic effects and introducing partial observability. 
 This extension opened up the possibility to integrate statistical models into the planning system and improved the robot's learning capabilities and performance in uncertain situations. 
 Cobots can benefit from this as they are often faced with uncertain situations when working with different human operators, who have varying behaviours.
 
 \section{Planners}\label{subsec:Planners}
-Automated planners have found increasing applications in various areas from aeronautics and space (\cite{aarup1992optimum}) to agricultural and industrial domains (\cite{aggriculture}). 
+Task planners have found increasing applications in various areas from aeronautics and space (\cite{aarup1992optimum}) to agricultural and industrial domains (\cite{aggriculture}). 
 The majority of planning procedures are search procedures, where the difference lies in the search spaces.
-We conclude this section by introducing the most commonly known techniques for classical planning (Table \ref{tab:planningapproaches}):
+We conclude this section by introducing the most common techniques for classical planning (Table \ref{tab:planningapproaches}):
 state-space planning, plan-space planning, and planning graphs. 
 We refer the reader to \cite{nau2007current} who provide a more detailed overview of the techniques with accompanying illustrations.
 
@@ -406,18 +402,18 @@ We refer the reader to \cite{nau2007current} who provide a more detailed overvie
 % 1. state space planners: 
 % Each node represents a state of the world »A plan is a path through the space
 The simplest planners are state-space planners (\cite{ghallab2004automated}), which rely on search algorithms in which the search space is a subset of the state space. 
-Each node corresponds to a state of the world, each arc represents a state transition, \ie an action, and a plan is a path from the initial state to a goal state in the search space. 
+Each node corresponds to a world state, each arc represents a state transition, \ie an action, and a plan is a path from the initial state to a goal state in the search space. 
 An extended version of the planner is the Heuristics Search Planner (\cite{bonet:01}), which includes several basic search algorithms like breadth-first search, best-first search (\eg A*) and iterative deepening search. 
-The Fast Forward planning system (\cite{hoffmann2001ff}) is based on the HSP, but managed to outperform it, due to modifications aimed to avoid getting trapped in local minima. % (\cite{hoffmann2000heuristic}): 
+The Fast Forward planning system (HSP) (\cite{hoffmann2001ff}) is based on the HSP, but managed to outperform it, due to modifications aimed to avoid getting trapped in local minima. % (\cite{hoffmann2000heuristic}): 
 %It includes a variation of the hill-climbing search, called the \textit{enforced hill climbing}, and a heuristic called \textit{helpful actions}. 
 Fast Downward (\cite{helmert:06a}) is a state-space planner based on a finite domain representation, with a greedy best-first search as its main search procedure.
 A more recent approach is BFWS, a best-first width search  (\cite{lipovetzky2017best}) that combines width and simple goal-directed heuristic search.
 % Problem with state-space search : we may try many different orderings of the same actions before realizing there is no solution -> Least-commitment strategy: don’t commit to orderings, instantiations, etc., until necessary
-The problem with state-space search is that it commits to plan step orderings, meaning that many different orderings of the same actions are considered even if none of them lead to a solution.
+The problem with state-space search is that it commits to plan step orderings, meaning that many different orderings of the same actions are considered, even if none of them lead to a solution.
 
 % 2. plan space planners : Backward search from the goal 
 % Each node is a set of partially-instantiated operators, plus some constraints »Impose more and more constraints, until we get a plan
-A second category known as plan-space planners, first proposed in TWEAK (\cite{chapman1987planning}), handle goal orderings in an optimal way and are generally considered more efficient. 
+A second category known as plan-space planners, first proposed in TWEAK (\cite{chapman1987planning}), handles goal orderings in an optimal way. 
 %The adaptation method is based on a constraint-posting technique of Chapman [1987] and its later refinement [McAllester and Rosenblitt 1991]. The fitted plan to be adapted constitutes a node in thesearch space and the search starts from there instead of traversing the space of partial-order plans inbreadth-first manner starting from the root, as SNLP does
 For such partial-order planners each node is a set of partially instantiated-operators with constraints (\eg temporal constraints for the application of an action).
 The idea is to perform a backward search from the goal and impose an increasing number of constraints until a complete plan has been found.
@@ -425,14 +421,17 @@ Besides later refinements of the initially proposed technique (SNLP (\cite{mcall
 FAPE focuses on integrating acting, task decomposition and temporal planning embedded into a robotic platform.
 
 % 3. planning-graph techniques
-Another category are planning-graph planners, first introduced in the Graphplan (\cite{blum:97}).
+Another category are planning-graph planners, first introduced in Graphplan (\cite{blum:97}).
 The idea is to encode the search space in a structure called the \textit{planning graph} that is much smaller than the state transition graph and contains information about possibly reachable states.
 %It uses a backward search by  and replaces the goal with preconditions.
-The true set of reachable states can be quickly estimated by eliminating many impossible ones in the search process.
+The true set of reachable states can be estimated quickly by eliminating many impossible ones in the search process.
 A plan is then extracted from the planning graph.
 %It considers the union of sets of propositions of several reachable states rather than individual states.  
 % other planners
-Other graph-based planners include SATPlan (\cite{kautz:06,kautz:99,rintanen2014madagascar}), that uses a \textsc{Sat} solver, and the GP-CSP (\cite{do:01,lopez2003generalizing,cooper2011weighted}) that uses a \textsc{CSP} solver.
+Other graph-based planners include SATPlan that uses a \textsc{Sat} solver  (\cite{kautz:06,kautz:99,rintanen2014madagascar}), and the GP-CSP that uses a \textsc{Csp} solver (\cite{do:01,lopez2003generalizing,cooper2011weighted}).
+
+There exist other planning techniques such as model checking (\cite{triantafillou2015unifying}) or Markov Decision Process (\cite{kolobov2012planning}) but there is no single planning strategy or domain-independent search heuristic that is universally better than others.
+
 
 \begin{table}[h]
 	\centering
@@ -461,7 +460,7 @@ Other graph-based planners include SATPlan (\cite{kautz:06,kautz:99,rintanen2014
 			\begin{tabular}{l}
 				Graphplan (\cite{blum:97})\\
 				\textsc{Stan} (\cite{long1999efficient})\\
-				CSP (\cite{lopez2003generalizing})\\
+				\textsc{Csp} (\cite{lopez2003generalizing})\\
 				weighted CSP (\cite{cooper2011weighted})\\
 				SATPlan (\cite{rintanen2014madagascar})\\
 			\end{tabular}\\ \hline
@@ -474,18 +473,16 @@ Other graph-based planners include SATPlan (\cite{kautz:06,kautz:99,rintanen2014
 	\end{center}
 \end{table}
 
-There exist other planning techniques such as model checking (\cite{triantafillou2015unifying}) or Markov Decision Process (\cite{kolobov2012planning}) but there is no single planning strategy or domain-independent search heuristic that is universally better than others.
-
 The main open-source planning toolkits are the Lightweight Automated Planning ToolKit (\cite{lapkt}), based on Fast Downward and Fast Forward, and PDDL4J, a Planning Domain Description Library for Java cross-platform developers (\cite{pellier2018pddl4j}).
 Integrating classical planning with the Robot Operating System (ROS) has been addressed recently \eg with the ROSPlan framework (\cite{cashmore2015rosplan}) and other libraries such as the ROS package \textit{pddl_planner} (\cite{pddlplanner}) and ROS implementations of planners \eg PDDL4Jrospy (\cite{pddl4jrospy}) and Downward (\cite{downward}).
 
 
 \section{Knowledge Engineering Tools}\label{subsec:Knowledge Engineering}
-Defining planning domain models from scratch can be expensive and error-prone, even for experts in automated planning.
+Defining planning domain models from scratch can be expensive and error-prone, even for Automated Planning experts.
 Knowledge engineering (KE) tools for automated planning facilitate this process by automatically encoding a domain model from provided input data.
 These tools provide support with consistency checks, syntactic error checking, domain visualisation and other functionalities.
-There exist few tools such as itSIMPLE (\cite{vaquero2013itsimple}), GIPO (\cite{simpson2007planning}), Planning.Domains (\cite{muise2016planning}), 
-as well as plan editors \eg PDDL Studio (\cite{plch2012inspect}), and plan visualisers \eg VIZ (\cite{vodrazka2010visual}), iGantt (\cite{bartak2009local}), VisPlan (\cite{glinsky2011visplan}), TransportEditor (\cite{vskopek2017transporteditor}).
+There exist tools such as GIPO (\cite{simpson2007planning}), itSIMPLE (\cite{vaquero2013itsimple}), Planning.Domains (\cite{muise2016planning}), 
+as well as plan editors \eg PDDL Studio (\cite{plch2012inspect}), and plan visualisers \eg iGantt (\cite{bartak2009local}), VIZ (\cite{vodrazka2010visual}), VisPlan (\cite{glinsky2011visplan}), TransportEditor (\cite{vskopek2017transporteditor}).
 Different systems require different inputs such as plan traces, a partial domain model, predicates, or noisy plans.
 %predicates, intermediate states; NP: Noisy Plans; 
 %DM: Domain Model; RDM: Refined Domain Model; H: Heuristics.
@@ -494,7 +491,7 @@ For example, LOCM (Learning Object Centred Models) (\cite{cresswell2013acquiring
 while itSIMPLE (\fig{fig:itSimple}) takes an input in the form of UML (Unified Modeling Language) % (\cite{omg2005unified}) 
 and generates representations in Petri-Nets %(\cite{murata1989petri}) 
 and PDDL. 
-\cite{kootbally2015towards} created the OWL2PDDL and SQL2PDDL tools that generate PDDL files from OWL files that are stored in a MySQL database for replanning in case of plan execution failures.
+\cite{kootbally2015towards} created the OWL2PDDL and SQL2PDDL tools to generate PDDL files from OWL files that are stored in a MySQL database for replanning in case of plan execution failures.
 %The authors have been consistently working on improvements to allow new features, with the latest version published in 2013.
 GIPO (\fig{fig:gipoaction}) uses Opmaker2 (\cite{mccluskey2009automated}), a knowledge acquisition and formulation tool that generates a set of PDDL action schema from a given partial domain model and training sequence.
 %It has been identified as the only beginner-friendly system as it simplifies the creation of planning domain models using a graphical interface.
@@ -502,22 +499,9 @@ GIPO (\fig{fig:gipoaction}) uses Opmaker2 (\cite{mccluskey2009automated}), a kno
 \cite{shah2013knowledge} and \cite{jilani2014automated} compare a subset of state-of-the-art KE tools by their learning efficiency, required user experience, system availability and support.
 Both concluded that most state-of-the-art tools require PDDL experts, or common knowledge in software engineering.
 However, KE tools that are available online and provide documentation to facilitate the use for beginners remain sparse (\eg itSIMPLE, GIPO).
-As most users with different research backgrounds do not have the required background knowledge or expertise, they cannot fully exploit KE tools and automated planners in general.
-This represents a bottleneck and significantly reduces the number of potential users in this domain.
+As most users with different research backgrounds do not have the required background knowledge or expertise, they cannot fully exploit KE tools and task planners in general.
+This bottleneck significantly reduces the number of potential users in this domain.
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.7\linewidth]{figures/gipoaction}
-	\caption{Screenshot of the operator editor tool in GIPO (\cite{mccluskey2005using})}
-	\label{fig:gipoaction}
-\end{figure}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.7\linewidth]{figures/itsimple}
-	\caption{Screenshot of a Planning UML model in itSIMPLE software (\cite{vaquero2013itsimple})}
-	\label{fig:itSimple}
-\end{figure}
 
 \section{Discussions and Relations to Present Work}\label{subsec:APdiscussions}
 Automated planning has found its application in a wide range of areas from virtual agent games (\cite{fernandez2006planning}) to space exploration (\cite{backes2004multi,bresina2005activity}).
@@ -525,10 +509,11 @@ A main research area has focused on integrating task planning with robot archite
 PDDL planners can be very powerful for generating optimal solutions for problems that even humans struggle to solve, \eg Tower of Hanoi problem (\cite{hanoiPddlGit}), Tetris (\cite{ipc14site}).
 However, they are generally not accessible to end-users who do not have experience in this domain. 
 While knowledge engineering tools facilitate the modelling of planning domains, they still require PDDL experts or common knowledge in software engineering.
+
 In the previous Chapter \ref{chap:Sota}, we discussed several end-user robot programming techniques and concluded that Programming by Demonstration (PbD) was the most appropriate for our approach.
-To integrate the taught actions with task planning, the robot needs to not only learn the low-level action but also its high-level representation in terms of preconditions and effects.
-Combining task and motion planning is an open research problem and has been addressed previously (\cite{ferrer2015planning,garrett2015ffrob}), especially learning preconditions and effects of actions to be used in planning (\cite{jetchev2013learning,ahmadzadeh2015learning,ugur2015bottom,konidaris2018fromSkills}).
-In these works, the focus often lies in grounding actions or learning symbolic action representations, so the robot is generally provided with a predefined set of motor skills that are refined by learning from plan traces or demonstrations.
+To integrate the taught actions with task planning, the robot needs to not only learn the low-level actions but also their high-level representations in terms of preconditions and effects.
+Combining task and motion planning is an open research problem and has been addressed previously (\cite{ferrer2015planning,garrett2015ffrob}), especially learning preconditions and effects of actions to be used in planning (\cite{jetchev2013learning,ahmadzadeh2015learning,konidaris2018fromSkills,ugur2015bottom}).
+In these works, the focus often lies in grounding actions or learning symbolic action representations, so the robot is generally provided with a predefined set of primitive actions that are refined by learning from plan traces or demonstrations.
 %It is assumed that low-level actions have already been programmed and can be called directly after mapping them to PDDL actions.
 For example, \citet{abdo2013learning} learns a fixed set of manipulation actions from user demonstrations, \ie stack blocks, pour from a bottle and open a door.
 The robot only uses the actions to achieve the predefined task, but does not reuse them for new tasks.
@@ -540,7 +525,22 @@ We identified Programming by Demonstration as an appropriate approach for end-us
 However, they also need to teach the high-level action representation in terms of preconditions and effects to allow the use of planners.
 Task planning has been integrated in robotics systems, but they are generally not accessible to end-users without experience in Automated Planning or related fields.
 In this thesis, we argue that these end-users can still learn and use these concepts to teach robots reusable actions to solve problems with task planners.
-In the next part of this thesis we presents our contributions, where we propose an end-user robot programming framework and related user experiments.
+In the second part of this thesis we present our contributions, where we propose an end-user robot programming framework that combines PbD and Automated Planning.
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.93\linewidth]{figures/itsimple}
+	\caption{Screenshot of a Planning UML model in itSIMPLE software (\cite{vaquero2013itsimple})}
+	\label{fig:itSimple}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.93\linewidth]{figures/gipoaction}
+	\caption{Screenshot of the operator editor tool in GIPO (\cite{mccluskey2005using})}
+	\label{fig:gipoaction}
+\end{figure}
+
 %In general, the majority of tasks can be completed using the simple actions pick, move and drop. 
 %For our framework, we considered planning problems, such as the Tower of Hanoi problem (\cite{douglas1985metamagical}) or a real-life game of Tetris (\cite{tetris}), which use these actions. 
 %Since we focus on applications in cobotic environments, we wanted to choose a planning problem that occurs in real-world applications. 

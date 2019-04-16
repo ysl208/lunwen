@@ -25,14 +25,14 @@
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{helvet} % font sf = helvetica
-\usepackage[bookmarks=true]{hyperref}
+\PassOptionsToPackage{hyphens}{url}\usepackage[bookmarks=true]{hyperref}
 \usepackage[utf8]{inputenc}
 % \usepackage[latin1]{inputenc}
 \usepackage{listings}
 \usepackage{minitoc}
 \usepackage{multirow}
 %\usepackage{mathptmx} % font = times
-\usepackage{natbib}
+\usepackage[square,sort,comma]{natbib}
 \usepackage{outlines}
 \usepackage{pdfpages}
 \usepackage{relsize}
@@ -49,10 +49,10 @@
 %\usetikzlibrary{arrows,shapes}
 \setcounter{secnumdepth}{4}
 
-\titleformat{\paragraph}
-{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
-\titlespacing*{\paragraph}
-{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+%\titleformat{\paragraph}
+%{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+%\titlespacing*{\paragraph}
+%{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 
 \theoremstyle{definition}
@@ -77,19 +77,23 @@
 \newcommand{\camera}[1]{{#1}}
 \newcommand\abstractname{Abstract}
 %%% BEGIN DOCUMENT
+\linespread{1.213}
 \begin{document}
-
-\input{0-frontmatter/coverpage.tex}
- \maketitle
+%\input{0-frontmatter/coverpage.tex}
+\includepdf[pages=1-1]{0-frontmatter/couverture.pdf}
+% \maketitle
 % \copyrightpage
 % \abstractpage
 
 %\chapter*{Contenu du rapport \`{a} mi-parcours}
 %\input{0-frontmatter/0-rapport.tex}
 
+\cleardoublepage
 \chapter*{Abstract}
 \input{0-frontmatter/1-abstract.tex}
 
+\chapter*{R\'{e}sum\'{e}}
+\input{0-frontmatter/2-resume.tex}
 \input{0-frontmatter/0-acknowledgements.tex}
 
 \dominitoc% Initialization
@@ -103,27 +107,34 @@
 \minitoc% Creating an actual minitoc
 \input{1-intro/0-main.tex}
 \part{Literature Review}\label{part1}
+ \cleardoublepage
 \chapter{Robot Programming}\label{chap:Sota}
 \minitoc% Creating an actual minitoc
 \input{2-sota/0-main.tex}
 
+\cleardoublepage
 \chapter{Automated Planning}\label{chap:Sota-AP}
 \minitoc% Creating an actual minitoc
-\input{2-sota/AP/0-main.tex}
-\part{Contribution}\label{part2}
-\chapter{A Robot Programming Framework for End-users in Cobotic Environments}\label{chap:Contribution}
-%\minitoc% Creating an actual minitoc
+\input{2-sota/AP/0-main.tex}\
+
+\cleardoublepage
+\part{Contributions}\label{part2}
+\cleardoublepage
+\chapter{An End-User Robot Programming Framework for Cobotic Environments}\label{chap:Contribution}
 \input{3-contribution/3-framework.tex}
 
+\cleardoublepage
 \chapter{Pre-Experiments}\label{chap:Pre-Experiments}
 \minitoc
 \input{5-evaluation/0-main.tex}
 
+\cleardoublepage
 \chapter{Goal-Oriented End-User Robot Programming}\label{chap:OrganisingTasks}
 \minitoc% Creating an actual minitoc
 \input{3-contribution/2-organising.tex}
 
-\chapter{End-User Programming for Robotic Task Planning}\label{chap:Implementation}
+\cleardoublepage
+\chapter{End-User Robot Programming for Task Planning}\label{chap:Implementation}
 \minitoc% Creating an actual minitoc
 \input{3-contribution/0-main.tex}
 
@@ -132,6 +143,7 @@
 \input{5-evaluation/5-syseval.tex}
 \input{5-evaluation/6-finaleval.tex}
 
+\cleardoublepage
 %\part{Conclusion}
 \chapter{Conclusion and Future Work}\label{chap:Conclusion}
 \minitoc% Creating an actual minitoc
@@ -139,10 +151,11 @@
 
 
 % the back matter
-\clearpage
+\cleardoublepage
 \addcontentsline{toc}{chapter}{References}
 \bibliographystyle{apa}
 \bibliography{references}
+%\cleardoublepage
 \appendix
 %\chapter{Appendix}\label{chap:Appendix}
 \input{7-appendix/0-main.tex}

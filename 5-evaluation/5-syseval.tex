@@ -34,7 +34,7 @@ The order of the tasks was given with increasing complexity, requiring the user 
 \end{table}
 
 \subsection{Protocol}
-The tasks were programmed by one of the authors, with the most efficient teaching strategy of minimising the number of actions created and generalising them by changing the action properties (as described in \sect{sec:generalisation}).
+The tasks were programmed with the most efficient teaching strategy of minimising the number of actions created and generalising them by changing the action properties (as described in Section \ref{sec:generalisation}).
 Depending on the given task and involved objects, the experimenter decided what manipulation action needed to be taught.
 Only one planning problem was created and reused for all tasks by redetecting the objects in the initial state and changing the goal state.
 When the generated plan was incorrect, the debug menu on the GUI was used to determine the changes to be made to generalise the actions.
@@ -49,7 +49,7 @@ Actions were generalised by changing parameter types (\eg from CUBE or POSITION 
 For pick-and-place actions from the top, `obj is clear' was added as a precondition (Task 1-3), while it was not included when picking an object from the side to allow moving a pile of objects (Task 4).
 For actions involving the claw gripper, the precondition `obj is thin' was added so that the robot would only use it on ROOF and CUBE objects, similarly `is flat' for the suction gripper (Task 5\&6).
 The `is stackable' condition was used for the Tower of Hanoi as an equivalent to the rule `larger objects cannot be placed on top of smaller ones'.
-The robot was able to generate plans for all tasks and executed them in real time at least twice (\fig{fig:filmstrip}).\footnote{A subset of the task executions can be seen on \todo{}}
+The robot was able to generate plans for all tasks and executed them in real time at least twice (\fig{fig:filmstrip}).\footnote{A subset of the task executions can be seen on \url{https://youtu.be/NgaTPG8dZwg}}
 Note that the taught primitive actions can be reused for a diverse range of problems beyond the six benchmark tasks.
 This evaluation shows the generalisability of our system, allowing us to teach primitive actions by demonstration and reuse them with a task planner to solve more complex problems.
 

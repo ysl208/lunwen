@@ -1,19 +1,5 @@
 % Taken from Paper2 Basic research questions + experiments 1
 
-\section{Experiment 1: Acceptance of Automated Planning and PDDL Concepts}\label{sec:Exp1}
-
-% \section{How do non-expert users adopt the automated planning language with its action model representation?}
-%%%%%%%% 1.25 pages %%%%%%%
-In this experiment, we are addressing the following question:
-
-\begin{enumerate}
-	\item[\textbf{Q1}] How do non-expert users adopt the automated planning language with its action model representation?
-\end{enumerate}
-
-Users were introduced to a symbolic planning language (a simplified version of PDDL), involving the STRIPS formalism (\cite{fikes1971strips}) with type structures used in automated planning (\chapt{chap:Sota-AP}).
-Users were instructed to describe world state configurations to the robot.
-The goal was to assess the user's adoption of the planning concepts (object types, properties, generalised properties, action models) and to verify that the symbolic planning language is appropriate for non-expert users.
-
 \begin{figure}[htp]
 	\centering
 	\begin{subfigure}[t]{0.24\textwidth}%
@@ -28,6 +14,20 @@ The goal was to assess the user's adoption of the planning concepts (object type
 	\label{fig:pre-experiment}%
 	% 	\includegraphics[width=.3\textwidth]{figures/experiment-setup2}
 \end{figure}
+\section{Experiment 1: Acceptance of Automated Planning and PDDL Concepts}\label{sec:Exp1}
+
+% \section{How do non-expert users adopt the automated planning language with its action model representation?}
+%%%%%%%% 1.25 pages %%%%%%%
+In this experiment, we are addressing the following question:
+
+\begin{enumerate}
+	\item[\textbf{Q1}] How do non-expert users adopt the automated planning language with its action model representation?
+\end{enumerate}
+
+Users were introduced to a symbolic planning language (a simplified version of PDDL), involving the STRIPS formalism (\cite{fikes1971strips}) with type structures used in automated planning (\chapt{chap:Sota-AP}).
+Users were instructed to describe world state configurations to the robot.
+The goal was to assess the user's adoption of the planning concepts (object types, properties, generalised properties, action models) and to verify that the symbolic planning language is appropriate for non-expert users.
+
 \subsection{Experimental Setup \& Participants}
 We recruited 10 participants (1 male, 9 female), who were sociology students at the Universit\'{e} Grenoble Alpes.
 3 participants reported no programming experience, 6  had experience with office productivity software (`beginner'), and 1 had previously taken a programming course before (`advanced').
@@ -80,17 +80,20 @@ In the following they were faced with 3 different scenarios to refine the precon
 Users derived a \texttt{(stackable ball cube)} property (\fig{fig:scenarios-exp1}c), which allowed a ball to be stacked on top of a cube.
 When this property did not hold, users proposed the \texttt{empty} property (\fig{fig:scenarios-exp1}d), which the robot needed to verify before the action execution.
 At each step, users had to give the generalised representation of the properties and action models.}
-  \item{\textbf{Planning:} Users were presented a description of a new initial state of the world and a goal state.
-They were asked to define an action sequence, that allows the transition from the initial to the goal state (similar to \fig{fig:planning-permutation}c), and explain their reasoning using the symbolic action model representation.
+  \item{\textbf{Planning:} Users were presented a description of a new initial state of the world and a goal.
+They were asked to define an action sequence that allows the transition from the initial to the goal state (similar to \fig{fig:planning-permutation}c), and explain their reasoning using the symbolic action model representation.
 This optional test allowed us to further verify their understanding of the planning concepts, in particular action preconditions and effects.}
-  \item{\textbf{Questionnaire:} At the end of the experiment users were given a questionnaire including 5 questions related to their experience, as well as 15 questions to evaluate their understanding of the learned planning language and concepts (\fig{fig:eEvaluation2}).
+  \item{\textbf{Questionnaire:} At the end of the experiment, users were given a questionnaire including 5 questions related to their experience, as well as 15 questions to evaluate their understanding of the learned planning language and concepts (\fig{fig:eEvaluation2}).
   For the latter, questions related to their understanding of the concepts presented at the start of the experiment (\eg `Explain the difference between the precondition and effect of an action'), syntax (\eg `Using the presented language, how do you describe the property \textit{cube X4 is on position B3}?'),
   %If move(CUBE) describes a move action, tick all statements that are true.
   logical reasoning 
   	(\eg `Is it possible to have \texttt{(empty A)} and \texttt{(at cube A)} in the same state?'), and other concepts (\eg `What is the generalised form of the given object property?').
   The complete questionnaire can be found in Appendix \ref{app:exp1}.}
-   \item {\textbf{Debriefing:} Throughout the experiment, users were asked open-ended questions (\eg `What properties do you observe in the current world state?'), so that they were guided as little as possible and their responses were unbiased.
-When the participant struggled to find an answer, the experimenter guided the participant in a possible direction (\eg `Why can the ball not be placed on the cube?').} 
+   \item {\begin{sloppypar}
+   	\textbf{Debriefing:} Throughout the experiment, users were asked open-ended questions (\eg `What properties do you observe in the current world state?'), so that they were guided as little as possible and their responses were unbiased.
+When the participant struggled to find an answer, the experimenter guided the participant in a possible direction (\eg `Why can the ball not be placed on the cube?').
+\end{sloppypar}
+} 
 \end{itemize}
 
 \begin{figure}[ht]

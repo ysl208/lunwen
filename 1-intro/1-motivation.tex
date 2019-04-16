@@ -3,7 +3,7 @@ Technologies have revolutionised the manufacturing industry ever since the Indus
 Robots are improving productivity by replacing humans for arduous and repetitive manual tasks.
 %are increasing productivity, efficiency, lower costs, and relieve humans from operationally dangerous tasks.
 Increasing order requests for industrial robots has led to higher capital investments into the field.
-Although robots can be superior in automating human tasks, there remain many that cannot be completely taken over and still need human intervention (\eg high-precision tasks).
+Although robots can be superior in automating human tasks, there remain many tasks that cannot be completely taken over and still need human intervention, for example high-precision tasks.
 To allow both human precision and robot automation, collaborative robots have been introduced.
 
 \subsection{Cobotics}\label{subsec:Cobotics}
@@ -15,24 +15,24 @@ Furthermore, they reduce risks of work-related accidents, including health hazar
 While replacing jobs of low-skilled human workers, they open up a market for new high-skilled jobs.
 
 Cobotic systems have been adopted in several industries from the food-processing industry (\cite{Food}), to aeronautics (\cite{Airbus}), to the health industry (\cite{Ebola}).
-However, companies resist the use of robots in their daily routines as they consider the investment cost ineffective, due to their high initial costs and the lack of trained personnel.
+However, companies resist the use of robots in their daily routines as they consider the investment cost ineffective, for example due to their high initial costs and the lack of trained personnel.
 %, who have the needed programming skills to fully operate and exploit the robots.
-Traditional robot programming solutions require domain experts and robots are generally programmed to complete a specific task.
-Recent approaches using Neural Networks (\cite{billard2001robust})) or Reinforcement Learning (\cite{smart2002effective}) allow robots to learn on their own but become infeasible for task-specific applications as they require large amounts of data.
+Traditional robot programming solutions require domain experts who generally program robots to complete a specific task.
+Approaches using Neural Networks (\cite{schmidhuber2015deep}) or Reinforcement Learning (\cite{gosavi2009reinforcement}) allow robots to learn on their own but become infeasible for some task-specific applications as they require large amounts of data.
 %This is a bottleneck for industries and 
 Many robot programming solutions fail as the deployment in real-world scenarios introduces further unexpected limitations. 
-Thus, recent research has been focusing on robot programming for end-users, in particular Robot Programming by Demonstration.
+Thus, recent research has been focusing on robot programming for end-users where the robot learns from human teachers at the time of deployment.
 
 \subsection{Robot Programming by Demonstration}
-Robot Programming by Demonstration (PbD), also referred to as \textit{Learning from Demonstration}, is an end-user programming technique for teaching a robot new skills by demonstrating a task, without writing code (\cite{billard2008robot}).
-Influenced by natural learning paradigms in humans and other animals, it is an intuitive robot programming method, with the goal to refine the robot's performance, by providing repetitive demonstrations.
+Robot Programming by Demonstration (PbD), also referred to as \textit{Learning from Demonstration}, is an end-user programming technique for teaching a robot new skills by demonstrating them, without writing code (\cite{billard2008robot}).
+Influenced by natural learning paradigms in humans, it is an intuitive robot programming method with the goal to refine the robot's performance by providing repetitive demonstrations.
 PbD has become a central topic in research areas, with the aim to move from purely pre-programmed robots to flexible user-based interfaces for training robots.
 
-Figure \ref{fig:Principle Overview} shows the life-cycle for teaching a robot by demonstration that consists of three main steps.
-The teacher demonstrates a new skill the robot (\eg by kinesthetically moving its arm), which the robot observes with its sensors.
+Figure \ref{fig:Principle Overview} shows the life-cycle for teaching a robot by demonstration that consists of three main steps:
+1. The teacher demonstrates a new skill to the robot (\eg by kinesthetically moving its arm), which the robot observes with its sensors. 2.
 The robot %uses its sensors for a multi-modal perception of the demonstration and 
 extracts the information such as relevant features to create a model of the skill and tries to apply it in a new context.
-The execution is evaluated by the teacher who can refine it by providing additional demonstrations.
+3. The execution is evaluated by the teacher who can refine the skill by providing additional demonstrations.
 The robot can generalise over multiple demonstrations by extracting common features. %that remained unchanged across the set of demonstrations.
 This incremental learning process allows non-robotics users to teach the robot new skills without having to write explicit code.
 
@@ -78,15 +78,15 @@ as the solution is different depending on the given number of disks.
 %If we want to teach a robot to solve this problem for any given number of disks, it would be infeasible to demonstrate the solution as it is different for each case.
 In fact, the action sequence to solve this problem always consists of a combination of the same primitive action, namely, to move a disk from one peg to another.
 %This reprogramming process can be complicated and time-consuming as it does not allow to generalise for different tasks.
-A more efficient approach would be to teach the robot the primitive action of moving a disk, associate rules or \textit{conditions} to this action (\eg disks can only be placed on top of larger ones), and have the robot generate an optimal solution automatically, for example using an automated planner.
+A more efficient approach would be to teach the robot the primitive action of moving a disk, associate rules or \textit{conditions} to this action (\eg disks can only be placed on top of larger ones), and have the robot generate an optimal solution automatically, for example using task planners like in Automated Planning.
 
 \subsection{Automated Planning}
-Automated Planning, also known as \textit{AI Planning}, is a research field that focuses on the development of efficient search algorithms to generate solutions to problems (\cite{ghallab2004automated}).
-Given a planning \textit{domain}, \ie a description of the state of the world and a set of actions, and planning \textit{problem}, \ie an initial and a goal state, the planner generates a sequence of actions, which guarantees the transition from the initial state to the goal state (\fig{fig:Planning domain}).
+Automated Planning, also known as \textit{AI Planning}, is a research field that focuses on the development of task planners consisting of efficient search algorithms to generate solutions to problems (\cite{ghallab2004automated}).
+Given a planning \textit{domain}, \ie a description of the state of the world and a set of actions, and a planning \textit{problem}, \ie an initial state and a goal, the task planner generates a sequence of actions, which guarantees the transition from the initial state to goal (\fig{fig:Planning domain}).
 To allow a correct transition between different world states, actions are defined in terms of preconditions and effects, which represent states before and after the action execution respectively (\fig{fig:Planning action}).
-Planning algorithms use a symbolic planning language such as STRIPS (\cite{fikes1971strips}) or PDDL (\cite{ghallab2004automated}) as their standard encoding language.
-The Tower of Hanoi problem could be defined in terms of a planning problem, where the domain consists of 3 pegs and a number of disks, and the action is defined as moving a disk from one peg to another.
-A planner can then be used to generate a solution for any number of disks.
+Planning algorithms use a symbolic planning language as their standard encoding language, such as STRIPS (\cite{fikes1971strips}) or PDDL (\cite{ghallab2004automated}).
+The Tower of Hanoi problem could be defined in terms of a planning problem, where the domain consists of 3 pegs and a number of disks, and the action is defined as moving a disk from one peg to another, with associated rules as preconditions and effects.
+A planner can then be used to generate a solution to the problem for any number of disks.
 %In the initial state, the disks are stacked in ascending order (smallest at the top) on one of the pegs, in the goal state the disks are stacked in the same order on one of the other two remaining pegs. 
 %The goal state must be achieved by obeying certain rules for moving the disks (\eg only the top disk of a stack can be moved at a time and may not be placed on top of a smaller disk). 
 
@@ -96,7 +96,7 @@ A planner can then be used to generate a solution for any number of disks.
 	
 	\begin{subfigure}[t]{0.54\textwidth}
 		\includegraphics[width=\textwidth]{figures/PbD-AutomatedPlanner}
-		\caption{A planning problem can be solved if the robot is provided with a description of the world state, possible actions, and a goal state. The planner can generate an action sequence to solve this problem.}
+		\caption{A planning problem can be solved if the robot is provided with a description of the world state, possible actions (\ie move()), and a goal. The planner can generate an action sequence to solve this problem.}
 		\label{fig:Planning domain}
 	\end{subfigure}
 \hfill

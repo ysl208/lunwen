@@ -4,15 +4,15 @@
 In this experiment, we are addressing the following question:
 
 \begin{enumerate}
-  \item[\textbf{Q2}] Can users teach a robot action models for automated planning using the robot programming framework?
+  \item[\textbf{Q2}] Can users teach a robot action models for automated planning using the proposed framework iRoPro?
 \end{enumerate}
 \begin{sloppypar}
-Users were presented a simulated implementation of the robot programming framework (\chapt{chap:Contribution}), and had to teach action models by kinesthetic manipulating a Baxter robot (\fig{fig:Baxter}). 
-Users were instructed to demonstrate an atomic action and to assign preconditions and effects.
-The goal was to assess the framework's usability and user's difficulties encountered when teaching action models.
+Users were presented a simulated implementation of iRoPro and had to teach action models by kinesthetic manipulating a Baxter robot (\fig{fig:Baxter}). 
+Users were instructed to teach an atomic action by demonstration and assign preconditions and effects.
+The goal was to assess the framework's usability and the user's difficulties encountered during the programming process.
 At the end, participants were given a questionnaire related to their experience, their perceived understanding of the presented planning concepts and the usability of the framework.
-The experimental protocol, questionnaire and additional material used can be found in Appendix \ref{app:exp2}.
 In the following sections we briefly outline the experimental setup, measurements and results of the experiment.
+The experimental protocol, questionnaire and additional material used can be found in Appendix \ref{app:exp2}.
 %We then provide details on the partial implementation of the system used with the Wizard-of-Oz technique (\sect{ssec:WoZ}).
 \end{sloppypar}
 
@@ -64,7 +64,7 @@ The experiment consisted of the following phases:
   	When Baxter failed to execute the action, users had to refine the conditions of the action model.}
   \item{\textbf{Planning:} Users were presented a new scenario, where Baxter was instructed to achieve a goal using the learned action model. 
   	The new goal was to switch the positions of two cubes on the table (\fig{fig:planning-permutation}). 
-  	Users first asked if they believed Baxter was able to solve this task and then shown how the taught action was reused with an automated planner.
+  	Users first asked if they believed Baxter was able to solve this task and then shown how the taught action was reused with a task planner.
   	Finally, Baxter executed the action sequence to complete the task.}
   \item{\textbf{Questionnaire:} Users were given a questionnaire containing 18 questions related to their experience (\eg `I did not encounter any difficulties during the experiment') and their perceived understanding of the presented concepts (\eg `I can explain how Baxter represented the preconditions of a new action'), and the usability of the framework (\eg `No programming experience is required to teach Baxter a new task').
   Participants had to give a rating on a scale ranging from `Strongly agree', `Somewhat agree', `Somewhat disagree', and `Strongly disagree'.
@@ -78,14 +78,14 @@ The experiment consisted of the following phases:
 During the experiments we observed how users learned and used the presented programming process and planning concepts.
 When asked for improvements of the initial action model (\fig{fig:scenarios-exp2}a) no users pointed out missing conditions before being faced with the new scenario (\fig{fig:scenarios-exp2}c).
 Even users who were `experts' and who have heard of automated planning before, did not propose a complete action model from the start. 
-However, when faced with the relevant failure scenarios all users detected the missing conditions easily.
+However, when faced with the relevant failure scenarios all of the users detected the missing conditions easily.
 In the final phase, 8 (or 73\%) users with no experience in automated planning did not expect Baxter to solve the permutation problem, and agreed unanimously that it acted in an intelligent manner, when it did. 
 
 Figure \ref{fig:eEvaluation} shows the user responses to the questionnaire.
-All (11) users were satisfied with the PbD process and Baxter's abilities to learn and reproduce the demonstrated move action and no users encountered difficulties during the experiment. 
+All 11 users were satisfied with the PbD process and Baxter's abilities to learn and reproduce the demonstrated move action and no users encountered difficulties during the experiment. 
 %All users understood the learned action model and managed to adopt the notions of preconditions and effects easily. 
-At the end of the experiment, all users believed that they had taught Baxter a new task. 
-The majority of users were confident that they could explain how Baxter learned and represented the new action model.
+At the end of the experiment, all of the users believed that they had taught Baxter a new task. 
+The majority of of the users were confident that they could explain how Baxter learned and represented the new action model.
 9 (or 82\%) understood the notion of preconditions and agreed that no programming experience was required to teach Baxter using the proposed framework.
 
 

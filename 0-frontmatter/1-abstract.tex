@@ -1,15 +1,16 @@
 The increasing presence of robots in industries has not gone unnoticed. 
 Cobots (collaborative robots) are revolutionising industries by allowing robots to work in close collaboration with humans.
 Large industrial players have incorporated them into their production lines, but smaller companies hesitate due to high initial costs and the lack of programming expertise. 
-In this thesis we introduce a framework that combines two disciplines, Programming by Demonstration and Automated Planning, to allow users without programming knowledge to program a robot. 
-The user constructs the robot's knowledge base by teaching it new actions by demonstration, and associates their semantic meaning to enable the robot to reason about them. 
-The robot adopts a goal-oriented behaviour by using automated planning techniques, where users teach action models expressed in a symbolic planning language.
+Recent work has focused on enabling end-users to program robots but teaching reusable actions from scratch is generally left up to robotic experts.
+In this thesis, we propose a framework that combines two disciplines, Programming by Demonstration and Automated Planning, to enable users with little to no technical background to program a robot. 
+The user constructs the robot's knowledge base by teaching it new actions by demonstration, and associates their semantic meaning via a graphical interface to enable the robot to reason about them. 
+The robot adopts a goal-oriented behaviour by using automated planning techniques to reuse taught actions to generate solutions for previously unseen tasks.
+We first present preliminary work in terms of user experiments using a Baxter Research Robot to evaluate the feasibility of our approach.
+We conducted qualitative user experiments to evaluate the user's understanding of the symbolic planning language and the usability of the proposed framework's programming process.
+We showed that users with little to no programming experience can adopt the symbolic planning language and understand the proposed programming process.
+We then present a goal-oriented programming system for robotic shelf organisation tasks that uses Programming by Demonstration to simultaneously teach goals and actions.
+Based on the obtained results and the developed system, we present an implementation of iRoPro, a working end-to-end system that allows teaching low- and high-level actions by demonstration to be reused with a task planner.
+We evaluate the generalisation power of the system and show how taught actions can be reused for more complex tasks.
+Finally, we validated the system's usability with a user study and demonstrated that users with any programming level and educational background can easily learn and use the proposed robot programming system.
 
-In this thesis we present preliminary work on user experiments using a Baxter Research Robot to evaluate our approach.
-We conducted qualitative user experiments to evaluate the user's understanding of the symbolic planning language and the usability of the framework's programming process.
-We showed that users with little to no programming experience can adopt the symbolic planning language, and use the framework.
-
-We further present our work on a Programming by Demonstration system used for organisation tasks.
-The system includes a goal inference model to accelerate the programming process by predicting the user's intended product configuration.
-
-\textbf{Keywords:} Robotics, Cobotics, End-User Programming, Programming by Demonstration, Automated Planning
+%\textbf{Keywords:} Robotics, Cobotics, End-User Programming, Programming by Demonstration, Automated Planning
