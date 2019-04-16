@@ -1,8 +1,8 @@
-In the previous chapters we completed preliminary steps to validate that end-users can easily learn the main concepts of the automated planning language and that the proposed robot programming paradigm is intuitive (\chapt{chap:Pre-Experiments}).
-We then implemented a system that uses keyframe-based PbD and validated that it can be used easily to teach a variety of low-level actions (\chapt{chap:OrganisingTasks}).
-Our main focus now lies in the implementation of the framework proposed in \chapt{chap:Contribution}.
-In this chapter we present iRoPro, an end-to-end system for teaching robots primitive actions to be reused with a task planner (\fig{fig:overview}).
-The robot simultaneously learns the low- and high-level action representations and infers a generalised action that can be reused directly with a task planner to solve problems that go beyond the initial demonstration.
+In the previous chapters we completed preliminary steps to validate that end-users can easily learn the main concepts of the automated planning language and that the proposed robot programming process is intuitive (\chapt{chap:Pre-Experiments}).
+We then implemented a goal-oriented robot programming system that uses keyframe-based PbD and validated its usability to teach a variety of low-level actions (\chapt{chap:OrganisingTasks}).
+Our main focus now lies in the full implementation of the iRoPro framework proposed in \chapt{chap:Contribution}.
+In this chapter we present an end-to-end system implementation for teaching robots primitive actions to be reused with a task planner (\fig{fig:overview}).
+The robot simultaneously learns low- and high-level action representations from demonstration and infers a generalised action that can be reused directly with a task planner to solve problems that go beyond the initial demonstration.
 
 \begin{figure}[h]
 	\centering
@@ -11,65 +11,67 @@ The robot simultaneously learns the low- and high-level action representations a
 	\label{fig:overview}
 \end{figure}	
 
-In the following we first present our approach on learning low- and high-level action representations from demonstration and generalising and reusing them with a task planner (\sect{sec:approach}).
+In the following we first present some related work, followed by our approach on learning low- and high-level action representations from demonstration to reuse them with a task planner (\sect{sec:approach}).
 We then provide details of the system implemented on a Baxter robot (\sect{sec:system}). 
-The system includes a graphical interface that allows users to teach new actions by kinesthetic demonstration, modify action conditions, define new problems, and have the robot autonomously solve and execute the plan in real-time.
+The system includes a graphical interface that allows users to teach new actions by kinesthetic demonstration, modify infer action conditions, define new planning problems, have the robot autonomously solve them and execute the plan in real-time.
 In Section \ref{sec:syseval} we demonstrate our system's capability to generalise primitive actions on six benchmark tasks that are programmed and executed on the Baxter robot.
-In Section \ref{sec:quanteval} we empirically investigate the usability of our system and validate its intuitiveness through a study with 21 users of different educational backgrounds and programming levels.
+In Section \ref{sec:quanteval} we empirically investigate the usability of our system and validate its intuitiveness through a study with 21 users of different educational backgrounds and programming expertise.
 %and perform an analysis on both quantitative and qualitative data .
 To better understand user teaching strategies, we split participants into two control groups, with and without automatic condition inference, and investigate how users in both groups learn and use the system.
 Finally, we discuss limitations and possible extensions to further increase the system's generalisability (\sect{sec:discussion}).
 
 \section{Related Work}
 \label{sec:relatedwork}
-Our work relates to several topics explored in previous research.
+%Our work relates to several topics explored in previous research.
 End-user robot programming has been addressed previously for industrial robots to be programmed by non-robotics domain experts, where users specify and modify existing plans for robots to adapt to new scenarios (\cite{paxton2017costar,perzylo2016intuitive,stenmark2017simplified}).
-For example, CoSTAR (\citet{paxton2017costar}) uses Behaviour Trees to represent task plans that are explicitly defined by the user and can be modified to adapt to new tasks.
+For example, \citet{paxton2017costar} use Behaviour Trees to represent task plans that are explicitly defined by the user and can be modified to adapt to new tasks.
 In our work we argue for the use of task planners to automatically generate plans for new scenarios, rather than have the user manually modify them.
 
 Previous work has addressed knowledge engineering tools for constructing planning domains but usually require PDDL experts (PDDL Studio by \cite{plch2012inspect}), or common knowledge in software engineering (GIPO by \cite{simpson2007planning}, itSIMPLE by \cite{vaquero2013itsimple}).
 %Integrating task planning with robotic systems has been addressed with
 %the ROSPlan framework  which provides a collection of tools to integrate task planning in ROS systems.
-There has been previous work on integrating task planning with robotic systems (\cite{cashmore2015rosplan,kuhner2018closed}), learning high-level actions through natural language instructions (\cite{she2014teaching}) or preconditions and effects of actions to be used in planning (\cite{jetchev2013learning,konidaris2018fromSkills,ugur2015bottom}).
+There has been previous work on integrating task planning with robotic systems (\cite{cashmore2015rosplan,kuhner2018closed}), learning high-level actions through natural language instructions (\cite{she2014teaching}) or learning preconditions and effects of actions to be used in planning (\cite{jetchev2013learning,konidaris2018fromSkills,ugur2015bottom}).
 However, in all of these cases, the robot is provided with a fixed set of low-level motor skills.
 %It assumes that low-level actions have already been programmed and can be called directly after mapping them to PDDL actions.
-We do not provide the robot with any predefined actions but allow users to teach both low- and high-level actions from scratch.
+In our approach, we do not provide the robot with any predefined actions but enable users to teach both low- and high-level actions from scratch.
 
-Programming by Demonstration (\cite{argall2009survey,billard2008robot}) has been commonly applied to allow end-users to teach robots new actions by demonstration.
-Recent work has focused on mobile and industrial manipulators (\cite{pedersen2014intuitive,huang2017code3,stenmark2017simplified}) and learning from single demonstrations (\cite{perez2017c,wu2010towards,yu2018one,tremblay2018synthetically}).
+Programming by Demonstration (\sect{sssec:PbD}) has been commonly applied to allow end-users to teach robots new actions by demonstration.
+%Recent work has focused on mobile and industrial manipulators (\cite{pedersen2014intuitive,huang2017code3,stenmark2017simplified}) and learning from single demonstrations (\cite{perez2017c,wu2010towards,yu2018one,tremblay2018synthetically}).
 %\citet{stenmark2017simplified} uses assembly tasks to pick and stack lego blocks and compares the performance of non-experts with reusable tasks (N=21).
 \citet{alexandrova2014robot} created an end-user programming framework with an interactive action visualisation allowing the user to teach new actions from single demonstrations but do not reuse them with a task planner.
 %The system is evaluated on 12 benchmark tasks as well as a user study (N=10) for box closing tasks, stacking cups, and putting objects into a box.
-
 %In \citet{konidaris2018fromSkills} the robot learns symbolic representations for high-level task planning by gathering data from 167 motor skills executions.
 %The authors mention the drawback of unnecessary learning and the need to learn a representation that generalises across related motor skills.
 Most closely related to our approach is the work by \citet{abdo2013learning} where manipulation actions are learned from kinesthetic demonstrations and reused with task planners.
 %They evaluate the system with experiments on teaching the robot to stack blocks, pour from a bottle and open a door.
 However, the approach requires 5-10 demonstrations to learn action conditions which becomes tedious and impractical if several actions need to be taught.
-Our work argues for having the user act as the expert by letting them correct inferred action conditions, thus allowing a new action to be learned from a single demonstration.
+In this thesis we argue for having the user act as the expert by letting them correct inferred action conditions, thus allowing a new action to be learned from a single demonstration.
 %and uses k-means and entropy to deduce action conditions from demonstrations. 
-We further provide a graphical interface that allows users to create new actions and previously unseen problems that can be solved with task planners.
+We further provide a graphical interface that allows users to create new actions and address previously unseen problems that can be solved with task planners.
 
 
 \section{Approach}
 \label{sec:approach}
-Our approach aims at providing end-users with an intuitive way of teaching robots new actions that can be reused with a task planner to solve more complex tasks.
+iRoPro aims at providing end-users with an intuitive way of teaching robots new actions that can be reused with a task planner to solve more complex tasks.
 Given a single demonstration, the robot should learn both \textit{how} (\sect{sec:lowlevel}) and \textit{when} (\sect{sec:highlevel}) an action should be applied.
 To accelerate the programming process, action conditions are directly inferred from a single demonstration (\sect{sec:inference}).
-The action generalisation is performed on both low- and high-level representations (\sect{sec:generalisation}), allowing it to be reused with a task planner (\sect{sec:planning}).
+The action generalisation is performed on both low- and high-level representations (\sect{sec:generalisation}), allowing it to be reused with a task planner (\chapt{chap:Sota-AP}).
 We will describe our approach in the following sections.
 
 \subsection{Low-level Action Representation}
 \label{sec:lowlevel}
-We represent low-level actions as proposed in previous work (\cite{akgun2012keyframe,alexandrova2014robot}), where the action is represented as a sparse sequence of gripper states (open/close) and end-effector poses relative to perceived objects or to the robot's coordinate frame.
-For example, the pick-and-place action of an object to a marked position could be represented as poses relative to the object (for the pick action), poses relative to the target position (for the place action), and corresponding open/close gripper states. 
-
-While these actions can be learned from multiple demonstrations (\cite{niekum2012learning}), we take the approach that only requires a single demonstration by heuristically assigning poses and letting the user correct them if needed (\cite{alexandrova2014robot}).
-Thus, the first demonstrated action is already an executable action.
+As we build on top of the system presented in \chapt{chap:OrganisingTasks}, low-level actions are represented similarly using keyframe-based PbD as a sparse sequence of end-effector poses and gripper states (as described in \sect{sec:irosactions}). 
+%as proposed in previous work (\cite{akgun2012keyframe,alexandrova2014robot}), where the action is represented as a sparse sequence of gripper states (open/close) and end-effector poses relative to perceived objects or to the robot's coordinate frame.
+%For example, the pick-and-place action of an object to a marked position could be represented as poses relative to the object (for the pick action), poses relative to the target position (for the place action), and corresponding open/close gripper states. 
+%
+%While these actions can be learned from multiple demonstrations (\cite{niekum2012learning}), we take the approach that only requires a single demonstration by heuristically assigning poses and letting the user correct them if needed (\cite{alexandrova2014robot}).
+%Thus, the first demonstrated action is already an executable action.
 The user can teach multiple manipulation actions and discriminate between them by associating different conditions that specify \textit{when} the robot should use them (\eg actions using claw or suction grippers).
 These conditions are discussed next in Section \ref{sec:highlevel}.
 
-In iRoPro, new actions are initialised with the robot's end-effector poses in a neutral position (as seen in \fig{fig:dispositif}) to allow unobstructed object detection.
+%Each of these perceived entities are considered as potential {\em landmarks}.
+
+New actions are initialised with the robot's end-effector poses in a neutral position (as seen in \fig{fig:dispositif}) to allow unobstructed object detection.
 Action executions are performed by first detecting the landmarks in the environment, calculating the end-effector poses relative to the observed landmarks, and interpolating between the poses.
 
 % \begin{figure}
@@ -88,7 +90,7 @@ Action executions are performed by first detecting the landmarks in the environm
 
 \subsection{High-level Action Representation}
 \label{sec:highlevel}
-We represent high-level actions as proposed in task planning (\sect{subsec:Classical planning problem}), where an action is represented as a tuple $a = (\text{param}(a), \text{pre}(a),$ $\text{eff}(a))$, whose elements are:
+We represent high-level actions as proposed in task planning (\chapt{chap:Sota-AP}), where an action is represented as a tuple $a = (\text{param}(a), \text{pre}(a),$ $\text{eff}(a))$, whose elements are:
 \begin{itemize}
 \item $\text{param}(a)$: set of parameters that $a$ applies to
 \item $\text{pre}(a)$: set of predicates that must be true to apply $a$
@@ -97,11 +99,11 @@ We represent high-level actions as proposed in task planning (\sect{subsec:Class
 \end{itemize}
 where $\text{eff}(a) = \text{eff}(a)^{-} \cup \text{eff}(a)^{+}$. 
 Action parameters are world instances that the robot interacts with and are associated with a \textit{type}.
-For example, in iRoPro, we implemented a type hierarchy, consisting of a general type ELEMENT, divided into POSITION and OBJECT, which further divides into BASE, CUBE, and ROOF (\fig{fig:dispositif}).
+We implemented a type hierarchy, consisting of a general type ELEMENT, divided into POSITION and OBJECT, which further divides into BASE, CUBE, and ROOF (\fig{fig:dispositif}).
 
 Predicates are used to describe object states and relations between them and are defined in first-order logic.
 In our graphical interface, predicates are translated from first-order logic (`on(obj, A)') to English statements (`obj is on A').
-In iRoPro, we implemented predicates that are commonly used in task planning domains as well as two additional ones to describe object properties:
+We implemented predicates that are commonly used in task planning domains as well as two additional ones to further describe object properties:
 \begin{itemize}
     \item \textit{ELEMENT is clear}: an element has nothing on top of it
     \item \textit{OBJECT is on ELEMENT}: an object is on an element
@@ -110,7 +112,7 @@ In iRoPro, we implemented predicates that are commonly used in task planning dom
     \item \textit{OBJECT is thin}: an object is thin
 \end{itemize}
 Note that the set of types and predicates could easily be extended for more complex tasks and that it is possible to detect them automatically.
-However, this is beyond the scope of our work, so in our implementation CUBE and BASE objects are by default flat, while CUBE and ROOF objects are thin enough for the robot to grasp.
+However, this is beyond the scope of our work, so in our implementation CUBE and BASE objects are by default flat, and CUBE and ROOF objects are thin enough for the robot to grasp.
 % \begin{tabular}{rl} \hline
 % & \textbf{move(obj1, A, B):}\\ \hline
 % Param: & obj1 - object, A - position, B - position\\
@@ -129,12 +131,12 @@ However, this is beyond the scope of our work, so in our implementation CUBE and
 \subsection{Action Inference from Demonstration}
 \label{sec:inference}
 Instead of manually defining action parameters, preconditions, and effects, we accelerate the programming process by inferring them from the observed sensor data during the teaching phase.
-Object types are inferred based on their detected bounding boxes (see \sect{sec:implementation}).
+Object types are inferred based on their detected bounding boxes.
 Object positions are determined by the proximity of the object to given positions.
-If the nearest position \emph{p} to the object \emph{o} is within a certain threshold $d$, then the predicates `\emph{o} is on \emph{p}' and `\emph{p} is not clear' are added to the detected world state.
+For example, if the nearest position \emph{p} to the object \emph{o} is within a certain threshold $d$, then the predicates `\emph{o} is on \emph{p}' and `\emph{p} is not clear' are added to the detected world state.
 
-To infer the action conditions, the robot perceives the initial world state   before %(\textit{precondition})
-and after the kinesthetic action demonstration as seen in similar work for learning object manipulation tasks (\cite{ahmadzadeh2015learning}).
+To infer the action conditions, the robot perceives the world state before %(\textit{precondition})
+and after the kinesthetic action demonstration as seen in similar work for learning object manipulation tasks (\cite{ahmadzadeh2015learning,she2014teaching}).
 %(\textit{effects}).
 Let $O_b = \{\phi_1, \phi_2, ... \}$ be the set of predicates observed \emph{before} the action demonstration and $O_a = \{\psi_1, \psi_2, ... \}$ \emph{after}.
 The action inference is the heuristic deduction of predicates that have changed between $O_b$ and $O_a$, \ie
@@ -175,53 +177,52 @@ To generalise this action to different landmarks, objects are redetected and rel
 Changing these properties via the GUI allows an action to be generalised and the taught manipulation action to be transferred to other tasks.
 
 
-\subsection{Task Planning}
-\label{sec:planning}
-Task planners are used to generate solutions, or action sequences, to solve complex problems (\chapt{chap:Sota-AP}).
-%ught actions are reused with existing task planners by translating them into PDDL (\citet{mcdermott1998pddl}). 
-Given a description of a planning \textit{domain}, \ie object types, actions with preconditions and effects, we can define a planning \textit{problem} with an initial state and a desired goal state. 
-The planner generates an action sequence, or \textit{plan}, which guarantees the transition from initial state to the goal state. 
-PDDL (\sect{subsec:PDDL}) %extends the STRIPS \cite{fikes1971strips} formalism and 
-is often used as a standard encoding language for planning problems.
-%as it allows type structures
-Recall the move action (\fig{fig:action-model}) defined in PDDL:
+%\subsection{Task Planning}
+%\label{sec:planning}
+%Task planners are used to generate solutions, or action sequences, to solve complex problems (\chapt{chap:Sota-AP}).
+%%ught actions are reused with existing task planners by translating them into PDDL (\citet{mcdermott1998pddl}). 
+%Given a description of a planning \textit{domain}, \ie object types, actions with preconditions and effects, we can define a planning \textit{problem} with an initial state and a desired goal state. 
+%The planner generates an action sequence, or \textit{plan}, which guarantees the transition from initial state to the goal state. 
+%PDDL (\sect{subsec:PDDL}) %extends the STRIPS \cite{fikes1971strips} formalism and 
+%is often used as a standard encoding language for planning problems.
+%%as it allows type structures
+%Recall the move action (\fig{fig:action-model}) defined in PDDL:
+%
+%\begin{verbatim}
+%(:action move
+% :parameters (?obj - object 
+%              ?A - position ?B - position)
+% :precondition (and (on ?obj ?A)(clear ?B)
+%            not(on ?obj ?B) not(clear ?A))
+% :effect (and (on ?obj ?B) (clear ?A)
+%            not(on ?obj ?A) not(clear ?B))
+%\end{verbatim}
 
-\begin{verbatim}
-(:action move
- :parameters (?obj - object 
-              ?A - position ?B - position)
- :precondition (and (on ?obj ?A)(clear ?B)
-            not(on ?obj ?B) not(clear ?A))
- :effect (and (on ?obj ?B) (clear ?A)
-            not(on ?obj ?A) not(clear ?B))
-\end{verbatim}
-
-A planning problem consists of an initial state and a goal state and can only be solved using existing actions in the domain.
-For example, the problem of swapping two objects obj1, obj2 on A and B respectively with C unoccupied, can be defined as:
-\begin{verbatim}
-(:objects obj1 obj2 - object
-          A B C - position)
-(:init (and (on obj1 A) (on obj2 B) 
-        (clear C)))
-(:goal (and (on obj1 B) (on obj2 A)))
-\end{verbatim}
-The planner would generate the following action sequence:
-\begin{verbatim}
-1. move(obj1, A, C)
-2. move(obj2, B, A)
-3. move(obj1, C, B)
-\end{verbatim}
-An example of a complete PDDL planning domain and problem can be found in Appendix \ref{app:pddl}.
+%A planning problem consists of an initial state and a goal state and can only be solved using existing actions in the domain.
+%For example, the problem of swapping two objects obj1, obj2 on A and B respectively with C unoccupied, can be defined as:
+%\begin{verbatim}
+%(:objects obj1 obj2 - object
+%          A B C - position)
+%(:init (and (on obj1 A) (on obj2 B) 
+%        (clear C)))
+%(:goal (and (on obj1 B) (on obj2 A)))
+%\end{verbatim}
+%The planner would generate the following action sequence:
+%\begin{verbatim}
+%1. move(obj1, A, C)
+%2. move(obj2, B, A)
+%3. move(obj1, C, B)
+%\end{verbatim}
 
 
-\section{System}
+\section{System Implementation}
 \label{sec:system}
 \subsection{Platform}
 \label{sec:platform}
 We implemented our system on a Baxter robot with two arms (one claw and one suction gripper), both with 7-DoF and a load capacity of 2.2kg each (\sect{sec:baxter}).
 For the object perception we mounted a Kinect Xbox 360 depth camera on the robot.
 We developed a user interface as a web application, based on HTML and JavaScript, that can be accessed via a browser on a PC, tablet or smartphone.
-The user interface provides an abstraction from the underlying planning language and displays predicates in natural language.
+The user interface provides an abstraction from the underlying planning language and displays predicates in natural language in English.
 
 The source code for iRoPro is developed in ROS (\cite{quigley2009ros}) and available online (Appendix \ref{app:exp4}). %ysl208/rapid\_pbd}.
 The low-level action is learned using the open-source system Rapid PbD (\cite{rapidpbd}).
@@ -231,12 +232,12 @@ The integration of the task planner is implemented using the ROS package PDDL pl
 \subsection{Implementation Details}
 \label{sec:implementation}
 In our implementation, landmarks are either predefined table positions or 
-objects that are detected from Kinect point cloud clusters using an open-source tabletop segmentation library (\cite{surfaceperception}).
+objects that are detected from Kinect Point Cloud clusters using an open-source tabletop segmentation library (\cite{surfaceperception}).
 An object is represented by its detected location and bounding box, \ie 
 $$obj = (x,y,z, width, length, height)$$ 
-where the bounding box is used to infer the object type (\sect{sec:inference}).
+where the bounding box is used to infer the object type.
 We implemented a partial PDDL domain in iRoPro that includes a set of predefined object types and predicates (\sect{sec:highlevel}).
-The user completes the domain by creating new actions and uses the integrated task planner to solve new problems.
+The user completes the domain by creating new actions via the interface and uses the integrated task planner to solve new problems.
 
 % To that end, the user mainly interacts with the system for two main aspects: Actions and Problems.
 % We will discuss them in the following sections.
@@ -246,28 +247,28 @@ The user completes the domain by creating new actions and uses the integrated ta
 The user interacts with the GUI (\fig{fig:gui-action-3}) to visualise the robot and the detected objects, create new actions, run the kinesthetic teaching by demonstration, correct inferred action parameters or conditions, create and solve new problems with the task planner.
 The interactive robot programming cycle consists of creating and modifying actions and problems.
 
+\subsubsection*{Actions} New actions are taught by kinesthetically moving the robot's arms (low-level action) and assigning action conditions (high-level action).
+The low-level action is learned %using the open-source system Rapid PbD for teaching actions 
+by keyframe-based demonstration.
+To verify the taught action, the user can have the robot re-execute it immediately.
+The high-level action is inferred by capturing the world state before and after the action demonstration (as described in \sect{sec:inference}).
+Action generalisation can be done by modifying action properties.
+To teach more actions, the user can either create a new one or copy a previously taught action and modify it.
 \begin{figure}[h]
-	\includegraphics[width=\linewidth]{figures/gui.png}
+	\includegraphics[width=0.96\linewidth]{figures/gui.png}
 	\caption{The iRoPro interface showing the action condition menu and an interactive visualisation of the Baxter robot and detected objects.}\label{fig:gui-action-3}%
 \end{figure}
 
-\subsubsection{Actions} New actions are taught by kinesthetically moving the robot's arms (low-level action) and assigning action conditions (high-level action).
-The low-level action is learned %using the open-source system Rapid PbD for teaching actions 
-by keyframe-based demonstration (\sect{sec:lowlevel}).
-To verify the taught action, the user can have the robot re-execute it immediately.
-The high-level action is inferred by capturing the world state before and after the action demonstration (as described in \sect{sec:inference}).
-Action generalisation can be done by modifying action properties (\sect{sec:generalisation}).
-To teach more actions, the user can either create a new one or copy a previously taught action and modify it.
-\subsubsection{Problems} New planning problems can be created if at least one action exists.
+\subsubsection*{Problems} New planning problems can be created if at least one action exists.
 To create a problem, the robot first detects the existing landmarks and infers their types and initial states.
-The user can modify them if the inference was not correct.
-Then, the user enters predicates that describe the goal state to achieve.
+The user can modify them via the interface if the inference was not correct.
+Then, the user enters predicates that describe the goal to achieve.
 The complete planning domain and problem are translated into PDDL and sent to the Fast-Forward planner (\cite{hoffmann2001ff}).
 If a solution is found that reaches the goal, it is displayed on the GUI for the user to verify and execute on the robot.
 If no solution is found or if the generated plan is wrong, the user can open a debug menu which summarises the entire planning domain with hints described in natural language to investigate the problem (\eg `make sure the action effects can achieve the goal states').
 In our user study (\sect{sec:quanteval}) we found that this helped users understand how the system worked and why the generated plan was wrong.
 Once the user modified actions, initial or goal states, they can relaunch the planner to see if a correct plan is generated.
-To solve new tasks, the user can create a new problem or modify existing ones by redetecting the objects.
+To solve new tasks, the user can create a new planning problem or modify existing ones by redetecting the objects.
 
 
 \subsection{Plan Execution} 

@@ -1,25 +1,25 @@
 %\section{Basic Research Questions and Their Evaluations}
 %\label{sec:hypotheses}
 
-In the previous chapter (\chapt{chap:Contribution}) we proposed iRoPro, an interactive Robot Programming framework that allows end-users to teach robots new actions by demonstration, that can be reused with task planners to complete previously unseen tasks.
-We believe that non-robotics expert users without experience in automated planning can easily learn to use this framework.
-Thus, %to evaluate the framework's usability for non-expert users, 
+In the previous chapter (\chapt{chap:Contribution}) we proposed iRoPro, an interactive Robot Programming framework that allows end-users to teach robots new actions by demonstration and can be reused with task planners to complete previously unseen tasks.
+We believe that non-robotics expert users with little to no experience in Automated Planning can easily learn to use this framework.
+%to evaluate the framework's usability for non-expert users, 
 %we formulated the following hypotheses
 %\begin{enumerate}
 %\item[\textbf{H1}] \textit{The user understands the symbolic planning concepts.} This allows us to verify, if the symbolic planning language (PDDL), to describe the world state in terms of object types, properties, generalised properties, and action models, in terms of preconditions and effects, can be adopted easily by non-expert users.
 %\item[\textbf{H2}] \textit{The user is able to teach the robot an action model using the proposed framework.} This allows us to evaluate how users operate the framework.
 %\end{enumerate} 
-we conducted two qualitative user experiments to respond to the following questions:
+In this chapter we present two qualitative user experiments to respond to the following questions:
 \begin{enumerate}
   \item[\textbf{Q1}] How do non-expert users adopt the automated planning language with its action model representation? (Section \ref{sec:Exp1})
-  \item[\textbf{Q2}] Can users teach a robot action models for automated planning using the proposed framework iRoPro? (Section \ref{sec:Exp2})
+  \item[\textbf{Q2}] Can users teach a robot action models for automated planning using the proposed iRoPro framework? (Section \ref{sec:Exp2})
 \end{enumerate}
 
 The experimental context was designed around a Baxter robot (\fig{fig:Baxter}).
-In both experiments we included elements to assess the user's understanding of action models such as defining their preconditions and effects.
+In both experiments we particularly focused on elements to assess the user's understanding of action models such as defining their preconditions and effects.
 Understanding this symbolic representation is a key requirement to use iRoPro.
-In the following sections we briefly outline the experimental setup, measurements and results for each experiment.
-We conclude this chapter with a discussion on the obtained results from each experiment and notable aspects for a full implementation of the framework.
+In the following sections we briefly outline the experimental setup, protocol (consisting of training, experimental test, planning, questionnaire and debriefing), measurements and results for each experiment.
+We conclude this chapter with a discussion on the experimental findings and notable aspects for a full implementation of the framework.
  
 % \begin{table}[t]
 % \caption{Description of the world state in PDDL}
@@ -41,16 +41,16 @@ We conclude this chapter with a discussion on the obtained results from each exp
 
 %%%% Step 1 %%%%
 \section{Baxter Research Robot}\label{sec:baxter}
-In this thesis we worked with a Baxter Research Robot, created by Rethink Robotics (\cite{robotics2013baxter}).
+In this thesis we worked with a Baxter Research Robot, created by Rethink \cite{robotics2013baxter}.
 %, which is required to learn the action models needed for a pick-and-place action.
-First released in 2012, Baxter is a two-armed humanoid robot, both with 7-DoF and a load capacity of 2.2kg each.
+First released in 2012, Baxter is a two-armed humanoid robot, with 7-DoF and a load capacity of 2.2kg each.
 Our version has one claw and one suction gripper (\fig{fig:Baxter}).
 The SDK interfaces with Baxter via the Robot Operating System (ROS) (\cite{quigley2009ros}), a framework developed in 2007 by the Stanford Artificial Intelligence Laboratory, that allows the shared use of software across a wide variety of robotic platforms (\cite{fernandez2015learning}).
-The industrial model of the Baxter robot comes with the Intera software (\cite{intera}) that provides a graphical user interface, allowing recording and playing of joint trajectories.
-The research model of the robot arrives without the software but with a head-mounted camera and sonar head sensors.
+The industrial model of the Baxter robot comes with the Intera software (Rethink \cite{intera}) that provides a graphical user interface, allowing recording and replaying of joint trajectories.
+The research model of the robot comes without the software but with a head-mounted camera and sonar head sensors.
 Several research laboratories have developed algorithms using the Baxter robot to implement state-of-the-art solutions \eg
-pick up golf balls and place them in a basket (\cite{BaxterGolf}) or play the game Connect 4 by picking up chips from a specified location (\cite{Connect4}). 
-Recent approaches have used Baxter for various learning from demonstrations techniques (\cite{tremblay2018synthetically,yang2016development,li2017neural}).
+to pick up golf balls and place them in a basket (\cite{BaxterGolf}) or to play the game Connect 4 by picking up chips from a specified location (Rethink \cite{Connect4}). 
+Recent approaches have used Baxter with various PbD techniques (\cite{tremblay2018synthetically,yang2016development,li2017neural}).
 After the Ebola outbreak in West Africa in 2014, Baxter has been used to reduce the risk of contamination (\cite{Ebola}).
 In October 2018, Rethink Robotics closed down and was acquired by German automation specialist HAHN Group (\cite{rethink2018acquired}).
 %However, the educational level of robotics students to provide solutions for workers is far behind the potential for robots.
@@ -63,29 +63,29 @@ In October 2018, Rethink Robotics closed down and was acquired by German automat
 
 \section{Findings}
 In both experiments, we did not observe a significant difference in the performance between users with different programming experience. 
-The majority of the users had issues formulating the logical representations of object properties used in action models. 
+The majority of the users had issues formulating the logical properties used for preconditions and effects. 
 In the first experiment (\sect{sec:Exp1}), users had difficulties formulating certain conditions in the planning language (\eg \texttt{(stackable ball cube)}), but stated equivalent ones (\eg \textit{`only place the ball, if it is stackable on the cube'}).
 Similarly, in the second experiment (\sect{sec:Exp2}), users formulated missing preconditions (\eg \textit{`position B is empty'}) with other equivalent conditions (\eg \textit{`do not place the object on position B, if it is occupied'}). 
-This means that the users should be provided with predefined conditions that they can choose from instead of letting them add arbitrary ones.
+This means that users should be provided with predefined conditions that they can choose from, instead of letting them formulate their own.
 
 Some of the users made wide assumptions about the robot's capabilities. 
-In the second experiments, when both arrival and departure positions were occupied (\fig{fig:scenarios-exp2}c), 5 (or 50\%) of the users expected Baxter to consider the occupied position, even though the condition was not mentioned in its action model.
+In the second experiment, when both arrival and departure positions were occupied, 5 (or 50\%) of the users expected Baxter to consider the occupied position, even though the condition was not mentioned in its action model.
 This is a common problem in PbD solutions as there is a difference between the robot's intelligence and the one perceived by its teacher (\cite{suay2012practical}).
 This can be addressed by reproducing the learned action in a new context and verifying the robot's knowledge base, as we did throughout the experiment.
 
 With these two qualitative experiments, we showed that the automated planning language and its main concepts can easily be learned by users without any programming background. 
 The action model representation, in terms of preconditions and effects, seems to be intuitive for non-expert users. 
-However, these initial experiments only provide us with an idea of how the users might perceive the proposed framework. 
+These initial experiments provided us with an initial idea of how the users might perceive the proposed robot programming framework. 
 We intentionally limited the set of automated planning concepts (\ie object types, predicates, and actions with preconditions and effects) that are necessary to use the framework to the bare minimum to assess the potential usability of such a framework. 
 Further experiments should test scalability, address more automated planning concepts (\eg object-type hierarchy, more predicates, planning problem definition and resolution) and potentially compare separate control groups (\eg experts vs non-experts) in less structured environments.
 
 \section{Conclusions}
 In this chapter we evaluated potential impacts of iRoPro, the robot programming framework proposed in \chapt{chap:Contribution} with qualitative experiments. 
-The framework combines two techniques, Programming by Demonstration and Automated Planning, allowing end-users have to teach action models from scratch.
+The framework combines two techniques, Programming by Demonstration and Automated Planning, allowing end-users to teach action models from scratch.
 Users with no background in Computer Science had initial difficulties remembering the syntax of the symbolic planning language, but managed to use it after less than an hour of training.
 With both experiments we showed that non-expert users can easily learn the main automated planning concepts, even when introduced to them for the first time.
 In particular, the action model representations in terms of preconditions and effects seem intuitive for users despite their different educational backgrounds.
-Overall, the robot programming process was considered to be very intuitive and easily understood by users. 
+Overall, the proposed robot programming process was considered to be very intuitive and easily understood by users. 
 
 Now that we have verified the possible usability of iRoPro, we need to validate its actual usability with the implementation of a working end-to-end system.
 This involves using state-of-the-art solutions to implement functionalities that were simulated with the Wizard-of-Oz technique during the experiments. 
@@ -94,7 +94,7 @@ This consists of the following key aspects:
 	\item learn generalisable low-level actions by demonstration (\eg \cite{akgun2012keyframe,pastor2009learning}),
 	\item learn high-level action representations in terms of preconditions and effects (\eg \cite{abdo2013learning,mollard2015robot}),
 	\item integrate a task planner to generate solutions using the learned actions (\eg \cite{abdo2013learning}),
-	\item create a graphical user interface (\eg \cite{alexandrova2014robot,huang2017code3}) to guide the end-user programming process and intuitive navigation between all functionalities.
+	\item create a graphical user interface to guide the end-user programming process and an intuitive navigation between all functionalities  (\eg \cite{alexandrova2014robot,huang2017code3}).
 \end{enumerate}
 
 While we have validated the learnability of the main concepts in Automated Planning, we will now focus on the subset of goal-oriented programming. 
@@ -102,4 +102,4 @@ Goal-oriented programming refers to high-level programming by providing the user
 This allows end-users to understand and learn the programming process, without having to dive into the syntax and the technical details of the modeling language.
 In the next Chapter (\ref{chap:OrganisingTasks}) we present a goal-oriented programming system that allows end-users to program robots via an intuitive graphical interface.
 Our approach uses keyframe-based PbD (\cite{akgun2012keyframe}) to teach the robot generalisable low-level actions that can be used to achieve a variety of different goals in the same task domain.
-This system provides a foundation for the implementation of iRoPro to produce a working end-to-end robot programming system that includes all of the above functionalities.
+This system represents a foundation for the iRoPro implementation.

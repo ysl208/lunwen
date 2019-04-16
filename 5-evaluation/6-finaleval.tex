@@ -6,7 +6,7 @@ The second and main part of the evaluation was conducted using the THEDRE (Trace
 It is based on continuous improvement and takes a pragmatic constructivist approach (\cite{avenier2015finding}), allowing it to further develop the system as well as the scientific knowledge from the experimental ground.
 To that end, it offered us the possibility to mix qualitative and quantitative approaches in order to gather as much data as possible to evaluate and improve our system. 
 
-\subsection{User Experiments}
+\subsection{Experimental Setup \& Participants}
 User experiments aimed to evaluate our approach implemented on a Baxter robot with real end-users.
 However, we were also interested in the user's programming strategy of using the system.
 Thus, we split participants into two control groups, with and without condition inference (\sect{sec:inference}) and observe user strategies for completing the tasks.
@@ -21,12 +21,12 @@ We set the following hypotheses for our experiments:
     \item[H5] Pre-test questionnaire: users that perform better in the pre-test questionnaire can learn to use the system faster
 \end{enumerate}
 
-\subsection{Set up}
+%\paragraph*{Set up}
 The experiments were conducted with a Baxter robot with two grippers (suction and claw) and mounted with a Kinect Xbox 360 camera. 
 A table with 4 marked positions was placed in front of the robot with different objects to be manipulated by the robot during the experiment (\fig{fig:dispositif}).
 Participants had access to a computer with a mouse and a keyboard to program the robot via the graphical interface.
 
-\subsection{Participants}\label{exp3-participants}
+%\paragraph*{Participants}\label{exp3-participants}
 The study was conducted with 21 participants (10M, 11F) in the range of 18-39 years (M=24.67, SD=6.1).
 We recruited participants with different educational background and programming levels: 
 6 `CS' (either completed a degree in computer science or were currently pursuing one),
@@ -36,7 +36,7 @@ Furthermore, 3 participants (in `CS') have programmed a robot before, out of whi
 One participant in the category `non-CS' failed to complete the majority of tasks and was excluded from the result evaluation.
 The two control groups included equal number of participants in all three categories.
 
-\subsection{Protocol}
+\subsection{Experimental Design \& Measurements}
 Users were first given a brief introduction to task planning concepts, the Baxter robot and the experimental set up.
 They were then asked to complete a pre-study questionnaire to capture the participant's profile and their understanding of the presented concepts.
 Users were given 8 tasks to complete, where the first two were practice tasks to introduce them to the system (Table \ref{table:userstudytasks}). 
@@ -66,7 +66,7 @@ Tasks 6-8 were similar to the previous tasks (1-5) but use both robot grippers.
 	\end{center}
 \end{table}
 
-\subsection{Metrics}
+%\subsection{Metrics}
 We captured the following data during the experiments:
 \begin{enumerate}
     \item \textbf{Qualitative data:} video recording of the experiment, observations during the experimental protocol.
@@ -101,7 +101,7 @@ Finally, participants were asked which aspects they found most useful, most diff
 20 participants completed all tasks, while one `non-CS' user failed to complete the majority of tasks and did not seem to understand the presented concepts.
 This participant was excluded in the presented results.
 
-\subsubsection{User performance (H1-H3)} 
+\subsubsection*{User performance (H1-H3)} 
 %After the initial introduction to the system (Tasks 1\&2), all participants stated that they understood the difference between \textit{Actions} and \textit{Problems}.
 Users took an average of 41.2 minutes (STD=9.08) to complete the main tasks (3-8).
 `non-CS' users completed the tasks the fastest (AVG=36.6, STD=7.46), followed by users with no programming experience (AVG=43.6, STD=5.37).
@@ -152,8 +152,9 @@ However, by Task 6, all users were able to use the system autonomously to create
 % 6 participants had already added this condition previously, 3 added them without guidance, 4 with guidance, and the remaining failed to add this condition.
 %Out of the 6 benchmark tasks, X completed all tasks.
 By the end of the experiment, users programmed two manipulation actions (one for each gripper).
-The generated PDDL code for the planning domain can be found in the attached material.
+The generated PDDL code for the planning domain can be found in Appendix \ref{app:pddl}.
 
+%An example of a complete PDDL planning domain and problem can be found in.
 
 % \begin{figure}[tb]%
 %   \centering
@@ -176,7 +177,7 @@ The generated PDDL code for the planning domain can be found in the attached mat
 % \label{fig:taskvsgroup}
 % \end{figure}
 
-\subsubsection{Condition inference (H4)} 
+\subsubsection*{Condition inference (H4)} 
 To evaluate user programming strategies, the condition inference (CI) (see \sect{sec:inference}) in our study only generated a minimal set of predicates, which did not cover predicates needed for later tasks.
 We noticed a discrepancy in the programming strategies between the two control groups (Group 1 with CI vs Group 2 without CI).
 As participants in Group 2 had to add action conditions manually, they considered all predicates they deemed necessary for the action and therefore added additional ones that were required for later tasks.
@@ -185,7 +186,7 @@ On the other hand, we observed that Group 1 had the tendency to leave the inferr
 Thus, Group 2 took on average longer to complete tasks where a new action had to be created (Tasks 1\&6), but was faster than Group 1 for subsequent tasks, where conditions had to be modified (Tasks 3,5,7).
 Overall both groups had similar completion times for all tasks (Group 1: AVG=41, STD=7.89 and Group 2: AVG=41.4, STD=10.56).
 
-\subsubsection{Task duration vs Pre-test questionnaire (H5)} 
+\subsubsection*{Task duration vs Pre-test questionnaire (H5)} 
 As expected, participants who demonstrated a better understanding of the introduced concepts in the pre-test questionnaire completed the main tasks (Tasks 3-8) faster on average (\fig{fig:pretestvstask}).
 Users scored between 4.3-6.93 out of 7 points (AVG=5.8, SD=0.91), with task completion times between 22-60 minutes (AVG=41.2, SD=9.07).
 `non-CS' users scored above average points (AVG=6.23, STD=0.55) and completed the fastest (AVG=36.6, STD=7.46).
@@ -226,13 +227,13 @@ Even though Group 1 performed slightly better in the pre-test (AVG=7.5, STD=1.35
 % \end{center}
 % \end{table}
 
-\subsubsection{System usability and learnability} 
+\subsubsection*{System usability and learnability} 
 There are several ways to interpret the System Usability Scale (SUS) scores (\cite{brooke2013sus}) obtained from the post-study survey. 
 Using \citet{bangor2008suseval} categories, 14 (70\%) users ranked iRoPro as `acceptable', 6 (30\%) rated it `marginally acceptable', and no one ranked it `not acceptable'.
 Correlating this with the Net Promoter Score\footnote{https://measuringu.com/nps-sus/}, this corresponds to 10 (50\%) participants being `promoters' (most likely to recommend the system), 5 (25\%) `passive', and 5 (25\%) `detractors' (likely to discourage).
 Overall, iRoPro was rated with a good system usability which has been shown to be correlated with its learnability (\cite{borsci2009dimensionality,sauro2011practical}).
 
-\subsubsection{User experience} 
+\subsubsection*{User experience} 
 %We asked users the same questions as in our previous work \textit{[Anonymous]} where we used the Wizard-of-Oz technique to conduct a qualitative evaluation of a potential system.
 % similar with mainly positive responses in both studies .
 Comparing the responses to the user study conducted in \sect{sec:Exp2}, where the Wizard-of-Oz technique was used to simulate the robot programming process, the main difference was regarding difficulties encountered during the experiment.
@@ -293,7 +294,7 @@ The four phases consisted of the following:
 		Hence, we decided to create two experiment groups: with and without condition inference, where the first 5 participants belonged to the former.
 		Participants in the latter group would need to manually enter all conditions via the interface. }
 	\item {Final experimental tests with 16 users: \\
-		The remaining users were divided into the two control groups so that we had an equal number of participants in both control groups, while also maintaining an even distribution of programming levels (\sect{exp3-participants}).
+		The remaining users were divided into the two control groups so that we had an equal number of participants in both control groups, while also maintaining an even distribution of programming levels.
 		The results of the overall 21 participants were used as the final evaluation of the system as discussed in the previous sections.
 	}
 \end{enumerate}

@@ -1,5 +1,19 @@
 % Taken from Paper2 Basic research questions + experiments 1
 
+% \section{How do non-expert users adopt the automated planning language with its action model representation?}
+%%%%%%%% 1.25 pages %%%%%%%
+In this experiment, we address the following question:
+
+\begin{enumerate}
+	\item[\textbf{Q1}] How do non-expert users adopt the automated planning language with its action model representation?
+\end{enumerate}
+
+Users were introduced to a symbolic planning language (a simplified version of PDDL), involving the STRIPS formalism (\cite{fikes1971strips}) with type structures used in automated planning (\chapt{chap:Sota-AP}).
+Users were instructed to describe world state configurations to the robot.
+The goal was to assess the user's adoption of the planning concepts (\ie object types, properties, generalised properties, action models) and to verify that the symbolic planning language is appropriate for non-expert users.
+%In the following sections we briefly outline the experimental setup, measurements and results of the experiment.
+%The experimental protocol, questionnaire and additional material used can be found in Appendix \ref{app:exp1}.
+
 \begin{figure}[htp]
 	\centering
 	\begin{subfigure}[t]{0.24\textwidth}%
@@ -15,18 +29,6 @@
 	% 	\includegraphics[width=.3\textwidth]{figures/experiment-setup2}
 \end{figure}
 \section{Experiment 1: Acceptance of Automated Planning and PDDL Concepts}\label{sec:Exp1}
-
-% \section{How do non-expert users adopt the automated planning language with its action model representation?}
-%%%%%%%% 1.25 pages %%%%%%%
-In this experiment, we are addressing the following question:
-
-\begin{enumerate}
-	\item[\textbf{Q1}] How do non-expert users adopt the automated planning language with its action model representation?
-\end{enumerate}
-
-Users were introduced to a symbolic planning language (a simplified version of PDDL), involving the STRIPS formalism (\cite{fikes1971strips}) with type structures used in automated planning (\chapt{chap:Sota-AP}).
-Users were instructed to describe world state configurations to the robot.
-The goal was to assess the user's adoption of the planning concepts (object types, properties, generalised properties, action models) and to verify that the symbolic planning language is appropriate for non-expert users.
 
 \subsection{Experimental Setup \& Participants}
 We recruited 10 participants (1 male, 9 female), who were sociology students at the Universit\'{e} Grenoble Alpes.
@@ -52,26 +54,24 @@ The experimental protocol, questionnaire and additional material used can be fou
 \subsection{Experimental Design \& Measurements}
 %After a short introduction to the Baxter robot, 
 Users were told that they needed to use a symbolic planning language to describe the state of the world and the semantic meaning of actions to the robot. 
-Throughout the experiment, users were faced with three different scenarios. 
-\fig{fig:scenarios-exp1} shows an example of the experimental design, where the robot's action was to move the ball to an occupied position (B2). 
-We evaluated their capability to apply the planning language to different situations.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.75\linewidth]{figures/scenarios-exp1}
-	\caption{Users were instructed to provide a description of (a) the initial state of the world and (b) an initial move action model.
-		Then they derived additional preconditions for moving the ball from position A1 to B2: (c) \textit{(stackable ball cube)}: the ball can be stacked onto the cube, and (d) \textit{(empty B2)}: if the ball cannot be stacked, the target position should be empty.}
-	\label{fig:scenarios-exp1}
-\end{figure}
-
+At the course of the experiment, users were faced with three different scenarios of increasing complexity. 
+%\fig{fig:scenarios-exp1} shows an example of the experimental design, where the robot's action was to move the ball to an occupied position (B2). 
+We evaluated their capability to learn the presented planning language and apply it to different problem statements.
 The experiment consisted of the following phases:
 \begin{itemize}
 %  \item{Introduction: After a short introduction to the Baxter robot \cite{Baxter}, users were told that they needed to use a planning language (STRIPS) to explain Baxter the state of the world and the semantic meaning of the actions.}
   \item{\begin{sloppypar} \textbf{Training:} Users were presented the symbolic planning language to describe object \textit{types} (\ie position, ball, cube, bowl) and predicates, which we called \textit{properties} (\ie \texttt{empty}, \texttt{at}, \texttt{stackable}, \texttt{is\_red}, \texttt{is\_blue}) to describe world states.
-They were shown how to model a simple move action in terms of preconditions and effects (\fig{fig:action model}).
-For all properties and actions, they had to use syntax of the form \texttt{name(arg1,arg2,\dots)} which users without a  Computer Science background might be unfamiliar with.
+They were shown how to model a simple move action in terms of preconditions and effects (\fig{fig:actionmodel-exp2}).
+For all properties, actions and their parameters, they had to use syntax of the form \texttt{name(arg1,arg2,\dots)} which users without a  Computer Science background might be unfamiliar with.
 Additionally, they were introduced to the concepts of \textit{instantiated} and \textit{generalised} actions, which were equivalent to actions (\eg \texttt{move(X1)}) and planning operators (\eg \texttt{move(cube)}) respectively (\sect{subsec:Classical planning problem}).
 In this phase, they were given a simple example of a cube at position A1 and moved to position B2.\end{sloppypar}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.85\textwidth]{figures/schema-logic}
+	\caption{Action model representation of a move action in terms of preconditions and effects: an action (or instantiated operator) for a cube (top), and generalised action (or planning operator) for any object, where variables are prefixed with `?' (bottom).}
+	\label{fig:actionmodel-exp2}
+\end{figure}	
 }
   \item{\textbf{Experimental test:} Users were presented a new world state that involved a cube, a bowl and a ball object. 
   	First they were instructed to provide a description of the initial state to the robot by using the symbolic planning language (\fig{fig:scenarios-exp1}a).
@@ -79,16 +79,35 @@ Then they were asked to define a move action model in terms of preconditions and
 In the following they were faced with 3 different scenarios to refine the preconditions of the move action.
 Users derived a \texttt{(stackable ball cube)} property (\fig{fig:scenarios-exp1}c), which allowed a ball to be stacked on top of a cube.
 When this property did not hold, users proposed the \texttt{empty} property (\fig{fig:scenarios-exp1}d), which the robot needed to verify before the action execution.
-At each step, users had to give the generalised representation of the properties and action models.}
+At each step, users had to give the generalised representation of the properties and action models.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.73\linewidth]{figures/scenarios-exp1}
+	\caption{Users were instructed to provide a description of (a) the initial state of the world and (b) an initial move action model.
+		Then they derived additional preconditions for moving the ball from position A1 to B2: (c) \textit{(stackable ball cube)}: the ball can be stacked onto the cube, and (d) \textit{(empty B2)}: if the ball cannot be stacked, the target position should be empty.}
+	\label{fig:scenarios-exp1}
+\end{figure}
+}
   \item{\textbf{Planning:} Users were presented a description of a new initial state of the world and a goal.
-They were asked to define an action sequence that allows the transition from the initial to the goal state (similar to \fig{fig:planning-permutation}c), and explain their reasoning using the symbolic action model representation.
-This optional test allowed us to further verify their understanding of the planning concepts, in particular action preconditions and effects.}
-  \item{\textbf{Questionnaire:} At the end of the experiment, users were given a questionnaire including 5 questions related to their experience, as well as 15 questions to evaluate their understanding of the learned planning language and concepts (\fig{fig:eEvaluation2}).
+They were asked to define an action sequence that allows the transition from the initial state to the goal (similar to \fig{fig:planning-permutation}), and explain their reasoning using the symbolic action model representation.
+This optional test allowed us to further verify their understanding of the planning concepts, in particular action preconditions and effects.
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figures/planning-permutation}
+	\caption{Definition of a planning problem (a) properties describing the initial world state (b) object names and their types (c) instantiated actions (d) properties describing the goal.}
+	\label{fig:planning-permutation}
+\end{figure}
+}
+  \item{\textbf{Questionnaire:} At the end, users were given a questionnaire with 5 questions related to their experience and 15 questions to evaluate their understanding of the learned planning language and concepts.
   For the latter, questions related to their understanding of the concepts presented at the start of the experiment (\eg `Explain the difference between the precondition and effect of an action'), syntax (\eg `Using the presented language, how do you describe the property \textit{cube X4 is on position B3}?'),
   %If move(CUBE) describes a move action, tick all statements that are true.
   logical reasoning 
   	(\eg `Is it possible to have \texttt{(empty A)} and \texttt{(at cube A)} in the same state?'), and other concepts (\eg `What is the generalised form of the given object property?').
-  The complete questionnaire can be found in Appendix \ref{app:exp1}.}
+%  The complete questionnaire can be found in Appendix \ref{app:exp1}.
+}
    \item {\begin{sloppypar}
    	\textbf{Debriefing:} Throughout the experiment, users were asked open-ended questions (\eg `What properties do you observe in the current world state?'), so that they were guided as little as possible and their responses were unbiased.
 When the participant struggled to find an answer, the experimenter guided the participant in a possible direction (\eg `Why can the ball not be placed on the cube?').
@@ -98,19 +117,18 @@ When the participant struggled to find an answer, the experimenter guided the pa
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.7\linewidth]{figures/planning-permutation}
-	\caption{Definition of a planning problem (a) properties describing the initial world state (b) object names and their types (c) instantiated actions (d) properties describing the goal state.}
-	\label{fig:planning-permutation}
-\end{figure}
-
-
+	\includegraphics[width=0.83\linewidth]{figures/eEvaluation2}
+	\caption{Extract of questionnaire responses from Experiment 1.}
+	\label{fig:eEvaluation2}
+\end{figure} 
+\vspace{-0.5cm}
 \subsection{Results}
 We did not observe any significant differences in the performance of users with or without programming experience.
 9 (out of 10) participants found the symbolic representation of properties and actions easy to understand.
 During the experimental test, the majority (9 or 90\%) of the participants managed to describe the complete world state using the correct syntax.
-When faced with different scenarios to refine the move action model, 5 (or 50\%) of the participants struggled to formalise the \textit{stackable} condition in the symbolic language.
+When faced with different scenarios to refine the action model, 5 (or 50\%) of the participants struggled to formalise the \textit{stackable} condition in the symbolic language.
 They provided alternative formulations related to the cube's properties (\eg `if the cube can hold the ball').
-However, once the condition was defined, the majority (8 or 80\%) of the participants had little to no difficulties generalising properties, \eg defining planning operators (\fig{fig:action model}).
+However, once the condition was defined, the majority (8 or 80\%) of the participants had little to no difficulties defining the planning operators (\fig{fig:actionmodel-exp2}).
 Due to time constraints, only 5 (or 50\%) participants were presented the planning phase.
 All 5 encountered no problems when defining the action sequence to achieve the given goal.
 
@@ -119,12 +137,5 @@ In the questionnaire (\fig{fig:eEvaluation2}), the majority (9 or 90\%) of the p
 All participants gave correct explanations for preconditions and effects of action models, and provided correct examples.
 9 (or 90\%) participants encountered difficulties during the experiment, 6 (or 60\%) stated problems with formalising the language, especially at the beginning of the experiment.
 Half of the participants believed that they could apply this language on their own.
-No participants believed that an `expert' programmer was required to learn the symbolic planning language, but 7 (or 70\%) participants believed that the minimum requirement was a `beginner' programming level, while 3 (or 30\%) believed that no programming experience was required at all.
-
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.85\linewidth]{figures/eEvaluation2}
-	\caption{Summary of questionnaire responses: Extract of the 26 questions on the user's experience and understanding of the introduced planning language.}
-	\label{fig:eEvaluation2}
-\end{figure} 
+%No participants believed that an `expert' programmer was required to learn the symbolic planning language, but 
+7 (or 70\%) stated a `beginner' programming level was needed to learn the symbolic planning language, while 3 (or 30\%) believed that no programming experience was required at all.
